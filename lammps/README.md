@@ -143,13 +143,20 @@ $ kubectl get pod --all-namespaces
 operator-system   operator-controller-manager-56b5bcf9fd-m8wg4               2/2     Running   0          73s
 ```
 
+## Create Flux Operator namespace
+
 Make your namespace for the flux-operator custom resource definition (CRD):
 
 ```bash
 $ kubectl create namespace flux-operator
 ```
 
+## Create the Lammps Job
+
 Now let's apply the custom resource definition to create the lammps mini cluster!
+Here we are back in the repository with this README.md (and not in the root of the
+Flux Operator). Importantly, we have set `localDeploy` to false because we need to create volume
+claims and not local host mounts for shared resources.
 
 ```bash
 $ kubectl apply -f minicluster-lammps.yaml 
@@ -161,14 +168,24 @@ Now we can get logs for the manager to see what is going on:
 $ kubectl logs -n operator-system operator-controller-manager-56b5bcf9fd-m8wg4 
 ```
 
-And different ways to see logs for pods:
+And different ways to see logs for pods. First, see pods running and state.
+You probably want to wait until the state changes from `ContainersCreating` to `Running`
+because this is where we are pulling the chonker containers.
+
+```bash
+$ kubectl get -n flux-operator pods
+```
+
+If you need to debug (or see general output for a pod about creation) you can do:
 
 ```bash
 $ kubectl -n flux-operator describe pods flux-sample-0-742bm
+```
 
-# See pods running and state
-$ kubectl get -n flux-operator pods
+And finally, the most meaty piece of metadata is the log for the pod,
+where the Flux Operator will be setting things up and starting flux.
 
+```
 # Add the -f to keep it hanging
 $ kubectl -n flux-operator logs flux-sample-0-742bm -f
 ```
@@ -197,9 +214,10 @@ $ kubectl get -n flux-operator pods
 No resources found in flux-operator namespace.
 ```
 
-**STOPPED HERE** Note that a shared key doesn't seem to be created, possibly because
-the shared volume isn't created - even after manually copying it I don't see it in
-the worker node. And in the logs:
+**STOPPED HERE** Note that I tested two operation modes, first with `localDeploy` as true (and
+I knew this would fail) - a shared key doesn't seem to be created, possibly because
+the shared volume isn't created, and this is logicaly because we don't have a shared host
+filesystem. Here are the logs:
 
 ```
 🤓 MiniCluster.DeadlineSeconds 31500000
@@ -211,6 +229,26 @@ the worker node. And in the logs:
  🪵 Unable to write data into the file
  🪵 Unable to write data into the file
 ```
+
+The second mode (which I thought might work but did not) was for creating the persistent
+volume claim. It didn't seem to like having to share it - e.g., one pod claimed it,
+and that was it.
+
+```
+Events:
+  Type     Reason              Age                From                     Message
+  ----     ------              ----               ----                     -------
+  Normal   NotTriggerScaleUp   3m2s               cluster-autoscaler       pod didn't trigger scale-up:
+  Warning  FailedScheduling    3m (x2 over 3m4s)  default-scheduler        0/4 nodes are available: 4 pod has unbound immediate PersistentVolumeClaims.
+  Normal   Scheduled           2m58s              default-scheduler        Successfully assigned flux-operator/flux-sample-3-5xgch to gke-lammps-cluster-default-pool-64635633-4j0c
+  Warning  FailedAttachVolume  2m53s              attachdetach-controller  Multi-Attach error for volume "pvc-59eec6fd-9830-4cb7-8426-c588b7772647" Volume is already used by pod(s) flux-sample-1-zd8zb
+  Warning  FailedMount         55s                kubelet                  Unable to attach or mount volumes: unmounted volumes=[flux-sample-curve-mount], unattached volumes=[kube-api-access-5nkhn flux-sample-curve-mount flux-sample-flux-config flux-sample-entrypoint]: timed out waiting for the condition
+```
+
+I'll need to read more about how to share volumes in an actual cloud cluster.
+I found [this page](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) and I believe
+I need to choose a volume claim type that has ReadWriteMany, and this would need to be customizable for
+the operator CRD.
 
 ## Clean up
 
