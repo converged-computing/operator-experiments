@@ -4,7 +4,7 @@ metadata:
   name: flux-sample
   namespace: flux-operator
 spec:
-  # localDeploy needs to be false to use volume claims
+  # localDeploy needs to be false
   localDeploy: false
 
   # Number of pods to create for MiniCluster

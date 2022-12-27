@@ -76,16 +76,17 @@ gke-lammps-cluster-default-pool-f103d9d8-zz1q   Ready    <none>   3m42s   v1.23.
 
 ## Deploy Operator 
 
-To deploy the Flux Operator, here is how to do it directly from the codebase:
+To deploy the Flux Operator, here is how to do it directly from the codebase.
+Note that this is how I develop / test (with a development branch checked out!)
 
 ```bash
 $ git clone https://github.com/flux-framework/flux-operator
 $ cd flux-operator
 ```
 
-A deploy will use the latest docker image [from the repository](https://github.com/orgs/flux-framework/packages?repo_name=flux-operator):
+A deploy will use the latest docker image [from the repository](https://github.com/orgs/flux-framework/packages?repo_name=flux-operator).
 
-```bash
+```
 $ make deploy
 ```
 ```console
@@ -162,13 +163,7 @@ claims and not local host mounts for shared resources.
 $ kubectl apply -f minicluster-lammps.yaml 
 ```
 
-Now we can get logs for the manager to see what is going on:
-
-```bash
-$ kubectl logs -n operator-system operator-controller-manager-56b5bcf9fd-m8wg4 
-```
-
-And different ways to see logs for pods. First, see pods running and state.
+There are different ways to see logs for pods. First, see pods running and state.
 You probably want to wait until the state changes from `ContainersCreating` to `Running`
 because this is where we are pulling the chonker containers.
 
@@ -189,6 +184,7 @@ where the Flux Operator will be setting things up and starting flux.
 # Add the -f to keep it hanging
 $ kubectl -n flux-operator logs flux-sample-0-742bm -f
 ```
+
 To shell into a pod to look around (noting where important flux stuff is)
 
 ```bash
@@ -198,6 +194,12 @@ $ kubectl exec --stdin --tty -n flux-operator flux-sample-0-742bm -- /bin/bash
 ls /mnt/curve
 ls /etc/flux
 ls /etc/flux/config
+```
+
+To get logs for the operator itself:
+
+```bash
+$ kubectl logs -n operator-system operator-controller-manager-56b5bcf9fd-j2g75
 ```
 
 If you need to run in verbose (non-test) mode, set test to false in the [minicluster-lammps.yaml](minicluster-lammps.yaml).
@@ -214,41 +216,22 @@ $ kubectl get -n flux-operator pods
 No resources found in flux-operator namespace.
 ```
 
-**STOPPED HERE** Note that I tested two operation modes, first with `localDeploy` as true (and
-I knew this would fail) - a shared key doesn't seem to be created, possibly because
-the shared volume isn't created, and this is logicaly because we don't have a shared host
-filesystem. Here are the logs:
+Observations about comparing this to MiniKube (local):
 
-```
-🤓 MiniCluster.DeadlineSeconds 31500000
-🤓 MiniCluster.Size 4
-🤓 MiniCluster.Container.0.Image ghcr.io/rse-ops/lammps:flux-sched-focal-v0.24.0
-🤓 MiniCluster.Container.0.Command lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite
-🤓 MiniCluster.Container.0.FluxRunner true
- 🪵 Unable to write data into the file
- 🪵 Unable to write data into the file
- 🪵 Unable to write data into the file
+ - The containers that are large actually pull
+ - The startup times of the different pods vary quite a bit.
+ - A few config maps aren't found or timed out mount for up to 3-4 minutes, then it ran!
+
+**TODO**: We stopped at the point where the flux worker nodes seem to be starting happily
+without connecting to the parent, which isn't what we want:
+
+```bash
+🌀sudo -u flux -E flux start -o --config /etc/flux/config -Scron.directory=/etc/flux/system/cron.d   -Stbon.fanout=256   -Srundir=/run/flux   -Sstatedir=/var/lib/flux   -Slocal-uri=local:///run/flux/local   -Slog-stderr-level=6    -Slog-stderr-mode=local
+broker.info[2]: start: none->join 8.29657ms
 ```
 
-The second mode (which I thought might work but did not) was for creating the persistent
-volume claim. It didn't seem to like having to share it - e.g., one pod claimed it,
-and that was it.
-
-```
-Events:
-  Type     Reason              Age                From                     Message
-  ----     ------              ----               ----                     -------
-  Normal   NotTriggerScaleUp   3m2s               cluster-autoscaler       pod didn't trigger scale-up:
-  Warning  FailedScheduling    3m (x2 over 3m4s)  default-scheduler        0/4 nodes are available: 4 pod has unbound immediate PersistentVolumeClaims.
-  Normal   Scheduled           2m58s              default-scheduler        Successfully assigned flux-operator/flux-sample-3-5xgch to gke-lammps-cluster-default-pool-64635633-4j0c
-  Warning  FailedAttachVolume  2m53s              attachdetach-controller  Multi-Attach error for volume "pvc-59eec6fd-9830-4cb7-8426-c588b7772647" Volume is already used by pod(s) flux-sample-1-zd8zb
-  Warning  FailedMount         55s                kubelet                  Unable to attach or mount volumes: unmounted volumes=[flux-sample-curve-mount], unattached volumes=[kube-api-access-5nkhn flux-sample-curve-mount flux-sample-flux-config flux-sample-entrypoint]: timed out waiting for the condition
-```
-
-I'll need to read more about how to share volumes in an actual cloud cluster.
-I found [this page](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) and I believe
-I need to choose a volume claim type that has ReadWriteMany, and this would need to be customizable for
-the operator CRD.
+We have a "while True" loop there, but we do need this command to fail (and then capture the error and try again).
+I think when that works this might actually work in full!
 
 ## Clean up
 
@@ -271,3 +254,39 @@ $ gcloud container clusters delete --zone us-central1-a lammps-cluster
 ```
 
 I like to check in the cloud console to ensure that it was actually deleted.
+
+## Customization
+
+### Use a Different Flux Operator Container
+
+If you own the operator, you can build and push first to develop:
+
+```bash
+$ make docker-build
+$ make docker-push
+```
+
+Otherwise you'll need to set the IMG variable to your own container (that you've built and pushed). E.g, in the Makefile:
+
+```bash
+# Image URL to use all building/pushing image targets
+IMG ?= ghcr.io/flux-framework/flux-operator
+```
+and your command:
+
+```bash
+make IMG=mycontainer/flux-operator
+```
+
+TODO current error, can't cross namespaces:
+
+
+```
+1.6721159253643591e+09	INFO	minicluster-reconciler	Config Generator Pod	{"Name": "flux-sample-cert-generator"}
+1.672115925364839e+09	INFO	minicluster-reconciler	Config Generator Pod	{"Container": "flux-sample-cert-generator"}
+1.6721159253666878e+09	ERROR	Reconciler error	{"controller": "minicluster", "controllerGroup": "flux-framework.org", "controllerKind": "MiniCluster", "miniCluster": {"name":"flux-sample","namespace":"flux-operator"}, "namespace": "flux-operator", "name": "flux-sample", "reconcileID": "8051719c-e9ff-4259-9873-f6f97e48a6d4", "error": "pods \"flux-sample-cert-generator\" is forbidden: User \"system:serviceaccount:operator-system:operator-controller-manager\" cannot get resource \"pods/log\" in API group \"\" in the namespace \"flux-operator\""}
+sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem
+	/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.12.1/pkg/internal/controller/controller.go:273
+sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).Start.func2.2
+	/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.12.1/pkg/internal/controller/controller.go:234
+```
