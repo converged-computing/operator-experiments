@@ -11,7 +11,7 @@ spec:
   size: 4
 
   # Disable verbose output
-  test: false
+  test: true
 
   # This is a list because a pod can support multiple containers
   containers:
@@ -21,3 +21,6 @@ spec:
       # You can set the working directory if your container WORKDIR is not correct.
       workingDir: /home/flux/examples/reaxff/HNS
       command: lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite
+
+      # This only matters if test is false
+      fluxLogLevel: 7

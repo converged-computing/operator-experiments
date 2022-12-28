@@ -19,17 +19,36 @@ $ gcloud components install kubectl
 ```
 or just [on your own](https://kubernetes.io/docs/tasks/tools/).
 
-
 ## Create Cluster
 
 Now let's use gcloud to create a cluster, and we are purposefully going to choose
 a very small node type to test. Note that I choose us-central1-a because it tends
-to be cheaper (and closer to me).
+to be cheaper (and closer to me). First, here is our project for easy access:
 
 ```bash
-$ gcloud container clusters create lammps-cluster --project <project name> --zone us-central1-a --cluster-version 1.23 --machine-type n1-standard-1 --num-nodes=4
+GOOGLE_PROJECT=myproject
+```
+Replace the above with your project name, of course!
+
+```bash
+$ gcloud container clusters create lammps-cluster --project $GOOGLE_PROJECT \
+    --zone us-central1-a --cluster-version 1.23 --machine-type n1-standard-1 \
+    --num-nodes=4 --enable-network-policy --tags=lammps-cluster --enable-intra-node-visibility
 ```
 
+Note that not all of the flags above might be necessary - I did a lot of testing to get
+this working and didn't go back and try removing things after the fact!
+If you want to use cloud dns instead (after [enabling it](https://console.cloud.google.com/apis/library/dns.googleapis.com))
+
+```bash
+$ gcloud beta container clusters create lammps-cluster --project $GOOGLE_PROJECT \
+    --zone us-central1-a --cluster-version 1.23 --machine-type n1-standard-1 \
+    --num-nodes=4 --enable-network-policy --tags=lammps-cluster --enable-intra-node-visibility \
+    --cluster-dns=clouddns \
+    --cluster-dns-scope=cluster
+```
+
+I came up with the above creation command after some debugging (and wanting the nodes to see one another).
 In your Google cloud interface, you should be able to see the cluster! Note
 this might take a few minutes.
 
@@ -45,7 +64,7 @@ Doing so will show you the correct statement to run to configure command-line ac
 which probably looks something like this:
 
 ```bash
-$ gcloud container clusters get-credentials lammps-cluster --zone us-central1-a --project <project name>
+$ gcloud container clusters get-credentials lammps-cluster --zone us-central1-a --project $GOOGLE_PROJECT
 ```
 ```console
 Fetching cluster endpoint and auth data.
@@ -86,7 +105,7 @@ $ cd flux-operator
 
 A deploy will use the latest docker image [from the repository](https://github.com/orgs/flux-framework/packages?repo_name=flux-operator).
 
-```
+```bash
 $ make deploy
 ```
 ```console
@@ -220,18 +239,20 @@ Observations about comparing this to MiniKube (local):
 
  - The containers that are large actually pull
  - The startup times of the different pods vary quite a bit.
- - A few config maps aren't found or timed out mount for up to 3-4 minutes, then it ran!
-
-**TODO**: We stopped at the point where the flux worker nodes seem to be starting happily
-without connecting to the parent, which isn't what we want:
+ - A few config maps aren't found or timed out mount for up to 3-4 minutes, then it runs.
+ - Sometimes it also runs quickly!
+ 
+If you want to run the same workflow again, use `kubectl delete -f` with the file
+and apply it again. I wound up running with test set to true, and then saving the logs:
 
 ```bash
-🌀sudo -u flux -E flux start -o --config /etc/flux/config -Scron.directory=/etc/flux/system/cron.d   -Stbon.fanout=256   -Srundir=/run/flux   -Sstatedir=/var/lib/flux   -Slocal-uri=local:///run/flux/local   -Slog-stderr-level=6    -Slog-stderr-mode=local
-broker.info[2]: start: none->join 8.29657ms
+$ kubectl -n flux-operator logs flux-sample-0-qc5z2 >laamps.out
 ```
 
-We have a "while True" loop there, but we do need this command to fail (and then capture the error and try again).
-I think when that works this might actually work in full!
+For fun, here is the first successful run of Lammps using the Flux Operator on GCP
+ever! 
+
+![img/lammps.png](img/lammps.png)
 
 ## Clean up
 
@@ -255,7 +276,17 @@ $ gcloud container clusters delete --zone us-central1-a lammps-cluster
 
 I like to check in the cloud console to ensure that it was actually deleted.
 
-## Customization
+## Customization and Debugging
+
+### Firewall
+
+When I first created my cluster, the nodes could not see one another. I added a few
+flags for networking, and looked at firewalls as follows:
+
+```bash
+$ gcloud container clusters describe lammps-cluster --zone us-central1-a | grep clusterIpv4Cidr
+```
+I didn't ultimately change anything, but I found this useful.
 
 ### Use a Different Flux Operator Container
 
@@ -278,15 +309,3 @@ and your command:
 make IMG=mycontainer/flux-operator
 ```
 
-TODO current error, can't cross namespaces:
-
-
-```
-1.6721159253643591e+09	INFO	minicluster-reconciler	Config Generator Pod	{"Name": "flux-sample-cert-generator"}
-1.672115925364839e+09	INFO	minicluster-reconciler	Config Generator Pod	{"Container": "flux-sample-cert-generator"}
-1.6721159253666878e+09	ERROR	Reconciler error	{"controller": "minicluster", "controllerGroup": "flux-framework.org", "controllerKind": "MiniCluster", "miniCluster": {"name":"flux-sample","namespace":"flux-operator"}, "namespace": "flux-operator", "name": "flux-sample", "reconcileID": "8051719c-e9ff-4259-9873-f6f97e48a6d4", "error": "pods \"flux-sample-cert-generator\" is forbidden: User \"system:serviceaccount:operator-system:operator-controller-manager\" cannot get resource \"pods/log\" in API group \"\" in the namespace \"flux-operator\""}
-sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem
-	/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.12.1/pkg/internal/controller/controller.go:273
-sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).Start.func2.2
-	/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.12.1/pkg/internal/controller/controller.go:234
-```
