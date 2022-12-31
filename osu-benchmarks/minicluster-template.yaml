@@ -1,0 +1,30 @@
+apiVersion: flux-framework.org/v1alpha1
+kind: MiniCluster
+metadata:
+  name: {{ minicluster.name }}
+  namespace: {{ minicluster.namespace }}
+spec:
+  localDeploy: false
+
+  # Number of pods to create for MiniCluster
+  size: {{ size }}
+
+  # Set test to true to clean up output
+  test: true
+
+  # This is a list because a pod can support multiple containers
+  containers:
+    # The container URI to pull (currently needs to be public)
+    - image: ghcr.io/rse-ops/osu-microbench:app-latest
+
+      # Option Flags for this flux runner wait.sh entrypoint
+      fluxOptionFlags: "-ompi=openmpi@5"
+
+      # custom preCommand logic (run at start of script)
+      preCommand: |
+        source /etc/profile.d/z10_spack_environment.sh
+        asFlux="sudo -u flux -E PYTHONPATH=$PYTHONPATH"
+
+      # All osu-benchmark experiments share the same working directory
+      workingDir: /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided
+      command: {{ job.command }}

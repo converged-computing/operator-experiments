@@ -246,7 +246,7 @@ If you want to run the same workflow again, use `kubectl delete -f` with the fil
 and apply it again. I wound up running with test set to true, and then saving the logs:
 
 ```bash
-$ kubectl -n flux-operator logs flux-sample-0-qc5z2 >laamps.out
+$ kubectl -n flux-operator logs flux-sample-0-qc5z2 > lammps.out
 ```
 
 For fun, here is the first successful run of Lammps using the Flux Operator on GCP
@@ -307,5 +307,23 @@ and your command:
 
 ```bash
 make IMG=mycontainer/flux-operator
+```
+
+## Results
+
+We have provided  a [process_lammps.py](process_lammps.py) script you can
+use against the [lammps.out](lammps.out) to visualize the results.
+First, create an environment and install dependencies:
+
+```bash
+$ python -m venv env 
+$ source env/bin/activate
+$ pip install -r requirements.txt
+```
+
+Next, run the script targeting the output file in this directory.
+
+```bash
+$ python process_lammps.py --output-dir .
 ```
 
