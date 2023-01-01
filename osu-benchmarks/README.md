@@ -65,3 +65,26 @@ The latter will either use a single experiment you've defined under `experiment`
 or select the first in your matrix (as we have here).
 
 By default, results will be written to a [./data](data) directory, but you can customize this with `--outdir`.
+
+## Results
+
+We can plot results to produce data and image files in [results](results)!
+
+```bash
+$ pip install -r requirements.txt
+```
+```bash
+$ python plot.py
+```
+
+I am including the plots that don't just have one value!
+
+![results/osu_acc_latency.png](results/osu_acc_latency.png)
+![results/osu_get_acc_latency.png](results/osu_get_acc_latency.png)
+![results/osu_get_bw.png](results/osu_get_bw.png)
+![results/osu_get_latency.png](results/osu_get_latency.png)
+![results/osu_put_bibw.png](results/osu_put_bibw.png)
+![results/osu_put_bw.png](results/osu_put_bw.png)
+![results/osu_put_latency.png](results/osu_put_latency.png)
+
+I'm not sure these are super meaningful to look at (and only one run per size) but it's a start!
