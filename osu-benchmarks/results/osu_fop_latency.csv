@@ -1,0 +1,8 @@
+,Size,Latency (us),Machine Type
+0,8,103.15,n1-standard-8-2
+1,8,145.01,n1-standard-2-2
+2,8,2025.38,n1-standard-1-2
+3,8,105.31,n1-standard-4-2
+4,8,117.89,n1-standard-64-2
+5,8,134.34,n1-standard-16-2
+6,8,106.67,n1-standard-32-2
