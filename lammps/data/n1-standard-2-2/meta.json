@@ -1,0 +1,18 @@
+{
+    "size": 2,
+    "machine": "n1-standard-2",
+    "minicluster": {
+        "name": "lammps",
+        "namespace": "flux-operator"
+    },
+    "jobs": {
+        "lmp": {
+            "command": "lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite"
+        }
+    },
+    "id": "n1-standard-2-2",
+    "times": {
+        "create-cluster": 359.9421441555023,
+        "minicluster-run-lmp": 173.70763492584229
+    }
+}

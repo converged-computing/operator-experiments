@@ -169,7 +169,7 @@ def gather_outputs(outdir):
                         [float(x.strip()) for x in line.split(" ") if x.strip()]
                     )
                     line = lines.pop(0)
-                entry["steps"] = pandas.DataFrame(matrix, columns=header)
+                entry["steps"] = pandas.DataFrame(matrix, columns=header).to_csv()
 
                 # Here we have the loop line
                 match = re.search(
@@ -209,7 +209,7 @@ def gather_outputs(outdir):
                     matrix.loc[idx, :] = rest
                     line = lines.pop(0)
 
-                entry["times"] = matrix
+                entry["times"] = matrix.to_csv()
                 continue
 
         results[file] = entry
@@ -247,7 +247,9 @@ def main():
     parser = get_parser()
     args = parser.parse_args()
     results = gather_outputs(args.data_dir)
-    print(results)
+    # Save temporary results for online viewing until we know what to plot
+    with open('results.json', 'w') as fd:
+        fd.write(json.dumps(results, indent=4))
 
 
 if __name__ == "__main__":

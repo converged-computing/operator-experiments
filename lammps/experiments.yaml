@@ -3,7 +3,7 @@
 # This can obviously be expanded to more sizes or machines,
 matrix:
   size: [2, 4, 6, 8]
-  machine: ["n1-standard-1"]
+  machine: ["n1-standard-1", "n1-standard-2"]
 
 # Flux Mini Cluster experiment attributes
 minicluster:
