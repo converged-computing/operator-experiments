@@ -1,30 +1,45 @@
-# Lammps on Google Kubernetes Engine
+# Lammps on Amazon Cloud
 
-In this set of experiments we will run the Flux Operator on Google Cloud at size N=2
+In this set of experiments we will run the Flux Operator on Amazon Cloud at size N=2
 (the benchmarks require this) and multiple machine types.
 
 ## Pre-requisites
 
-You should first [install gcloud](https://cloud.google.com/sdk/docs/quickstarts)
-and ensure you are logged in and have kubectl installed:
+You should first [install eksctrl](https://github.com/weaveworks/eksctl) and make sure you have access to an AWS cloud (e.g.,
+with credentials or similar in your environment). E.g.,:
 
 ```bash
-$ gcloud auth login
+export AWS_ACCESS_KEY_ID=xxxxxxxxxxxxxxxxxxx
+export AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+export AWS_SESSION_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-Depending on your install, you can either install with gcloud:
+The last session token may not be required depending on your setup.
+We assume you also have [kubectl](https://kubernetes.io/docs/tasks/tools/).
+
+### Setup SSH
+
+You'll need an ssh key for EKS. Here is how to generate it:
 
 ```bash
-$ gcloud components install kubectl
+ssh-keygen
+# Ensure you enter the path to ~/.ssh/id_eks
 ```
 
-or just [on your own](https://kubernetes.io/docs/tasks/tools/). In addition,
+This is used so you can ssh (connect) to your workers!
+
+### Cloud
+
 we will be using [Flux Cloud](https://github.com/converged-computing/flux-cloud) 
 to run the Operator on Google Cloud Kubernetes engine.
 
 ```bash
 $ pip install flux-cloud 
 ```
+
+Ensure that aws is either your default cloud (the `default_cloud` in your settings.yml)
+or you specify it with `--cloud` when you do run.
+
 
 ## Run Experiments
 
@@ -84,6 +99,3 @@ Next, run the script targeting the data directory generated:
 ```bash
 $ python process_lammps.py ./data
 ```
-
-**under development** vsoch will finish the script / plots after running
-some sample experiments.
