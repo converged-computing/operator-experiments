@@ -13,6 +13,5 @@ minicluster:
 # Each job can have a command and working directory
 jobs:
   lmp:
-    command: lmp -v x 64 -v y 16 -v z 8 -in in.reaxc.hns -nocite
-    # command: lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite
+    command: lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite
     repeats: 3
