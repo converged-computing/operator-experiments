@@ -14,4 +14,4 @@ minicluster:
 jobs:
   lmp:
     command: lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite
-    repeats: 2
+    repeats: 3
