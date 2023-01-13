@@ -9,11 +9,11 @@ spec:
   localDeploy: false
 
   # Number of pods to create for MiniCluster
-  size: {{ size }}
+  size: {{ minicluster.size }}
   tasks: 384
 
   # Disable verbose output
-  test: false
+  test: true
 
   # This is a list because a pod can support multiple containers
   containers:

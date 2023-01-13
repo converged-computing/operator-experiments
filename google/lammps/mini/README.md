@@ -23,8 +23,10 @@ we will be using [Flux Cloud](https://github.com/converged-computing/flux-cloud)
 to run the Operator on Google Cloud Kubernetes engine.
 
 ```bash
-$ pip install flux-cloud 
+$ pip install flux-cloud
 ```
+
+Note that we ran this on flux-cloud==0.0.13.
 
 ## Run Experiments
 

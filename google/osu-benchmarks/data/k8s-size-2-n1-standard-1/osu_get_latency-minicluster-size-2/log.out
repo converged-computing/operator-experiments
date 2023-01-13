@@ -1,0 +1,2 @@
+This test requires exactly two processes
+flux-job: task(s) exited with exit code 1

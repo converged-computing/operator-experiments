@@ -23,8 +23,10 @@ we will be using [Flux Cloud](https://github.com/converged-computing/flux-cloud)
 to run the Operator on Google Cloud Kubernetes engine.
 
 ```bash
-$ pip install flux-cloud 
+$ pip install flux-cloud==0.0.13
 ```
+
+The version of Flux cloud was used before the MiniCluster size was added.
 
 ## Run Experiments
 
