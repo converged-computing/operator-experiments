@@ -21,7 +21,7 @@
     },
     "id": "m5.large-2",
     "times": {
-        "create-cluster": 0.6764016151428223,
+        "create-cluster": 1042.1356542110443,
         "minicluster-run-lmp-1": 139.0307810306549,
         "minicluster-run-lmp-2": 32.0183424949646,
         "destroy-cluster": 822.3241038322449
