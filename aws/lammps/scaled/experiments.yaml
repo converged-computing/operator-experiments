@@ -6,7 +6,8 @@ matrix:
 
   # See https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html#efa-instance-types
   # not all support efa
-  machine: ["c5n.9xlarge"]
+  machine: ["hpc6a.48xlarge"]
+
 
 # Flux Mini Cluster experiment attributes
 minicluster:
@@ -22,7 +23,9 @@ jobs:
      command: lmp -v x 4 -v y 4 -v z 2 -in in.reaxc.hns -nocite
   lmp-4-4-4:
      command: lmp -v x 4 -v y 4 -v z 4 -in in.reaxc.hns -nocite
-
-# This is for the chonker 1000 instance run
-#    command: lmp -v x 64 -v y 16 -v z 8 -in in.reaxc.hns -nocite
-#    repeats: 3
+  lmp-tasks-192:
+     command: lmp -v x 4 -v y 4 -v z 4 -in in.reaxc.hns -nocite
+  lmp-tasks-384:
+     command: lmp -v x 64 -v y 8 -v z 4 -in in.reaxc.hns -nocite
+  lmp-chonker:
+    command: lmp -v x 64 -v y 16 -v z 8 -in in.reaxc.hns -nocite

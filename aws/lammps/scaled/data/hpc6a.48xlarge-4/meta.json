@@ -1,0 +1,39 @@
+{
+    "times": {
+        "create-cluster": 1142.5042073726654,
+        "minicluster-run-lmp-4-4-2": 256.4398317337036,
+        "minicluster-run-lmp-4-4-4": 61.75905990600586,
+        "minicluster-run-lmp-4-4-4-ntasks-48": 19.211528539657593,
+        "minicluster-run-lmp-tasks-192": 30.620717525482178,
+        "minicluster-run-lmp-tasks-384": 47.1463737487793,
+        "minicluster-run-lmp-chonker": 89.72352600097656,
+        "destroy-cluster": 771.6297397613525
+    },
+    "size": 4,
+    "machine": "hpc6a.48xlarge",
+    "minicluster": {
+        "name": "lammps",
+        "namespace": "flux-operator"
+    },
+    "variables": {
+        "efa_enabled": true
+    },
+    "jobs": {
+        "lmp-4-4-2": {
+            "command": "lmp -v x 4 -v y 4 -v z 2 -in in.reaxc.hns -nocite"
+        },
+        "lmp-4-4-4": {
+            "command": "lmp -v x 4 -v y 4 -v z 4 -in in.reaxc.hns -nocite"
+        },
+        "lmp-tasks-192": {
+            "command": "lmp -v x 4 -v y 4 -v z 4 -in in.reaxc.hns -nocite"
+        },
+        "lmp-tasks-384": {
+            "command": "lmp -v x 64 -v y 8 -v z 4 -in in.reaxc.hns -nocite"
+        },
+        "lmp-chonker": {
+            "command": "lmp -v x 64 -v y 16 -v z 8 -in in.reaxc.hns -nocite"
+        }
+    },
+    "id": "hpc6a.48xlarge-4"
+}

@@ -10,9 +10,10 @@ spec:
 
   # Number of pods to create for MiniCluster
   size: {{ size }}
+  tasks: 384
 
   # Disable verbose output
-  test: true
+  test: false
 
   # This is a list because a pod can support multiple containers
   containers:
@@ -22,12 +23,13 @@ spec:
 
       # Option Flags for this flux runner wait.sh entrypoint
       fluxOptionFlags: "-ompi=openmpi@5" 
+      cores: 96
 
       # Resource limits to enable efa
       resources:
         limits:
           vpc.amazonaws.com/efa: 1
-          memory: "200M"
+          memory: "200G"
 
       # custom preCommand logic (run at start of script)
       preCommand: |
