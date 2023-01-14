@@ -33,12 +33,12 @@ spec:
         limits:
           vpc.amazonaws.com/efa: 1
           memory: "{{ job.memory }}"
-          cpu: "{{ job.cpu }}"
+          cpu: {{ job.cpu }}
 
         requests:
           vpc.amazonaws.com/efa: 1
           memory: "{{ job.memory }}"
-          cpu: "{{ job.cpu }}"
+          cpu: {{ job.cpu }}
 
       # custom preCommand logic (run at start of script)
       preCommand: |
