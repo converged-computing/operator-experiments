@@ -8,7 +8,7 @@ Reading data file ...
   304 atoms
   reading velocities ...
   304 velocities
-  read_data CPU = 0.005 seconds
+  read_data CPU = 0.002 seconds
 Replicating atoms ...
   triclinic box = (0.0000000 0.0000000 0.0000000) to (44.652000 22.282400 27.557932) with tilt (0.0000000 -10.052060 0.0000000)
   1 by 1 by 1 MPI processor grid
@@ -51,20 +51,20 @@ Step Temp PotEng Press E_vdwl E_coul Volume
       80    293.58677   -113.25831    5993.4151   -111.55946   -1.6988533    27418.867 
       90    300.62636   -113.27925    7202.8651   -111.58069   -1.6985591    27418.867 
      100    305.38276   -113.29357    10085.748   -111.59518   -1.6983875    27418.867 
-Loop time of 24.57 on 1 procs for 100 steps with 2432 atoms
+Loop time of 19.5951 on 1 procs for 100 steps with 2432 atoms
 
-Performance: 0.035 ns/day, 682.499 hours/ns, 4.070 timesteps/s
+Performance: 0.044 ns/day, 544.309 hours/ns, 5.103 timesteps/s
 99.9% CPU use with 1 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 18.204     | 18.204     | 18.204     |   0.0 | 74.09
-Neigh   | 0.44586    | 0.44586    | 0.44586    |   0.0 |  1.81
-Comm    | 0.0080984  | 0.0080984  | 0.0080984  |   0.0 |  0.03
-Output  | 0.00029335 | 0.00029335 | 0.00029335 |   0.0 |  0.00
-Modify  | 5.9102     | 5.9102     | 5.9102     |   0.0 | 24.05
-Other   |            | 0.001353   |            |       |  0.01
+Pair    | 14.502     | 14.502     | 14.502     |   0.0 | 74.01
+Neigh   | 0.38985    | 0.38985    | 0.38985    |   0.0 |  1.99
+Comm    | 0.0062255  | 0.0062255  | 0.0062255  |   0.0 |  0.03
+Output  | 0.00025091 | 0.00025091 | 0.00025091 |   0.0 |  0.00
+Modify  | 4.6957     | 4.6957     | 4.6957     |   0.0 | 23.96
+Other   |            | 0.001238   |            |       |  0.01
 
 Nlocal:        2432.00 ave        2432 max        2432 min
 Histogram: 1 0 0 0 0 0 0 0 0 0
@@ -77,4 +77,4 @@ Total # of neighbors = 823958
 Ave neighs/atom = 338.79852
 Neighbor list builds = 5
 Dangerous builds not checked
-Total wall time: 0:00:25
+Total wall time: 0:00:20
