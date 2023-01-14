@@ -1,0 +1,21 @@
+apiVersion: flux-framework.org/v1alpha1
+kind: MiniCluster
+
+metadata:
+  name: {{ minicluster.name }}
+  namespace: {{ minicluster.namespace }}
+spec:
+  # localDeploy needs to be false
+  localDeploy: false
+
+  # Number of pods to create for MiniCluster
+  size: {{ minicluster.size }}
+
+  # Disable verbose output
+  test: true
+
+  # This is a list because a pod can support multiple containers
+  containers:
+    - image: {{ job.image }}
+      workingDir: /home/flux/examples/reaxff/HNS
+      command: {{ job.command }}

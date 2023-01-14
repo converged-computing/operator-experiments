@@ -2,13 +2,14 @@
 
 # These are mini runs intended for testing
 matrix:
-  size: [2, 4, 6, 8]
+  size: [8]
   machine: ["m5.large"]
 
 # Flux Mini Cluster experiment attributes
 minicluster:
   name: lammps
   namespace: flux-operator
+  size: [2, 4, 6, 8]
 
 # Each job can have a command and working directory
 jobs:

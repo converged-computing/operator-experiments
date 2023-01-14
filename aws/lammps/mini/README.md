@@ -34,9 +34,10 @@ we will be using [Flux Cloud](https://github.com/converged-computing/flux-cloud)
 to run the Operator on Google Cloud Kubernetes engine.
 
 ```bash
-$ pip install flux-cloud 
+$ pip install flux-cloud
 ```
 
+Note that these experiments were run with version 0.1.0.
 Ensure that aws is either your default cloud (the `default_cloud` in your settings.yml)
 or you specify it with `--cloud` when you do run.
 

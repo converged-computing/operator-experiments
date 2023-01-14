@@ -2,13 +2,14 @@
 
 # This can obviously be expanded to more sizes or machines,
 matrix:
-  size: [2, 4, 6, 8]
+  size: [8]
   machine: ["n1-standard-1", "n1-standard-2"]
 
 # Flux Mini Cluster experiment attributes
 minicluster:
   name: lammps
   namespace: flux-operator
+  size: [2, 4, 6, 8]
 
 # Each job can have a command and working directory
 jobs:

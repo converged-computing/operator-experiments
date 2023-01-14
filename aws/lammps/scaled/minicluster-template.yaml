@@ -9,11 +9,11 @@ spec:
   localDeploy: false
 
   # Number of pods to create for MiniCluster
-  size: {{ size }}
-  tasks: 384
+  size: {{ minicluster.size }}
+  tasks: {{ job.tasks }}
 
   # Disable verbose output
-  test: false
+  test: true
 
   # This is a list because a pod can support multiple containers
   containers:
@@ -21,15 +21,24 @@ spec:
       workingDir: /home/flux/examples/reaxff/HNS
       command: {{ job.command }}
 
-      # Option Flags for this flux runner wait.sh entrypoint
-      fluxOptionFlags: "-ompi=openmpi@5" 
-      cores: 96
+      # Leave 2 cores for kubernetes, we have 96,
+      # this is just for eksctl
+      cores: {{ job.cores }}
 
       # Resource limits to enable efa
       resources:
         limits:
           vpc.amazonaws.com/efa: 1
-          memory: "200G"
+          memory: "{{ job.memory }}"
+          cpu: "{{ job.cpu }}"
+
+        requests:
+          vpc.amazonaws.com/efa: 1
+          memory: "{{ job.memory }}"
+          cpu: "{{ job.cpu }}"
+
+      # Option Flags for this flux runner wait.sh entrypoint
+      fluxOptionFlags: "-ompi=openmpi@5" 
 
       # custom preCommand logic (run at start of script)
       preCommand: |
@@ -40,4 +49,3 @@ spec:
         . /opt/spack-environment/spack/share/spack/setup-env.sh
         spack env activate .
         cd /home/flux/examples/reaxff/HNS
-

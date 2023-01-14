@@ -9,7 +9,7 @@ spec:
   localDeploy: false
 
   # Number of pods to create for MiniCluster
-  size: {{ size }}
+  size: {{ minicluster.size }}
 
   # Disable verbose output
   test: true
