@@ -1,0 +1,65 @@
+{
+    "times": {
+        "minicluster-run-lmp-tasks-384-minicluster-size-4": 40.603,
+        "minicluster-run-lmp-tasks-384-1-minicluster-size-4": 46.986,
+        "minicluster-run-lmp-tasks-384-2-minicluster-size-4": 46.354,
+        "minicluster-run-lmp-tasks-384-3-minicluster-size-4": 45.967,
+        "minicluster-run-lmp-tasks-384-4-minicluster-size-4": 42.392,
+        "minicluster-run-lmp-tasks-384-5-minicluster-size-4": 46.663
+    },
+    "size": 4,
+    "machine": "hpc6a.48xlarge",
+    "minicluster": {
+        "name": "lammps",
+        "namespace": "flux-operator",
+        "size": [
+            4
+        ]
+    },
+    "variables": {
+        "efa_enabled": true
+    },
+    "jobs": {
+        "lmp-tasks-384-1": {
+            "repeats": 5,
+            "command": "lmp -v x 64 -v y 8 -v z 4 -in in.reaxc.hns -nocite",
+            "memory": "384G",
+            "tasks": 384,
+            "cpu": 96,
+            "cores": 96
+        },
+        "lmp-tasks-384-2": {
+            "repeats": 5,
+            "command": "lmp -v x 64 -v y 8 -v z 4 -in in.reaxc.hns -nocite",
+            "memory": "384G",
+            "tasks": 384,
+            "cpu": 96,
+            "cores": 96
+        },
+        "lmp-tasks-384-3": {
+            "repeats": 5,
+            "command": "lmp -v x 64 -v y 8 -v z 4 -in in.reaxc.hns -nocite",
+            "memory": "384G",
+            "tasks": 384,
+            "cpu": 96,
+            "cores": 96
+        },
+        "lmp-tasks-384-4": {
+            "repeats": 5,
+            "command": "lmp -v x 64 -v y 8 -v z 4 -in in.reaxc.hns -nocite",
+            "memory": "384G",
+            "tasks": 384,
+            "cpu": 96,
+            "cores": 96
+        },
+        "lmp-tasks-384-5": {
+            "repeats": 5,
+            "command": "lmp -v x 64 -v y 8 -v z 4 -in in.reaxc.hns -nocite",
+            "memory": "384G",
+            "tasks": 384,
+            "cpu": 96,
+            "cores": 96
+        }
+    },
+    "id": "k8s-size-4-hpc6a.48xlarge"
+}
