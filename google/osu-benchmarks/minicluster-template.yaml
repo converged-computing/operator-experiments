@@ -9,6 +9,9 @@ spec:
   # Number of pods to create for MiniCluster
   size: {{ minicluster.size }}
 
+  # Benchmarks require exactly 2
+  tasks: 2
+
   # Set test to true to clean up output
   test: true
 

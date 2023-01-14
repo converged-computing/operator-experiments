@@ -1,25 +1,22 @@
 {
     "times": {
-        "create-cluster": 380.615,
-        "minicluster-run-osu_get_latency-minicluster-size-2": 425.201,
-        "minicluster-run-osu_acc_latency-minicluster-size-2": 4.889,
-        "minicluster-run-osu_fop_latency-minicluster-size-2": 32.791,
-        "minicluster-run-osu_get_bw-minicluster-size-2": 139.581,
-        "minicluster-run-osu_put_bibw-minicluster-size-2": 16.026,
-        "minicluster-run-osu_put_latency-minicluster-size-2": 3.837,
-        "minicluster-run-osu_cas_latency-minicluster-size-2": 33.442,
-        "minicluster-run-osu_get_acc_latency-minicluster-size-2": 30.697,
-        "minicluster-run-osu_put_bw-minicluster-size-2": 137.026,
-        "destroy-cluster": 411.856
+        "create-cluster": 385.03,
+        "minicluster-run-osu_get_latency-minicluster-size-2": 402.105,
+        "minicluster-run-osu_acc_latency-minicluster-size-2": 73.436,
+        "minicluster-run-osu_fop_latency-minicluster-size-2": 8.661,
+        "minicluster-run-osu_get_bw-minicluster-size-2": 194.091,
+        "minicluster-run-osu_put_bibw-minicluster-size-2": 115.192,
+        "minicluster-run-osu_put_latency-minicluster-size-2": 68.358,
+        "minicluster-run-osu_cas_latency-minicluster-size-2": 8.815,
+        "minicluster-run-osu_get_acc_latency-minicluster-size-2": 220.863,
+        "minicluster-run-osu_put_bw-minicluster-size-2": 61.948,
+        "destroy-cluster": 285.216
     },
     "size": 2,
     "machine": "n1-standard-1",
     "minicluster": {
         "name": "osu-benchmarks",
-        "namespace": "flux-operator",
-        "size": [
-            2
-        ]
+        "namespace": "flux-operator"
     },
     "jobs": {
         "osu_get_latency": {
