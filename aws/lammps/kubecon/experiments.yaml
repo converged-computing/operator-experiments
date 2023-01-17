@@ -2,7 +2,7 @@
 matrix:
 
   # Size of the MiniCluster - we are allowed to specify one size (and different pods)
-  size: [32]
+  size: [64]
 
   # See https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html#efa-instance-types
   # not all support efa
@@ -15,7 +15,7 @@ minicluster:
   namespace: flux-operator
   
   # These are the sizes of MiniCluster we will iterate over
-  size: [4, 8, 16, 32]
+  size: [4, 8, 16, 32, 64]
 
 variables:
   efa_enabled: true
