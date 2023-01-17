@@ -25,7 +25,8 @@ jobs:
     command: lmp -v x 64 -v y 16 -v z 8 -in in.reaxc.hns -nocite
     repeats: 20
     memory: 384G
-    tasks: 384
+    # 4*94
+    tasks: 376
     cpu: 96
 
     # This indicates only run on the MiniCluster size 4
@@ -35,22 +36,34 @@ jobs:
     command: lmp -v x 64 -v y 16 -v z 8 -in in.reaxc.hns -nocite
     repeats: 20    
     memory: 384G
-    tasks: 384
+    # 8*94
+    tasks: 752
     size: 8
-    cpu: 48
+    cpu: 96
 
   lmp-16:
     command: lmp -v x 64 -v y 16 -v z 8 -in in.reaxc.hns -nocite
     repeats: 20    
     memory: 384G
-    tasks: 384
+    # 16*94
+    tasks: 1504
     size: 16
-    cpu: 24
+    cpu: 96
 
   lmp-32:
     command: lmp -v x 64 -v y 16 -v z 8 -in in.reaxc.hns -nocite
     repeats: 20    
     memory: 384G
-    tasks: 384
+    # 32*94
+    tasks: 3008
     size: 32
-    cpu: 12    
+    cpu: 96    
+
+  lmp-64:
+    command: lmp -v x 64 -v y 16 -v z 8 -in in.reaxc.hns -nocite
+    repeats: 20    
+    memory: 384G
+    # 64*94
+    tasks: 6016
+    size: 64
+    cpu: 96 
