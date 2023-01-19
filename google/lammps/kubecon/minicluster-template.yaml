@@ -13,7 +13,7 @@ spec:
   tasks: {{ job.tasks }}
 
   # Disable verbose output
-  test: false
+  test: true
 
   # This is a list because a pod can support multiple containers
   containers:
@@ -31,20 +31,18 @@ spec:
       # Resource limits to enable efa
       resources:
         limits:
-          vpc.amazonaws.com/efa: 1
           memory: "{{ job.memory }}"
           cpu: {{ job.cpu }}
 
-        requests:
-          vpc.amazonaws.com/efa: 1
-          memory: "{{ job.memory }}"
-          cpu: {{ job.cpu }}
+        #requests:
+        #  vpc.amazonaws.com/efa: 1
+        #  memory: "{{ job.memory }}"
+        #  cpu: {{ job.cpu }}
 
       # custom preCommand logic (run at start of script)
       preCommand: |
         source /etc/profile.d/z10_spack_environment.sh
         asFlux="sudo -u flux -E PYTHONPATH=$PYTHONPATH -E PATH=$PATH -E FI_EFA_USE_DEVICE_RDMA=1 -E RDMAV_FORK_SAFE=1"
-        # asFlux="sudo -u flux -E PYTHONPATH=$PYTHONPATH -E PATH=$PATH"
         . /etc/profile.d/z10_spack_environment.sh 
         cd /opt/spack-environment
         . /opt/spack-environment/spack/share/spack/setup-env.sh

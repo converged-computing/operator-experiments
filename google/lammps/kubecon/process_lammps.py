@@ -53,6 +53,7 @@ def gather_outputs(outdir):
         sys.exit(f"{outdir} does not exist.")
 
     for file in recursive_find(outdir):
+        file_output = os.path.join(outdir, file)
         lines = read_lines(file)
 
         entry = {}
@@ -88,7 +89,7 @@ def gather_outputs(outdir):
                 continue
 
             if line.startswith("Total # of neighbors"):
-                entry["neighbors"] = float(line.split("=")[-1].strip())
+                entry["neighbors"] = int(line.split("=")[-1].strip())
                 continue
 
             if line.startswith("Ave neighs/atom"):

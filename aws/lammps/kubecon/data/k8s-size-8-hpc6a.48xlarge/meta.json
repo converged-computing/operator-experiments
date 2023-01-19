@@ -1,0 +1,32 @@
+{
+    "times": {
+        "minicluster-run-lmp-4-1-minicluster-size-4": 22.828
+    },
+    "size": 8,
+    "machine": "hpc6a.48xlarge",
+    "kubernetes": {
+        "version": "1.23"
+    },
+    "minicluster": {
+        "name": "lammps",
+        "namespace": "flux-operator",
+        "size": [
+            4
+        ]
+    },
+    "variables": {
+        "efa_enabled": true
+    },
+    "jobs": {
+        "lmp-4-1": {
+            "command": "lmp -v x 64 -v y 16 -v z 8 -in in.reaxc.hns -nocite",
+            "repeats": 1,
+            "memory": "340G",
+            "tasks": 376,
+            "cpu": 94,
+            "cores": 96,
+            "size": 4
+        }
+    },
+    "id": "k8s-size-8-hpc6a.48xlarge"
+}
