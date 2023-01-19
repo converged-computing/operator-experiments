@@ -76,7 +76,9 @@ def gather_outputs(outdir):
             if re.search("^(NLocal|Nghost|Neighs)", line):
                 category = line.split(":")[0].lower()
                 line = line.split(":", 1)[-1].strip()
-                ave, maxval, minval = re.findall("([0-9]+[.][0-9]+|[0-9]+)", line)
+                ave, line = line.split('ave', 1)
+                maxval, line = line.split('max', 1)
+                minval, line = line.split('min', 1)
                 entry.update(
                     {
                         f"{category}_avg": ave,
@@ -89,7 +91,7 @@ def gather_outputs(outdir):
                 continue
 
             if line.startswith("Total # of neighbors"):
-                entry["neighbors"] = int(line.split("=")[-1].strip())
+                entry["neighbors"] = float(line.split("=")[-1].strip())
                 continue
 
             if line.startswith("Ave neighs/atom"):
