@@ -16,6 +16,6 @@ managedNodeGroups:
     labels: { "fluxoperator": "true" }
     
     
-    
-    # Assume for now we just have a placement group name
-    
+    efaEnabled: true
+    placement:
+      groupName: eks-efa-testing

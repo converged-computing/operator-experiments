@@ -76,9 +76,9 @@ def gather_outputs(outdir):
             if re.search("^(NLocal|Nghost|Neighs)", line):
                 category = line.split(":")[0].lower()
                 line = line.split(":", 1)[-1].strip()
-                ave, line = line.split('ave', 1)
-                maxval, line = line.split('max', 1)
-                minval, line = line.split('min', 1)
+                ave, line = line.split("ave", 1)
+                maxval, line = line.split("max", 1)
+                minval, line = line.split("min", 1)
                 entry.update(
                     {
                         f"{category}_avg": ave,
@@ -250,7 +250,7 @@ def main():
     args = parser.parse_args()
     results = gather_outputs(args.data_dir)
     # Save temporary results for online viewing until we know what to plot
-    with open('results.json', 'w') as fd:
+    with open("results.json", "w") as fd:
         fd.write(json.dumps(results, indent=4))
 
 
