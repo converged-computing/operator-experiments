@@ -19,12 +19,17 @@ minicluster:
 jobs:
   lmp-4:
     command: lmp -v x 4 -v y 4 -v z 4 -in in.reaxc.hns -nocite
+    # command: lmp -v x 16 -v y 16 -v z 8
     repeats: 20
-    memory: 100G
     # 4*32
-    tasks: 128
-    cpu: 28
-    cores: 32
+    memory: 100G
+    tasks: 64
+
+    # This is for kubernetes
+    cpu: 30
+
+    # This is for flux
+    cores: 16
 
     # This indicates only run on the MiniCluster size 4
     size: 4
