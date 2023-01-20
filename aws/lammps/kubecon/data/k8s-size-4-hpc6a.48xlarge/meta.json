@@ -1,9 +1,10 @@
 {
     "times": {
-        "minicluster-run-lmp-4-1-minicluster-size-4": 22.828,
-        "destroy-cluster": 788.504
+        "create-cluster": 1075.899,
+        "minicluster-run-lmp-4-1-minicluster-size-4": 27.397,
+        "destroy-cluster": 0.726
     },
-    "size": 8,
+    "size": 4,
     "machine": "hpc6a.48xlarge",
     "kubernetes": {
         "version": "1.23"
@@ -16,7 +17,11 @@
         ]
     },
     "variables": {
-        "efa_enabled": true
+        "availability_zones": [
+            "us-east-2b",
+            "us-east-2c"
+        ],
+        "region": "us-east-2"
     },
     "jobs": {
         "lmp-4-1": {
@@ -28,6 +33,5 @@
             "cores": 96,
             "size": 4
         }
-    },
-    "id": "k8s-size-8-hpc6a.48xlarge"
+    }
 }

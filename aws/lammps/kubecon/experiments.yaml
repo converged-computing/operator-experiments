@@ -2,7 +2,7 @@
 matrix:
 
   # Size of the MiniCluster - we are allowed to specify one size (and different pods)
-  size: [8] # [64]
+  size: [4] # [64]
 
   # See https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html#efa-instance-types
   # not all support efa
@@ -20,7 +20,9 @@ minicluster:
   size: [4] #[64, 32, 16, 8, 4]
 
 variables:
-  efa_enabled: true
+  availability_zones: [us-east-2b, us-east-2c]
+  region: us-east-2
+  # efa_enabled: true
   # placement_group: eks-efa-testing
 
 jobs:

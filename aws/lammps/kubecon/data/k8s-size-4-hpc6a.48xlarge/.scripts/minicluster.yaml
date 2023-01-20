@@ -2,15 +2,15 @@ apiVersion: flux-framework.org/v1alpha1
 kind: MiniCluster
 
 metadata:
-  name: {{ minicluster.name }}
-  namespace: {{ minicluster.namespace }}
+  name: lammps
+  namespace: flux-operator
 spec:
   # localDeploy needs to be false
   localDeploy: false
 
   # Number of pods to create for MiniCluster
-  size: {{ minicluster.size }}
-  tasks: {{ job.tasks }}
+  size: 4
+  tasks: 376
 
   # Disable verbose output
   test: false
@@ -19,26 +19,26 @@ spec:
   containers:
     - image: ghcr.io/rse-ops/lammps-efa:ubuntu-20.04
       workingDir: /home/flux/examples/reaxff/HNS
-      command: {{ job.command }}
+      command: lmp -v x 64 -v y 16 -v z 8 -in in.reaxc.hns -nocite
 
       # Option Flags for this flux runner wait.sh entrypoint
       fluxOptionFlags: "-ompi=openmpi@5" 
 
       # Leave 2 cores for kubernetes, we have 96,
       # this is just for eksctl
-      cores: {{ job.cores }}
+      cores: 96
 
       # Resource limits to enable efa
       resources:
         limits:
           # vpc.amazonaws.com/efa: 1
-          memory: "{{ job.memory }}"
-          cpu: {{ job.cpu }}
+          memory: "340G"
+          cpu: 94
 
         requests:
           # vpc.amazonaws.com/efa: 1
-          memory: "{{ job.memory }}"
-          cpu: {{ job.cpu }}
+          memory: "340G"
+          cpu: 94
 
       # custom preCommand logic (run at start of script)
       preCommand: |
