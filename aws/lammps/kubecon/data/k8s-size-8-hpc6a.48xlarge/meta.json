@@ -1,6 +1,7 @@
 {
     "times": {
-        "minicluster-run-lmp-4-1-minicluster-size-4": 22.828
+        "minicluster-run-lmp-4-1-minicluster-size-4": 22.828,
+        "destroy-cluster": 788.504
     },
     "size": 8,
     "machine": "hpc6a.48xlarge",

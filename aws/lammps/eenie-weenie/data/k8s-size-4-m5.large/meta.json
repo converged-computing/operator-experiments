@@ -1,0 +1,42 @@
+{
+    "times": {
+        "create-cluster": 1008.258,
+        "minicluster-run-lmp-1-minicluster-size-2": 137.911,
+        "minicluster-run-lmp-2-minicluster-size-2": 40.308,
+        "minicluster-run-lmp-3-minicluster-size-2": 39.367,
+        "minicluster-run-lmp-1-minicluster-size-4": 38.577,
+        "minicluster-run-lmp-2-minicluster-size-4": 38.493,
+        "minicluster-run-lmp-3-minicluster-size-4": 38.628,
+        "destroy-cluster": 0.673
+    },
+    "size": 4,
+    "machine": "m5.large",
+    "minicluster": {
+        "name": "lammps",
+        "namespace": "flux-operator",
+        "size": [
+            2,
+            4
+        ]
+    },
+    "jobs": {
+        "lmp-1": {
+            "command": "lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite",
+            "repeats": 3,
+            "image": "ghcr.io/rse-ops/lammps:flux-sched-focal-v0.24.0",
+            "workdir": "/home/flux/examples/reaxff/HNS"
+        },
+        "lmp-2": {
+            "command": "lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite",
+            "repeats": 3,
+            "image": "ghcr.io/rse-ops/lammps:flux-sched-focal-v0.24.0",
+            "workdir": "/home/flux/examples/reaxff/HNS"
+        },
+        "lmp-3": {
+            "command": "lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite",
+            "repeats": 3,
+            "image": "ghcr.io/rse-ops/lammps:flux-sched-focal-v0.24.0",
+            "workdir": "/home/flux/examples/reaxff/HNS"
+        }
+    }
+}
