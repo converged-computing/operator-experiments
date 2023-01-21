@@ -17,7 +17,7 @@ minicluster:
   namespace: flux-operator
   
   # These are the sizes of MiniCluster we will iterate over
-  size: [64, 32, 16, 8, 4]
+  size: [64, 32, 16, 8]
 
 variables:
   availability_zones: [us-east-2b, us-east-2c]
@@ -26,51 +26,54 @@ variables:
   placement_group: eks-efa-testing
 
 jobs:
-  lmp-4:
-    command: lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
-    repeats: 20
-    memory: 340G
-    # 4*94
-    tasks: 376
-    cpu: 94
-    cores: 96
-
-    # This indicates only run on the MiniCluster size 4
-    size: 4
-
-  lmp-8:
-    command: lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
-    repeats: 20    
-    memory: 384G
-    # 8*94
-    tasks: 752
-    size: 8
-    cpu: 94
-
-  lmp-16:
-    command: lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
-    repeats: 20    
-    memory: 384G
-    # 16*94
-    tasks: 1504
-    size: 16
-    cpu: 94
-
-  lmp-32:
-    command: lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
-    repeats: 20    
-    memory: 384G
-    # 32*94
-    tasks: 3008
-    size: 32
-    cpu: 94
-
   lmp-64:
     command: lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
-    repeats: 1  
+    repeats: 21
     memory: 340G
     # 64*94
     tasks: 6016
     size: 64
-    cpu: 96
+    cpu: 94
     cores: 96
+
+  lmp-32:
+    command: lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
+    repeats: 20    
+    memory: 340G
+    # 32*94
+    tasks: 3008
+    size: 32
+    cpu: 94
+    cores: 96
+
+  lmp-16:
+    command: lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
+    repeats: 20    
+    memory: 340G
+    # 16*94
+    tasks: 1504
+    size: 16
+    cpu: 94
+    cores: 96
+
+  lmp-8:
+    command: lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
+    repeats: 20    
+    memory: 340G
+    # 8*94
+    tasks: 752
+    size: 8
+    cpu: 94
+    cores: 96
+
+# Not needed for comparison with MPI operator
+#  lmp-4:
+#    command: lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
+#    repeats: 20
+#    memory: 340G
+    # 4*94
+#    tasks: 376
+#    cpu: 94
+#    cores: 96
+    # This indicates only run on the MiniCluster size 4
+#    size: 4
