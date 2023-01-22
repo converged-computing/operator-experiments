@@ -27,7 +27,6 @@ def plot_outputs(raw, plotname, slot_per_pod, ext="pdf"):
     # Let's save the following, with runid as index
     columns = [
         "minicluster_size",
-        "fluxsubmit_time",
         "lammps_time",
         "ranks",
         "timesteps_per_second",
@@ -53,7 +52,6 @@ def plot_outputs(raw, plotname, slot_per_pod, ext="pdf"):
         data.append(
             [
                 minicluster_size,
-                item["fluxsubmit_wall_time_seconds"],
                 item["total_wall_time_seconds"],
                 item["ranks"],
                 item["timesteps_per_second"],
@@ -82,15 +80,6 @@ def plot_outputs(raw, plotname, slot_per_pod, ext="pdf"):
     # Let's make a plot that shows distributions of the times by the cluster size, across all
     make_plot(
         df,
-        title="Flux MiniCluster Wall Time",
-        tag="fluxsubmit_walltime",
-        ydimension="fluxsubmit_time",
-        palette=palette,
-        ext=ext,
-        plotname=plotname,
-    )
-    make_plot(
-        df,
         title="Lammps Wall Time",
         tag="lammps_walltime",
         ydimension="lammps_time",
@@ -110,15 +99,6 @@ def plot_outputs(raw, plotname, slot_per_pod, ext="pdf"):
 
     # Now let's just compare with the same sizes as the mpi operator
     subset = df[df.minicluster_size != "64"]
-    make_plot(
-        subset,
-        title="Flux MiniCluster Wall Time",
-        tag="fluxsubmit_walltime_32",
-        ydimension="fluxsubmit_time",
-        palette=palette,
-        ext=ext,
-        plotname=plotname,
-    )
     make_plot(
         subset,
         title="Lammps Wall Time",
