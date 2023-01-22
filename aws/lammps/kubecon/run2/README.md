@@ -14,3 +14,9 @@ Next, run the script targeting the data directory here:
 ```bash
 $ python process_lammps.py ./data
 ```
+
+And then plot the json results:
+
+```bash
+$ python plot_results.py
+```

@@ -257,9 +257,6 @@ def gather_outputs(outdir):
     return results
 
 
-# TODO PLOTTING and savings results
-
-
 def get_parser():
     """
     Return process laamps output parser.
@@ -268,19 +265,6 @@ def get_parser():
     """
     parser = argparse.ArgumentParser(description="Process LAMMPS outputs")
     parser.add_argument("data_dir", help="data directory root")
-    parser.add_argument(
-        "-p",
-        "--plotname",
-        default="lammps",
-        help="base name for plot output files",
-    )
-    parser.add_argument(
-        "--spp",
-        "--slot_per_pod",
-        required=False,
-        action="store_true",
-        help="generate slot per pod plot",
-    )
     return parser
 
 
@@ -288,7 +272,7 @@ def main():
     parser = get_parser()
     args = parser.parse_args()
     results = gather_outputs(args.data_dir)
-    # Save temporary results for online viewing until we know what to plot
+    # Save temporary results for viewing / run plot_results.py results.json
     with open("results.json", "w") as fd:
         fd.write(json.dumps(results, indent=4))
 
