@@ -1,8 +1,23 @@
 # Lammps Experiments for Kubecon
 
-In this set of experiments we will run the Flux Operator on Amazon Cloud on a size 32 (node)
-cluster, and varing the size of the Flux Operator Mini Cluster between 4,8,16, and 32 for 20
-times each.
+In this set of experiments we will run the Flux Operator on Amazon Cloud on a size 64 (node)
+cluster, and varing the size of the Flux Operator Mini Cluster between 4,8,16,32 and 64 for 20
+times each. A few notes:
+
+ - We run from largest down to smallest
+ - The first run (64) has 21 runs since the first will pull containers (and needs to be thrown away)
+ - The original experiments to compare to the MPI operator had extra mpirun flags that we determined the first and last cancel each other out, and the second we cannot currently support through Flux.
+   - `--map-by numa`
+   - `--rank-by core`
+   - `--bind-to none`
+ - We were not able to build the container on the same machine running the job, so it is not optimized for it.   
+
+
+## Experiments
+
+ - [run1](run1) was done with flux-cloud 0.1.12 that didn't ensure the pod space was cleaned up before launching the next, and the operator didn't have support for capturing flux start times.
+ - [run2](run2) was done with flux-cloud 0.1.13 with this additional check, and the operator with support for logging.timed. The CRDs will not work if swapped between the two.
+
 
 ## Pre-requisites
 
@@ -51,33 +66,32 @@ To run all at once (only recommended for headless):
 $ flux-cloud run --force-cluster
 ```
 
-Or (for testing) to bring up just the first cluster and then manually apply:
+Or (for more careful application) we did each step separately:
 
 ```bash
-$ flux-cloud up
-$ flux-cloud apply
-$ flux-cloud down
+$ flux-cloud --debug up --cloud aws
+$ flux-cloud --debug apply --cloud aws
+$ flux-cloud --debug down --cloud aws
 ```
 
-By default, results will be written to a [./data](data) directory, but you can customize this with `--outdir`.
+By default, results will be written to a `data` directory within each folder, and within that
+folder are organized subdirectories with logs, and a single `.script` directory for each size
+with all configs and scripts that are used. 
 
 ## Results
 
-We have provided  a [process_lammps.py](process_lammps.py) script (under development) you can
+We have provided  a [process_lammps.py](../../../process_lammps.py) script in the root you can
 use against the output data directory (and output files) to visualize the results.
-
-**Note** we have not updated this yet for the multiple commands, e.g., if you
-run more than one job it would need to be considered in a distribution, etc. 
-There likely will be an error if you run it - we will update this script when we do the larger runs!
 
 ```bash
 $ python -m venv env 
 $ source env/bin/activate
-$ pip install -r requirements.txt
+$ pip install -r ../../../requirements.txt
 ```
 
 Next, run the script targeting the data directory generated:
 
 ```bash
-$ python process_lammps.py ./data
+$ cd run2
+$ python ../../../../process_lammps.py ./data
 ```
