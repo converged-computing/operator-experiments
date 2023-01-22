@@ -77,21 +77,3 @@ $ flux-cloud --debug down --cloud aws
 By default, results will be written to a `data` directory within each folder, and within that
 folder are organized subdirectories with logs, and a single `.script` directory for each size
 with all configs and scripts that are used. 
-
-## Results
-
-We have provided  a [process_lammps.py](../../../process_lammps.py) script in the root you can
-use against the output data directory (and output files) to visualize the results.
-
-```bash
-$ python -m venv env 
-$ source env/bin/activate
-$ pip install -r ../../../requirements.txt
-```
-
-Next, run the script targeting the data directory generated:
-
-```bash
-$ cd run2
-$ python ../../../../process_lammps.py ./data
-```

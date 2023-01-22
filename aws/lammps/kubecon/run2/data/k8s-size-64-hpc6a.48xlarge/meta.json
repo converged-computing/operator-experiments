@@ -91,7 +91,8 @@
         "minicluster-run-lmp-8-17-minicluster-size-8": 142.041,
         "minicluster-run-lmp-8-18-minicluster-size-8": 135.577,
         "minicluster-run-lmp-8-19-minicluster-size-8": 144.752,
-        "minicluster-run-lmp-8-20-minicluster-size-8": 138.558
+        "minicluster-run-lmp-8-20-minicluster-size-8": 138.558,
+        "destroy-cluster": 825.198
     },
     "size": 64,
     "machine": "hpc6a.48xlarge",
