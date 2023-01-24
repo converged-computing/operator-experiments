@@ -29,6 +29,15 @@ def read_file(filename):
     return content
 
 
+def read_json(filename):
+    """
+    Read a json file into a dict.
+    """
+    with open(filename, "r") as fd:
+        content = json.loads(fd.read())
+    return content
+
+
 def read_lines(filename):
     """
     Read lines of a file into a list.
@@ -254,7 +263,7 @@ def gather_outputs(outdir):
                 continue
 
         results[file] = entry
-    return results
+    return {"results": results}
 
 
 def get_parser():
@@ -265,6 +274,7 @@ def get_parser():
     """
     parser = argparse.ArgumentParser(description="Process LAMMPS outputs")
     parser.add_argument("data_dir", help="data directory root")
+    parser.add_argument("--meta", help="meta.json for experiments.")
     return parser
 
 
@@ -272,6 +282,11 @@ def main():
     parser = get_parser()
     args = parser.parse_args()
     results = gather_outputs(args.data_dir)
+
+    # Add metadata to results
+    if args.meta:
+        results["meta"] = read_json(args.meta)
+
     # Save temporary results for viewing / run plot_results.py results.json
     with open("results.json", "w") as fd:
         fd.write(json.dumps(results, indent=4))
