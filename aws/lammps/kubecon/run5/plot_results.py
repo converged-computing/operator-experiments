@@ -19,7 +19,7 @@ def read_json(filename):
     return content
 
 
-def plot_outputs(raw, mpi_operator, plotname, ext="png"):
+def plot_outputs(raw, mpi_operator, plotname, ext="pdf"):
     """
     Parse results.json into dataframe and plots to save.
     """
@@ -206,6 +206,7 @@ def plot_outputs(raw, mpi_operator, plotname, ext="png"):
         ext=ext,
         plotname=plotname,
         hue="operator_name",
+        plot_type="box",
     )
 
     # Difference between flux start and flux submit
