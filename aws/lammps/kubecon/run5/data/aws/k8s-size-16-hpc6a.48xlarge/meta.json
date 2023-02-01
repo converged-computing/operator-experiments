@@ -41,7 +41,8 @@
         "minicluster-run-lmp-8-17-minicluster-size-8": 124.681,
         "minicluster-run-lmp-8-18-minicluster-size-8": 125.217,
         "minicluster-run-lmp-8-19-minicluster-size-8": 128.683,
-        "minicluster-run-lmp-8-20-minicluster-size-8": 130.062
+        "minicluster-run-lmp-8-20-minicluster-size-8": 130.062,
+        "destroy-cluster": 788.242
     },
     "size": 16,
     "machine": "hpc6a.48xlarge",
@@ -52,8 +53,6 @@
         "name": "lammps",
         "namespace": "flux-operator",
         "size": [
-            64,
-            32,
             16,
             8
         ]
