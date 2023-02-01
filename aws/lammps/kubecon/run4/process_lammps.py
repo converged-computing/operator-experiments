@@ -104,11 +104,24 @@ def gather_outputs(outdir):
                 # ƒo8zefR: complete: status=0              
                 if rest.count(':') != 0:
                     stage, values = rest.split(':', 1)
-                    entry[f'fluxvars_{stage.strip()}'] = values.strip()                                
+                    key = f'fluxvars_{stage.strip()}'
+                    if 'exec.log' in key:
+                        if key not in entry:
+                            entry[key] = []
+                        entry[key].append(values.strip())
+                    else:
+                        entry[f'fluxvars_{stage.strip()}'] = values.strip()                                
                 else:
+
                     # ƒo8zefR: 147.600s release
                     seconds, stage = rest.strip().split(' ', 1)
-                    entry[f'fluxtimes_{stage.strip()}'] = float(seconds.replace('s', ''))
+                    key = f'fluxtimes_{stage.strip()}'
+                    if 'exec.log' in key:
+                        if key not in entry:
+                            entry[key] = []
+                        entry[key].append(float(seconds.replace('s', '')))
+                    else:                       
+                        entry[f'fluxtimes_{stage.strip()}'] = float(seconds.replace('s', ''))
 
             # Figure out ranks and threads (in same line)
             match = re.search("[0-9]+ MPI tasks", line)

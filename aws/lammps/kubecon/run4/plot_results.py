@@ -44,15 +44,12 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf"):
             "Please generate the results that target the meta.json file from flux-cloud."
         )
 
-    cluster_times = {}
-    # Incomplete data since credentials died in the middle -
-    # we should be saving times each time
-    #columns.append("cluster_time")
-    #cluster_times = {
-    #    x.replace("minicluster-run-", ""): t
-    #    for x, t in raw["meta"]["times"].items()
-    #    if x.startswith("minicluster-run")
-    #}
+    columns.append("cluster_time")
+    cluster_times = {
+        x.replace("minicluster-run-", ""): t
+        for x, t in raw["meta"]["times"].items()
+        if x.startswith("minicluster-run")
+    }
 
     # Let's first organize distributions of times
     data = []
@@ -96,27 +93,27 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf"):
     df.to_csv("results-df.csv")
 
     # We need colors!
-    # colors = sns.color_palette("hls", 8)
-    # hexcolors = colors.as_hex()
+    colors = sns.color_palette("hls", 8)
+    hexcolors = colors.as_hex()
 
-    # palette = {}
-    # for size in df.minicluster_size.unique():
-    #    palette[size] = hexcolors.pop(0)
+    palette = {}
+    for size in df.minicluster_size.unique():
+       palette[size] = hexcolors.pop(0)
 
     # Sort by size
-    # palette = dict(sorted(palette.items()))
+    palette = dict(sorted(palette.items()))
 
     # If we created the cluster time plot
-    #make_plot(
-    #    df,
-    #    title="Minicluster Creation and Deletion Time",
-    #    tag="cluster_time",
-    #    ydimension="cluster_time",
-    #    palette=palette,
-    #    ext=ext,
-    #    plotname=plotname,
-    #    plot_type="box",
-    #)
+    make_plot(
+        df,
+        title="Minicluster Creation and Deletion Time",
+        tag="cluster_time",
+        ydimension="cluster_time",
+        palette=palette,
+        ext=ext,
+        plotname=plotname,
+        plot_type="box",
+    )
     # Remove the outlier, his name is frank
     #make_plot(
     #    df[df["cluster_time"] < 1200],
@@ -125,13 +122,13 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf"):
     #    ydimension="cluster_time",
     #    palette=palette,
     #    ext=ext,
-    #    plotname=plotname,
+    #   plotname=plotname,
     #    plot_type="box",
     #)
 
     # Add the mpi operator times!
     # Remove cluster time, we don't have that for mpi-operator
-    # data = [x[:-1] for x in data]
+    data = [x[:-1] for x in data]
     [x.append("flux-operator") for x in data]
 
     # Give each job run a unique via counts for the index
@@ -159,7 +156,7 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf"):
         ]
         data.append(datum)
 
-    # columns.pop(-1)
+    columns.pop(-1)
     columns.append("operator_name")
     df = pandas.DataFrame(data, columns=columns)
     df.index = index
@@ -176,11 +173,11 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf"):
 
     # Sort by size
     palette = dict(sorted(palette.items()))
-    
+
     # Let's make a plot that shows distributions of the times by the cluster size, across all
     make_plot(
         df,
-        title="End to End Wall Time (flux submit vs mpirun) (no EFA for Flux Operator)",
+        title="End to End Wall Time (flux submit vs mpirun)",
         tag="end_to_end_walltime_fluxsubmit",
         ydimension="fluxsubmit_time",
         palette=palette,
@@ -191,7 +188,7 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf"):
     )
     make_plot(
         df,
-        title="End to End Wall Time (flux start vs mpirun) (no EFA for Flux Operator)",
+        title="End to End Wall Time (flux start vs mpirun)",
         tag="end_to_end_walltime_fluxstart",
         ydimension="fluxstart_time",
         palette=palette,
@@ -202,7 +199,7 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf"):
     )
     make_plot(
         df,
-        title="Lammps Wall Time (no EFA for Flux Operator)",
+        title="Lammps Wall Time",
         tag="walltime",
         ydimension="lammps_time",
         palette=palette,
@@ -218,7 +215,7 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf"):
     subset = df[df['operator_name'] != 'mpi-operator']
     make_plot(
         subset,
-        title="Difference (seconds) between Flux Start and Submit (start - submit) without EFA",
+        title="Difference (seconds) between Flux Start and Submit (start - submit)",
         tag="start_submit_difference",
         ydimension="fluxstart_minus_submit",
         palette=palette,
@@ -229,7 +226,7 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf"):
     )
     make_plot(
         subset,
-        title="Flux additional submit time overhead (submit - lammps) without EFA",
+        title="Flux additional submit time overhead (submit - lammps)",
         tag="submit_lammps_difference",
         ydimension="fluxsubmit_minus_lammps",
         palette=palette,
@@ -238,6 +235,7 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf"):
         hue="operator_name",
         plot_type="box",
     )
+
 
 
 def make_plot(
