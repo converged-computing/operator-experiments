@@ -14,6 +14,7 @@ Operator.
 ```bash
 $ eksctl create cluster -f ./scripts/kube_setup/eks-efa-cluster-config.yaml
 ```
+
 You'll need [the amazon command line client](https://aws.amazon.com/cli/) and [eksctl](https://eksctl.io/).
 Be weary of [this bug](https://github.com/weaveworks/eksctl/issues/6222) (I had to compile my own eksctl with the fixed config).
 Next, install the mpi-operator.
@@ -55,11 +56,10 @@ Use it from the mpi-operator directory to run the experiment:
 
 ```bash
 $ mkdir -p logs
-$ python ./run_experiments.py --app_config ./app-experiment-config.json --node_cpu 94 --node_mem 340 --num_runs 20 --cluster_log cluster.log
+$ python ./run_experiments.py --app_config ./app-experiment-config.json --node_cpu 94 --node_mem 340 --num_runs 1 --cluster_log cluster.log
 ```
 
-**QUESTION** how many runs should we do above?
-
+You likely want to do the number of runs to correspond with the number the flux operator is doing (1 for testing, eventually 20).
 Depending on the size of your cluster and available nodes configuration, these parameters need to change.
 
 Clean up the mpi operator to prepare for the Flux Operator experiments (and note we do not bring down the cluster, we will
@@ -69,6 +69,14 @@ use the same cluster).
 $ cd ../
 $ kubectl delete -f ./scripts/kube_setup/mpi-operator.yaml
 ```
+
+Note that we need to remove the taint on the workers.
+
+```bash
+$ /bin/bash ./scripts/untaint_workers.sh
+```
+
+**Question** how does the MPI operator handle running on different sizes? Via the experiment config ranks? Let's verify all these experiments in the config before updating for the larger size.
 
 ### Flux Operator Experiments
 
@@ -83,6 +91,8 @@ The cluster is already up, so let's just run the jobs.
 ```bash
 $ flux-cloud --debug apply --cloud aws
 ```
+
+And that's it! See how much easier the flux operator is? If we used flux-cloud up/down we wouldn't need to manually run the up/down either!
 
 ### Clean Up
 
