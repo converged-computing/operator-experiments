@@ -7,12 +7,12 @@
             "tmp_file": "lammps_tmp.yaml"
         },
         "spec": {
-            "launcher_cpus": 30,
-            "launcher_memory_gb": 100,
+            "launcher_cpus": 64,
+            "launcher_memory_gb": 200,
             "exp_config": [
                 { 
-                  "ranks": 94,
-                  "pods": 1,
+                  "ranks": 752,
+                  "pods": 8,
                   "cpus_per_pod": 94,
                   "slots_per_pod": 94,
                   "pod_memory_gb": 340
@@ -20,5 +20,72 @@
               ],
             "problem_size": "-v x 64 -v y 16 -v z 16"
         }
-    }
+    },
+[
+    {
+        "metadata": {
+            "name": "lammps",
+            "template_path": "lammps_mpijob_efa.yaml",
+            "log_dir": "logs",
+            "tmp_file": "lammps_tmp.yaml"
+        },
+        "spec": {
+            "launcher_cpus": 64,
+            "launcher_memory_gb": 200,
+            "exp_config": [
+                { 
+                  "ranks": 1504,
+                  "pods": 16,
+                  "cpus_per_pod": 94,
+                  "slots_per_pod": 94,
+                  "pod_memory_gb": 340
+                }
+              ],
+            "problem_size": "-v x 64 -v y 16 -v z 16"
+        }
+    },
+    {
+        "metadata": {
+            "name": "lammps",
+            "template_path": "lammps_mpijob_efa.yaml",
+            "log_dir": "logs",
+            "tmp_file": "lammps_tmp.yaml"
+        },
+        "spec": {
+            "launcher_cpus": 64,
+            "launcher_memory_gb": 200,
+            "exp_config": [
+                { 
+                  "ranks": 3008,
+                  "pods": 32,
+                  "cpus_per_pod": 94,
+                  "slots_per_pod": 94,
+                  "pod_memory_gb": 340
+                }
+              ],
+            "problem_size": "-v x 64 -v y 16 -v z 16"
+        }
+    },
+    {
+        "metadata": {
+            "name": "lammps",
+            "template_path": "lammps_mpijob_efa.yaml",
+            "log_dir": "logs",
+            "tmp_file": "lammps_tmp.yaml"
+        },
+        "spec": {
+            "launcher_cpus": 64,
+            "launcher_memory_gb": 200,
+            "exp_config": [
+                { 
+                  "ranks": 6016,
+                  "pods": 64,
+                  "cpus_per_pod": 94,
+                  "slots_per_pod": 94,
+                  "pod_memory_gb": 340
+                }
+              ],
+            "problem_size": "-v x 64 -v y 16 -v z 16"
+        }
+    },
 ]
