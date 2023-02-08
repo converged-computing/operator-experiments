@@ -56,7 +56,7 @@ Use it from the mpi-operator directory to run the experiment:
 
 ```bash
 $ mkdir -p logs
-$ python ./run_experiments.py --app_config ./app-experiment-config.json --node_cpu 94 --node_mem 340 --num_runs 1 --cluster_log cluster.log
+$ python ./run_experiments.py --app_config ./app-experiment-config.json --node_cpu 94 --node_mem 340 --num_runs 20 --cluster_log cluster.log
 ```
 
 You likely want to do the number of runs to correspond with the number the flux operator is doing (1 for testing, eventually 20).
