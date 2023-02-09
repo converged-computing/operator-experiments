@@ -3,6 +3,13 @@
 This run will bring up one cluster that will run both the MPI operator
 and Flux operator, that way we can compare the two fairly. Since we won't
 add the mpi-operator to flux-cloud, we will run the creation commands manually.
+High level notes:
+
+ - We use the same (unoptimzied) container for both `ghcr.io/rse-ops/spack-ubuntu-libfabric-ssh:ubuntu-20.04`
+ - The MPI Operator requires a node just for a launcher, so we need a size 65 cluster for each of 64, 32, 16, and 8 runs
+ - The MPI Operator yaml included here references a container that we built with a change/fix.
+ - All experiments (for different sizes) are run on the exact same kubernetes cluster
+ - All instructions are in this README, and config files / parsing scripts included for reproducibility.
 
 ## Usage
 
