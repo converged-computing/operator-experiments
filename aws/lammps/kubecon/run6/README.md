@@ -8,7 +8,7 @@ add the mpi-operator to flux-cloud, we will run the creation commands manually.
 
 ### MPI Operator Experiments
 
-First, create the cluster that will be used by the Flux Operator and MPI
+First (after exporting your AWS credentials to the environment) create the cluster that will be used by the Flux Operator and MPI
 Operator.
 
 ```bash
@@ -51,13 +51,16 @@ The directory [mpi-operator](mpi-operator) has scripts and config files to run e
 $ cd mpi-operator
 ```
 
-The file `app-experiment-config.json` should just have lammps, and for this experiment, run on a size 4 (+1 launcher node) cluster.
+The file `app-experiment-config.json` should just have lammps, and has all the sizes of experiments. We need the number of nodes +1 for the launcher.
+
 Use it from the mpi-operator directory to run the experiment:
 
 ```bash
 $ mkdir -p logs
 $ python ./run_experiments.py --app_config ./app-experiment-config.json --node_cpu 94 --node_mem 340 --num_runs 20 --cluster_log cluster.log
 ```
+
+**Note**: You should have a way to pull the containers to the nodes first, either via ssh, or via messing up experiments and re-creating everything (but having the containers pulled, possibly a more expensive way to go about it!)
 
 You likely want to do the number of runs to correspond with the number the flux operator is doing (1 for testing, eventually 20).
 Depending on the size of your cluster and available nodes configuration, these parameters need to change.
@@ -76,7 +79,15 @@ Note that we need to remove the taint on the workers.
 $ /bin/bash ./scripts/untaint_workers.sh
 ```
 
-**Question** how does the MPI operator handle running on different sizes? Via the experiment config ranks? Let's verify all these experiments in the config before updating for the larger size.
+I like to do one final sanity check that everything is cleaned up:
+
+```bash
+$ kubectl get pods
+No resources found in default namespace.
+
+$ kubectl get pods -n mpi-operator
+No resources found in mpi-operator namespace.
+```
 
 ### Flux Operator Experiments
 

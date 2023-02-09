@@ -26,8 +26,8 @@ managedNodeGroups:
   - name: workers
     availabilityZones: ["us-east-2b"]
     instanceType: hpc6a.48xlarge
-    minSize: 4
-    maxSize: 4
+    minSize: 64
+    maxSize: 64
     efaEnabled: true
     placement:
       groupName: eks-efa-testing

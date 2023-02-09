@@ -7,6 +7,7 @@ import subprocess
 from multiprocessing import Pool
 import time
 import uuid
+import sys
 from datetime import datetime
 from math import ceil
 from kubernetes import client, config, watch
@@ -24,6 +25,7 @@ def get_cluster_config(client, cluster_log, node_cpu, node_mem):
         with open(cluster_log, "w") as f:
             f.write(cluster_nodes.to_str())
     except IOError as e:
+        print('Issue with getting cluster config')
         raise
 
     node_topology = {"nodes": {}}
@@ -43,6 +45,7 @@ def read_template(app):
         with open(template, "r") as f:
             mpi_job = list(yaml.safe_load_all(f))
     except IOError as e:
+        print('Issue with reading template')
         print(e)
         raise
 
@@ -64,6 +67,7 @@ def submit_job(app, processed_job):
 
         subprocess.run([f"kubectl apply -f {tmp_file}"], shell=True, check=True)
     except Exception as e:
+        print('Issue with clobber')
         print(e)
         raise RuntimeError(str(e))
 
@@ -82,6 +86,7 @@ def delete_job(app):
     try:
         subprocess.run([f"kubectl delete -f {job_path}"], shell=True, check=True)
     except subprocess.CalledProcessError as e:
+        print('Issue with deleting job')
         print(e)
         raise
 
@@ -143,7 +148,7 @@ def get_app_logs(app, start_time, job_id, sched, node_topology, idx):
             rconfig = f"Run configuration for job {job_id}:\n"
             rconfig += f"Ranks: {app['spec']['exp_config'][idx]['ranks']}, pods: "
             rconfig += f"{app['spec']['exp_config'][idx]['pods']}, pods per node: "
-            rconfig += f"{app['spec']['exp_config'][idx]['pods_per_node']}\n"
+#             rconfig += f"{app['spec']['exp_config'][idx]['pods_per_node']}\n"
             rconfig += (
                 f"Slots per pod: {app['spec']['exp_config'][idx]['slots_per_pod']}, "
             )
@@ -162,15 +167,18 @@ def get_operator_logs(client, app_name, start_time, job_id, log_file):
     Get the MPI Operator logs to write the relevant times
     to the application log file.
     """
-    since_s = ceil((datetime.utcnow() - start_time).total_seconds())
     mpi_operator = client.list_pod_for_all_namespaces(label_selector="app=mpi-operator")
     # TODO: could there ever be more than one MPI Operator returned?
-    operator_output = client.read_namespaced_pod_log(
-        name=mpi_operator.items[0].metadata.name,
-        namespace="mpi-operator",
-        since_seconds=since_s,
-        timestamps=True,
-    )
+
+    operator_output = ""
+    while "MPIJobSucceeded" not in operator_output:
+        since_s = ceil((datetime.utcnow() - start_time).total_seconds())
+        operator_output = client.read_namespaced_pod_log(
+            name=mpi_operator.items[0].metadata.name,
+            namespace="mpi-operator",
+            since_seconds=since_s,
+            timestamps=True,
+        )
 
     seen = False
     tmp = start_time = startup_time = end_time = None
@@ -184,7 +192,9 @@ def get_operator_logs(client, app_name, start_time, job_id, log_file):
             try:
                 tmp = datetime.fromisoformat(line.strip().split(" ")[0][:-4])
             except ValueError:
+                print(f'Format is different for {line}')
                 tmp = datetime.fromisoformat(line.strip().split(" ")[0][:-12])
+                break
 
             if not seen:
                 seen = True
@@ -208,8 +218,7 @@ def get_operator_logs(client, app_name, start_time, job_id, log_file):
     log_output += f"MPIJob end-to-end time for job {app_name}-{job_id} "
     log_output += f"{end_to_end_time_s} seconds\n"
     with open(log_file, "a") as f:
-        f.write(log_output)
-
+       f.write(log_output)
 
 def process_error_handler(e):
     print(e)
@@ -224,6 +233,7 @@ def run(kube_client, apps, num_runs, num_run_configs, node_topology):
         try:
             read_template(app)
         except IOError:
+            print('Issue with reading template')
             raise
 
     # Test only using the default-scheduler to compare to flux operator
@@ -248,10 +258,13 @@ def run(kube_client, apps, num_runs, num_run_configs, node_topology):
                 )
                 job = process_template(app, job_id, sched, node_topology, idx, podgroup=podgroup)
                 submit_job(app, job)
-
+                
                 # Start an asynchronous process pool to monitor
                 # the apps in parallel
                 with Pool(processes=len(apps)) as pool:
+                        # args=(app, start_time, job_id, sched, node_topology, idx)
+                        # get_app_logs(*args)
+
                         results = []
                         for app in apps:
                             results.append(
@@ -275,6 +288,7 @@ def run(kube_client, apps, num_runs, num_run_configs, node_topology):
                         print(f"\nDeleting {app['metadata']['name']}")
                         delete_job(app)
                 except Exception as e:
+                    print('Issue with deleting app')
                     print(e)
 
                 # Need to wait for all pods to terminate or Operator will generate errors
@@ -364,6 +378,7 @@ def main():
     try:
         run(kube_client, apps, args.num_runs, num_run_configs, node_topology)
     except Exception as e:
+        print('Issue with run')
         print(e)
         raise
 
