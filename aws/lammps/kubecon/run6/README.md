@@ -112,3 +112,10 @@ Delete the cluster with eksctl
 ```bash
 $ eksctl delete cluster -f ./scripts/kube_setup/eks-efa-cluster-config.yaml
 ```
+
+### Analysis
+
+The analysis works as follows:
+
+ - We parse the results from the mpi-operator and save to mpi_operator_results.json
+
