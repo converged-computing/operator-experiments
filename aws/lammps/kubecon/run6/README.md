@@ -115,7 +115,38 @@ $ eksctl delete cluster -f ./scripts/kube_setup/eks-efa-cluster-config.yaml
 
 ### Analysis
 
-The analysis works as follows:
+The analysis works as follows
 
- - We parse the results from the mpi-operator and save to mpi_operator_results.json
+ 1. We parse the results from the mpi-operator and save to mpi_operator_results.json
+ 2. We do the same for the Flux operator, and include the MPI operator results for comparison.
+ 
+To do step 1:
 
+```bash
+$ cd mpi-operator
+$ python process_lammps_canopie22.py --output-dir ./logs --plotname lammps 
+```
+
+This will generate [mpi-operator/mpi_operator_results.json](mpi-operator/mpi_operator_results.json).
+Next, cd up one level and add these results to the Flux Operator data runs:
+
+```bash
+$ cd ..
+```
+
+And your same environment should still be sourced! First, process the Flux Operator results:
+
+```bash
+$ python process_lammps.py --meta data/aws/k8s-size-65-hpc6a.48xlarge/meta.json ./data/
+```
+
+Then plot results, ensuring you point to the MPI operator results to be included.
+
+```bash
+$ mkdir -p img/
+$ python plot_results.py --mpi-operator ./mpi-operator/mpi_operator_results.json --outdir ./img
+```
+
+### Results
+
+And here are the resulting images!
