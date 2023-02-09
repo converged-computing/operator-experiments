@@ -192,10 +192,10 @@ that the submit also adds some overhead as we are scaling.
 Now for the fun plots! We can compare how the Flux Operator vs. the MPI
 Operator run lammps.
 
-##### End to End Walltime Flux Start
+##### End to End Walltime Flux vs mpirun
 
 We can compare each of flux start and flux submit to mpirun, and it doesn't matter,
-because the slower of the two (flux start) is a lot faster. Here are the two comparisons:
+because the slower of the two (flux start) is faster. Here are the two comparisons:
 
 ![img/end_to_end_walltime_fluxstart_lammps.png](img/end_to_end_walltime_fluxstart_lammps.png)
 ![img/end_to_end_walltime_fluxsubmit_lammps.png](img/end_to_end_walltime_fluxsubmit_lammps.png)

@@ -12,11 +12,16 @@ times each. A few notes:
    - `--bind-to none`
  - We were not able to build the container on the same machine running the job, so it is not optimized for it.   
 
-
 ## Experiments
 
- - [run1](run1) was done with flux-cloud 0.1.12 that didn't ensure the pod space was cleaned up before launching the next, and the operator didn't have support for capturing flux start times.
+These are temporally backwards so newest are first.
+
+ - [run6](run6) is the final run, with everything working, MPI operator vs. Flux operator, on same cluster and container.
+ - [run5](run5) was a test run to add a flag to handle the variance (it was fixed)
+ - [run4](run4) was to debug (and fix) a broken efa, thanks to a change in eksctl
+ - [run3](run3) was more testing (removing broken efa)
  - [run2](run2) was done with flux-cloud 0.1.13 with this additional check, and the operator with support for logging.timed. The CRDs will not work if swapped between the two.
+ - [run1](run1) was done with flux-cloud 0.1.12 that didn't ensure the pod space was cleaned up before launching the next, and the operator didn't have support for capturing flux start times.
 
 
 ## Pre-requisites
@@ -44,36 +49,3 @@ $ pip install flux-cloud
 
 Ensure that aws is either your default cloud (the `default_cloud` in your settings.yml)
 or you specify it with `--cloud` when you do run.
-
-
-## Run Experiments
-
-Each experiment here is defined by the matrix and variables in [experiments.yaml](experiment.yaml) that is used to
-populate a [minicluster-template.yaml](minicluster-template.yaml) and launch a Kubernetes cluster.
-You can read the documentation for flux-cloud to understand the variables available.
-This tutorial assumes you have flux-cloud installed and configured. See all unique Kubernetes clusters
-we will run the jobs on:
-
-```bash
-$ flux-cloud list
-```
-
-It's recommended for the below commands to use `--debug` if this is your first
-time to see the configs generated (e.g., `flux-cloud --debug run`. 
-To run all at once (only recommended for headless):
-
-```bash
-$ flux-cloud run --force-cluster
-```
-
-Or (for more careful application) we did each step separately:
-
-```bash
-$ flux-cloud --debug up --cloud aws
-$ flux-cloud --debug apply --cloud aws
-$ flux-cloud --debug down --cloud aws
-```
-
-By default, results will be written to a `data` directory within each folder, and within that
-folder are organized subdirectories with logs, and a single `.script` directory for each size
-with all configs and scripts that are used. 
