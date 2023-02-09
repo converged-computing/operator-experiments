@@ -1,0 +1,375 @@
++ . /etc/profile
+++ '[' '' ']'
+++ '[' -d /etc/profile.d ']'
+++ for i in /etc/profile.d/*.sh
+++ '[' -r /etc/profile.d/01-locale-fix.sh ']'
+++ . /etc/profile.d/01-locale-fix.sh
+++++ /usr/bin/locale-check C.UTF-8
++++ eval
+++ for i in /etc/profile.d/*.sh
+++ '[' -r /etc/profile.d/z10_spack_environment.sh ']'
+++ . /etc/profile.d/z10_spack_environment.sh
++++ export SPACK_ENV=/opt/spack-environment
++++ SPACK_ENV=/opt/spack-environment
++++ alias 'despacktivate=spack env deactivate'
++++ export ACLOCAL_PATH=/opt/view/share/aclocal:/usr/share/aclocal
++++ ACLOCAL_PATH=/opt/view/share/aclocal:/usr/share/aclocal
++++ export CMAKE_PREFIX_PATH=/opt/view
++++ CMAKE_PREFIX_PATH=/opt/view
++++ export CPATH=/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/python-3.10.8-qh3hml3swbcfbaaqf2o4pxz4752mticr/include/python3.10
++++ CPATH=/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/python-3.10.8-qh3hml3swbcfbaaqf2o4pxz4752mticr/include/python3.10
++++ export FLUX_CONNECTOR_PATH=/opt/view/lib/flux/connectors
++++ FLUX_CONNECTOR_PATH=/opt/view/lib/flux/connectors
++++ export FLUX_EXEC_PATH=/opt/view/libexec/flux/cmd
++++ FLUX_EXEC_PATH=/opt/view/libexec/flux/cmd
++++ export FLUX_MODULE_PATH=/opt/view/lib/flux/modules:/opt/view/lib/flux/modules/sched
++++ FLUX_MODULE_PATH=/opt/view/lib/flux/modules:/opt/view/lib/flux/modules/sched
++++ export FLUX_RC_EXTRA=/opt/view/etc/flux
++++ FLUX_RC_EXTRA=/opt/view/etc/flux
++++ export FLUX_SHELL_RC_PATH=/opt/view/etc/flux/shell/lua.d
++++ FLUX_SHELL_RC_PATH=/opt/view/etc/flux/shell/lua.d
++++ export 'LUA_CPATH=/opt/view/lib/lua/5.3/?.so;/opt/view/lib/lua/5.3/?.so;/opt/view/lib/lua/5.3/?.so'
++++ LUA_CPATH='/opt/view/lib/lua/5.3/?.so;/opt/view/lib/lua/5.3/?.so;/opt/view/lib/lua/5.3/?.so'
++++ export 'LUA_PATH=/opt/view/lib/lua/5.3/?/init.lua;/opt/view/lib/lua/5.3/?.lua;/opt/view/share/lua/5.3/?/init.lua;/opt/view/share/lua/5.3/?.lua;/opt/view/share/lua/5.3/?.lua;/opt/view/share/lua/5.3/?.lua'
++++ LUA_PATH='/opt/view/lib/lua/5.3/?/init.lua;/opt/view/lib/lua/5.3/?.lua;/opt/view/share/lua/5.3/?/init.lua;/opt/view/share/lua/5.3/?.lua;/opt/view/share/lua/5.3/?.lua;/opt/view/share/lua/5.3/?.lua'
++++ export MANPATH=/opt/view/share/man:/opt/view/man:/usr/share/man:
++++ MANPATH=/opt/view/share/man:/opt/view/man:/usr/share/man:
++++ export MPICC=/opt/view/bin/mpicc
++++ MPICC=/opt/view/bin/mpicc
++++ export MPICXX=/opt/view/bin/mpic++
++++ MPICXX=/opt/view/bin/mpic++
++++ export MPIF77=/opt/view/bin/mpif77
++++ MPIF77=/opt/view/bin/mpif77
++++ export MPIF90=/opt/view/bin/mpif90
++++ MPIF90=/opt/view/bin/mpif90
++++ export PATH=/opt/view/bin:/opt/spack-environment/spack/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/view/bin:/opt/spack-environment/spack/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PKG_CONFIG_PATH=/opt/view/lib/pkgconfig:/usr/share/pkgconfig:/opt/view/share/pkgconfig:/opt/view/lib64/pkgconfig
++++ PKG_CONFIG_PATH=/opt/view/lib/pkgconfig:/usr/share/pkgconfig:/opt/view/share/pkgconfig:/opt/view/lib64/pkgconfig
++++ export PYTHONPATH=/opt/view/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pyrsistent-0.18.1-4y45yicct333hekudm6spwmfo4zurvir/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-attrs-22.1.0-6l7qhin5aaqyev56skpsvruxox2ywn3s/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pycparser-2.21-7seqp6a5ivvr4t3xygon2ttiyh55bbm6/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pyyaml-6.0-ayf2ig4btgiev7ir675l7oywhvgl7rhs/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-jsonschema-4.16.0-6zl5yjunrcsn4zpywynn5oph32iqlvou/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-cffi-1.15.0-gyk2my27jc3b5gno4zcqtm3riumyl4vp/lib/python3.10/site-packages
++++ PYTHONPATH=/opt/view/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pyrsistent-0.18.1-4y45yicct333hekudm6spwmfo4zurvir/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-attrs-22.1.0-6l7qhin5aaqyev56skpsvruxox2ywn3s/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pycparser-2.21-7seqp6a5ivvr4t3xygon2ttiyh55bbm6/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pyyaml-6.0-ayf2ig4btgiev7ir675l7oywhvgl7rhs/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-jsonschema-4.16.0-6zl5yjunrcsn4zpywynn5oph32iqlvou/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-cffi-1.15.0-gyk2my27jc3b5gno4zcqtm3riumyl4vp/lib/python3.10/site-packages
+++ unset i
++ . /etc/profile.d/z10_spack_environment.sh
+++ export SPACK_ENV=/opt/spack-environment
+++ SPACK_ENV=/opt/spack-environment
+++ alias 'despacktivate=spack env deactivate'
+++ export ACLOCAL_PATH=/opt/view/share/aclocal:/usr/share/aclocal
+++ ACLOCAL_PATH=/opt/view/share/aclocal:/usr/share/aclocal
+++ export CMAKE_PREFIX_PATH=/opt/view
+++ CMAKE_PREFIX_PATH=/opt/view
+++ export CPATH=/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/python-3.10.8-qh3hml3swbcfbaaqf2o4pxz4752mticr/include/python3.10
+++ CPATH=/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/python-3.10.8-qh3hml3swbcfbaaqf2o4pxz4752mticr/include/python3.10
+++ export FLUX_CONNECTOR_PATH=/opt/view/lib/flux/connectors
+++ FLUX_CONNECTOR_PATH=/opt/view/lib/flux/connectors
+++ export FLUX_EXEC_PATH=/opt/view/libexec/flux/cmd
+++ FLUX_EXEC_PATH=/opt/view/libexec/flux/cmd
+++ export FLUX_MODULE_PATH=/opt/view/lib/flux/modules:/opt/view/lib/flux/modules/sched
+++ FLUX_MODULE_PATH=/opt/view/lib/flux/modules:/opt/view/lib/flux/modules/sched
+++ export FLUX_RC_EXTRA=/opt/view/etc/flux
+++ FLUX_RC_EXTRA=/opt/view/etc/flux
+++ export FLUX_SHELL_RC_PATH=/opt/view/etc/flux/shell/lua.d
+++ FLUX_SHELL_RC_PATH=/opt/view/etc/flux/shell/lua.d
+++ export 'LUA_CPATH=/opt/view/lib/lua/5.3/?.so;/opt/view/lib/lua/5.3/?.so;/opt/view/lib/lua/5.3/?.so'
+++ LUA_CPATH='/opt/view/lib/lua/5.3/?.so;/opt/view/lib/lua/5.3/?.so;/opt/view/lib/lua/5.3/?.so'
+++ export 'LUA_PATH=/opt/view/lib/lua/5.3/?/init.lua;/opt/view/lib/lua/5.3/?.lua;/opt/view/share/lua/5.3/?/init.lua;/opt/view/share/lua/5.3/?.lua;/opt/view/share/lua/5.3/?.lua;/opt/view/share/lua/5.3/?.lua'
+++ LUA_PATH='/opt/view/lib/lua/5.3/?/init.lua;/opt/view/lib/lua/5.3/?.lua;/opt/view/share/lua/5.3/?/init.lua;/opt/view/share/lua/5.3/?.lua;/opt/view/share/lua/5.3/?.lua;/opt/view/share/lua/5.3/?.lua'
+++ export MANPATH=/opt/view/share/man:/opt/view/man:/usr/share/man:
+++ MANPATH=/opt/view/share/man:/opt/view/man:/usr/share/man:
+++ export MPICC=/opt/view/bin/mpicc
+++ MPICC=/opt/view/bin/mpicc
+++ export MPICXX=/opt/view/bin/mpic++
+++ MPICXX=/opt/view/bin/mpic++
+++ export MPIF77=/opt/view/bin/mpif77
+++ MPIF77=/opt/view/bin/mpif77
+++ export MPIF90=/opt/view/bin/mpif90
+++ MPIF90=/opt/view/bin/mpif90
+++ export PATH=/opt/view/bin:/opt/spack-environment/spack/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/view/bin:/opt/spack-environment/spack/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export PKG_CONFIG_PATH=/opt/view/lib/pkgconfig:/usr/share/pkgconfig:/opt/view/share/pkgconfig:/opt/view/lib64/pkgconfig
+++ PKG_CONFIG_PATH=/opt/view/lib/pkgconfig:/usr/share/pkgconfig:/opt/view/share/pkgconfig:/opt/view/lib64/pkgconfig
+++ export PYTHONPATH=/opt/view/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pyrsistent-0.18.1-4y45yicct333hekudm6spwmfo4zurvir/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-attrs-22.1.0-6l7qhin5aaqyev56skpsvruxox2ywn3s/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pycparser-2.21-7seqp6a5ivvr4t3xygon2ttiyh55bbm6/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pyyaml-6.0-ayf2ig4btgiev7ir675l7oywhvgl7rhs/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-jsonschema-4.16.0-6zl5yjunrcsn4zpywynn5oph32iqlvou/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-cffi-1.15.0-gyk2my27jc3b5gno4zcqtm3riumyl4vp/lib/python3.10/site-packages
+++ PYTHONPATH=/opt/view/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pyrsistent-0.18.1-4y45yicct333hekudm6spwmfo4zurvir/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-attrs-22.1.0-6l7qhin5aaqyev56skpsvruxox2ywn3s/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pycparser-2.21-7seqp6a5ivvr4t3xygon2ttiyh55bbm6/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pyyaml-6.0-ayf2ig4btgiev7ir675l7oywhvgl7rhs/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-jsonschema-4.16.0-6zl5yjunrcsn4zpywynn5oph32iqlvou/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-cffi-1.15.0-gyk2my27jc3b5gno4zcqtm3riumyl4vp/lib/python3.10/site-packages
++ mpirun --allow-run-as-root --mca orte_launch_agent /opt/view/bin/orted --mca plm_rsh_agent rsh -x PATH -x LD_LIBRARY_PATH -x FI_EFA_USE_DEVICE_RDMA=1 -x RDMAV_FORK_SAFE=1 -np 6016 --map-by numa --rank-by core --bind-to none lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
+[lammps-05bc97754931-launcher:00008] Warning: could not find environment variable "LD_LIBRARY_PATH"
+Warning: Permanently added '192.168.31.170' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.18.191' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.12.196' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.29.246' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.21.22' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.2.181' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.21.1' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.5.106' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.25.145' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.0.35' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.5.37' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.11.36' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.21.205' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.5.32' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.12.193' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.26.111' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.8.218' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.0.28' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.21.40' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.18.176' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.3.17' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.5.166' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.3.37' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.9.124' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.6.108' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.18.41' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.9.166' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.26.176' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.28.250' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.24.105' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.12.182' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.29.135' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.6.168' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.21.7' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.10.151' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.29.39' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.9.53' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.20.212' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.14.170' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.7.107' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.0.240' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.10.244' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.4.153' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.27.157' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.28.26' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.19.82' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.25.118' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.7.183' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.17.249' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.22.57' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.30.38' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.21.36' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.28.84' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.13.91' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.4.5' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.24.142' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.6.185' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.7.162' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.14.137' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.6.70' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.15.104' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.0.227' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.23.147' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.23.173' (ECDSA) to the list of known hosts.
+LAMMPS (29 Sep 2021 - Update 2)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
+  using 1 OpenMP thread(s) per MPI task
+Reading data file ...
+  triclinic box = (0.0000000 0.0000000 0.0000000) to (22.326000 11.141200 13.778966) with tilt (0.0000000 -5.0260300 0.0000000)
+  47 by 8 by 16 MPI processor grid
+  reading atoms ...
+  304 atoms
+  reading velocities ...
+  304 velocities
+  read_data CPU = 0.200 seconds
+Replicating atoms ...
+  triclinic box = (0.0000000 0.0000000 0.0000000) to (1428.8640 178.25920 220.46346) with tilt (0.0000000 -80.416480 0.0000000)
+  94 by 8 by 8 MPI processor grid
+  bounding box image = (0 -1 -1) to (0 1 1)
+  bounding box extra memory = 0.03 MB
+  average # of replicas added to proc = 28.32 out of 16384 (0.17%)
+  4980736 atoms
+  replicate CPU = 0.098 seconds
+Neighbor list info ...
+  update every 20 steps, delay 0 steps, check no
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 11
+  ghost atom cutoff = 11
+  binsize = 5.5, bins = 275 33 41
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: full/ghost/bin/3d
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+Setting up Verlet run ...
+  Unit style    : real
+  Current step  : 0
+  Time step     : 0.1
+Per MPI rank memory allocation (min/avg/max) = 119.1 | 121.5 | 123.3 Mbytes
+Step Temp PotEng Press E_vdwl E_coul Volume 
+       0          300   -113.27833    439.01985   -111.57687   -1.7014647     56153840 
+      10    300.78686   -113.28051    827.36844   -111.57907   -1.7014353     56153840 
+      20    302.44845   -113.28532    1713.1412   -111.58399   -1.7013238     56153840 
+      30    302.57357   -113.28556    4309.4577   -111.58447    -1.701095     56153840 
+      40    300.60956   -113.27964    6382.2414   -111.57887   -1.7007685     56153840 
+      50    297.41258   -113.27006    6487.7437   -111.56966   -1.7004036     56153840 
+      60    294.73456   -113.26203    6223.0461     -111.562   -1.7000353     56153840 
+      70    294.66561   -113.26178    6861.6613   -111.56212   -1.6996621     56153840 
+      80    297.77718   -113.27104    8252.9993   -111.57175   -1.6992888     56153840 
+      90    301.68089   -113.28267    9374.9283   -111.58372   -1.6989575     56153840 
+     100    302.58671   -113.28532    10369.088    -111.5866   -1.6987204     56153840 
+Loop time of 18.7006 on 6016 procs for 100 steps with 4980736 atoms
+
+Performance: 0.046 ns/day, 519.460 hours/ns, 5.347 timesteps/s
+99.0% CPU use with 6016 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.5784     | 7.6575     | 9.0263     |   9.9 | 40.95
+Neigh   | 0.17981    | 0.18981    | 0.28524    |   0.8 |  1.01
+Comm    | 0.32041    | 1.1706     | 2.5534     |  32.3 |  6.26
+Output  | 0.18844    | 0.26       | 0.32074    |   4.0 |  1.39
+Modify  | 8.9116     | 9.4209     | 9.8675     |   6.4 | 50.38
+Other   |            | 0.001793   |            |       |  0.01
+
+Nlocal:        827.915 ave         865 max         767 min
+Histogram: 210 297 316 73 46 1510 1272 668 1343 281
+Nghost:        6638.24 ave        6764 max        6483 min
+Histogram: 229 153 215 740 1170 1088 997 497 543 384
+Neighs:        307828.0 ave      320311 max      287730 min
+Histogram: 203 293 303 97 94 1590 1215 785 1185 251
+
+Total # of neighbors = 1.8518923e+09
+Ave neighs/atom = 371.81097
+Neighbor list builds = 5
+Dangerous builds not checked
+Total wall time: 0:00:20
+real 28.22
+user 2.73
+sys 3.50
+Mapping for job 05bc97754931 for scheduler default-scheduler
+lammps-05bc97754931-worker-0 --> ip-192-168-21-150.us-east-2.compute.internal
+lammps-05bc97754931-worker-1 --> ip-192-168-27-207.us-east-2.compute.internal
+lammps-05bc97754931-worker-10 --> ip-192-168-7-106.us-east-2.compute.internal
+lammps-05bc97754931-worker-11 --> ip-192-168-7-11.us-east-2.compute.internal
+lammps-05bc97754931-worker-12 --> ip-192-168-2-191.us-east-2.compute.internal
+lammps-05bc97754931-worker-13 --> ip-192-168-23-238.us-east-2.compute.internal
+lammps-05bc97754931-worker-14 --> ip-192-168-1-70.us-east-2.compute.internal
+lammps-05bc97754931-worker-15 --> ip-192-168-25-97.us-east-2.compute.internal
+lammps-05bc97754931-worker-16 --> ip-192-168-26-130.us-east-2.compute.internal
+lammps-05bc97754931-worker-17 --> ip-192-168-21-33.us-east-2.compute.internal
+lammps-05bc97754931-worker-18 --> ip-192-168-27-171.us-east-2.compute.internal
+lammps-05bc97754931-worker-19 --> ip-192-168-13-5.us-east-2.compute.internal
+lammps-05bc97754931-worker-2 --> ip-192-168-9-126.us-east-2.compute.internal
+lammps-05bc97754931-worker-20 --> ip-192-168-7-216.us-east-2.compute.internal
+lammps-05bc97754931-worker-21 --> ip-192-168-13-199.us-east-2.compute.internal
+lammps-05bc97754931-worker-22 --> ip-192-168-25-153.us-east-2.compute.internal
+lammps-05bc97754931-worker-23 --> ip-192-168-0-55.us-east-2.compute.internal
+lammps-05bc97754931-worker-24 --> ip-192-168-22-183.us-east-2.compute.internal
+lammps-05bc97754931-worker-25 --> ip-192-168-13-31.us-east-2.compute.internal
+lammps-05bc97754931-worker-26 --> ip-192-168-28-9.us-east-2.compute.internal
+lammps-05bc97754931-worker-27 --> ip-192-168-2-23.us-east-2.compute.internal
+lammps-05bc97754931-worker-28 --> ip-192-168-20-107.us-east-2.compute.internal
+lammps-05bc97754931-worker-29 --> ip-192-168-16-104.us-east-2.compute.internal
+lammps-05bc97754931-worker-3 --> ip-192-168-20-216.us-east-2.compute.internal
+lammps-05bc97754931-worker-30 --> ip-192-168-11-91.us-east-2.compute.internal
+lammps-05bc97754931-worker-31 --> ip-192-168-4-219.us-east-2.compute.internal
+lammps-05bc97754931-worker-32 --> ip-192-168-17-81.us-east-2.compute.internal
+lammps-05bc97754931-worker-33 --> ip-192-168-19-211.us-east-2.compute.internal
+lammps-05bc97754931-worker-34 --> ip-192-168-18-186.us-east-2.compute.internal
+lammps-05bc97754931-worker-35 --> ip-192-168-19-125.us-east-2.compute.internal
+lammps-05bc97754931-worker-36 --> ip-192-168-20-24.us-east-2.compute.internal
+lammps-05bc97754931-worker-37 --> ip-192-168-14-254.us-east-2.compute.internal
+lammps-05bc97754931-worker-38 --> ip-192-168-10-190.us-east-2.compute.internal
+lammps-05bc97754931-worker-39 --> ip-192-168-6-6.us-east-2.compute.internal
+lammps-05bc97754931-worker-4 --> ip-192-168-23-198.us-east-2.compute.internal
+lammps-05bc97754931-worker-40 --> ip-192-168-22-235.us-east-2.compute.internal
+lammps-05bc97754931-worker-41 --> ip-192-168-18-18.us-east-2.compute.internal
+lammps-05bc97754931-worker-42 --> ip-192-168-11-54.us-east-2.compute.internal
+lammps-05bc97754931-worker-43 --> ip-192-168-29-151.us-east-2.compute.internal
+lammps-05bc97754931-worker-44 --> ip-192-168-15-39.us-east-2.compute.internal
+lammps-05bc97754931-worker-45 --> ip-192-168-8-245.us-east-2.compute.internal
+lammps-05bc97754931-worker-46 --> ip-192-168-12-98.us-east-2.compute.internal
+lammps-05bc97754931-worker-47 --> ip-192-168-25-124.us-east-2.compute.internal
+lammps-05bc97754931-worker-48 --> ip-192-168-31-78.us-east-2.compute.internal
+lammps-05bc97754931-worker-49 --> ip-192-168-2-121.us-east-2.compute.internal
+lammps-05bc97754931-worker-5 --> ip-192-168-22-68.us-east-2.compute.internal
+lammps-05bc97754931-worker-50 --> ip-192-168-25-203.us-east-2.compute.internal
+lammps-05bc97754931-worker-51 --> ip-192-168-6-72.us-east-2.compute.internal
+lammps-05bc97754931-worker-52 --> ip-192-168-6-213.us-east-2.compute.internal
+lammps-05bc97754931-worker-53 --> ip-192-168-23-116.us-east-2.compute.internal
+lammps-05bc97754931-worker-54 --> ip-192-168-13-244.us-east-2.compute.internal
+lammps-05bc97754931-worker-55 --> ip-192-168-9-93.us-east-2.compute.internal
+lammps-05bc97754931-worker-56 --> ip-192-168-0-212.us-east-2.compute.internal
+lammps-05bc97754931-worker-57 --> ip-192-168-16-53.us-east-2.compute.internal
+lammps-05bc97754931-worker-58 --> ip-192-168-7-65.us-east-2.compute.internal
+lammps-05bc97754931-worker-59 --> ip-192-168-2-81.us-east-2.compute.internal
+lammps-05bc97754931-worker-6 --> ip-192-168-19-41.us-east-2.compute.internal
+lammps-05bc97754931-worker-60 --> ip-192-168-17-138.us-east-2.compute.internal
+lammps-05bc97754931-worker-61 --> ip-192-168-0-65.us-east-2.compute.internal
+lammps-05bc97754931-worker-62 --> ip-192-168-24-179.us-east-2.compute.internal
+lammps-05bc97754931-worker-63 --> ip-192-168-21-176.us-east-2.compute.internal
+lammps-05bc97754931-worker-7 --> ip-192-168-2-67.us-east-2.compute.internal
+lammps-05bc97754931-worker-8 --> ip-192-168-18-61.us-east-2.compute.internal
+lammps-05bc97754931-worker-9 --> ip-192-168-19-155.us-east-2.compute.internal
+ip-192-168-21-150.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-27-207.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-7-106.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-7-11.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-2-191.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-23-238.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-1-70.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-25-97.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-26-130.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-21-33.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-27-171.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-13-5.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-9-126.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-7-216.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-13-199.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-25-153.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-0-55.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-22-183.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-13-31.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-28-9.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-2-23.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-20-107.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-16-104.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-20-216.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-11-91.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-4-219.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-17-81.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-19-211.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-18-186.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-19-125.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-20-24.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-14-254.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-10-190.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-6-6.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-23-198.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-22-235.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-18-18.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-11-54.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-29-151.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-15-39.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-8-245.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-12-98.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-25-124.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-31-78.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-2-121.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-22-68.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-25-203.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-6-72.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-6-213.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-23-116.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-13-244.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-9-93.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-0-212.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-16-53.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-7-65.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-2-81.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-19-41.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-17-138.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-0-65.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-24-179.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-21-176.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-2-67.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-18-61.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-19-155.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+Run configuration for job 05bc97754931:
+Ranks: 6016, pods: 64, pods per node: Slots per pod: 94, GiB memory per pod: 340
+Launcher CPUs: 94, launcher memory in GiB: 340
+MPIJob startup time for job lammps-05bc97754931 is 45.040861 seconds
+MPIJob runtime for job lammps-05bc97754931 is 1.83386 seconds
+MPIJob end-to-end time for job lammps-05bc97754931 46.874721 seconds

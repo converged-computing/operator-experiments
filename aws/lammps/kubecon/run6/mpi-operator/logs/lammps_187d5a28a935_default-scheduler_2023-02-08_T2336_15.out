@@ -1,0 +1,231 @@
++ . /etc/profile
+++ '[' '' ']'
+++ '[' -d /etc/profile.d ']'
+++ for i in /etc/profile.d/*.sh
+++ '[' -r /etc/profile.d/01-locale-fix.sh ']'
+++ . /etc/profile.d/01-locale-fix.sh
+++++ /usr/bin/locale-check C.UTF-8
++++ eval
+++ for i in /etc/profile.d/*.sh
+++ '[' -r /etc/profile.d/z10_spack_environment.sh ']'
+++ . /etc/profile.d/z10_spack_environment.sh
++++ export SPACK_ENV=/opt/spack-environment
++++ SPACK_ENV=/opt/spack-environment
++++ alias 'despacktivate=spack env deactivate'
++++ export ACLOCAL_PATH=/opt/view/share/aclocal:/usr/share/aclocal
++++ ACLOCAL_PATH=/opt/view/share/aclocal:/usr/share/aclocal
++++ export CMAKE_PREFIX_PATH=/opt/view
++++ CMAKE_PREFIX_PATH=/opt/view
++++ export CPATH=/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/python-3.10.8-qh3hml3swbcfbaaqf2o4pxz4752mticr/include/python3.10
++++ CPATH=/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/python-3.10.8-qh3hml3swbcfbaaqf2o4pxz4752mticr/include/python3.10
++++ export FLUX_CONNECTOR_PATH=/opt/view/lib/flux/connectors
++++ FLUX_CONNECTOR_PATH=/opt/view/lib/flux/connectors
++++ export FLUX_EXEC_PATH=/opt/view/libexec/flux/cmd
++++ FLUX_EXEC_PATH=/opt/view/libexec/flux/cmd
++++ export FLUX_MODULE_PATH=/opt/view/lib/flux/modules:/opt/view/lib/flux/modules/sched
++++ FLUX_MODULE_PATH=/opt/view/lib/flux/modules:/opt/view/lib/flux/modules/sched
++++ export FLUX_RC_EXTRA=/opt/view/etc/flux
++++ FLUX_RC_EXTRA=/opt/view/etc/flux
++++ export FLUX_SHELL_RC_PATH=/opt/view/etc/flux/shell/lua.d
++++ FLUX_SHELL_RC_PATH=/opt/view/etc/flux/shell/lua.d
++++ export 'LUA_CPATH=/opt/view/lib/lua/5.3/?.so;/opt/view/lib/lua/5.3/?.so;/opt/view/lib/lua/5.3/?.so'
++++ LUA_CPATH='/opt/view/lib/lua/5.3/?.so;/opt/view/lib/lua/5.3/?.so;/opt/view/lib/lua/5.3/?.so'
++++ export 'LUA_PATH=/opt/view/lib/lua/5.3/?/init.lua;/opt/view/lib/lua/5.3/?.lua;/opt/view/share/lua/5.3/?/init.lua;/opt/view/share/lua/5.3/?.lua;/opt/view/share/lua/5.3/?.lua;/opt/view/share/lua/5.3/?.lua'
++++ LUA_PATH='/opt/view/lib/lua/5.3/?/init.lua;/opt/view/lib/lua/5.3/?.lua;/opt/view/share/lua/5.3/?/init.lua;/opt/view/share/lua/5.3/?.lua;/opt/view/share/lua/5.3/?.lua;/opt/view/share/lua/5.3/?.lua'
++++ export MANPATH=/opt/view/share/man:/opt/view/man:/usr/share/man:
++++ MANPATH=/opt/view/share/man:/opt/view/man:/usr/share/man:
++++ export MPICC=/opt/view/bin/mpicc
++++ MPICC=/opt/view/bin/mpicc
++++ export MPICXX=/opt/view/bin/mpic++
++++ MPICXX=/opt/view/bin/mpic++
++++ export MPIF77=/opt/view/bin/mpif77
++++ MPIF77=/opt/view/bin/mpif77
++++ export MPIF90=/opt/view/bin/mpif90
++++ MPIF90=/opt/view/bin/mpif90
++++ export PATH=/opt/view/bin:/opt/spack-environment/spack/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/view/bin:/opt/spack-environment/spack/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PKG_CONFIG_PATH=/opt/view/lib/pkgconfig:/usr/share/pkgconfig:/opt/view/share/pkgconfig:/opt/view/lib64/pkgconfig
++++ PKG_CONFIG_PATH=/opt/view/lib/pkgconfig:/usr/share/pkgconfig:/opt/view/share/pkgconfig:/opt/view/lib64/pkgconfig
++++ export PYTHONPATH=/opt/view/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pyrsistent-0.18.1-4y45yicct333hekudm6spwmfo4zurvir/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-attrs-22.1.0-6l7qhin5aaqyev56skpsvruxox2ywn3s/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pycparser-2.21-7seqp6a5ivvr4t3xygon2ttiyh55bbm6/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pyyaml-6.0-ayf2ig4btgiev7ir675l7oywhvgl7rhs/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-jsonschema-4.16.0-6zl5yjunrcsn4zpywynn5oph32iqlvou/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-cffi-1.15.0-gyk2my27jc3b5gno4zcqtm3riumyl4vp/lib/python3.10/site-packages
++++ PYTHONPATH=/opt/view/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pyrsistent-0.18.1-4y45yicct333hekudm6spwmfo4zurvir/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-attrs-22.1.0-6l7qhin5aaqyev56skpsvruxox2ywn3s/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pycparser-2.21-7seqp6a5ivvr4t3xygon2ttiyh55bbm6/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pyyaml-6.0-ayf2ig4btgiev7ir675l7oywhvgl7rhs/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-jsonschema-4.16.0-6zl5yjunrcsn4zpywynn5oph32iqlvou/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-cffi-1.15.0-gyk2my27jc3b5gno4zcqtm3riumyl4vp/lib/python3.10/site-packages
+++ unset i
++ . /etc/profile.d/z10_spack_environment.sh
+++ export SPACK_ENV=/opt/spack-environment
+++ SPACK_ENV=/opt/spack-environment
+++ alias 'despacktivate=spack env deactivate'
+++ export ACLOCAL_PATH=/opt/view/share/aclocal:/usr/share/aclocal
+++ ACLOCAL_PATH=/opt/view/share/aclocal:/usr/share/aclocal
+++ export CMAKE_PREFIX_PATH=/opt/view
+++ CMAKE_PREFIX_PATH=/opt/view
+++ export CPATH=/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/python-3.10.8-qh3hml3swbcfbaaqf2o4pxz4752mticr/include/python3.10
+++ CPATH=/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/python-3.10.8-qh3hml3swbcfbaaqf2o4pxz4752mticr/include/python3.10
+++ export FLUX_CONNECTOR_PATH=/opt/view/lib/flux/connectors
+++ FLUX_CONNECTOR_PATH=/opt/view/lib/flux/connectors
+++ export FLUX_EXEC_PATH=/opt/view/libexec/flux/cmd
+++ FLUX_EXEC_PATH=/opt/view/libexec/flux/cmd
+++ export FLUX_MODULE_PATH=/opt/view/lib/flux/modules:/opt/view/lib/flux/modules/sched
+++ FLUX_MODULE_PATH=/opt/view/lib/flux/modules:/opt/view/lib/flux/modules/sched
+++ export FLUX_RC_EXTRA=/opt/view/etc/flux
+++ FLUX_RC_EXTRA=/opt/view/etc/flux
+++ export FLUX_SHELL_RC_PATH=/opt/view/etc/flux/shell/lua.d
+++ FLUX_SHELL_RC_PATH=/opt/view/etc/flux/shell/lua.d
+++ export 'LUA_CPATH=/opt/view/lib/lua/5.3/?.so;/opt/view/lib/lua/5.3/?.so;/opt/view/lib/lua/5.3/?.so'
+++ LUA_CPATH='/opt/view/lib/lua/5.3/?.so;/opt/view/lib/lua/5.3/?.so;/opt/view/lib/lua/5.3/?.so'
+++ export 'LUA_PATH=/opt/view/lib/lua/5.3/?/init.lua;/opt/view/lib/lua/5.3/?.lua;/opt/view/share/lua/5.3/?/init.lua;/opt/view/share/lua/5.3/?.lua;/opt/view/share/lua/5.3/?.lua;/opt/view/share/lua/5.3/?.lua'
+++ LUA_PATH='/opt/view/lib/lua/5.3/?/init.lua;/opt/view/lib/lua/5.3/?.lua;/opt/view/share/lua/5.3/?/init.lua;/opt/view/share/lua/5.3/?.lua;/opt/view/share/lua/5.3/?.lua;/opt/view/share/lua/5.3/?.lua'
+++ export MANPATH=/opt/view/share/man:/opt/view/man:/usr/share/man:
+++ MANPATH=/opt/view/share/man:/opt/view/man:/usr/share/man:
+++ export MPICC=/opt/view/bin/mpicc
+++ MPICC=/opt/view/bin/mpicc
+++ export MPICXX=/opt/view/bin/mpic++
+++ MPICXX=/opt/view/bin/mpic++
+++ export MPIF77=/opt/view/bin/mpif77
+++ MPIF77=/opt/view/bin/mpif77
+++ export MPIF90=/opt/view/bin/mpif90
+++ MPIF90=/opt/view/bin/mpif90
+++ export PATH=/opt/view/bin:/opt/spack-environment/spack/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/view/bin:/opt/spack-environment/spack/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export PKG_CONFIG_PATH=/opt/view/lib/pkgconfig:/usr/share/pkgconfig:/opt/view/share/pkgconfig:/opt/view/lib64/pkgconfig
+++ PKG_CONFIG_PATH=/opt/view/lib/pkgconfig:/usr/share/pkgconfig:/opt/view/share/pkgconfig:/opt/view/lib64/pkgconfig
+++ export PYTHONPATH=/opt/view/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pyrsistent-0.18.1-4y45yicct333hekudm6spwmfo4zurvir/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-attrs-22.1.0-6l7qhin5aaqyev56skpsvruxox2ywn3s/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pycparser-2.21-7seqp6a5ivvr4t3xygon2ttiyh55bbm6/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pyyaml-6.0-ayf2ig4btgiev7ir675l7oywhvgl7rhs/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-jsonschema-4.16.0-6zl5yjunrcsn4zpywynn5oph32iqlvou/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-cffi-1.15.0-gyk2my27jc3b5gno4zcqtm3riumyl4vp/lib/python3.10/site-packages
+++ PYTHONPATH=/opt/view/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pyrsistent-0.18.1-4y45yicct333hekudm6spwmfo4zurvir/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-attrs-22.1.0-6l7qhin5aaqyev56skpsvruxox2ywn3s/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pycparser-2.21-7seqp6a5ivvr4t3xygon2ttiyh55bbm6/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-pyyaml-6.0-ayf2ig4btgiev7ir675l7oywhvgl7rhs/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-jsonschema-4.16.0-6zl5yjunrcsn4zpywynn5oph32iqlvou/lib/python3.10/site-packages:/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/py-cffi-1.15.0-gyk2my27jc3b5gno4zcqtm3riumyl4vp/lib/python3.10/site-packages
++ mpirun --allow-run-as-root --mca orte_launch_agent /opt/view/bin/orted --mca plm_rsh_agent rsh -x PATH -x LD_LIBRARY_PATH -x FI_EFA_USE_DEVICE_RDMA=1 -x RDMAV_FORK_SAFE=1 -np 1504 --map-by numa --rank-by core --bind-to none lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
+[lammps-187d5a28a935-launcher:00008] Warning: could not find environment variable "LD_LIBRARY_PATH"
+Warning: Permanently added '192.168.17.149' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.27.44' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.27.72' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.20.196' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.6.40' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.6.226' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.16.159' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.27.146' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.14.6' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.21.142' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.26.139' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.8.230' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.19.169' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.28.10' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.11.143' (ECDSA) to the list of known hosts.
+Warning: Permanently added '192.168.17.3' (ECDSA) to the list of known hosts.
+LAMMPS (29 Sep 2021 - Update 2)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
+  using 1 OpenMP thread(s) per MPI task
+Reading data file ...
+  triclinic box = (0.0000000 0.0000000 0.0000000) to (22.326000 11.141200 13.778966) with tilt (0.0000000 -5.0260300 0.0000000)
+  47 by 4 by 8 MPI processor grid
+  reading atoms ...
+  304 atoms
+  reading velocities ...
+  304 velocities
+  read_data CPU = 0.141 seconds
+Replicating atoms ...
+  triclinic box = (0.0000000 0.0000000 0.0000000) to (1428.8640 178.25920 220.46346) with tilt (0.0000000 -80.416480 0.0000000)
+  47 by 4 by 8 MPI processor grid
+  bounding box image = (0 -1 -1) to (0 1 1)
+  bounding box extra memory = 0.03 MB
+  average # of replicas added to proc = 60.59 out of 16384 (0.37%)
+  4980736 atoms
+  replicate CPU = 0.131 seconds
+Neighbor list info ...
+  update every 20 steps, delay 0 steps, check no
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 11
+  ghost atom cutoff = 11
+  binsize = 5.5, bins = 275 33 41
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: full/ghost/bin/3d
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+Setting up Verlet run ...
+  Unit style    : real
+  Current step  : 0
+  Time step     : 0.1
+Per MPI rank memory allocation (min/avg/max) = 254.8 | 257.2 | 260.8 Mbytes
+Step Temp PotEng Press E_vdwl E_coul Volume 
+       0          300   -113.27833    439.01979   -111.57687   -1.7014647     56153840 
+      10    300.78686   -113.28051    827.36847   -111.57907   -1.7014353     56153840 
+      20    302.44845   -113.28532    1713.1411   -111.58399   -1.7013238     56153840 
+      30    302.57357   -113.28556    4309.4668   -111.58447    -1.701095     56153840 
+      40    300.60957   -113.27964    6382.2542   -111.57887   -1.7007685     56153840 
+      50    297.41258   -113.27006    6487.7728   -111.56966   -1.7004035     56153840 
+      60    294.73454   -113.26203    6223.1055     -111.562   -1.7000352     56153840 
+      70    294.66561   -113.26178    6861.7118   -111.56212   -1.6996621     56153840 
+      80    297.77718   -113.27104    8253.0234   -111.57175   -1.6992888     56153840 
+      90     301.6809   -113.28267    9374.9184   -111.58372   -1.6989575     56153840 
+     100    302.58671   -113.28532    10369.054    -111.5866   -1.6987205     56153840 
+Loop time of 43.4138 on 1504 procs for 100 steps with 4980736 atoms
+
+Performance: 0.020 ns/day, 1205.938 hours/ns, 2.303 timesteps/s
+99.6% CPU use with 1504 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 20.094     | 22.505     | 25.667     |  15.6 | 51.84
+Neigh   | 0.41685    | 0.43066    | 0.45228    |   0.7 |  0.99
+Comm    | 0.46304    | 2.8598     | 5.8514     |  49.8 |  6.59
+Output  | 0.050609   | 0.1492     | 0.263      |  10.3 |  0.34
+Modify  | 16.776     | 17.466     | 18.317     |   9.7 | 40.23
+Other   |            | 0.002341   |            |       |  0.01
+
+Nlocal:        3311.66 ave        3420 max        3236 min
+Histogram: 103 214 198 264 240 151 146 93 35 60
+Nghost:        12343.6 ave       12590 max       12149 min
+Histogram: 78 86 187 289 261 311 136 118 6 32
+Neighs:    1.09206e+06 ave 1.12482e+06 max 1.06906e+06 min
+Histogram: 96 214 205 278 197 174 182 73 27 58
+
+Total # of neighbors = 1.6424566e+09
+Ave neighs/atom = 329.76183
+Neighbor list builds = 5
+Dangerous builds not checked
+Total wall time: 0:00:45
+real 52.49
+user 0.40
+sys 0.51
+Mapping for job 187d5a28a935 for scheduler default-scheduler
+lammps-187d5a28a935-worker-0 --> ip-192-168-25-124.us-east-2.compute.internal
+lammps-187d5a28a935-worker-1 --> ip-192-168-20-107.us-east-2.compute.internal
+lammps-187d5a28a935-worker-10 --> ip-192-168-18-186.us-east-2.compute.internal
+lammps-187d5a28a935-worker-11 --> ip-192-168-21-176.us-east-2.compute.internal
+lammps-187d5a28a935-worker-12 --> ip-192-168-2-23.us-east-2.compute.internal
+lammps-187d5a28a935-worker-13 --> ip-192-168-27-171.us-east-2.compute.internal
+lammps-187d5a28a935-worker-14 --> ip-192-168-9-126.us-east-2.compute.internal
+lammps-187d5a28a935-worker-15 --> ip-192-168-2-121.us-east-2.compute.internal
+lammps-187d5a28a935-worker-2 --> ip-192-168-21-150.us-east-2.compute.internal
+lammps-187d5a28a935-worker-3 --> ip-192-168-15-39.us-east-2.compute.internal
+lammps-187d5a28a935-worker-4 --> ip-192-168-20-24.us-east-2.compute.internal
+lammps-187d5a28a935-worker-5 --> ip-192-168-23-238.us-east-2.compute.internal
+lammps-187d5a28a935-worker-6 --> ip-192-168-31-78.us-east-2.compute.internal
+lammps-187d5a28a935-worker-7 --> ip-192-168-11-91.us-east-2.compute.internal
+lammps-187d5a28a935-worker-8 --> ip-192-168-6-72.us-east-2.compute.internal
+lammps-187d5a28a935-worker-9 --> ip-192-168-22-68.us-east-2.compute.internal
+ip-192-168-25-124.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-20-107.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-18-186.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-21-176.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-2-23.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-27-171.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-9-126.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-2-121.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-21-150.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-15-39.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-20-24.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-23-238.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-31-78.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-11-91.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-6-72.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+ip-192-168-22-68.us-east-2.compute.internal ran 1 pods in zone us-east-2b
+Run configuration for job 187d5a28a935:
+Ranks: 1504, pods: 16, pods per node: Slots per pod: 94, GiB memory per pod: 340
+Launcher CPUs: 94, launcher memory in GiB: 340
+MPIJob startup time for job lammps-187d5a28a935 is 58.158067 seconds
+MPIJob runtime for job lammps-187d5a28a935 is 2.024123 seconds
+MPIJob end-to-end time for job lammps-187d5a28a935 60.18219 seconds
