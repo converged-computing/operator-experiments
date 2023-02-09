@@ -192,17 +192,19 @@ that the submit also adds some overhead as we are scaling.
 Now for the fun plots! We can compare how the Flux Operator vs. the MPI
 Operator run lammps.
 
-##### End to End Walltime Flux vs mpirun
+##### Flux Submit vs. MPIrun real time
 
-We can compare each of flux start and flux submit to mpirun, and it doesn't matter,
-because the slower of the two (flux start) is faster. Here are the two comparisons:
+We record the `real` time of the mpirun command, and we compare this with flux submit.
 
-![img/end_to_end_walltime_fluxstart_lammps.png](img/end_to_end_walltime_fluxstart_lammps.png)
 ![img/end_to_end_walltime_fluxsubmit_lammps.png](img/end_to_end_walltime_fluxsubmit_lammps.png)
 
-Technically speaking, I think the flux submit is comparable to the mpirun, and if
-we wanted an equivalent metric for the MPI Operator for flux start we would need to
-look at some time from the launcher. These plots I think are really interesting because
+##### Flux Start vs MPI Operator end-to-end time
+
+We can compare Flux start with the MPI operator end-to-end time. Both require the pods to go up (be ready)
+and then finish up.
+
+![img/end_to_end_walltime_fluxstart_lammps.png](img/end_to_end_walltime_fluxstart_lammps.png)
+
 in previous experiments, the MPI operator seemed to scale OK up to 3008 ranks.
 However here we see that with 64 ranks, it actually starts to level out (and we could
 hypothesize the downward trend has stopped - it takes the same amount of time to

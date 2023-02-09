@@ -101,6 +101,8 @@ def gather_outputs(outdir):
             results["scheduler"].append(sched)
             results["ranks"].append(nranks)
             results["startup_time"].append(startup)
+            
+            # Note that this value is incorrect!
             results["runtime"].append(runtime)
             results["end_to_end_time"].append(e_to_e)
             results["max_ppn"].append(ppn_max)

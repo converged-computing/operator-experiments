@@ -146,9 +146,9 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf", outdir="img"):
             item["pods"],  # this is the mpi operator cluster size
             f"mpi-operator-{item['pods']}",
             # This end to end time is different - it contains pod creations I think?
-            item["end_to_end_time"],
-            item["end_to_end_time"],
-            item["lammps_time"],
+            item["real"],            # The real time here is for mpirun, we compare to flux submit
+            item["end_to_end_time"], # This is akin to getting all the workers orchestrated, the full time of the mpi operator
+            item["lammps_time"],     # for flux this is total_wall_time_seconds (from lammps)
             item["ranks"],
             item["timesteps/s"],
             "mpi-operator",
@@ -176,7 +176,7 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf", outdir="img"):
     # Let's make a plot that shows distributions of the times by the cluster size, across all
     make_plot(
         df,
-        title="End to End Wall Time (flux submit vs mpirun)",
+        title="End to End Wall Time (flux submit vs mpirun real time)",
         tag="end_to_end_walltime_fluxsubmit",
         ydimension="fluxsubmit_time",
         palette=palette,
@@ -188,7 +188,7 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf", outdir="img"):
     )
     make_plot(
         df,
-        title="End to End Wall Time (flux start vs mpirun)",
+        title="End to End Wall Time (flux start vs MPI operator end-to-end)",
         tag="end_to_end_walltime_fluxstart",
         ydimension="fluxstart_time",
         palette=palette,

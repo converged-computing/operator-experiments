@@ -207,6 +207,8 @@ def get_operator_logs(client, app_name, start_time, job_id, log_file):
                     break
 
     startup_time_s = (startup_time - start_time).total_seconds()
+
+    # Note that this isn't right - it will report the last reported MPIJobRunning
     run_time_s = (end_time - startup_time).total_seconds()
     end_to_end_time_s = (end_time - start_time).total_seconds()
     log_output = (
