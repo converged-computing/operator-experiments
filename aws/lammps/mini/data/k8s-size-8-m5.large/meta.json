@@ -13,7 +13,7 @@
         "minicluster-run-lmp-1-minicluster-size-8": 38.859,
         "minicluster-run-lmp-2-minicluster-size-8": 39.08,
         "minicluster-run-lmp-3-minicluster-size-8": 39.443,
-        "destroy-cluster": 1088.612
+        "destroy-cluster": 0.731
     },
     "size": 8,
     "machine": "m5.large",

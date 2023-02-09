@@ -1,0 +1,35 @@
+# matrix of experiments to run - machine types and sizes are required
+matrix:
+
+  # Size of the MiniCluster - we are allowed to specify one size (and different pods)
+  size: [4]
+  machine: ["c2d-standard-32"]
+
+kubernetes:
+  version: "1.23"
+
+# Flux Mini Cluster experiment attributes
+minicluster:
+  name: lammps
+  namespace: flux-operator
+  
+  # These are the sizes of MiniCluster we will iterate over
+  size: [4]
+
+jobs:
+  lmp-4:
+    command: lmp -v x 4 -v y 4 -v z 4 -in in.reaxc.hns -nocite
+    # command: lmp -v x 16 -v y 16 -v z 8
+    repeats: 20
+    # 4*32
+    memory: 100G
+    tasks: 64
+
+    # This is for kubernetes
+    cpu: 30
+
+    # This is for flux
+    cores: 16
+
+    # This indicates only run on the MiniCluster size 4
+    size: 4

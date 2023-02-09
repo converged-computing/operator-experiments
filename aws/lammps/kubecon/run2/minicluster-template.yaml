@@ -1,0 +1,53 @@
+apiVersion: flux-framework.org/v1alpha1
+kind: MiniCluster
+
+metadata:
+  name: {{ minicluster.name }}
+  namespace: {{ minicluster.namespace }}
+spec:
+  # localDeploy needs to be false
+  localDeploy: false
+
+  # Number of pods to create for MiniCluster
+  size: {{ minicluster.size }}
+  tasks: {{ job.tasks }}
+
+  # don't suppress output (in case there is issue) and time flux
+  logging:
+    quiet: false
+    timed: true
+
+  # This is a list because a pod can support multiple containers
+  containers:
+    - image: ghcr.io/rse-ops/lammps-efa:ubuntu-20.04
+      workingDir: /home/flux/examples/reaxff/HNS
+      command: {{ job.command }}
+
+      # Option Flags for this flux runner wait.sh entrypoint
+      fluxOptionFlags: "-ompi=openmpi@5" 
+
+      # Leave 2 cores for kubernetes, we have 96,
+      # this is just for eksctl
+      cores: {{ job.cores }}
+
+      # Resource limits to enable efa
+      resources:
+        limits:
+          vpc.amazonaws.com/efa: 1
+          memory: "{{ job.memory }}"
+          cpu: {{ job.cpu }}
+
+        requests:
+          vpc.amazonaws.com/efa: 1
+          memory: "{{ job.memory }}"
+          cpu: {{ job.cpu }}
+
+      # custom preCommand logic (run at start of script)
+      preCommand: |
+        source /etc/profile.d/z10_spack_environment.sh
+        asFlux="sudo -u flux -E PYTHONPATH=$PYTHONPATH -E PATH=$PATH -E FI_EFA_USE_DEVICE_RDMA=1 -E RDMAV_FORK_SAFE=1"
+        . /etc/profile.d/z10_spack_environment.sh 
+        cd /opt/spack-environment
+        . /opt/spack-environment/spack/share/spack/setup-env.sh
+        spack env activate .
+        cd /home/flux/examples/reaxff/HNS
