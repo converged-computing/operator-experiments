@@ -198,18 +198,6 @@ We record the `real` time of the mpirun command, and we compare this with flux s
 
 ![img/end_to_end_walltime_fluxsubmit_lammps.png](img/end_to_end_walltime_fluxsubmit_lammps.png)
 
-##### Flux Start vs MPI Operator end-to-end time
-
-We can compare Flux start with the MPI operator end-to-end time. Both require the pods to go up (be ready)
-and then finish up.
-
-![img/end_to_end_walltime_fluxstart_lammps.png](img/end_to_end_walltime_fluxstart_lammps.png)
-
-in previous experiments, the MPI operator seemed to scale OK up to 3008 ranks.
-However here we see that with 64 ranks, it actually starts to level out (and we could
-hypothesize the downward trend has stopped - it takes the same amount of time to
-run 3008 as it did 6016 ranks).
-
 ##### End to End Walltime Running Lammps
 
 This is the most fair comparison we can do, as the same container ran the same lammps
@@ -218,3 +206,22 @@ job on both operators!
 ![img/walltime_lammps.png](img/walltime_lammps.png)
 
 It looks like the Flux Operator is a bit faster! Awesome :)
+
+#### Likely Not Comparable
+
+##### Flux Start vs MPI Operator end-to-end time
+
+We place this plot last because we don't think the times are fair to compare. The reasons being:
+
+ - `flux start` by the broker is run whenever the broker happens to come up, and it waits for the other pods. The MPI operator "end to end" time starts when the MPI operator log gets the first message about the job, and finishes when the MPIJob transitions to "MPIJobSucceeded" state. This means that the MPI operator log time does not include time for the pods to come up, because the launcher doesn't go up (to send the message about the job) until all the pods are created.
+ - on the tail end, `flux start` finishes after the worker pods are cleaned up, which likely is after the "MPIJobSucceeded" state. It's really hard to compare given the different designs, so we suggest to the reader not to compare them!
+  
+However, the one interesting part about this plot is that, whatever the MPI Operator is doing,
+it seems to level out (time wise) as we scale up, meaning that it either will have some asymptote for
+a time, or could even reverse and go the other way (e.g., take much longer for this step as the size
+of the cluster increases).
+
+![img/end_to_end_walltime_fluxstart_lammps.png](img/end_to_end_walltime_fluxstart_lammps.png)
+
+It's hard to tell without running a larger size! But this is interesting, because
+in previous experiments we didn't get large enough to see this pattern.
