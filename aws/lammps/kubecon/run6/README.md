@@ -140,13 +140,72 @@ And your same environment should still be sourced! First, process the Flux Opera
 $ python process_lammps.py --meta data/aws/k8s-size-65-hpc6a.48xlarge/meta.json ./data/
 ```
 
+This will generate [results.json](results.json) that has compiled Flux Operator results!
 Then plot results, ensuring you point to the MPI operator results to be included.
 
 ```bash
 $ mkdir -p img/
-$ python plot_results.py --mpi-operator ./mpi-operator/mpi_operator_results.json --outdir ./img
+$ python plot_results.py results.json --mpi-operator ./mpi-operator/mpi_operator_results.json --outdir ./img
 ```
 
 ### Results
 
-And here are the resulting images!
+And here are the resulting images! 
+
+#### Flux Operator Metrics
+
+##### MiniCluster Scaling
+
+First, we can see that the Flux Operator scaled well with respect
+to bringing up a MiniCluster across cluster sizes:
+
+![img/cluster_time_lammps.png](img/cluster_time_lammps.png)
+
+##### Flux Start vs. Flux Submit
+
+We are interested to see if flux start (which would wrap flux submit) scales
+well, or is otherwise very different. Akin to previous results, we see that
+the difference never goes over three seconds.
+
+![img/start_submit_difference_lammps.png](img/start_submit_difference_lammps.png)
+
+You can think of this as one type of Flux overhead - the flux start needs to
+orchestrate the workers and running the job.
+
+##### Flux Submit vs. Lammps
+
+We next want to see how Flux Submit compares to the runtime of lammps.
+We see that as the cluster gets larger, the difference is greater, meaning
+that the submit also adds some overhead as we are scaling.
+
+![img/submit_lammps_difference_lammps.png](img/submit_lammps_difference_lammps.png)
+
+#### Flux Operator vs MPI Operator
+
+Now for the fun plots! We can compare how the Flux Operator vs. the MPI
+Operator run lammps.
+
+##### End to End Walltime Flux Start
+
+We can compare each of flux start and flux submit to mpirun, and it doesn't matter,
+because the slower of the two (flux start) is a lot faster. Here are the two comparisons:
+
+![img/end_to_end_walltime_fluxstart_lammps.png](img/end_to_end_walltime_fluxstart_lammps.png)
+![img/end_to_end_walltime_fluxsubmit_lammps.png](img/end_to_end_walltime_fluxsubmit_lammps.png)
+
+Technically speaking, I think the flux submit is comparable to the mpirun, and if
+we wanted an equivalent metric for the MPI Operator for flux start we would need to
+look at some time from the launcher. These plots I think are really interesting because
+in previous experiments, the MPI operator seemed to scale OK up to 3008 ranks.
+However here we see that with 64 ranks, it actually starts to level out (and we could
+hypothesize the downward trend has stopped - it takes the same amount of time to
+run 3008 as it did 6016 ranks).
+
+##### End to End Walltime Running Lammps
+
+This is the most fair comparison we can do, as the same container ran the same lammps
+job on both operators!
+
+![img/walltime_lammps.png](img/walltime_lammps.png)
+
+It looks like the Flux Operator is a bit faster! Awesome :)
