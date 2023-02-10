@@ -53,5 +53,4 @@ We can then compare times across the optimized vs. unoptimized
 ![img/lammps_fluxsubmit_optimization_comparison_lammps.png](img/lammps_fluxsubmit_optimization_comparison_lammps.png)
 ![img/walltime_lammps.png](img/walltime_lammps.png)
 
-Not super different I think! Of course this runtime is just over a minute so, I suspect this
-would increase with scale.
+Weird.

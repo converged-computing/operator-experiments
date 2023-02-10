@@ -233,7 +233,6 @@ def main():
     # Read in separately!
     data = read_json(args.optimized)
     previous = read_json(args.not_optimized)
-
     plot_outputs(data, previous, args.plotname, ext=args.extension, outdir=args.outdir)
 
 if __name__ == "__main__":
