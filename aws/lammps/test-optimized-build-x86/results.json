@@ -1,0 +1,2213 @@
+{
+    "results": {
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-20-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.012,
+            "fluxtimes_depend": 0.023,
+            "fluxtimes_priority": 0.023,
+            "fluxtimes_alloc": 0.059,
+            "fluxtimes_start": 0.077,
+            "fluxtimes_exec.init": 0.059,
+            "fluxtimes_exec.starting": 0.06,
+            "fluxtimes_exec.shell.init": 0.118,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.034,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.044,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 72.6351,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 2017.642,
+            "timesteps_per_second": 1.377,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.578,41.677,44.845,21.0,57.38\nNeigh,0.72248,0.74565,1.89,4.9,1.03\nComm,0.45311,3.171,7.8966,77.3,4.37\nOutput,0.04619,0.11713,0.21554,9.5,0.16\nModify,25.772,26.92,27.475,5.7,37.06\nOther,,0.004854,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "fluxtimes_finish": 78.465,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 78.466,
+            "fluxtimes_free": 78.466,
+            "fluxtimes_clean": 78.466,
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:14",
+            "total_wall_time_seconds": 74.0,
+            "fluxsubmit_wall_time_seconds": 78.78999999999999,
+            "fluxsubmit_wall_time_seconds_raw": "1:18.79",
+            "fluxstart_wall_time_seconds": 79.82,
+            "fluxstart_wall_time_seconds_raw": "1:19.82"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-9-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.012,
+            "fluxtimes_depend": 0.023,
+            "fluxtimes_priority": 0.023,
+            "fluxtimes_alloc": 0.06,
+            "fluxtimes_start": 0.078,
+            "fluxtimes_exec.init": 0.061,
+            "fluxtimes_exec.starting": 0.061,
+            "fluxtimes_exec.shell.init": 0.118,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.036,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.044,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 71.4997,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 1986.102,
+            "timesteps_per_second": 1.399,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.935,41.67,44.858,20.9,58.28\nNeigh,0.726,0.74437,0.77618,0.9,1.04\nComm,0.43713,3.1226,7.6028,78.6,4.37\nOutput,0.029732,0.10676,0.24048,11.3,0.15\nModify,25.373,25.851,26.387,5.9,36.16\nOther,,0.004867,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:13",
+            "total_wall_time_seconds": 73.0,
+            "fluxtimes_finish": 77.182,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 77.183,
+            "fluxtimes_free": 77.184,
+            "fluxtimes_clean": 77.184,
+            "fluxsubmit_wall_time_seconds": 77.51,
+            "fluxsubmit_wall_time_seconds_raw": "1:17.51",
+            "fluxstart_wall_time_seconds": 78.57,
+            "fluxstart_wall_time_seconds_raw": "1:18.57"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-21-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.011,
+            "fluxtimes_depend": 0.022,
+            "fluxtimes_priority": 0.022,
+            "fluxtimes_alloc": 0.059,
+            "fluxtimes_start": 0.078,
+            "fluxtimes_exec.init": 0.059,
+            "fluxtimes_exec.starting": 0.06,
+            "fluxtimes_exec.shell.init": 0.118,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.033,
+            "bounding_box_extra_memory_mb": 0.03,
+            "fluxtimes_finish": 76.927,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 76.928,
+            "fluxtimes_free": 76.928,
+            "fluxtimes_clean": 76.928,
+            "replicate_cpu_seconds": 0.044,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 71.2194,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 1978.316,
+            "timesteps_per_second": 1.404,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.658,41.667,44.629,21.0,58.50\nNeigh,0.72562,0.74436,0.90465,1.1,1.05\nComm,0.44809,3.0195,7.9822,78.9,4.24\nOutput,0.041183,0.10245,0.21373,10.6,0.14\nModify,25.309,25.682,26.186,4.8,36.06\nOther,,0.00475,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:13",
+            "total_wall_time_seconds": 73.0,
+            "fluxsubmit_wall_time_seconds": 77.26,
+            "fluxsubmit_wall_time_seconds_raw": "1:17.26",
+            "fluxstart_wall_time_seconds": 78.3,
+            "fluxstart_wall_time_seconds_raw": "1:18.30"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-6-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.011,
+            "fluxtimes_depend": 0.022,
+            "fluxtimes_priority": 0.022,
+            "fluxtimes_alloc": 0.059,
+            "fluxtimes_start": 0.085,
+            "fluxtimes_exec.init": 0.059,
+            "fluxtimes_exec.starting": 0.059,
+            "fluxtimes_exec.shell.init": 0.125,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.035,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.044,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 71.5432,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 1987.312,
+            "timesteps_per_second": 1.398,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.587,41.677,44.779,21.1,58.25\nNeigh,0.72294,0.74448,0.82601,0.9,1.04\nComm,0.43157,3.1655,7.8752,78.4,4.42\nOutput,0.040933,0.10595,0.22254,10.9,0.15\nModify,25.339,25.846,26.541,6.5,36.13\nOther,,0.004906,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:13",
+            "total_wall_time_seconds": 73.0,
+            "fluxtimes_finish": 77.439,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 77.44,
+            "fluxtimes_free": 77.44,
+            "fluxtimes_clean": 77.44,
+            "fluxsubmit_wall_time_seconds": 77.76,
+            "fluxsubmit_wall_time_seconds_raw": "1:17.76",
+            "fluxstart_wall_time_seconds": 78.78,
+            "fluxstart_wall_time_seconds_raw": "1:18.78"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/_lmp-8-1-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.012,
+            "fluxtimes_depend": 0.023,
+            "fluxtimes_priority": 0.023,
+            "fluxtimes_alloc": 0.061,
+            "fluxtimes_start": 0.091,
+            "fluxtimes_exec.init": 0.061,
+            "fluxtimes_exec.starting": 0.062,
+            "fluxtimes_exec.shell.init": 0.155,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.034,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.041,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 74.1606,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 2060.016,
+            "timesteps_per_second": 1.348,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.621,41.624,46.885,21.1,56.13\nNeigh,0.72455,0.74412,1.3577,3.0,1.00\nComm,0.41473,3.4328,9.7632,84.2,4.63\nOutput,0.034521,0.15043,0.27134,12.1,0.20\nModify,25.961,28.204,29.082,15.6,38.03\nOther,,0.004931,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:16",
+            "total_wall_time_seconds": 76.0,
+            "fluxtimes_finish": 79.985,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 79.987,
+            "fluxtimes_free": 79.987,
+            "fluxtimes_clean": 79.987,
+            "fluxsubmit_wall_time_seconds": 80.32,
+            "fluxsubmit_wall_time_seconds_raw": "1:20.32",
+            "fluxstart_wall_time_seconds": 165.75,
+            "fluxstart_wall_time_seconds_raw": "2:45.75"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-16-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.012,
+            "fluxtimes_depend": 0.023,
+            "fluxtimes_priority": 0.023,
+            "fluxtimes_alloc": 0.059,
+            "fluxtimes_start": 0.085,
+            "fluxtimes_exec.init": 0.06,
+            "fluxtimes_exec.starting": 0.06,
+            "fluxtimes_exec.shell.init": 0.151,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.035,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.044,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 71.5426,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 1987.294,
+            "timesteps_per_second": 1.398,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.73,41.67,44.915,20.8,58.25\nNeigh,0.72716,0.74427,0.82379,1.0,1.04\nComm,0.4437,3.0583,7.8897,77.9,4.27\nOutput,0.039815,0.11132,0.20221,11.4,0.16\nModify,25.373,25.954,26.531,6.1,36.28\nOther,,0.004793,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:13",
+            "total_wall_time_seconds": 73.0,
+            "fluxtimes_finish": 77.228,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 77.229,
+            "fluxtimes_free": 77.229,
+            "fluxtimes_clean": 77.229,
+            "fluxsubmit_wall_time_seconds": 77.56,
+            "fluxsubmit_wall_time_seconds_raw": "1:17.56",
+            "fluxstart_wall_time_seconds": 79.25,
+            "fluxstart_wall_time_seconds_raw": "1:19.25"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-17-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.011,
+            "fluxtimes_depend": 0.022,
+            "fluxtimes_priority": 0.022,
+            "fluxtimes_alloc": 0.058,
+            "fluxtimes_start": 0.087,
+            "fluxtimes_exec.init": 0.059,
+            "fluxtimes_exec.starting": 0.059,
+            "fluxtimes_exec.shell.init": 0.128,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.033,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.045,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 72.2081,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 2005.78,
+            "timesteps_per_second": 1.385,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.469,41.671,45.217,21.1,57.71\nNeigh,0.72285,0.74399,0.78254,0.9,1.03\nComm,0.40585,3.1443,8.1373,79.1,4.35\nOutput,0.040785,0.15369,0.26429,11.0,0.21\nModify,25.686,26.49,27.432,8.1,36.69\nOther,,0.004835,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:14",
+            "total_wall_time_seconds": 74.0,
+            "fluxtimes_finish": 77.919,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 77.92,
+            "fluxtimes_free": 77.92,
+            "fluxtimes_clean": 77.92,
+            "fluxsubmit_wall_time_seconds": 78.25,
+            "fluxsubmit_wall_time_seconds_raw": "1:18.25",
+            "fluxstart_wall_time_seconds": 79.26,
+            "fluxstart_wall_time_seconds_raw": "1:19.26"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-8-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.012,
+            "fluxtimes_depend": 0.023,
+            "fluxtimes_priority": 0.023,
+            "fluxtimes_alloc": 0.059,
+            "fluxtimes_start": 0.088,
+            "fluxtimes_exec.init": 0.059,
+            "fluxtimes_exec.starting": 0.06,
+            "fluxtimes_exec.shell.init": 0.128,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.033,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.045,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 71.3709,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 1982.525,
+            "timesteps_per_second": 1.401,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.749,41.679,44.78,20.8,58.40\nNeigh,0.72742,0.7446,0.82017,0.9,1.04\nComm,0.41165,3.0683,7.9252,78.0,4.30\nOutput,0.02825,0.10396,0.19297,9.6,0.15\nModify,25.341,25.77,26.304,4.7,36.11\nOther,,0.00486,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:13",
+            "total_wall_time_seconds": 73.0,
+            "fluxtimes_finish": 77.093,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 77.094,
+            "fluxtimes_free": 77.094,
+            "fluxtimes_clean": 77.094,
+            "fluxsubmit_wall_time_seconds": 77.43,
+            "fluxsubmit_wall_time_seconds_raw": "1:17.43",
+            "fluxstart_wall_time_seconds": 78.42,
+            "fluxstart_wall_time_seconds_raw": "1:18.42"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-14-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.012,
+            "fluxtimes_depend": 0.023,
+            "fluxtimes_priority": 0.023,
+            "fluxtimes_alloc": 0.06,
+            "fluxtimes_start": 0.08,
+            "fluxtimes_exec.init": 0.06,
+            "fluxtimes_exec.starting": 0.061,
+            "fluxtimes_exec.shell.init": 0.129,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.036,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.044,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 71.4394,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 1984.427,
+            "timesteps_per_second": 1.4,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.453,41.67,44.749,20.9,58.33\nNeigh,0.72572,0.74424,0.77396,0.9,1.04\nComm,0.47894,3.0658,8.3097,78.1,4.29\nOutput,0.034349,0.10155,0.21184,10.4,0.14\nModify,25.336,25.852,26.332,5.3,36.19\nOther,,0.004824,,,0.01\n",
+            "fluxtimes_finish": 77.13,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 77.132,
+            "fluxtimes_free": 77.132,
+            "fluxtimes_clean": 77.132,
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:13",
+            "total_wall_time_seconds": 73.0,
+            "fluxsubmit_wall_time_seconds": 77.46000000000001,
+            "fluxsubmit_wall_time_seconds_raw": "1:17.46",
+            "fluxstart_wall_time_seconds": 78.48,
+            "fluxstart_wall_time_seconds_raw": "1:18.48"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-11-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.012,
+            "fluxtimes_depend": 0.022,
+            "fluxtimes_priority": 0.022,
+            "fluxtimes_alloc": 0.059,
+            "fluxtimes_start": 0.081,
+            "fluxtimes_exec.init": 0.059,
+            "fluxtimes_exec.starting": 0.06,
+            "fluxtimes_exec.shell.init": 0.123,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.033,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.045,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 71.6573,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 1990.481,
+            "timesteps_per_second": 1.396,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.126,41.672,44.936,20.9,58.15\nNeigh,0.71867,0.74431,0.77301,0.9,1.04\nComm,0.44611,3.1991,8.6614,76.4,4.46\nOutput,0.03538,0.11808,0.23153,12.5,0.16\nModify,25.359,25.919,26.896,7.4,36.17\nOther,,0.00478,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:13",
+            "total_wall_time_seconds": 73.0,
+            "fluxtimes_finish": 77.358,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 77.359,
+            "fluxtimes_free": 77.36,
+            "fluxtimes_clean": 77.36,
+            "fluxsubmit_wall_time_seconds": 77.69,
+            "fluxsubmit_wall_time_seconds_raw": "1:17.69",
+            "fluxstart_wall_time_seconds": 78.69,
+            "fluxstart_wall_time_seconds_raw": "1:18.69"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-15-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.012,
+            "fluxtimes_depend": 0.023,
+            "fluxtimes_priority": 0.023,
+            "fluxtimes_alloc": 0.059,
+            "fluxtimes_start": 0.086,
+            "fluxtimes_exec.init": 0.059,
+            "fluxtimes_exec.starting": 0.06,
+            "fluxtimes_exec.shell.init": 0.14,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.037,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.043,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 71.6642,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 1990.673,
+            "timesteps_per_second": 1.395,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.549,41.664,44.989,20.9,58.14\nNeigh,0.72048,0.74428,0.8957,1.1,1.04\nComm,0.44028,3.1984,8.1386,76.9,4.46\nOutput,0.03294,0.10279,0.23583,11.4,0.14\nModify,25.388,25.95,26.501,5.9,36.21\nOther,,0.004873,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:13",
+            "total_wall_time_seconds": 73.0,
+            "fluxtimes_finish": 77.427,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 77.428,
+            "fluxtimes_free": 77.428,
+            "fluxtimes_clean": 77.428,
+            "fluxsubmit_wall_time_seconds": 77.76,
+            "fluxsubmit_wall_time_seconds_raw": "1:17.76",
+            "fluxstart_wall_time_seconds": 79.03999999999999,
+            "fluxstart_wall_time_seconds_raw": "1:19.04"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-5-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.012,
+            "fluxtimes_depend": 0.023,
+            "fluxtimes_priority": 0.023,
+            "fluxtimes_alloc": 0.061,
+            "fluxtimes_start": 0.083,
+            "fluxtimes_exec.init": 0.061,
+            "fluxtimes_exec.starting": 0.062,
+            "fluxtimes_exec.shell.init": 0.123,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.035,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.044,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 73.9971,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 2055.476,
+            "timesteps_per_second": 1.351,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.631,41.684,47.447,21.1,56.33\nNeigh,0.7163,0.74467,0.77824,0.8,1.01\nComm,0.37519,3.484,10.529,85.6,4.71\nOutput,0.017188,0.23611,0.38818,15.0,0.32\nModify,25.294,27.843,28.569,16.9,37.63\nOther,,0.004971,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:16",
+            "total_wall_time_seconds": 76.0,
+            "fluxtimes_finish": 79.785,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 79.786,
+            "fluxtimes_free": 79.786,
+            "fluxtimes_clean": 79.786,
+            "fluxsubmit_wall_time_seconds": 80.11,
+            "fluxsubmit_wall_time_seconds_raw": "1:20.11",
+            "fluxstart_wall_time_seconds": 81.11,
+            "fluxstart_wall_time_seconds_raw": "1:21.11"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-10-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.011,
+            "fluxtimes_depend": 0.022,
+            "fluxtimes_priority": 0.022,
+            "fluxtimes_alloc": 0.058,
+            "fluxtimes_start": 0.079,
+            "fluxtimes_exec.init": 0.059,
+            "fluxtimes_exec.starting": 0.059,
+            "fluxtimes_exec.shell.init": 0.145,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.035,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.041,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 72.7619,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 2021.164,
+            "timesteps_per_second": 1.374,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.436,41.674,45.148,20.9,57.27\nNeigh,0.72354,0.74617,1.8891,5.4,1.03\nComm,0.42498,3.1497,8.0945,79.6,4.33\nOutput,0.043639,0.12592,0.2286,10.8,0.17\nModify,26.108,27.061,27.781,7.3,37.19\nOther,,0.004872,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:14",
+            "total_wall_time_seconds": 74.0,
+            "fluxtimes_finish": 78.638,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 78.639,
+            "fluxtimes_free": 78.639,
+            "fluxtimes_clean": 78.639,
+            "fluxsubmit_wall_time_seconds": 78.97,
+            "fluxsubmit_wall_time_seconds_raw": "1:18.97",
+            "fluxstart_wall_time_seconds": 80.59,
+            "fluxstart_wall_time_seconds_raw": "1:20.59"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-3-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.012,
+            "fluxtimes_depend": 0.023,
+            "fluxtimes_priority": 0.023,
+            "fluxtimes_alloc": 0.059,
+            "fluxtimes_start": 0.082,
+            "fluxtimes_exec.init": 0.059,
+            "fluxtimes_exec.starting": 0.06,
+            "fluxtimes_exec.shell.init": 0.124,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.034,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.043,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 72.2658,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 2007.382,
+            "timesteps_per_second": 1.384,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.359,41.676,45.125,21.1,57.67\nNeigh,0.7148,0.74523,1.2612,2.5,1.03\nComm,0.38265,3.1706,8.1051,79.9,4.39\nOutput,0.030375,0.17273,0.29381,12.6,0.24\nModify,25.471,26.496,27.321,7.2,36.67\nOther,,0.004985,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:14",
+            "total_wall_time_seconds": 74.0,
+            "fluxtimes_finish": 78.047,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 78.048,
+            "fluxtimes_free": 78.049,
+            "fluxtimes_clean": 78.049,
+            "fluxsubmit_wall_time_seconds": 78.38,
+            "fluxsubmit_wall_time_seconds_raw": "1:18.38",
+            "fluxstart_wall_time_seconds": 79.4,
+            "fluxstart_wall_time_seconds_raw": "1:19.40"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-13-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.011,
+            "fluxtimes_depend": 0.022,
+            "fluxtimes_priority": 0.022,
+            "fluxtimes_alloc": 0.061,
+            "fluxtimes_start": 0.084,
+            "fluxtimes_exec.init": 0.061,
+            "fluxtimes_exec.starting": 0.062,
+            "fluxtimes_exec.shell.init": 0.123,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.035,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.041,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 71.5518,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 1987.551,
+            "timesteps_per_second": 1.398,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.661,41.665,44.843,21.0,58.23\nNeigh,0.72378,0.74445,0.89895,1.2,1.04\nComm,0.43215,3.1198,7.907,78.0,4.36\nOutput,0.030296,0.10454,0.23119,11.5,0.15\nModify,25.44,25.913,26.638,6.9,36.22\nOther,,0.004782,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:13",
+            "total_wall_time_seconds": 73.0,
+            "fluxtimes_finish": 77.251,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 77.252,
+            "fluxtimes_free": 77.253,
+            "fluxtimes_clean": 77.253,
+            "fluxsubmit_wall_time_seconds": 77.59,
+            "fluxsubmit_wall_time_seconds_raw": "1:17.59",
+            "fluxstart_wall_time_seconds": 78.62,
+            "fluxstart_wall_time_seconds_raw": "1:18.62"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-2-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.012,
+            "fluxtimes_depend": 0.023,
+            "fluxtimes_priority": 0.023,
+            "fluxtimes_alloc": 0.06,
+            "fluxtimes_start": 0.076,
+            "fluxtimes_exec.init": 0.06,
+            "fluxtimes_exec.starting": 0.061,
+            "fluxtimes_exec.shell.init": 0.117,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.034,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.043,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 71.5135,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 1986.487,
+            "timesteps_per_second": 1.398,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.663,41.65,44.793,21.1,58.24\nNeigh,0.72661,0.74403,0.84951,1.0,1.04\nComm,0.4121,3.2033,7.9171,77.8,4.48\nOutput,0.062747,0.11773,0.23809,11.2,0.16\nModify,25.434,25.794,26.373,5.3,36.07\nOther,,0.004859,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:13",
+            "total_wall_time_seconds": 73.0,
+            "fluxtimes_finish": 77.287,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 77.288,
+            "fluxtimes_free": 77.289,
+            "fluxtimes_clean": 77.289,
+            "fluxsubmit_wall_time_seconds": 77.62,
+            "fluxsubmit_wall_time_seconds_raw": "1:17.62",
+            "fluxstart_wall_time_seconds": 78.65,
+            "fluxstart_wall_time_seconds_raw": "1:18.65"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-19-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.012,
+            "fluxtimes_depend": 0.023,
+            "fluxtimes_priority": 0.023,
+            "fluxtimes_alloc": 0.06,
+            "fluxtimes_start": 0.076,
+            "fluxtimes_exec.init": 0.06,
+            "fluxtimes_exec.starting": 0.061,
+            "fluxtimes_exec.shell.init": 0.117,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.035,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.042,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 71.6804,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 1991.122,
+            "timesteps_per_second": 1.395,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.8,41.664,44.916,21.0,58.12\nNeigh,0.71573,0.74418,0.7717,0.9,1.04\nComm,0.43489,3.1024,7.923,78.7,4.33\nOutput,0.033948,0.10943,0.22954,11.9,0.15\nModify,25.5,26.055,26.643,5.7,36.35\nOther,,0.004864,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:13",
+            "total_wall_time_seconds": 73.0,
+            "fluxtimes_finish": 77.437,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 77.438,
+            "fluxtimes_free": 77.438,
+            "fluxtimes_clean": 77.438,
+            "fluxsubmit_wall_time_seconds": 77.77,
+            "fluxsubmit_wall_time_seconds_raw": "1:17.77",
+            "fluxstart_wall_time_seconds": 78.77,
+            "fluxstart_wall_time_seconds_raw": "1:18.77"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-4-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.011,
+            "fluxtimes_depend": 0.022,
+            "fluxtimes_priority": 0.022,
+            "fluxtimes_alloc": 0.058,
+            "fluxtimes_start": 0.087,
+            "fluxtimes_exec.init": 0.058,
+            "fluxtimes_exec.starting": 0.059,
+            "fluxtimes_exec.shell.init": 0.15,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.034,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.044,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 71.5828,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 1988.41,
+            "timesteps_per_second": 1.397,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.843,41.675,44.709,20.8,58.22\nNeigh,0.72693,0.74475,1.0192,1.5,1.04\nComm,0.44596,3.1063,8.0146,77.1,4.34\nOutput,0.054137,0.10447,0.21797,9.6,0.15\nModify,25.459,25.947,26.611,5.9,36.25\nOther,,0.004882,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:13",
+            "total_wall_time_seconds": 73.0,
+            "fluxtimes_finish": 77.355,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 77.357,
+            "fluxtimes_free": 77.357,
+            "fluxtimes_clean": 77.357,
+            "fluxsubmit_wall_time_seconds": 77.68,
+            "fluxsubmit_wall_time_seconds_raw": "1:17.68",
+            "fluxstart_wall_time_seconds": 82.31,
+            "fluxstart_wall_time_seconds_raw": "1:22.31"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-7-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.012,
+            "fluxtimes_depend": 0.023,
+            "fluxtimes_priority": 0.023,
+            "fluxtimes_alloc": 0.062,
+            "fluxtimes_start": 0.078,
+            "fluxtimes_exec.init": 0.062,
+            "fluxtimes_exec.starting": 0.063,
+            "fluxtimes_exec.shell.init": 0.117,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.034,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.043,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n",
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 77.17,
+            "fluxtimes_free": 77.17,
+            "fluxtimes_clean": 77.17,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 1981.542,
+            "timesteps_per_second": 1.402,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.64,41.686,44.784,21.0,58.44\nNeigh,0.72162,0.74419,0.76576,0.8,1.04\nComm,0.42512,3.0812,7.7748,78.4,4.32\nOutput,0.040734,0.094452,0.19053,10.4,0.13\nModify,25.29,25.725,26.206,5.2,36.06\nOther,,0.00484,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:13",
+            "total_wall_time_seconds": 73.0,
+            "fluxsubmit_wall_time_seconds": 77.5,
+            "fluxsubmit_wall_time_seconds_raw": "1:17.50",
+            "fluxstart_wall_time_seconds": 78.58,
+            "fluxstart_wall_time_seconds_raw": "1:18.58"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-12-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.012,
+            "fluxtimes_depend": 0.023,
+            "fluxtimes_priority": 0.023,
+            "fluxtimes_alloc": 0.059,
+            "fluxtimes_start": 0.076,
+            "fluxtimes_exec.init": 0.059,
+            "fluxtimes_exec.starting": 0.059,
+            "fluxtimes_exec.shell.init": 0.117,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.034,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.045,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 71.6356,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 1989.878,
+            "timesteps_per_second": 1.396,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.489,41.67,44.778,20.9,58.17\nNeigh,0.71979,0.74438,0.98273,1.3,1.04\nComm,0.43124,3.0863,7.7909,79.1,4.31\nOutput,0.031196,0.10828,0.21232,11.0,0.15\nModify,25.541,26.022,26.602,5.8,36.33\nOther,,0.004913,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:13",
+            "total_wall_time_seconds": 73.0,
+            "fluxtimes_finish": 77.427,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 77.428,
+            "fluxtimes_free": 77.428,
+            "fluxtimes_clean": 77.428,
+            "fluxsubmit_wall_time_seconds": 77.75,
+            "fluxsubmit_wall_time_seconds_raw": "1:17.75",
+            "fluxstart_wall_time_seconds": 78.8,
+            "fluxstart_wall_time_seconds_raw": "1:18.80"
+        },
+        "/home/vanessa/Desktop/Code/flux/experiments/aws/lammps/test-optimized-build-x86/data/aws/k8s-size-8-hpc6a.48xlarge/lmp-8-18-minicluster-size-8/log.out": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "fluxtimes_submit": 0.0,
+            "fluxtimes_validate": 0.011,
+            "fluxtimes_depend": 0.022,
+            "fluxtimes_priority": 0.022,
+            "fluxtimes_alloc": 0.058,
+            "fluxtimes_start": 0.075,
+            "fluxtimes_exec.init": 0.059,
+            "fluxtimes_exec.starting": 0.06,
+            "fluxtimes_exec.shell.init": 0.131,
+            "processor_grids": [
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ],
+                [
+                    {
+                        "x": 47
+                    },
+                    {
+                        "y": 4
+                    },
+                    {
+                        "z": 4
+                    }
+                ]
+            ],
+            "atoms": 304,
+            "velocities": 304,
+            "read_data_cpu_seconds": 0.035,
+            "bounding_box_extra_memory_mb": 0.03,
+            "replicate_cpu_seconds": 0.042,
+            "steps": ",Step,Temp,PotEng,Press,E_vdwl,E_coul,Volume\n0,0.0,300.0,-113.27833,439.0198,-111.57687,-1.7014647,56153840.0\n1,10.0,300.78686,-113.28051,827.36848,-111.57907,-1.7014353,56153840.0\n2,20.0,302.44845,-113.28532,1713.1411,-111.58399,-1.7013238,56153840.0\n3,30.0,302.57357,-113.28556,4309.4667,-111.58447,-1.701095,56153840.0\n4,40.0,300.60957,-113.27964,6382.2549,-111.57887,-1.7007685,56153840.0\n5,50.0,297.41258,-113.27006,6487.7531,-111.56966,-1.7004036,56153840.0\n6,60.0,294.73455,-113.26203,6223.0422,-111.562,-1.7000353,56153840.0\n7,70.0,294.66561,-113.26178,6861.6826,-111.56212,-1.6996621,56153840.0\n8,80.0,297.77718,-113.27104,8253.0125,-111.57175,-1.6992888,56153840.0\n9,90.0,301.6809,-113.28267,9374.894,-111.58372,-1.6989576,56153840.0\n10,100.0,302.58672,-113.28532,10369.063,-111.5866,-1.6987204,56153840.0\n",
+            "loop_time": 71.7882,
+            "loop_procs": 752,
+            "loop_atoms": 4980736,
+            "performance_ns_per_day": 0.012,
+            "performance_hours_per_ns": 1994.117,
+            "timesteps_per_second": 1.393,
+            "ranks": 752,
+            "times": ",min time,avg time,max time,%varavg,%total\nPair,36.661,41.67,45.033,20.9,58.05\nNeigh,0.72724,0.74427,0.77079,0.9,1.04\nComm,0.40863,3.2146,8.8065,77.6,4.48\nOutput,0.037878,0.10721,0.20729,11.1,0.15\nModify,25.473,26.047,26.623,6.6,36.28\nOther,,0.004953,,,0.01\n",
+            "nghost_avg": 17774.5,
+            "nghost_min": 17497.0,
+            "nghost_max": 18145.0,
+            "nghost_hist": [
+                61,
+                29,
+                112,
+                104,
+                162,
+                161,
+                80,
+                25,
+                2,
+                16
+            ],
+            "neighs_avg": 2086610.0,
+            "neighs_min": 2046310.0,
+            "neighs_max": 2145920.0,
+            "neighs_hist": [
+                62,
+                101,
+                119,
+                129,
+                89,
+                84,
+                88,
+                32,
+                16,
+                32
+            ],
+            "neighbors": 1569127500.0,
+            "average_neighbors_per_atom": 315.03929,
+            "neighbor_list_builds": 5,
+            "total_wall_time_raw": "0:01:13",
+            "total_wall_time_seconds": 73.0,
+            "fluxtimes_finish": 77.465,
+            "fluxvars_complete": "status=0",
+            "fluxtimes_release": 77.467,
+            "fluxtimes_free": 77.467,
+            "fluxtimes_clean": 77.467,
+            "fluxsubmit_wall_time_seconds": 77.78999999999999,
+            "fluxsubmit_wall_time_seconds_raw": "1:17.79",
+            "fluxstart_wall_time_seconds": 79.92,
+            "fluxstart_wall_time_seconds_raw": "1:19.92"
+        }
+    },
+    "meta": {
+        "times": {
+            "create-cluster": 1124.675,
+            "minicluster-run-lmp-8-1-minicluster-size-8": 312.146,
+            "minicluster-run-lmp-8-2-minicluster-size-8": 122.611,
+            "minicluster-run-lmp-8-3-minicluster-size-8": 123.104,
+            "minicluster-run-lmp-8-4-minicluster-size-8": 125.048,
+            "minicluster-run-lmp-8-5-minicluster-size-8": 125.27,
+            "minicluster-run-lmp-8-6-minicluster-size-8": 122.908,
+            "minicluster-run-lmp-8-7-minicluster-size-8": 121.668,
+            "minicluster-run-lmp-8-8-minicluster-size-8": 121.553,
+            "minicluster-run-lmp-8-9-minicluster-size-8": 122.002,
+            "minicluster-run-lmp-8-10-minicluster-size-8": 123.726,
+            "minicluster-run-lmp-8-11-minicluster-size-8": 122.175,
+            "minicluster-run-lmp-8-12-minicluster-size-8": 125.425,
+            "minicluster-run-lmp-8-13-minicluster-size-8": 121.547,
+            "minicluster-run-lmp-8-14-minicluster-size-8": 122.849,
+            "minicluster-run-lmp-8-15-minicluster-size-8": 126.126,
+            "minicluster-run-lmp-8-16-minicluster-size-8": 122.425,
+            "minicluster-run-lmp-8-17-minicluster-size-8": 122.263,
+            "minicluster-run-lmp-8-18-minicluster-size-8": 126.624,
+            "minicluster-run-lmp-8-19-minicluster-size-8": 122.162,
+            "minicluster-run-lmp-8-20-minicluster-size-8": 122.612,
+            "minicluster-run-lmp-8-21-minicluster-size-8": 121.309
+        },
+        "size": 8,
+        "machine": "hpc6a.48xlarge",
+        "kubernetes": {
+            "version": "1.23"
+        },
+        "minicluster": {
+            "name": "lammps",
+            "namespace": "flux-operator",
+            "size": [
+                8
+            ]
+        },
+        "variables": {
+            "availability_zones": [
+                "us-east-2b",
+                "us-east-2c"
+            ],
+            "region": "us-east-2",
+            "efa_enabled": true,
+            "placement_group": "eks-efa-testing",
+            "node_group_availability_zone": "us-east-2b"
+        },
+        "jobs": {
+            "lmp-8-1": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-2": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-3": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-4": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-5": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-6": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-7": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-8": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-9": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-10": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-11": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-12": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-13": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-14": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-15": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-16": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-17": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-18": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-19": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-20": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            },
+            "lmp-8-21": {
+                "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+                "repeats": 21,
+                "memory": "340G",
+                "tasks": 752,
+                "size": 8,
+                "cpu": 94,
+                "cores": 96
+            }
+        }
+    }
+}

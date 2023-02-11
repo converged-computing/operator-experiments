@@ -99,9 +99,6 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf", outdir="img"):
     for size in df.minicluster_size.unique():
         palette[size] = hexcolors.pop(0)
 
-    # Sort by size
-    palette = dict(sorted(palette.items()))
-
     # If we created the cluster time plot
     make_plot(
         df,
@@ -109,6 +106,7 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf", outdir="img"):
         tag="cluster_time",
         ydimension="cluster_time",
         palette=palette,
+        add_legend=False,
         ext=ext,
         plotname=plotname,
         plot_type="box",
@@ -166,12 +164,11 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf", outdir="img"):
     colors = sns.color_palette("hls", 8)
     hexcolors = colors.as_hex()
 
+    # IMPORTANT this will sort and the legend can be wrong, it works here
+    # because f < m. It's a bug that should be fixed in the future.
     palette = {}
     for size in df.operator_name.unique():
         palette[size] = hexcolors.pop(0)
-
-    # Sort by size
-    palette = dict(sorted(palette.items()))
 
     # Let's make a plot that shows distributions of the times by the cluster size, across all
     make_plot(
@@ -253,6 +250,7 @@ def make_plot(
     plot_type="violin",
     hue="minicluster_size",
     outdir="img",
+    add_legend=True,
 ):
     """
     Helper function to make common plots.
@@ -279,7 +277,8 @@ def make_plot(
     ax.set_xticklabels(ax.get_xmajorticklabels(), fontsize=14)
     ax.set_yticklabels(ax.get_yticks(), fontsize=14)
     handles, _ = ax.get_legend_handles_labels()
-    ax.legend(handles, list(palette))
+    if add_legend:
+        ax.legend(handles, list(palette))
     plt.savefig(os.path.join(outdir, f"{tag}_{plotname}.{ext}"))
     plt.clf()
 
