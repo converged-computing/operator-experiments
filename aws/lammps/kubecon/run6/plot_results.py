@@ -238,6 +238,43 @@ def plot_outputs(raw, mpi_operator, plotname, ext="pdf", outdir="img"):
         plot_type="box",
     )
 
+    # Plot flux start and the operator runtime separately
+    # These times are technically different - flux start has to wait for pods
+    # and the MPI operator is when the job is received to finished (no waiting)
+    df["operator_end_to_end"] = df["fluxstart_time"] - df["lammps_time"]
+    flux_only = df[df['operator_name'] == 'flux-operator']
+    mpi_operator_only = df[df['operator_name'] == 'mpi-operator']
+    
+    # Palette is not included because the order will be wrong
+    make_plot(
+        mpi_operator_only,
+        title="MPI operator end-to-end",
+        tag="end_to_end_walltime_mpi_operator",
+        ydimension="operator_end_to_end",
+        palette=palette,
+        outdir=outdir,
+        ext=ext,
+        plotname=plotname,
+        add_legend=False,
+        hue="operator_name",
+        plot_type="box",
+    )
+
+    make_plot(
+        flux_only,
+        title="Flux start end-to-end",
+        tag="end_to_end_walltime_flux_operator",
+        ydimension="operator_end_to_end",
+        palette=palette,
+        add_legend=False,
+        outdir=outdir,
+        ext=ext,
+        plotname=plotname,
+        hue="operator_name",
+        plot_type="box",
+    )
+    
+
 
 def make_plot(
     df,
