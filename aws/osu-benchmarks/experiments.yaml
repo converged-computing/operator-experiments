@@ -1,0 +1,21 @@
+# matrix of experiments to run - machine types and sizes are required
+
+# This can obviously be expanded to more sizes or machines,
+matrix:
+  size: [2]
+  machine: ["m5.large"]
+
+# Flux Mini Cluster experiment attributes
+minicluster:
+  name: osu-benchmarks
+  namespace: flux-operator
+
+# Kubernetes cluster
+cluster:
+  tags:
+    - analysis=lammps
+
+# Each job can have a command and working directory
+jobs:
+  osu_get_latency:
+    command: './osu_get_latency'

@@ -1,0 +1,240 @@
+{
+    "times": {
+        "create-cluster": 1124.675,
+        "minicluster-run-lmp-8-1-minicluster-size-8": 312.146,
+        "minicluster-run-lmp-8-2-minicluster-size-8": 122.611,
+        "minicluster-run-lmp-8-3-minicluster-size-8": 123.104,
+        "minicluster-run-lmp-8-4-minicluster-size-8": 125.048,
+        "minicluster-run-lmp-8-5-minicluster-size-8": 125.27,
+        "minicluster-run-lmp-8-6-minicluster-size-8": 122.908,
+        "minicluster-run-lmp-8-7-minicluster-size-8": 121.668,
+        "minicluster-run-lmp-8-8-minicluster-size-8": 121.553,
+        "minicluster-run-lmp-8-9-minicluster-size-8": 122.002,
+        "minicluster-run-lmp-8-10-minicluster-size-8": 123.726,
+        "minicluster-run-lmp-8-11-minicluster-size-8": 122.175,
+        "minicluster-run-lmp-8-12-minicluster-size-8": 125.425,
+        "minicluster-run-lmp-8-13-minicluster-size-8": 121.547,
+        "minicluster-run-lmp-8-14-minicluster-size-8": 122.849,
+        "minicluster-run-lmp-8-15-minicluster-size-8": 126.126,
+        "minicluster-run-lmp-8-16-minicluster-size-8": 122.425,
+        "minicluster-run-lmp-8-17-minicluster-size-8": 122.263,
+        "minicluster-run-lmp-8-18-minicluster-size-8": 126.624,
+        "minicluster-run-lmp-8-19-minicluster-size-8": 122.162,
+        "minicluster-run-lmp-8-20-minicluster-size-8": 122.612,
+        "minicluster-run-lmp-8-21-minicluster-size-8": 121.309,
+        "destroy-cluster": 726.063
+    },
+    "size": 8,
+    "machine": "hpc6a.48xlarge",
+    "kubernetes": {
+        "version": "1.23"
+    },
+    "minicluster": {
+        "name": "lammps",
+        "namespace": "flux-operator",
+        "size": [
+            8
+        ]
+    },
+    "variables": {
+        "availability_zones": [
+            "us-east-2b",
+            "us-east-2c"
+        ],
+        "region": "us-east-2",
+        "efa_enabled": true,
+        "placement_group": "eks-efa-testing",
+        "node_group_availability_zone": "us-east-2b"
+    },
+    "jobs": {
+        "lmp-8-1": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-2": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-3": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-4": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-5": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-6": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-7": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-8": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-9": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-10": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-11": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-12": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-13": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-14": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-15": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-16": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-17": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-18": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-19": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-20": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        },
+        "lmp-8-21": {
+            "command": "lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite",
+            "repeats": 21,
+            "memory": "340G",
+            "tasks": 752,
+            "size": 8,
+            "cpu": 94,
+            "cores": 96
+        }
+    }
+}

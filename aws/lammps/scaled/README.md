@@ -1,0 +1,103 @@
+# Lammps on Amazon Cloud
+
+In this set of experiments we will run the Flux Operator on Amazon Cloud at size N=4
+with one machine type that supports the networking we want.
+
+## Pre-requisites
+
+You should first [install eksctrl](https://github.com/weaveworks/eksctl) and make sure you have access to an AWS cloud (e.g.,
+with credentials or similar in your environment). E.g.,:
+
+```bash
+export AWS_ACCESS_KEY_ID=xxxxxxxxxxxxxxxxxxx
+export AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+export AWS_SESSION_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+The last session token may not be required depending on your setup.
+We assume you also have [kubectl](https://kubernetes.io/docs/tasks/tools/).
+
+### Setup SSH
+
+You'll need an ssh key for EKS. Here is how to generate it:
+
+```bash
+ssh-keygen
+# Ensure you enter the path to ~/.ssh/id_eks
+```
+
+This is used so you can ssh (connect) to your workers!
+
+### Cloud
+
+we will be using [Flux Cloud](https://github.com/converged-computing/flux-cloud) 
+to run the Operator on Google Cloud Kubernetes engine.
+
+```bash
+$ pip install flux-cloud
+```
+
+We used version 0.1.0 of Flux cloud for these experiments.
+Ensure that aws is either your default cloud (the `default_cloud` in your settings.yml)
+or you specify it with `--cloud` when you do run.
+
+
+## Run Experiments
+
+Each experiment here is defined by the matrix and variables in [experiments.yaml](experiment.yaml) that is used to
+populate a [minicluster-template.yaml](minicluster-template.yaml) and launch a Kubernetes cluster.
+You can read the documentation for flux-cloud to understand the variables available.
+This tutorial assumes you have flux-cloud installed and configured. See all unique Kubernetes clusters
+we will run the jobs on:
+
+```bash
+$ flux-cloud list
+```
+
+It's recommended for the below commands to use `--debug` if this is your first
+time to see the configs generated (e.g., `flux-cloud --debug run`. 
+To run all at once (only recommended for headless):
+
+```bash
+$ flux-cloud run --force-cluster
+```
+
+Or (for testing) to bring up just the first cluster and then manually apply:
+
+```bash
+$ flux-cloud up
+$ flux-cloud apply
+$ flux-cloud down
+```
+
+or do the same for a targeted machine (one entry in your matrix):
+
+```bash
+$ flux-cloud up -e n1-standard-2-2
+$ flux-cloud apply -e n1-standard-2-2
+$ flux-cloud down -e n1-standard-2-2
+```
+
+By default, results will be written to a [./data](data) directory, but you can customize this with `--outdir`.
+
+
+## Results
+
+We have provided  a [process_lammps.py](process_lammps.py) script (under development) you can
+use against the output data directory (and output files) to visualize the results.
+
+**Note** we have not updated this yet for the multiple commands, e.g., if you
+run more than one job it would need to be averaged, etc. There likely will be an
+error if you run it - we will update this script when we do the larger runs!
+
+```bash
+$ python -m venv env 
+$ source env/bin/activate
+$ pip install -r requirements.txt
+```
+
+Next, run the script targeting the data directory generated:
+
+```bash
+$ python process_lammps.py ./data
+```

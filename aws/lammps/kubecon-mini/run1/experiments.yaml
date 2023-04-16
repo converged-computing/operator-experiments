@@ -1,0 +1,77 @@
+# matrix of experiments to run - machine types and sizes are required
+matrix:
+
+  # Size of the MiniCluster - we are allowed to specify one size (and different pods)
+  size: [4] # [64]
+
+  # See https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html#efa-instance-types
+  # not all support efa
+  machine: ["hpc6a.48xlarge"]
+
+kubernetes:
+  version: "1.23"
+
+# Flux Mini Cluster experiment attributes
+minicluster:
+  name: lammps
+  namespace: flux-operator
+  
+  # These are the sizes of MiniCluster we will iterate over
+  size: [4] #[64, 32, 16, 8, 4]
+
+variables:
+  availability_zones: [us-east-2b, us-east-2c]
+  region: us-east-2
+  efa_enabled: true
+  placement_group: eks-efa-testing
+
+jobs:
+  lmp-4:
+    command: lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
+    # command: lmp -v x 64 -v y 16 -v z 8 -in in.reaxc.hns -nocite
+    repeats: 10
+    memory: 340G
+    # 4*94
+    tasks: 376
+    cpu: 94
+    cores: 96
+
+    # This indicates only run on the MiniCluster size 4
+    size: 4
+
+#  lmp-8:
+#    command: lmp -v x 64 -v y 16 -v z 8 -in in.reaxc.hns -nocite
+#    repeats: 20    
+#    memory: 384G
+    # 8*94
+#    tasks: 752
+#    size: 8
+#    cpu: 94
+
+#  lmp-16:
+#    command: lmp -v x 64 -v y 16 -v z 8 -in in.reaxc.hns -nocite
+#    repeats: 20    
+#    memory: 384G
+#    # 16*94
+#    tasks: 1504
+#    size: 16
+#    cpu: 94
+#
+#  lmp-32:
+#    command: lmp -v x 64 -v y 16 -v z 8 -in in.reaxc.hns -nocite
+#    repeats: 20    
+#    memory: 384G
+#    # 32*94
+#    tasks: 3008
+#    size: 32
+#    cpu: 94
+#
+#  lmp-64:
+#    command: lmp -v x 64 -v y 16 -v z 8 -in in.reaxc.hns -nocite
+#    repeats: 1  
+#    memory: 340G
+#    # 64*94
+#    tasks: 6016
+#    size: 64
+#    cpu: 96
+#    cores: 96

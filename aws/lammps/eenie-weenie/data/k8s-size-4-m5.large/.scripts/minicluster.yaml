@@ -1,0 +1,39 @@
+apiVersion: flux-framework.org/v1alpha1
+kind: MiniCluster
+
+metadata:
+  name: lammps
+  namespace: flux-operator
+spec:
+  # localDeploy needs to be false
+  localDeploy: false
+
+  # Number of pods to create for MiniCluster
+  size: 4
+  tasks: 1
+
+  # Disable verbose output
+  test: true
+
+  # TODO add pod resources, if needed
+  # This is a list because a pod can support multiple containers
+  containers:
+    - image: ghcr.io/rse-ops/lammps:flux-sched-focal-v0.24.0
+      workingDir: /home/flux/examples/reaxff/HNS
+      command: lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite
+
+      # Option Flags for this flux runner wait.sh entrypoint
+      
+
+      # Leave 2 cores for kubernetes, we have 96,
+      # this is just for eksctl
+      cores: 1
+
+      # Resource limits to enable efa
+      
+        
+
+        
+
+      # custom preCommand logic (run at start of script)
+      

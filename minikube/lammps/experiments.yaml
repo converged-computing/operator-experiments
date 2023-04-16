@@ -1,0 +1,22 @@
+# matrix of experiments to run - machine types and sizes are required
+
+# These are mini runs intended for testing
+matrix:
+  size: [4]
+
+# Flux Mini Cluster experiment attributes
+minicluster:
+  name: lammps
+  namespace: flux-operator
+  size: [2, 4]
+
+# Each job can have a command and working directory
+jobs:
+  lmp-size-2:
+    command: lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite
+    image: ghcr.io/rse-ops/lammps:flux-sched-focal-v0.24.0
+    size: 2
+  lmp-size-4:
+    command: lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite
+    image: ghcr.io/rse-ops/lammps:flux-sched-focal-v0.24.0
+    size: 4

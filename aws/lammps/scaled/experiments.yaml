@@ -1,0 +1,31 @@
+# matrix of experiments to run - machine types and sizes are required
+
+# These are mini runs intended for testing
+matrix:
+  size: [4]
+
+  # See https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html#efa-instance-types
+  # not all support efa
+  machine: ["hpc6a.48xlarge"]
+
+
+# Flux Mini Cluster experiment attributes
+minicluster:
+  name: lammps
+  namespace: flux-operator
+  size: [4]
+
+variables:
+  efa_enabled: true
+
+# Each job can have a command and working directory
+jobs:
+  lmp-tasks-384:
+     repeats: 5
+     command: lmp -v x 64 -v y 8 -v z 4 -in in.reaxc.hns -nocite
+     memory: 384G
+     tasks: 384
+     cpu: 96 
+
+     # This is two less than available, Kubernetes for eks needs two
+     cores: 96

@@ -1,0 +1,22 @@
+{
+    "size": 2,
+    "machine": "m5.large",
+    "minicluster": {
+        "name": "osu-benchmarks",
+        "namespace": "flux-operator"
+    },
+    "cluster": {
+        "tags": [
+            "analysis=lammps"
+        ]
+    },
+    "jobs": {
+        "osu_get_latency": {
+            "command": "./osu_get_latency"
+        }
+    },
+    "id": "m5.large-2",
+    "times": {
+        "minicluster-run-osu_get_latency": 288.1157660484314
+    }
+}

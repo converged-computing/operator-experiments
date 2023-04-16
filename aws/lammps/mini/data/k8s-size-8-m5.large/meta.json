@@ -1,0 +1,45 @@
+{
+    "times": {
+        "create-cluster": 1010.911,
+        "minicluster-run-lmp-1-minicluster-size-2": 152.901,
+        "minicluster-run-lmp-2-minicluster-size-2": 39.538,
+        "minicluster-run-lmp-3-minicluster-size-2": 38.426,
+        "minicluster-run-lmp-1-minicluster-size-4": 37.989,
+        "minicluster-run-lmp-2-minicluster-size-4": 34.624,
+        "minicluster-run-lmp-3-minicluster-size-4": 38.647,
+        "minicluster-run-lmp-1-minicluster-size-6": 85.242,
+        "minicluster-run-lmp-2-minicluster-size-6": 38.578,
+        "minicluster-run-lmp-3-minicluster-size-6": 38.645,
+        "minicluster-run-lmp-1-minicluster-size-8": 38.859,
+        "minicluster-run-lmp-2-minicluster-size-8": 39.08,
+        "minicluster-run-lmp-3-minicluster-size-8": 39.443,
+        "destroy-cluster": 0.731
+    },
+    "size": 8,
+    "machine": "m5.large",
+    "minicluster": {
+        "name": "lammps",
+        "namespace": "flux-operator",
+        "size": [
+            2,
+            4,
+            6,
+            8
+        ]
+    },
+    "jobs": {
+        "lmp-1": {
+            "command": "lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite",
+            "repeats": 3
+        },
+        "lmp-2": {
+            "command": "lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite",
+            "repeats": 3
+        },
+        "lmp-3": {
+            "command": "lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite",
+            "repeats": 3
+        }
+    },
+    "id": "k8s-size-8-m5.large"
+}

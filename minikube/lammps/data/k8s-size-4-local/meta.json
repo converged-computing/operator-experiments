@@ -1,0 +1,31 @@
+{
+    "times": {
+        "create-cluster-minikube": 89.517,
+        "pull-minikube-image-ghcr.io-rse-ops-lammps:flux-sched-focal-v0.24.0": 55.862,
+        "minicluster-run-lmp-size-2-minicluster-size-2": 117.564,
+        "minicluster-run-lmp-size-4-minicluster-size-4": 157.798,
+        "destroy-cluster-minikube": 14.544
+    },
+    "size": 4,
+    "minicluster": {
+        "name": "lammps",
+        "namespace": "flux-operator",
+        "size": [
+            2,
+            4
+        ]
+    },
+    "jobs": {
+        "lmp-size-2": {
+            "command": "lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite",
+            "image": "ghcr.io/rse-ops/lammps:flux-sched-focal-v0.24.0",
+            "size": 2
+        },
+        "lmp-size-4": {
+            "command": "lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite",
+            "image": "ghcr.io/rse-ops/lammps:flux-sched-focal-v0.24.0",
+            "size": 4
+        }
+    },
+    "id": "k8s-size-4-local"
+}
