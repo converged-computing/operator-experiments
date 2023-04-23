@@ -1,0 +1,6 @@
+terraform.tfstate
+terraform.tfstate.backup
+fuse-mounts.sh
+basic.tfvars
+.terraform
+.terraform.lock.hcl

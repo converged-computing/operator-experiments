@@ -14,3 +14,9 @@ The following things we will want to do for each experiment:
 
  - ensure that we have enough quota for instances, etc.
  - do a cost estimation based on instance usage, storage, and time
+ 
+## Comparison
+
+- Flux nodes: Flux operator requires a container rebuild, identical, Compute Engine requires a VM rebuild (multiple)
+- Interaction: Flux operator affords more programmatic interactions (Compute Engine requires a login)
+-   
