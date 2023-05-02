@@ -22,22 +22,16 @@ The command
 ```
 
 clones the [cloud builders community](https://github.com/GoogleCloudPlatform/cloud-builders-community) repo, determines the current latest
-Packer version and then invokes Cloud Build to create the Packer build step. You can clean up that repository after:
-
-```bash
-$ rm -rf cloud-builders-community
-```
+Packer version and then invokes Cloud Build to create the Packer build step.
 
 ### Environment Setup
 
 The Packer build step requires elevated privileges to create a GCP image. Rather than grant those privileges
 to the Cloud Build service account a separate `image builder` service account is created and granted the
 necessary privileges. The command
-
 ```bash
 ./builder-setup.sh
 ```
-
 creates the `image builder` service account the necessary privileges, downloads its keys, uses the Google Cloud KMS service
 to encrypt them and grants the Cloud Build service account the ability to decrypt them.
 
@@ -59,16 +53,23 @@ a `-z <zone>` command line argument. The following arguments control which image
 For example, the command
 
 ```bash
-./build-images.sh -z us-central1-a -a t2a-standard-16 -x n2-standard-16 -m e2-standard-8 -l n2-standard-16
+./build-images.sh -z us-central1-a -a t2a-standard-16 -x n2-standard-16 -m e2-standard-8
+```
+
+To choose a specific subnetwork:
+
+```bash
+./build-images.sh -z us-central1-a -m e2-standard-8 -a t2a-standard-16 -x n2-standard-16 -l e2-standard-8
+```
+
+or to build with the c2 family:
+
+```bash
+./build-images.sh -z us-central1-a -m c2d-standard-8 -a t2a-standard-16 -x c2d-standard-16 -l c2d-standard-8
 ```
 
 will create a management node image using an e2-standard-8 machine type in the us-central1-a zone and compute node
 images for the ARM64 and x86_64 architectures using t2a-standard-16 and n2-standard-16 machine types respectively.
-To make a smaller (testing) setup:
-
-```bash
-./build-images.sh -z us-central1-a -a t2a-standard-4 -x n2-standard-4 -m e2-standard-4 -l n2-standard-4
-```
 
 Note that the `zone` argument only specifies the zone in which the build runs. The images can be used in any region/zone
 in your project where the underlying machine types are available.

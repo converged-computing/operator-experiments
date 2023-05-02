@@ -18,12 +18,14 @@ Initialize the deployment with the command:
 $ terraform init
 ```
 
+Since LAMMPS does not need a shared file system, we won't be mounting any buckets.
+
 ## Deploy
 
 Then, deploy the cluster with the command:
 
 ```bash
-terraform apply -var-file lammps.tfvars \
+$ terraform apply -var-file lammps.tfvars \
   -var region=us-central1 \
   -var project_id=$(gcloud config get-value core/project) \
   -var network_name=foundation-net \
@@ -35,7 +37,7 @@ you can change any of the `-var` values to be appropriate for your environment.
 Verify that the cluster is up:
 
 ```bash
-gcloud compute ssh gffw-login-001 --zone us-central1-a
+$ gcloud compute ssh gffw-login-001 --zone us-central1-a
 ```
 
 ## Run Experiments
@@ -50,7 +52,7 @@ And then shell in (as we did above)
 
 
 ```bash
-gcloud compute ssh gffw-login-001 --zone us-central1-a
+$ gcloud compute ssh gffw-login-001 --zone us-central1-a
 ```
 
 Go to the experiment directory with our files of interest
@@ -145,7 +147,7 @@ And that's really it :) When you are finished destroy the cluster:
 
 
 ```bash
-terraform destroy -var-file lammps.tfvars \
+$ terraform destroy -var-file lammps.tfvars \
   -var region=us-central1 \
   -var project_id=$(gcloud config get-value core/project) \
   -var network_name=foundation-net \
