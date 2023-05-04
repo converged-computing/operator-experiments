@@ -14,7 +14,7 @@ discuss here.
 We identified two problems:
 
 - ZeroMQ had an exponential backoff when no connect timeout was set
-- Regardles of the above, having a service pod always acted as a "warmup" to make the runtime faster
+- Regardless of the above, having a service pod always acted as a "warmup" to make the runtime faster
 
 We were able to fix the first by adding a variable to define a set backoff (e.g., 5s by default)
 to zeromq, and while this greatly improved times (140 seconds down to 28-30 on MiniKube, and 40 down to 12-15 on a production cluster)
