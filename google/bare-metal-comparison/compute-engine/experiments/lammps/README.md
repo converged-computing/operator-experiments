@@ -280,7 +280,7 @@ flux alloc -N 8 /bin/bash
 nodes=8
 mkdir -p ${outdir}/data/size_${nodes}
 cd /opt/lammps/examples/reaxff/HNS
-python run-experiments.py --workdir /opt/lammps/examples/reaxff/HNS --tasks 448 --times 20 -N ${nodes} lmp -v x 16 -v y 16 -v z 16 -in in.reaxc.hns -nocite --outdir $outdir/data/size_${nodes} --identifier lammps-${nodes}
+python run-experiments.py --workdir /opt/lammps/examples/reaxff/HNS --tasks 448 --times 20 -N ${nodes} lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite --outdir $outdir/data/size_${nodes} --identifier lammps-${nodes}
 exit
 ```
 
@@ -293,7 +293,7 @@ flux alloc -N 16 /bin/bash
 nodes=16
 mkdir -p ${outdir}/data/size_${nodes}
 cd /opt/lammps/examples/reaxff/HNS
-python run-experiments.py --workdir /opt/lammps/examples/reaxff/HNS --tasks 896 --times 20 -N ${nodes} lmp -v x 16 -v y 16 -v z 16 -in in.reaxc.hns -
+python run-experiments.py --workdir /opt/lammps/examples/reaxff/HNS --tasks 896 --times 20 -N ${nodes} lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -
 nocite --outdir $outdir/data/size_${nodes} --identifier lammps-${nodes}
 exit
 ```
@@ -308,7 +308,7 @@ flux alloc -N 32 /bin/bash
 nodes=32
 mkdir -p ${outdir}/data/size_${nodes}
 cd /opt/lammps/examples/reaxff/HNS
-python run-experiments.py --workdir /opt/lammps/examples/reaxff/HNS --tasks 1792 --times 20 -N ${nodes} lmp -v x 16 -v y 16 -v z 16 -in in.reaxc.hns -nocite --outdir $outdir/data/size_${nodes} --identifier lammps-${nodes}
+python run-experiments.py --workdir /opt/lammps/examples/reaxff/HNS --tasks 1792 --times 20 -N ${nodes} lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite --outdir $outdir/data/size_${nodes} --identifier lammps-${nodes}
 exit
 ```
 
@@ -321,7 +321,7 @@ flux alloc -N 64 /bin/bash
 nodes=64
 mkdir -p ${outdir}/data/size_${nodes}
 cd /opt/lammps/examples/reaxff/HNS
-python run-experiments.py --workdir /opt/lammps/examples/reaxff/HNS --tasks 3584 --times 20 -N ${nodes} lmp -v x 16 -v y 16 -v z 16 -in in.reaxc.hns -nocite --outdir $outdir/data/size_${nodes} --identifier lammps-${nodes}
+python run-experiments.py --workdir /opt/lammps/examples/reaxff/HNS --tasks 3584 --times 20 -N ${nodes} lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite --outdir $outdir/data/size_${nodes} --identifier lammps-${nodes}
 exit
 ```
 
@@ -334,7 +334,7 @@ flux alloc -N 128 /bin/bash
 nodes=64
 mkdir -p ${outdir}/data/size_${nodes}
 cd /opt/lammps/examples/reaxff/HNS
-python run-experiments.py --workdir /opt/lammps/examples/reaxff/HNS --tasks 7168 --times 20 -N ${nodes} lmp -v x 16 -v y 16 -v z 16 -in in.reaxc.hns -nocite --outdir $outdir/data/size_${nodes} --identifier lammps-${nodes}
+python run-experiments.py --workdir /opt/lammps/examples/reaxff/HNS --tasks 7168 --times 20 -N ${nodes} lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite --outdir $outdir/data/size_${nodes} --identifier lammps-${nodes}
 exit
 ```
 
