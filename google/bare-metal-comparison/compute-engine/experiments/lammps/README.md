@@ -206,6 +206,7 @@ You will need to create the Kubernetes cluster:
 
 ```bash
 $ time gcloud container clusters create flux-operator --cluster-dns=clouddns --cluster-dns-scope=cluster \
+   --threads-per-core=1 \
    --region=us-central1-a --project $GOOGLE_PROJECT \
    --machine-type c2d-standard-112 --num-nodes=128 --enable-network-policy \
    --tags=flux-cluster --enable-intra-node-visibility
