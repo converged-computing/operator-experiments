@@ -272,6 +272,8 @@ And if they are running under an allocation of that many nodes, each job should 
 
 #### Size 8
 
+> IMPORTANT: we are first going to try a problem size of `-v x 64 -v y 32 -v z 16` for a size 8 setup, and if it takes longer than 3 minutes, we will cut and reduce to the original `-v x 64 -v y 16 -v z 16` 
+
 Size 8 tasks should be 56 * 8 == 448?
 
 

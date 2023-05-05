@@ -119,28 +119,43 @@ def main():
         identifier = f"{args.identifier}-{i}"
         return os.path.join(args.outdir, identifier)
 
+    # Hard code options for all setups
+    flux_options = [
+        "-ompi=openmpi@5",
+        "-c",
+        "1",
+        "-o",
+        "cpu-affinity=per-task",
+        "--watch",
+        "-vvv",
+    ]
+
     # Submit all jobs
     jobs = []
     for i in range(args.times):
         prefix = get_job_prefix(i)
         outfile = f"{prefix}.log"
 
-        flux_command = [
-            "flux",
-            "submit",
-            "-N",
-            str(args.N),
-            "-n",
-            str(args.tasks),
-            "--output",
-            outfile,
-            "--error",
-            outfile,
-        ] + command
+        flux_command = (
+            [
+                "flux",
+                "submit",
+                "-N",
+                str(args.N),
+                "-n",
+                str(args.tasks),
+                "--output",
+                outfile,
+                "--error",
+                outfile,
+            ]
+            + flux_options
+            + command
+        )
 
         # If doing a dry run, stop here
+        print(" ".join(flux_command))
         if args.dry_run:
-            print(" ".join(flux_command))
             continue
 
         jobid = subprocess.check_output(flux_command)
