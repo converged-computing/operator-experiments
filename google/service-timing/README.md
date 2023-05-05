@@ -52,7 +52,26 @@ $ kubectl create namespace flux-operator
 $ kubectl apply -f examples/dist/flux-operator-dev.yaml
 ```
 
-And then I ran the experiments! This saved the data files here:
+But if you are not developing (and don't have the repository handy) you can just do:
+
+```bash
+$ wget https://raw.githubusercontent.com/flux-framework/flux-operator/main/examples/dist/flux-operator.yaml
+$ kubectl create namespace flux-operator
+$ kubectl apply -f ./flux-operator.yaml
+```
+You'll also need the Python bindings and a virtual environment. We just are using Python to programatically submit (and time) the jobs.
+
+```bash
+$ python -m venv env
+$ source env/bin/activate
+$ pip install fluxoperator # this should be 0.0.22
+$ pip install kubernetes   # I was using 26.1.0
+```
+
+And then I ran the experiments! I would recommend you look at this file before running to understand what is going on.
+Keep in mind for a first run to the cluster (that needs to pull the container) you might want to remove the time from
+the average. When I ran these for saving, I had already done a few test runs and didn't need to do this.
+This saved the data files here:
 
 ```bash
 $ python time-minicluster-lammps.py
