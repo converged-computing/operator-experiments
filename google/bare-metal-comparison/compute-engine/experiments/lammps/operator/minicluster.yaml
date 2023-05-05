@@ -1,0 +1,44 @@
+apiVersion: flux-framework.org/v1alpha1
+kind: MiniCluster
+metadata:
+  name: flux-sample
+  namespace: flux-operator
+spec:
+
+  # Number of pods to create for MiniCluster
+  size: 128
+
+  # This starts the flux broker without a command (interactive)
+  interactive: true
+
+  # Make this kind of persistent volume and claim available to pods
+  # This is a type of storage that will use Google Storage
+  volumes:
+    data:
+      storageClass: csi-gcs
+      driver: gcs.csi.ofek.dev
+      path: /tmp/data
+      secret: csi-gcs-secret
+      capacity: 25Gi
+
+      # Annotations for the persistent volume claim
+      claimAnnotations:
+        gcs.csi.ofek.dev/location: us-central1
+        gcs.csi.ofek.dev/project-id: llnl-flux
+        gcs.csi.ofek.dev/bucket: flux-experiments
+
+  # This is a list because a pod can support multiple containers
+  containers:
+    - image: ghcr.io/rse-ops/spack-rocky-libfabric:tag-8
+      fluxOptionFlags: "-ompi=openmpi@5"
+
+      # We are saying to mount the "data" volume defined above to "/workflow"
+      # in the container
+      volumes:
+        data:
+          # This is where we will bind storage - readonly defaults to false
+          path: /workflow
+
+      # Easiest way to get storage to work
+      commands:
+        runFluxAsRoot: true

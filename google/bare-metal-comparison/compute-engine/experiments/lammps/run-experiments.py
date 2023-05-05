@@ -12,7 +12,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 # Basic submit and monitor / saving of logs for multiple jobs
 # Submit 10 times, each on 2 nodes
 # cd /opt/lammps/examples/reaxff/HNS
-# python run-experiments.py --workdir /opt/lammps/examples/reaxff/HNS --tasks 2 --times 10 -N 2 lmp -v x 1 -v y 1 -v z 1 -in in.reaxc.hns -nocite
+# python run-experiments.py --workdir /opt/lammps/examples/reaxff/HNS --tasks 2 --times 10 -N 2 lmp -v x 1 -v y 1 -v z 1 -in in.reaxc.hns -nocite --outdir /home/scohat1/etc --identifier lammps
 
 # Make sure we can connect to the handle
 try:
