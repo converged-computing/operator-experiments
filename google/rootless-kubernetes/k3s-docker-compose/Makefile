@@ -32,7 +32,4 @@ integration-up:
 integration-down:
 	@echo
 	@echo "Stop K3s cluster and registry locally."
-	docker-compose \
-	-f ./docker-compose.yaml \
-	-f ./docker-compose-registry.yaml \
-	down
+	docker-compose -f ./docker-compose.yaml down
