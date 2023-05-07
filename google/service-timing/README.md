@@ -71,7 +71,7 @@ $ pip install kubernetes   # I was using 26.1.0
 And then I ran the experiments! I would recommend you look at this file before running to understand what is going on.
 Keep in mind for a first run to the cluster (that needs to pull the container) you might want to remove the time from
 the average. When I ran these for saving, I had already done a few test runs and didn't need to do this.
-This saved the data files here:
+And then I ran the experiments! This saved the data files here:
 
 ```bash
 $ python time-minicluster-lammps.py

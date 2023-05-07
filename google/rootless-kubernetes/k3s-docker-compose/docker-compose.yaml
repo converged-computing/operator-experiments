@@ -1,0 +1,39 @@
+version: '3'
+services:
+  server:
+    image: "rancher/k3s:${K3S_VERSION:-latest}"
+    command: 
+    - server
+    tmpfs:
+    - /run
+    - /var/run
+    privileged: true
+    environment:
+    - K3S_TOKEN=secret
+    - K3S_KUBECONFIG_OUTPUT=/output/kubeconfig.yaml
+    - K3S_KUBECONFIG_MODE=666
+    volumes:
+    - ./registries.yaml:/etc/rancher/k3s/registries.yaml
+    - .:/output
+    ports:
+    - 6443:6443
+    - 8080:8080
+
+  registry:
+    image: "registry:2"
+    ports:
+    - 5000:5000
+
+  agent:
+    image: "rancher/k3s:${K3S_VERSION:-latest}"
+    command:
+    - agent
+    tmpfs:
+    - /run
+    - /var/run
+    privileged: true
+    environment:
+    - K3S_URL=https://server:6443
+    - K3S_TOKEN=secret
+    volumes:
+    - ./registries.yaml:/etc/rancher/k3s/registries.yaml
