@@ -83,6 +83,8 @@ echo "FLUXMANAGER:/usr/local/etc/flux/security /usr/local/etc/flux/security nfs 
 echo "FLUXMANAGER:/usr/local/etc/flux/system /usr/local/etc/flux/system nfs defaults,hard,intr,_netdev 0 0" >> /etc/fstab
 echo "FLUXMANAGER:/etc/munge /etc/munge nfs defaults,hard,intr,_netdev 0 0" >> /etc/fstab
 
+ifdef(`X86_64', `include(install_lammps.txt)')dnl
+
 mkdir -p /etc/flux/login/conf.d
 
 cat << "CONFIG_FLUX_NFS" > /etc/flux/login/conf.d/01-flux-nfs.sh

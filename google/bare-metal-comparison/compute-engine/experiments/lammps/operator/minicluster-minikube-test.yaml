@@ -1,0 +1,33 @@
+apiVersion: flux-framework.org/v1alpha1
+kind: MiniCluster
+metadata:
+  name: flux-sample
+  namespace: flux-operator
+spec:
+
+  # Number of pods to create for MiniCluster
+  size: 4
+  logging:
+    strict: false
+
+  # This starts the flux broker without a command (interactive)
+  #interactive: true  
+  flux:
+    installRoot: /opt/view
+    optionFlags: "-ompi=openmpi@5 -c 1 -o cpu-affinity=per-task" 
+
+  # This is the same container we used for kubecon tests
+  containers:
+    - image: ghcr.io/rse-ops/lammps-efa-rocky:tag-8
+
+      command: lmp -v x 2 -v y 1 -v z 1 -in in.reaxc.hns -nocite
+      workingDir: /opt/lammps/examples/reaxff/HNS
+      commands:
+        pre: |
+          source /etc/profile.d/z10_spack_environment.sh
+          asFlux="sudo -u flux -E PYTHONPATH=$PYTHONPATH -E PATH=$PATH -E FI_EFA_USE_DEVICE_RDMA=1 -E RDMAV_FORK_SAFE=1"
+          . /etc/profile.d/z10_spack_environment.sh 
+          cd /opt/spack-environment
+          . /opt/spack-environment/spack/share/spack/setup-env.sh
+          spack env activate .
+          cd /opt/lammps/examples/reaxff/HNS

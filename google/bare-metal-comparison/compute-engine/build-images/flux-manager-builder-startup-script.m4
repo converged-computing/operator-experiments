@@ -138,6 +138,8 @@ chmod u+s /usr/local/libexec/flux/flux-imp
 
 mkdir -p /etc/flux/manager/conf.d
 
+ifdef(`X86_64', `include(install_lammps.txt)')dnl
+
 cat << "CONFIG_FLUX_SYSTEM" > /etc/flux/manager/conf.d/01-system.sh
 #!/bin/bash
 

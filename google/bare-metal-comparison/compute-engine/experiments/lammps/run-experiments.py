@@ -206,6 +206,5 @@ def main():
             fd.write(json.dumps(info, indent=4))
     print("Jobs are complete, goodbye! 👋️")
 
-
 if __name__ == "__main__":
     main()

@@ -253,6 +253,10 @@ spec:
                     default: 5s
                     description: Single user executable to provide to flux start
                     type: string
+                  installRoot:
+                    default: /usr
+                    description: Install root location
+                    type: string
                   logLevel:
                     default: 6
                     description: Log level to use for flux logging (only in non TestMode)
@@ -714,14 +718,14 @@ spec:
                 description: The Jobid is set internally to associate to a miniCluster
                   This isn't currently in use, we only have one!
                 type: string
-              size:
+              maximumSize:
                 description: We keep the original size of the MiniCluster request
                   as this is the absolute maximum
                 format: int32
                 type: integer
             required:
             - jobid
-            - size
+            - maximumSize
             type: object
         type: object
     served: true
@@ -1209,7 +1213,7 @@ spec:
         - --leader-elect
         command:
         - /manager
-        image: ghcr.io/flux-framework/flux-operator:latest
+        image: ghcr.io/flux-framework/flux-operator:test@sha256:12e13ccad884e6ba08f7473bd9c8627e6aaed0ec3aab081766800d85f28e886c
         imagePullPolicy: Always
         livenessProbe:
           httpGet:

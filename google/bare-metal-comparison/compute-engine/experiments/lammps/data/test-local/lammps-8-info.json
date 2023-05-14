@@ -1,0 +1,32 @@
+{
+    "id": 10684771337216,
+    "userid": 501043911,
+    "urgency": 16,
+    "priority": 16,
+    "t_submit": 1683063723.128486,
+    "t_depend": 1683063723.1452339,
+    "t_run": 1683063723.1623158,
+    "t_cleanup": 1683063736.9915044,
+    "t_inactive": 1683063736.9961543,
+    "state": "INACTIVE",
+    "name": "lmp",
+    "ntasks": 2,
+    "ncores": 2,
+    "duration": 0.0,
+    "nnodes": 2,
+    "ranks": "[1-2]",
+    "nodelist": "gffw-login-001,gffw-compute-a-001",
+    "success": true,
+    "exception_occurred": false,
+    "result": "COMPLETED",
+    "expiration": 4836663723.0,
+    "waitstatus": 0,
+    "returncode": 0,
+    "runtime": 13.829188585281372,
+    "exception": {
+        "occurred": false,
+        "severity": "",
+        "type": "",
+        "note": ""
+    }
+}

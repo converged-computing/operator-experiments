@@ -1,0 +1,128 @@
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[3]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[3]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[4]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[4]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[2]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[2]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[5]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[5]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[7]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[7]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[6]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[6]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[2]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[2]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[6]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[6]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[5]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[5]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[3]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[3]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[4]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[4]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[7]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[7]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[2]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[2]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[3]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[3]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[4]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[4]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[5]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[5]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[6]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[6]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[7]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[7]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+LAMMPS (29 Sep 2021 - Update 2)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
+  using 1 OpenMP thread(s) per MPI task
+Reading data file ...
+  triclinic box = (0.0000000 0.0000000 0.0000000) to (22.326000 11.141200 13.778966) with tilt (0.0000000 -5.0260300 0.0000000)
+  8 by 7 by 8 MPI processor grid
+  reading atoms ...
+  304 atoms
+  reading velocities ...
+  304 velocities
+  read_data CPU = 0.026 seconds
+Replicating atoms ...
+  triclinic box = (0.0000000 0.0000000 0.0000000) to (44.652000 22.282400 27.557932) with tilt (0.0000000 -10.052060 0.0000000)
+  8 by 7 by 8 MPI processor grid
+  bounding box image = (0 -1 -1) to (0 1 1)
+  bounding box extra memory = 0.03 MB
+  average # of replicas added to proc = 4.25 out of 8 (53.12%)
+  2432 atoms
+  replicate CPU = 0.018 seconds
+Neighbor list info ...
+  update every 20 steps, delay 0 steps, check no
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 11
+  ghost atom cutoff = 11
+  binsize = 5.5, bins = 10 5 6
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: full/ghost/bin/3d
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+Setting up Verlet run ...
+  Unit style    : real
+  Current step  : 0
+  Time step     : 0.1
+Per MPI rank memory allocation (min/avg/max) = 29.07 | 29.48 | 29.97 Mbytes
+Step Temp PotEng Press E_vdwl E_coul Volume 
+       0          300   -113.27833    437.52566   -111.57687   -1.7014647    27418.867 
+      10    299.38517   -113.27631    1439.2437   -111.57492   -1.7013814    27418.867 
+      20    300.27107   -113.27884    3764.3614   -111.57762   -1.7012246    27418.867 
+      30    302.21062   -113.28428     7007.661   -111.58335   -1.7009363    27418.867 
+      40    303.52264   -113.28799    9844.8294   -111.58747   -1.7005186    27418.867 
+      50    301.87059   -113.28324    9663.0345   -111.58318   -1.7000524    27418.867 
+      60    296.67808   -113.26777    7273.8035   -111.56815   -1.6996137    27418.867 
+      70        292.2   -113.25435    5533.5659   -111.55514   -1.6992158    27418.867 
+      80    293.58677   -113.25831    5993.4081   -111.55946   -1.6988533    27418.867 
+      90    300.62635   -113.27925    7202.8445   -111.58069   -1.6985592    27418.867 
+     100    305.38277   -113.29357    10085.728   -111.59518   -1.6983875    27418.867 
+Loop time of 29.2759 on 448 procs for 100 steps with 2432 atoms
+
+Performance: 0.030 ns/day, 813.220 hours/ns, 3.416 timesteps/s
+10.0% CPU use with 448 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.84539    | 1.0189     | 1.3008     |  12.2 |  3.48
+Neigh   | 0.032787   | 0.038425   | 0.065347   |   4.1 |  0.13
+Comm    | 1.8794     | 2.3504     | 2.7924     |  19.0 |  8.03
+Output  | 0.25248    | 0.31809    | 0.38789    |   5.1 |  1.09
+Modify  | 25.287     | 25.549     | 25.798     |   3.7 | 87.27
+Other   |            | 0.0006757  |            |       |  0.00
+
+Nlocal:        5.42857 ave          10 max           1 min
+Histogram: 6 14 30 77 97 116 59 38 8 3
+Nghost:        1637.69 ave        1672 max        1609 min
+Histogram: 14 36 50 76 96 67 54 28 20 7
+Neighs:        2650.11 ave        4846 max         501 min
+Histogram: 6 14 30 77 97 116 59 38 8 3
+
+Total # of neighbors = 1187248
+Ave neighs/atom = 488.17763
+Neighbor list builds = 5
+Dangerous builds not checked
+Total wall time: 0:00:30

@@ -12,34 +12,34 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# 1 manager node + 1 login node + 126 compute nodes
+# 1 login node + 127 compute nodes (manager isn't part of the cluster)
 manager_machine_type = "c2d-standard-112"
-manager_name_prefix  = "gffw"
+manager_name_prefix  = "gffw-16"
 manager_scopes       = [ "cloud-platform" ]
 
 login_node_specs = [
     {
-        name_prefix  = "gffw-login"
+        name_prefix  = "gffw-login-16"
         machine_arch = "x86-64"
         machine_type = "c2d-standard-112"
         instances    = 1
         properties   = []
-        boot_script  = "install_lammps.sh"
+        boot_script  = "install_all.sh"
     },
 ]
 login_scopes = [ "cloud-platform" ]
 
 compute_node_specs = [
     {
-        name_prefix  = "gffw-compute-a"
+        name_prefix  = "gffw-compute-a-16"
         machine_arch = "x86-64"
         machine_type = "c2d-standard-112"
         gpu_type     = null
         gpu_count    = 0
         compact      = true
-        instances    = 126
+        instances    = 10
         properties   = []
-        boot_script  = "install_lammps.sh"
+        boot_script  = "install_all.sh"
     },
 ]
 compute_scopes = [ "cloud-platform" ]
