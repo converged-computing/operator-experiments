@@ -1,0 +1,32 @@
+{
+    "id": 860536963072,
+    "userid": 1000,
+    "urgency": 16,
+    "priority": 16,
+    "t_submit": 1684110037.7668252,
+    "t_depend": 1684110037.778303,
+    "t_run": 1684110037.8088927,
+    "t_cleanup": 1684110038.0877674,
+    "t_inactive": 1684110038.0891187,
+    "state": "INACTIVE",
+    "name": "hostname",
+    "ntasks": 448,
+    "ncores": 448,
+    "duration": 0.0,
+    "nnodes": 8,
+    "ranks": "[0-7]",
+    "nodelist": "flux-sample-[0-7]",
+    "success": true,
+    "exception_occurred": false,
+    "result": "COMPLETED",
+    "expiration": 4837710037.0,
+    "waitstatus": 0,
+    "returncode": 0,
+    "runtime": 0.27887463569641113,
+    "exception": {
+        "occurred": false,
+        "severity": "",
+        "type": "",
+        "note": ""
+    }
+}

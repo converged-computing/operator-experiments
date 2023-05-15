@@ -469,7 +469,19 @@ $ gcloud container clusters get-credentials flux-operator --zone us-central1-a -
 $ kubectl create clusterrolebinding cluster-admin-binding --clusterrole cluster-admin --user $(gcloud config get-value core/account)
 ```
 
-Note for the above it only worked with 8 and smaller clusters! 
+Note for the above and c2d images it only worked with 8 and smaller clusters!  For the c2 family,
+I tried a size 16 cluster for the largest c2 node:
+
+```bash
+$ time gcloud container clusters create flux-operator --cluster-dns=clouddns --cluster-dns-scope=cluster \
+   --threads-per-core=1 \
+   --placement-type COMPACT \
+   --addons=GcpFilestoreCsiDriver \
+   --region=us-central1-a --project $GOOGLE_PROJECT \
+   --machine-type c2-standard-60 --num-nodes=16 \
+   --tags=flux-cluster --enable-intra-node-visibility
+
+```
 
 <details>
 
