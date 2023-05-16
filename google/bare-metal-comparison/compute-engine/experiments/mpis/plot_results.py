@@ -40,25 +40,19 @@ def plot_outputs(raw, plotname, ext="pdf", outdir=None):
 
     for logfile, item in raw["results"].items():
         # Split at the data directory to get the run id, and remove log
-        runid = logfile.split("data/")[-1].replace(".log", "")        
+        runid = logfile.split("data/")[-1].replace(".log", "")
         index.append(runid)
 
         # size_5_hostname_noaffinity
         _, mpitype, uid, _ = runid.split(os.sep)
-        minicluster_size = int(uid.split('_')[1])
-        analysis_name = uid.split('_', 2)[-1]
+        minicluster_size = int(uid.split("_")[1])
+        analysis_name = uid.split("_", 2)[-1]
 
         # Runtime will be in fluxinfo for hostname, lammps log for lammps
-        runtime = item['fluxinfo']['runtime']
-        ranks = item['fluxinfo']['ntasks']
+        runtime = item["fluxinfo"]["runtime"]
+        ranks = item["fluxinfo"]["ntasks"]
 
-        datum = [
-            minicluster_size,
-            mpitype,
-            runtime,
-            analysis_name,
-            ranks
-        ]
+        datum = [minicluster_size, mpitype, runtime, analysis_name, ranks]
         data.append(datum)
 
     # Assemble the data frame, index is the runids
@@ -69,37 +63,36 @@ def plot_outputs(raw, plotname, ext="pdf", outdir=None):
     df.to_csv(os.path.join(outdir, "results-df.csv"))
 
     # Create a column that has affinity + mpi type
-    suffix =  ["-noaff" if "noaff" in x.rsplit('-')[-1] else "" for x in df['analysis'].tolist()]
-    prefix = df['mpitype'].tolist()
-    df['name'] = [prefix[i] + suffix[i] for i in range(len(suffix))]
-
-#    import IPython
-#    IPython.embed()
-#    sys.exit()
+    suffix = [
+        "-noaff" if "noaff" in x.rsplit("-")[-1] else ""
+        for x in df["analysis"].tolist()
+    ]
+    prefix = df["mpitype"].tolist()
+    df["name"] = [prefix[i] + suffix[i] for i in range(len(suffix))]
 
     # We want to compare ompi vs mpich for each of the affinity vs no affinity
     # Let's split into data frames based on the analysis first and go from there...
-    df1 = df[df['analysis'].isin(['hello_usempi', 'hello_usempi-noaff'])]
+    df1 = df[df["analysis"].isin(["hello_usempi", "hello_usempi-noaff"])]
     df1.to_csv(os.path.join(outdir, "hello_usempi-df.csv"))
 
-    df2 = df[df['analysis'].isin(['ring_c', 'ring_c-noaff'])]
+    df2 = df[df["analysis"].isin(["ring_c", "ring_c-noaff"])]
     df2.to_csv(os.path.join(outdir, "ring_c-df.csv"))
 
-    df3 = df[df['analysis'].isin(['ring_usempi', 'ring_usempi-noaff'])]
+    df3 = df[df["analysis"].isin(["ring_usempi", "ring_usempi-noaff"])]
     df3.to_csv(os.path.join(outdir, "ring_usempi-df.csv"))
 
-    df4 = df[df['analysis'].isin(['hello_cxx', 'hello_cxx-noaff'])]
+    df4 = df[df["analysis"].isin(["hello_cxx", "hello_cxx-noaff"])]
     df4.to_csv(os.path.join(outdir, "hello_cxx-df.csv"))
 
-    df5 = df[df['analysis'].isin(['hello_c', 'hello_c-noaff'])]
+    df5 = df[df["analysis"].isin(["hello_c", "hello_c-noaff"])]
     df5.to_csv(os.path.join(outdir, "hello_c-df.csv"))
 
-    df6 = df[df['analysis'].isin(['ring_mpifh', 'ring_mpifh-noaff'])]
+    df6 = df[df["analysis"].isin(["ring_mpifh", "ring_mpifh-noaff"])]
     df6.to_csv(os.path.join(outdir, "ring_mpifh-df.csv"))
 
-    df7 = df[df['analysis'].isin(['connectivity_c', 'connectivity_c-noaff'])]
+    df7 = df[df["analysis"].isin(["connectivity_c", "connectivity_c-noaff"])]
     df7.to_csv(os.path.join(outdir, "connectivity_c-df.csv"))
-    
+
     # Plot each!
     colors = sns.color_palette("hls", 8)
     hexcolors = colors.as_hex()
@@ -122,7 +115,7 @@ def plot_outputs(raw, plotname, ext="pdf", outdir=None):
         ext=ext,
         plotname=plotname,
         hue="name",
-        plot_type="bar"
+        plot_type="bar",
     )
 
     make_plot(
@@ -135,7 +128,7 @@ def plot_outputs(raw, plotname, ext="pdf", outdir=None):
         ext=ext,
         plotname=plotname,
         hue="name",
-        plot_type="bar"
+        plot_type="bar",
     )
 
     make_plot(
@@ -148,7 +141,7 @@ def plot_outputs(raw, plotname, ext="pdf", outdir=None):
         ext=ext,
         plotname=plotname,
         hue="name",
-        plot_type="bar"
+        plot_type="bar",
     )
 
     make_plot(
@@ -161,7 +154,7 @@ def plot_outputs(raw, plotname, ext="pdf", outdir=None):
         ext=ext,
         plotname=plotname,
         hue="name",
-        plot_type="bar"
+        plot_type="bar",
     )
 
     make_plot(
@@ -174,7 +167,7 @@ def plot_outputs(raw, plotname, ext="pdf", outdir=None):
         ext=ext,
         plotname=plotname,
         hue="name",
-        plot_type="bar"
+        plot_type="bar",
     )
 
     make_plot(
@@ -187,7 +180,7 @@ def plot_outputs(raw, plotname, ext="pdf", outdir=None):
         ext=ext,
         plotname=plotname,
         hue="name",
-        plot_type="bar"
+        plot_type="bar",
     )
 
     make_plot(
@@ -200,9 +193,8 @@ def plot_outputs(raw, plotname, ext="pdf", outdir=None):
         ext=ext,
         plotname=plotname,
         hue="name",
-        plot_type="bar"
+        plot_type="bar",
     )
-
 
 
 def make_plot(
@@ -229,22 +221,13 @@ def make_plot(
     plt.figure(figsize=(12, 12))
     sns.set_style("dark")
     ax = plotfunc(
-        x="ranks",
-        y=ydimension,
-        hue=hue,
-        data=df,
-        whis=[5, 95],
-        palette=palette,
+        x="ranks", y=ydimension, hue=hue, data=df, whis=[5, 95], palette=palette
     )
     plt.title(title)
-    plt.legend([], [], frameon=False)
     ax.set_xlabel("MPI Ranks", fontsize=16)
     ax.set_ylabel("Time (seconds)", fontsize=16)
     ax.set_xticklabels(ax.get_xmajorticklabels(), fontsize=14)
     ax.set_yticklabels(ax.get_yticks(), fontsize=14)
-    handles, _ = ax.get_legend_handles_labels()
-    if add_legend:
-        ax.legend(handles, list(palette))
     plt.savefig(os.path.join(outdir, f"{tag}_{plotname}.{ext}"))
     plt.clf()
 
@@ -291,6 +274,7 @@ def main():
     # Read in separately!
     data = read_json(args.results_json)
     plot_outputs(data, args.plotname, ext=args.extension, outdir=args.outdir)
+
 
 if __name__ == "__main__":
     main()
