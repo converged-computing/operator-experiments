@@ -1,0 +1,33 @@
+{
+    "id": 5672192180224,
+    "userid": 1234,
+    "urgency": 16,
+    "priority": 16,
+    "t_submit": 1684192941.915251,
+    "t_depend": 1684192941.9268403,
+    "t_run": 1684192941.9421256,
+    "t_cleanup": 1684192943.5317323,
+    "t_inactive": 1684192943.533238,
+    "state": "INACTIVE",
+    "name": "hello_c",
+    "cwd": "/opt/ompi",
+    "ntasks": 448,
+    "ncores": 448,
+    "duration": 0.0,
+    "nnodes": 8,
+    "ranks": "[0-7]",
+    "nodelist": "flux-sample-[0-7]",
+    "success": true,
+    "exception_occurred": false,
+    "result": "COMPLETED",
+    "expiration": 4837792941.0,
+    "waitstatus": 0,
+    "returncode": 0,
+    "runtime": 1.589606761932373,
+    "exception": {
+        "occurred": false,
+        "severity": "",
+        "type": "",
+        "note": ""
+    }
+}

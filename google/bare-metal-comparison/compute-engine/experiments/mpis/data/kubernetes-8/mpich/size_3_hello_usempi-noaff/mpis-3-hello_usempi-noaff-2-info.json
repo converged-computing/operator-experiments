@@ -1,0 +1,32 @@
+{
+    "id": 1833816817664,
+    "userid": 1234,
+    "urgency": 16,
+    "priority": 16,
+    "t_submit": 1684197867.2951617,
+    "t_depend": 1684197867.3067536,
+    "t_run": 1684197867.321421,
+    "t_cleanup": 1684197867.6897738,
+    "t_inactive": 1684197867.691791,
+    "state": "INACTIVE",
+    "name": "hello_usempi",
+    "ntasks": 168,
+    "ncores": 168,
+    "duration": 0.0,
+    "nnodes": 3,
+    "ranks": "[0-2]",
+    "nodelist": "flux-sample-[0-2]",
+    "success": true,
+    "exception_occurred": false,
+    "result": "COMPLETED",
+    "expiration": 4837797867.0,
+    "waitstatus": 0,
+    "returncode": 0,
+    "runtime": 0.36835289001464844,
+    "exception": {
+        "occurred": false,
+        "severity": "",
+        "type": "",
+        "note": ""
+    }
+}

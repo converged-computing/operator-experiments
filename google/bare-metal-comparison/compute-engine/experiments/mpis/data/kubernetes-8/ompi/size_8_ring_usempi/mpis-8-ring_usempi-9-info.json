@@ -1,0 +1,33 @@
+{
+    "id": 14828357812224,
+    "userid": 1234,
+    "urgency": 16,
+    "priority": 16,
+    "t_submit": 1684193487.6644623,
+    "t_depend": 1684193487.6762114,
+    "t_run": 1684193487.6931043,
+    "t_cleanup": 1684193489.4793854,
+    "t_inactive": 1684193489.481985,
+    "state": "INACTIVE",
+    "name": "ring_usempi",
+    "cwd": "/opt/ompi",
+    "ntasks": 448,
+    "ncores": 448,
+    "duration": 0.0,
+    "nnodes": 8,
+    "ranks": "[0-7]",
+    "nodelist": "flux-sample-[0-7]",
+    "success": true,
+    "exception_occurred": false,
+    "result": "COMPLETED",
+    "expiration": 4837793487.0,
+    "waitstatus": 0,
+    "returncode": 0,
+    "runtime": 1.7862811088562012,
+    "exception": {
+        "occurred": false,
+        "severity": "",
+        "type": "",
+        "note": ""
+    }
+}

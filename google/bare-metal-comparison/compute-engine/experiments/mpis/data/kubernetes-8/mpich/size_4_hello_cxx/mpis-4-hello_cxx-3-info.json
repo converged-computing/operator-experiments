@@ -1,0 +1,32 @@
+{
+    "id": 1309377822720,
+    "userid": 1234,
+    "urgency": 16,
+    "priority": 16,
+    "t_submit": 1684198029.5158463,
+    "t_depend": 1684198029.5277576,
+    "t_run": 1684198029.5417583,
+    "t_cleanup": 1684198029.7630496,
+    "t_inactive": 1684198029.7644868,
+    "state": "INACTIVE",
+    "name": "hello_cxx",
+    "ntasks": 224,
+    "ncores": 224,
+    "duration": 0.0,
+    "nnodes": 4,
+    "ranks": "[0-3]",
+    "nodelist": "flux-sample-[4-7]",
+    "success": true,
+    "exception_occurred": false,
+    "result": "COMPLETED",
+    "expiration": 4837798029.0,
+    "waitstatus": 0,
+    "returncode": 0,
+    "runtime": 0.22129130363464355,
+    "exception": {
+        "occurred": false,
+        "severity": "",
+        "type": "",
+        "note": ""
+    }
+}

@@ -1,0 +1,58 @@
+apiVersion: flux-framework.org/v1alpha1
+kind: MiniCluster
+metadata:
+  name: flux-sample
+  namespace: flux-operator
+spec:
+
+  # Number of pods to create for MiniCluster
+  # 56 cores * 8
+  size: 8
+  tasks: 448
+
+  # This starts the flux broker without a command (interactive)
+  interactive: true
+  logging:
+    quiet: false
+    strict: false
+    zeromq: true
+
+  # Spack installs to /opt/view, without flux-security so no imp
+  flux:
+    installRoot: /opt/view    
+    optionFlags: "-ompi=openmpi@5 -c 1 -o cpu-affinity=per-task" 
+
+  # This is a list because a pod can support multiple containers
+  containers:
+    - image: ghcr.io/rse-ops/ompi:flux-sched-focal
+
+      # Note that there are many examples here!
+      # flux run -n 4 ./hello_c
+      # flux run -n 4 ./hello_cxx
+      # flux run -n 4 ./connectivity_c
+      # flux run -n 4 ./hello_usempi
+      # flux run -n 4 ./ring_c
+      # flux run -n 4 ./ring_usempi
+      # flux run -n 4 ./ring_mpifh
+      workingDir: /opt/ompi
+      command: ./hello_cxx
+
+      # Mount Google Filestore to our cluster
+      # see pvc.yaml for creating this first
+      # https://cloud.google.com/filestore/docs/csi-driver#access
+      existingVolumes:
+        data:
+          path: /workflow
+          claimName: data 
+
+      # Resource limits to ensure 1 pod assigned per node
+      # These are purposefully lower - the actual value didn't work, but
+      # this should still assign 1:1
+      resources:
+        limits:
+          memory: "448G"
+          cpu: "50"
+
+        requests:
+          memory: "448G"
+          cpu: "50"

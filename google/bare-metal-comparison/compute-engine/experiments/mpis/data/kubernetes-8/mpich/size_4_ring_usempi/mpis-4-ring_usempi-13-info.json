@@ -1,0 +1,32 @@
+{
+    "id": 2701433765888,
+    "userid": 1234,
+    "urgency": 16,
+    "priority": 16,
+    "t_submit": 1684198112.488928,
+    "t_depend": 1684198112.5008402,
+    "t_run": 1684198112.5164514,
+    "t_cleanup": 1684198112.7284598,
+    "t_inactive": 1684198112.7304285,
+    "state": "INACTIVE",
+    "name": "ring_usempi",
+    "ntasks": 224,
+    "ncores": 224,
+    "duration": 0.0,
+    "nnodes": 4,
+    "ranks": "[0-3]",
+    "nodelist": "flux-sample-[4-7]",
+    "success": true,
+    "exception_occurred": false,
+    "result": "COMPLETED",
+    "expiration": 4837798112.0,
+    "waitstatus": 0,
+    "returncode": 0,
+    "runtime": 0.21200847625732422,
+    "exception": {
+        "occurred": false,
+        "severity": "",
+        "type": "",
+        "note": ""
+    }
+}

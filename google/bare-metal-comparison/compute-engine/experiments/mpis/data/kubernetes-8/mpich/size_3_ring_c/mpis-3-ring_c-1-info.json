@@ -1,0 +1,32 @@
+{
+    "id": 2014977196032,
+    "userid": 1234,
+    "urgency": 16,
+    "priority": 16,
+    "t_submit": 1684197878.0932834,
+    "t_depend": 1684197878.1050591,
+    "t_run": 1684197878.1201148,
+    "t_cleanup": 1684197878.3080642,
+    "t_inactive": 1684197878.309937,
+    "state": "INACTIVE",
+    "name": "ring_c",
+    "ntasks": 168,
+    "ncores": 168,
+    "duration": 0.0,
+    "nnodes": 3,
+    "ranks": "[0-2]",
+    "nodelist": "flux-sample-[0-2]",
+    "success": true,
+    "exception_occurred": false,
+    "result": "COMPLETED",
+    "expiration": 4837797878.0,
+    "waitstatus": 0,
+    "returncode": 0,
+    "runtime": 0.18794941902160645,
+    "exception": {
+        "occurred": false,
+        "severity": "",
+        "type": "",
+        "note": ""
+    }
+}
