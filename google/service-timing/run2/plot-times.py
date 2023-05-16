@@ -1,5 +1,6 @@
 import pandas
 import seaborn as sns
+import matplotlib.pyplot as plt
 import json
 import os
 import re
@@ -47,11 +48,13 @@ print(f"Mean runtime across runs: {mean}")
 means = df.groupby(["flags"])["runtime"].mean().sort_values()
 print(f"Means for flag groups: {means}")
 
-# Draw a nested boxplot to show bills by day and time
+# Draw a nested boxplot to show time for nslookup to work
+plt.figure(figsize=(12, 8))
 sns.set(font_scale=0.8)
 plt = sns.violinplot(x="flags", y="runtime", hue="flags", data=df, whis=[5, 95])
 plt.set(title="Comparing nslookup of the broker hostname across different GKE flags")
-plt.tick_params(axis="x", rotation=20)
+plt.tick_params(axis='y', which='major', labelsize=14)
+plt.set_ylabel("Total runtime - nslookup finding the hostname (seconds)", fontsize=16)
 plt.legend(bbox_to_anchor=(1.02, 1), loc="upper left", borderaxespad=0)
 plt.set(xlabel=None)
 plt.set(xticklabels=[])
