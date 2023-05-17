@@ -1,0 +1,223 @@
+2023-05-17T05:14:38.628618286Z
+2023-05-17T05:14:38.628667281Z Flux username: flux
+2023-05-17T05:14:38.628673719Z
+2023-05-17T05:14:38.628678754Z Flux install root: /usr
+2023-05-17T05:14:38.679980240Z flux user is already added.
+2023-05-17T05:14:38.683540673Z flux user identifiers:
+2023-05-17T05:14:38.683602934Z uid=1234(flux) gid=1234(flux) groups=1234(flux)
+2023-05-17T05:14:38.683611745Z
+2023-05-17T05:14:38.683617753Z As Flux prefix for flux commands: sudo -u flux -E PYTHONPATH= -E PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin -E LD_LIBRARY_PATH= -E HOME=/home/flux
+2023-05-17T05:14:38.691685755Z Host updating script not available yet, waiting...
+2023-05-17T05:14:39.697157835Z Host updating script not available yet, waiting...
+2023-05-17T05:14:40.702869767Z Host updating script not available yet, waiting...
+2023-05-17T05:14:41.708135296Z Host updating script not available yet, waiting...
+2023-05-17T05:14:42.713421155Z Host updating script not available yet, waiting...
+2023-05-17T05:14:43.719222394Z Host updating script not available yet, waiting...
+2023-05-17T05:14:44.725474955Z Host updating script not available yet, waiting...
+2023-05-17T05:14:45.732378452Z Host updating script not available yet, waiting...
+2023-05-17T05:14:46.738528391Z Host updating script not available yet, waiting...
+2023-05-17T05:14:47.744425880Z Host updating script not available yet, waiting...
+2023-05-17T05:14:48.750549667Z Host updating script not available yet, waiting...
+2023-05-17T05:14:49.756988542Z Host updating script not available yet, waiting...
+2023-05-17T05:14:50.763843976Z Host updating script not available yet, waiting...
+2023-05-17T05:14:51.770515500Z Host updating script not available yet, waiting...
+2023-05-17T05:14:52.777721191Z Host updating script not available yet, waiting...
+2023-05-17T05:14:53.784573917Z Host updating script not available yet, waiting...
+2023-05-17T05:14:54.791786042Z Host updating script not available yet, waiting...
+2023-05-17T05:14:55.798516802Z Host updating script not available yet, waiting...
+2023-05-17T05:14:56.805455901Z Host updating script not available yet, waiting...
+2023-05-17T05:14:57.812629441Z Host updating script not available yet, waiting...
+2023-05-17T05:14:58.818706904Z Host updating script not available yet, waiting...
+2023-05-17T05:14:59.825293118Z Host updating script not available yet, waiting...
+2023-05-17T05:15:00.831704455Z Host updating script not available yet, waiting...
+2023-05-17T05:15:01.838040097Z Host updating script not available yet, waiting...
+2023-05-17T05:15:02.844394414Z Host updating script not available yet, waiting...
+2023-05-17T05:15:03.850801334Z Host updating script not available yet, waiting...
+2023-05-17T05:15:04.858356602Z Host updating script not available yet, waiting...
+2023-05-17T05:15:05.865791728Z Host updating script not available yet, waiting...
+2023-05-17T05:15:06.874726633Z Host updating script not available yet, waiting...
+2023-05-17T05:15:07.882197469Z Host updating script not available yet, waiting...
+2023-05-17T05:15:08.886670457Z Host updating script not available yet, waiting...
+2023-05-17T05:15:09.892565195Z Host updating script not available yet, waiting...
+2023-05-17T05:15:10.898459948Z Host updating script not available yet, waiting...
+2023-05-17T05:15:11.905003859Z Host updating script not available yet, waiting...
+2023-05-17T05:15:12.913186428Z Host updating script not available yet, waiting...
+2023-05-17T05:15:13.920079436Z Host updating script not available yet, waiting...
+2023-05-17T05:15:14.928103106Z Host updating script not available yet, waiting...
+2023-05-17T05:15:15.934991984Z Host updating script not available yet, waiting...
+2023-05-17T05:15:16.941891065Z Host updating script not available yet, waiting...
+2023-05-17T05:15:17.948367730Z Host updating script not available yet, waiting...
+2023-05-17T05:15:18.955106223Z Host updating script not available yet, waiting...
+2023-05-17T05:15:19.961977267Z Host updating script not available yet, waiting...
+2023-05-17T05:15:20.969096059Z Host updating script not available yet, waiting...
+2023-05-17T05:15:21.975651758Z Host updating script not available yet, waiting...
+2023-05-17T05:15:22.982662681Z Host updating script not available yet, waiting...
+2023-05-17T05:15:23.989785456Z Host updating script not available yet, waiting...
+2023-05-17T05:15:24.997541391Z Host updating script not available yet, waiting...
+2023-05-17T05:15:26.004999335Z Host updating script not available yet, waiting...
+2023-05-17T05:15:27.012368294Z Host updating script not available yet, waiting...
+2023-05-17T05:15:28.018033098Z Host updating script not available yet, waiting...
+2023-05-17T05:15:29.024275007Z Host updating script not available yet, waiting...
+2023-05-17T05:15:30.033785875Z Host updating script not available yet, waiting...
+2023-05-17T05:15:31.039869454Z Host updating script not available yet, waiting...
+2023-05-17T05:15:32.046446503Z Host updating script not available yet, waiting...
+2023-05-17T05:15:33.053126348Z Host updating script not available yet, waiting...
+2023-05-17T05:15:34.060074809Z Host updating script not available yet, waiting...
+2023-05-17T05:15:35.068851929Z Host updating script not available yet, waiting...
+2023-05-17T05:15:36.075172727Z Host updating script not available yet, waiting...
+2023-05-17T05:15:37.081838738Z Host updating script not available yet, waiting...
+2023-05-17T05:15:38.088619883Z Host updating script not available yet, waiting...
+2023-05-17T05:15:39.095278348Z Host updating script not available yet, waiting...
+2023-05-17T05:15:40.101644147Z Host updating script not available yet, waiting...
+2023-05-17T05:15:41.109036743Z Host updating script not available yet, waiting...
+2023-05-17T05:15:42.115820127Z Host updating script not available yet, waiting...
+2023-05-17T05:15:43.126310961Z Host updating script not available yet, waiting...
+2023-05-17T05:15:44.129643549Z Host updating script not available yet, waiting...
+2023-05-17T05:15:45.140207785Z # Kubernetes-managed hosts file.
+2023-05-17T05:15:45.140385110Z 127.0.0.1	localhost
+2023-05-17T05:15:45.140475727Z ::1	localhost ip6-localhost ip6-loopback
+2023-05-17T05:15:45.140489958Z fe00::0	ip6-localnet
+2023-05-17T05:15:45.140499116Z fe00::0	ip6-mcastprefix
+2023-05-17T05:15:45.140505574Z fe00::1	ip6-allnodes
+2023-05-17T05:15:45.140511899Z fe00::2	ip6-allrouters
+2023-05-17T05:15:45.140519236Z 10.24.2.25	flux-sample-0.flux-service.flux-operator.svc.cluster.local	flux-sample-0
+2023-05-17T05:15:45.140621549Z 10.24.2.25 flux-sample-0.flux-service.flux-operator.svc.cluster.local flux-sample-0
+2023-05-17T05:15:45.143643471Z 10.24.3.18 flux-sample-1.flux-service.flux-operator.svc.cluster.local flux-sample-1
+2023-05-17T05:15:45.144194395Z 10.24.0.18 flux-sample-2.flux-service.flux-operator.svc.cluster.local flux-sample-2
+2023-05-17T05:15:45.144287927Z 10.24.1.24 flux-sample-3.flux-service.flux-operator.svc.cluster.local flux-sample-3
+2023-05-17T05:15:45.149507009Z
+2023-05-17T05:15:45.151468356Z 👋 Hello, I'm flux-sample-0
+2023-05-17T05:15:45.151564580Z The main host is flux-sample-0
+2023-05-17T05:15:45.151579412Z The working directory is /opt, contents include:
+2023-05-17T05:15:45.151590097Z /opt:
+2023-05-17T05:15:45.153097225Z End of file listing, if you see nothing above there are no files.
+2023-05-17T05:15:45.155038698Z flux R encode --hosts=flux-sample-[0-3]
+2023-05-17T05:15:45.186526657Z
+2023-05-17T05:15:45.186947161Z 📦 Resources
+2023-05-17T05:15:45.190437214Z {"version": 1, "execution": {"R_lite": [{"rank": "0-3", "children": {"core": "0"}}], "starttime": 0.0, "expiration": 0.0, "nodelist": ["flux-sample-[0-3]"]}}
+2023-05-17T05:15:45.191534686Z
+2023-05-17T05:15:45.191837575Z 🐸 Diagnostics: false
+2023-05-17T05:15:45.198026814Z
+2023-05-17T05:15:45.198390891Z 🦊 Independent Minister of Privilege
+2023-05-17T05:15:45.202646209Z [exec]
+2023-05-17T05:15:45.203288406Z allowed-users = [ "flux", "root" ]
+2023-05-17T05:15:45.203390085Z allowed-shells = [ "/usr/libexec/flux/flux-shell" ]
+2023-05-17T05:15:45.205434205Z
+2023-05-17T05:15:45.205518282Z 🐸 Broker Configuration
+2023-05-17T05:15:45.207322143Z # Flux needs to know the path to the IMP executable
+2023-05-17T05:15:45.207347039Z [exec]
+2023-05-17T05:15:45.207355194Z imp = "/usr/libexec/flux/flux-imp"
+2023-05-17T05:15:45.207361772Z
+2023-05-17T05:15:45.207371389Z [access]
+2023-05-17T05:15:45.207379898Z allow-guest-user = true
+2023-05-17T05:15:45.207386628Z allow-root-owner = true
+2023-05-17T05:15:45.207392975Z
+2023-05-17T05:15:45.207399628Z # Point to resource definition generated with flux-R(1).
+2023-05-17T05:15:45.207407151Z [resource]
+2023-05-17T05:15:45.207414201Z path = "/etc/flux/system/R"
+2023-05-17T05:15:45.207420660Z
+2023-05-17T05:15:45.207430612Z [bootstrap]
+2023-05-17T05:15:45.207438584Z curve_cert = "/etc/curve/curve.cert"
+2023-05-17T05:15:45.207445863Z default_port = 8050
+2023-05-17T05:15:45.207452720Z default_bind = "tcp://eth0:%p"
+2023-05-17T05:15:45.207459983Z default_connect = "tcp://%h.flux-service.flux-operator.svc.cluster.local:%p"
+2023-05-17T05:15:45.207466608Z hosts = [
+2023-05-17T05:15:45.207473519Z 	{ host="flux-sample-[0-3]"},
+2023-05-17T05:15:45.207480042Z ]
+2023-05-17T05:15:45.207489035Z
+2023-05-17T05:15:45.207496420Z [archive]
+2023-05-17T05:15:45.207502630Z dbpath = "/var/lib/flux/job-archive.sqlite"
+2023-05-17T05:15:45.207509128Z period = "1m"
+2023-05-17T05:15:45.276378694Z busytimeout = "50s"
+2023-05-17T05:15:45.277593312Z 🧊️ State Directory:
+2023-05-17T05:15:45.278211797Z total 0
+2023-05-17T05:15:45.278277462Z
+2023-05-17T05:15:45.280873915Z
+2023-05-17T05:15:45.281624853Z 🔒️ Working directory permissions:
+2023-05-17T05:15:45.281839031Z total 0
+2023-05-17T05:15:45.281881710Z
+2023-05-17T05:15:45.281898578Z
+2023-05-17T05:15:45.281907104Z ✨ Curve certificate generated by helper pod
+2023-05-17T05:15:45.283871895Z #   ****  Generated on 2023-04-26 22:54:42 by CZMQ  ****
+2023-05-17T05:15:45.284567378Z #   ZeroMQ CURVE **Secret** Certificate
+2023-05-17T05:15:45.284821660Z #   DO NOT PROVIDE THIS FILE TO OTHER USERS nor change its permissions.
+2023-05-17T05:15:45.284911925Z
+2023-05-17T05:15:45.284921643Z metadata
+2023-05-17T05:15:45.284929549Z     name = "flux-cert-generator"
+2023-05-17T05:15:45.284936611Z     keygen.hostname = "flux-sample-0"
+2023-05-17T05:15:45.284943193Z curve
+2023-05-17T05:15:45.284970028Z     public-key = "]vnqSNOa6-@ZCF(-$fZst0wq>l4&b*Nx[0FE3#9c"
+2023-05-17T05:15:45.284979692Z     secret-key = "8/biDAyCd#l+>xor/Bp-NnI06/qVyAcDb):UYhGp"
+2023-05-17T05:15:45.287682048Z Extra command arguments are: sleep 5
+2023-05-17T05:15:45.288410033Z
+2023-05-17T05:15:45.289044427Z 🌀 Submit Mode: flux start --wrap=strace,-e,network,-tt -o --config /etc/flux/config -Scron.directory=/etc/flux/system/cron.d   -Stbon.fanout=256   -Srundir=/run/flux    -Sstatedir=/var/lib/flux   -Slocal-uri=local:///run/flux/local -Stbon.connect_timeout=5s  -Stbon.zmqdebug=1  -Slog-stderr-level=6    -Slog-stderr-mode=local  flux submit  -n 1 --quiet  --watch sleep 5
+2023-05-17T05:15:45.330552285Z 05:15:45.330241 socket(AF_NETLINK, SOCK_RAW|SOCK_CLOEXEC, NETLINK_ROUTE) = 16
+2023-05-17T05:15:45.331939528Z 05:15:45.330386 bind(16, {sa_family=AF_NETLINK, nl_pid=0, nl_groups=00000000}, 12) = 0
+2023-05-17T05:15:45.333589532Z 05:15:45.331861 getsockname(16, {sa_family=AF_NETLINK, nl_pid=407, nl_groups=00000000}, [12]) = 0
+2023-05-17T05:15:45.334855854Z 05:15:45.333499 sendto(16, {{len=20, type=RTM_GETLINK, flags=NLM_F_REQUEST|NLM_F_DUMP, seq=1684300545, pid=0}, {ifi_family=AF_UNSPEC, ...}}, 20, 0, {sa_family=AF_NETLINK, nl_pid=0, nl_groups=00000000}, 12) = 20
+2023-05-17T05:15:45.337060653Z 05:15:45.334768 recvmsg(16, {msg_name={sa_family=AF_NETLINK, nl_pid=0, nl_groups=00000000}, msg_namelen=12, msg_iov=[{iov_base=[{{len=1336, type=RTM_NEWLINK, flags=NLM_F_MULTI, seq=1684300545, pid=407}, {ifi_family=AF_UNSPEC, ifi_type=ARPHRD_LOOPBACK, ifi_index=if_nametoindex("lo"), ifi_flags=IFF_UP|IFF_LOOPBACK|IFF_RUNNING|IFF_LOWER_UP, ifi_change=0}, [{{nla_len=7, nla_type=IFLA_IFNAME}, "lo"}, {{nla_len=8, nla_type=IFLA_TXQLEN}, 1000}, {{nla_len=5, nla_type=IFLA_OPERSTATE}, 0}, {{nla_len=5, nla_type=IFLA_LINKMODE}, 0}, {{nla_len=8, nla_type=IFLA_MTU}, 65536}, {{nla_len=8, nla_type=IFLA_MIN_MTU}, 0}, {{nla_len=8, nla_type=IFLA_MAX_MTU}, 0}, {{nla_len=8, nla_type=IFLA_GROUP}, 0}, {{nla_len=8, nla_type=IFLA_PROMISCUITY}, 0}, {{nla_len=8, nla_type=IFLA_NUM_TX_QUEUES}, 1}, {{nla_len=8, nla_type=IFLA_GSO_MAX_SEGS}, 65535}, {{nla_len=8, nla_type=IFLA_GSO_MAX_SIZE}, 65536}, {{nla_len=8, nla_type=IFLA_NUM_RX_QUEUES}, 1}, {{nla_len=5, nla_type=IFLA_CARRIER}, 1}, {{nla_len=12, nla_type=IFLA_QDISC}, "noqueue"}, {{nla_len=8, nla_type=IFLA_CARRIER_CHANGES}, 0}, {{nla_len=8, nla_type=IFLA_CARRIER_UP_COUNT}, 0}, {{nla_len=8, nla_type=IFLA_CARRIER_DOWN_COUNT}, 0}, {{nla_len=5, nla_type=IFLA_PROTO_DOWN}, 0}, {{nla_len=36, nla_type=IFLA_MAP}, {mem_start=0, mem_end=0, base_addr=0, irq=0, dma=0, port=0}}, {{nla_len=10, nla_type=IFLA_ADDRESS}, "\x00\x00\x00\x00\x00\x00"}, {{nla_len=10, nla_type=IFLA_BROADCAST}, "\x00\x00\x00\x00\x00\x00"}, {{nla_len=196, nla_type=IFLA_STATS64}, {rx_packets=0, tx_packets=0, rx_bytes=0, tx_bytes=0, rx_errors=0, tx_errors=0, rx_dropped=0, tx_dropped=0, multicast=0, collisions=0, rx_length_errors=0, rx_over_errors=0, rx_crc_errors=0, rx_frame_errors=0, rx_fifo_errors=0, rx_missed_errors=0, tx_aborted_errors=0, tx_carrier_errors=0, tx_fifo_errors=0, tx_heartbeat_errors=0, tx_window_errors=0, rx_compressed=0, tx_compressed=0, rx_nohandler=0}}, {{nla_len=100, nla_type=IFLA_STATS}, {rx_packets=0, tx_packets=0, rx_bytes=0, tx_bytes=0, rx_errors=0, tx_errors=0, rx_dropped=0, tx_dropped=0, multicast=0, collisions=0, rx_length_errors=0, rx_over_errors=0, rx_crc_errors=0, rx_frame_errors=0, rx_fifo_errors=0, rx_missed_errors=0, tx_aborted_errors=0, tx_carrier_errors=0, tx_fifo_errors=0, tx_heartbeat_errors=0, tx_window_errors=0, rx_compressed=0, tx_compressed=0, rx_nohandler=0}}, {{nla_len=12, nla_type=IFLA_XDP}, {{nla_len=5, nla_type=IFLA_XDP_ATTACHED}, XDP_ATTACHED_NONE}}, {{nla_len=780, nla_type=IFLA_AF_SPEC}, [{{nla_len=136, nla_type=AF_INET}, {{nla_len=132, nla_type=IFLA_INET_CONF}, [[IPV4_DEVCONF_FORWARDING-1] = 1, [IPV4_DEVCONF_MC_FORWARDING-1] = 0, [IPV4_DEVCONF_PROXY_ARP-1] = 0, [IPV4_DEVCONF_ACCEPT_REDIRECTS-1] = 0, [IPV4_DEVCONF_SECURE_REDIRECTS-1] = 1, [IPV4_DEVCONF_SEND_REDIRECTS-1] = 0, [IPV4_DEVCONF_SHARED_MEDIA-1] = 1, [IPV4_DEVCONF_RP_FILTER-1] = 1, [IPV4_DEVCONF_ACCEPT_SOURCE_ROUTE-1] = 0, [IPV4_DEVCONF_BOOTP_RELAY-1] = 0, [IPV4_DEVCONF_LOG_MARTIANS-1] = 1, [IPV4_DEVCONF_TAG-1] = 0, [IPV4_DEVCONF_ARPFILTER-1] = 0, [IPV4_DEVCONF_MEDIUM_ID-1] = 0, [IPV4_DEVCONF_NOXFRM-1] = 1, [IPV4_DEVCONF_NOPOLICY-1] = 1, [IPV4_DEVCONF_FORCE_IGMP_VERSION-1] = 0, [IPV4_DEVCONF_ARP_ANNOUNCE-1] = 0, [IPV4_DEVCONF_ARP_IGNORE-1] = 0, [IPV4_DEVCONF_PROMOTE_SECONDARIES-1] = 0, [IPV4_DEVCONF_ARP_ACCEPT-1] = 0, [IPV4_DEVCONF_ARP_NOTIFY-1] = 0, [IPV4_DEVCONF_ACCEPT_LOCAL-1] = 0, [IPV4_DEVCONF_SRC_VMARK-1] = 0, [IPV4_DEVCONF_PROXY_ARP_PVLAN-1] = 0, [IPV4_DEVCONF_ROUTE_LOCALNET-1] = 0, [IPV4_DEVCONF_IGMPV2_UNSOLICITED_REPORT_INTERVAL-1] = 10000, [IPV4_DEVCONF_IGMPV3_UNSOLICITED_REPORT_INTERVAL-1] = 1000, [IPV4_DEVCONF_IGNORE_ROUTES_WITH_LINKDOWN-1] = 0, [IPV4_DEVCONF_DROP_UNICAST_IN_L2_MULTICAST-1] = 0, [IPV4_DEVCONF_DROP_GRATUITOUS_ARP-1] = 0, [IPV4_DEVCONF_BC_FORWARDING-1] = 0]}}, {{nla_len=640, nla_type=AF_INET6}, [{{nla_len=8, nla_type=IFLA_INET6_FLAGS}, 0}, {{nla_len=20, nla_type=IFLA_INET6_CACHEINFO}, {max_reasm_len=65535, tstamp=449006, reachable_time=22452, retrans_time=1000}}, {{nla_len=228, nla_type=IFLA_INET6_CONF}, [[DEVCONF_FORWARDING] = 0, [DEVCONF_HOPLIMIT] = 64, [DEVCONF_MTU6] = 65536, [DEVCONF_ACCEPT_RA] = 1, [DEVCONF_ACCEPT_REDIRECTS] = 1, [DEVCONF_AUTOCONF] = 1, [DEVCONF_DAD_TRANSMITS] = 1, [DEVCONF_RTR_SOLICITS] = -1, [DEVCONF_RTR_SOLICIT_INTERVAL] = 4000, [DEVCONF_RTR_SOLICIT_DELAY] = 1000, [DEVCONF_USE_TEMPADDR] = -1, [DEVCONF_TEMP_VALID_LFT] = 604800, [DEVCONF_TEMP_PREFERED_LFT] = 86400, [DEVCONF_REGEN_MAX_RETRY] = 3, [DEVCONF_MAX_DESYNC_FACTOR] = 600, [DEVCONF_MAX_ADDRESSES] = 16, [DEVCONF_FORCE_MLD_VERSION] = 0, [DEVCONF_ACCEPT_RA_DEFRTR] = 1, [DEVCONF_ACCEPT_RA_PINFO] = 1, [DEVCONF_ACCEPT_RA_RTR_PREF] = 0, [DEVCONF_RTR_PROBE_INTERVAL] = 0, [DEVCONF_ACCEPT_RA_RT_INFO_MAX_PLEN] = 0, [DEVCONF_PROXY_NDP] = 0, [DEVCONF_OPTIMISTIC_DAD] = 0, [DEVCONF_ACCEPT_SOURCE_ROUTE] = 0, [DEVCONF_MC_FORWARDING] = 0, [DEVCONF_DISABLE_IPV6] = 1, [DEVCONF_ACCEPT_DAD] = -1, [DEVCONF_FORCE_TLLAO] = 0, [DEVCONF_NDISC_NOTIFY] = 0, [DEVCONF_MLDV1_UNSOLICITED_REPORT_INTERVAL] = 10000, [DEVCONF_MLDV2_UNSOLICITED_REPORT_INTERVAL] = 1000, ...]}, {{nla_len=300, nla_type=IFLA_INET6_STATS}, [[IPSTATS_MIB_NUM] = 37, [IPSTATS_MIB_INPKTS] = 0, [IPSTATS_MIB_INOCTETS] = 0, [IPSTATS_MIB_INDELIVERS] = 0, [IPSTATS_MIB_OUTFORWDATAGRAMS] = 0, [IPSTATS_MIB_OUTPKTS] = 0, [IPSTATS_MIB_OUTOCTETS] = 0, [IPSTATS_MIB_INHDRERRORS] = 0, [IPSTATS_MIB_INTOOBIGERRORS] = 0, [IPSTATS_MIB_INNOROUTES] = 0, [IPSTATS_MIB_INADDRERRORS] = 0, [IPSTATS_MIB_INUNKNOWNPROTOS] = 0, [IPSTATS_MIB_INTRUNCATEDPKTS] = 0, [IPSTATS_MIB_INDISCARDS] = 0, [IPSTATS_MIB_OUTDISCARDS] = 0, [IPSTATS_MIB_OUTNOROUTES] = 0, [IPSTATS_MIB_REASMTIMEOUT] = 0, [IPSTATS_MIB_REASMREQDS] = 0, [IPSTATS_MIB_REASMOKS] = 0, [IPSTATS_MIB_REASMFAILS] = 0, [IPSTATS_MIB_FRAGOKS] = 0, [IPSTATS_MIB_FRAGFAILS] = 0, [IPSTATS_MIB_FRAGCREATES] = 0, [IPSTATS_MIB_INMCASTPKTS] = 0, [IPSTATS_MIB_OUTMCASTPKTS] = 0, [IPSTATS_MIB_INBCASTPKTS] = 0, [IPSTATS_MIB_OUTBCASTPKTS] = 0, [IPSTATS_MIB_INMCASTOCTETS] = 0, [IPSTATS_MIB_OUTMCASTOCTETS] = 0, [IPSTATS_MIB_INBCASTOCTETS] = 0, [IPSTATS_MIB_OUTBCASTOCTETS] = 0, [IPSTATS_MIB_CSUMERRORS] = 0, ...]}, {{nla_len=52, nla_type=IFLA_INET6_ICMP6STATS}, [[ICMP6_MIB_NUM] = 6, [ICMP6_MIB_INMSGS] = 0, [ICMP6_MIB_INERRORS] = 0, [ICMP6_MIB_OUTMSGS] = 0, [ICMP6_MIB_OUTERRORS] = 0, [ICMP6_MIB_CSUMERRORS] = 0]}, {{nla_len=20, nla_type=IFLA_INET6_TOKEN}, inet_pton(AF_INET6, "::")}, {{nla_len=5, nla_type=IFLA_INET6_ADDR_GEN_MODE}, IN6_ADDR_GEN_MODE_EUI64}]}]}]}, {{len=1372, type=RTM_NEWLINK, flags=NLM_F_MULTI, seq=1684300545, pid=407}, {ifi_family=AF_UNSPEC, ifi_type=ARPHRD_ETHER, ifi_index=if_nametoindex("eth0"), ifi_flags=IFF_UP|IFF_BROADCAST|IFF_RUNNING|IFF_MULTICAST|IFF_LOWER_UP, ifi_change=0}, [{{nla_len=9, nla_type=IFLA_IFNAME}, "eth0"}, {{nla_len=8, nla_type=IFLA_TXQLEN}, 0}, {{nla_len=5, nla_type=IFLA_OPERSTATE}, 6}, {{nla_len=5, nla_type=IFLA_LINKMODE}, 0}, {{nla_len=8, nla_type=IFLA_MTU}, 1460}, {{nla_len=8, nla_type=IFLA_MIN_MTU}, 68}, {{nla_len=8, nla_type=IFLA_MAX_MTU}, 65535}, {{nla_len=8, nla_type=IFLA_GROUP}, 0}, {{nla_len=8, nla_type=IFLA_PROMISCUITY}, 0}, {{nla_len=8, nla_type=IFLA_NUM_TX_QUEUES}, 2}, {{nla_len=8, nla_type=IFLA_GSO_MAX_SEGS}, 65535}, {{nla_len=8, nla_type=IFLA_GSO_MAX_SIZE}, 65536}, {{nla_len=8, nla_type=IFLA_NUM_RX_QUEUES}, 2}, {{nla_len=5, nla_type=IFLA_CARRIER}, 1}, {{nla_len=12, nla_type=IFLA_QDISC}, "noqueue"}, {{nla_len=8, nla_type=IFLA_CARRIER_CHANGES}, 2}, {{nla_len=8, nla_type=IFLA_CARRIER_UP_COUNT}, 1}, {{nla_len=8, nla_type=IFLA_CARRIER_DOWN_COUNT}, 1}, {{nla_len=5, nla_type=IFLA_PROTO_DOWN}, 0}, {{nla_len=36, nla_type=IFLA_MAP}, {mem_start=0, mem_end=0, base_addr=0, irq=0, dma=0, port=0}}, {{nla_len=10, nla_type=IFLA_ADDRESS}, "\xae\x4a\xc1\x42\x74\x26"}, {{nla_len=10, nla_type=IFLA_BROADCAST}, "\xff\xff\xff\xff\xff\xff"}, {{nla_len=196, nla_type=IFLA_STATS64}, {rx_packets=421, tx_packets=419, rx_bytes=31070, tx_bytes=22622, rx_errors=0, tx_errors=0, rx_dropped=0, tx_dropped=0, multicast=0, collisions=0, rx_length_errors=0, rx_over_errors=0, rx_crc_errors=0, rx_frame_errors=0, rx_fifo_errors=0, rx_missed_errors=0, tx_aborted_errors=0, tx_carrier_errors=0, tx_fifo_errors=0, tx_heartbeat_errors=0, tx_window_errors=0, rx_compressed=0, tx_compressed=0, rx_nohandler=0}}, {{nla_len=100, nla_type=IFLA_STATS}, {rx_packets=421, tx_packets=419, rx_bytes=31070, tx_bytes=22622, rx_errors=0, tx_errors=0, rx_dropped=0, tx_dropped=0, multicast=0, collisions=0, rx_length_errors=0, rx_over_errors=0, rx_crc_errors=0, rx_frame_errors=0, rx_fifo_errors=0, rx_missed_errors=0, tx_aborted_errors=0, tx_carrier_errors=0, tx_fifo_errors=0, tx_heartbeat_errors=0, tx_window_errors=0, rx_compressed=0, tx_compressed=0, rx_nohandler=0}}, {{nla_len=12, nla_type=IFLA_XDP}, {{nla_len=5, nla_type=IFLA_XDP_ATTACHED}, XDP_ATTACHED_NONE}}, {{nla_len=16, nla_type=IFLA_LINKINFO}, {{nla_len=9, nla_type=IFLA_INFO_KIND}, "veth"}}, {{nla_len=8, nla_type=IFLA_LINK_NETNSID}, 0}, {{nla_len=8, nla_type=IFLA_LINK}, 29}, {{nla_len=780, nla_type=IFLA_AF_SPEC}, [{{nla_len=136, nla_type=AF_INET}, {{nla_len=132, nla_type=IFLA_INET_CONF}, [[IPV4_DEVCONF_FORWARDING-1] = 1, [IPV4_DEVCONF_MC_FORWARDING-1] = 0, [IPV4_DEVCONF_PROXY_ARP-1] = 0, [IPV4_DEVCONF_ACCEPT_REDIRECTS-1] = 0, [IPV4_DEVCONF_SECURE_REDIRECTS-1] = 1, [IPV4_DEVCONF_SEND_REDIRECTS-1] = 0, [IPV4_DEVCONF_SHARED_MEDIA-1] = 1, [IPV4_DEVCONF_RP_FILTER-1] = 1, [IPV4_DEVCONF_ACCEPT_SOURCE_ROUTE-1] = 0, [IPV4_DEVCONF_BOOTP_RELAY-1] = 0, [IPV4_DEVCONF_LOG_MARTIANS-1] = 1, [IPV4_DEVCONF_TAG-1] = 0, [IPV4_DEVCONF_ARPFILTER-1] = 0, [IPV4_DEVCONF_MEDIUM_ID-1] = 0, [IPV4_DEVCONF_NOXFRM-1] = 0, [IPV4_DEVCONF_NOPOLICY-1] = 0, [IPV4_DEVCONF_FORCE_IGMP_VERSION-1] = 0, [IPV4_DEVCONF_ARP_ANNOUNCE-1] = 0, [IPV4_DEVCONF_ARP_IGNORE-1] = 0, [IPV4_DEVCONF_PROMOTE_SECONDARIES-1] = 0, [IPV4_DEVCONF_ARP_ACCEPT-1] = 0, [IPV4_DEVCONF_ARP_NOTIFY-1] = 0, [IPV4_DEVCONF_ACCEPT_LOCAL-1] = 0, [IPV4_DEVCONF_SRC_VMARK-1] = 0, [IPV4_DEVCONF_PROXY_ARP_PVLAN-1] = 0, [IPV4_DEVCONF_ROUTE_LOCALNET-1] = 0, [IPV4_DEVCONF_IGMPV2_UNSOLICITED_REPORT_INTERVAL-1] = 10000, [IPV4_DEVCONF_IGMPV3_UNSOLICITED_REPORT_INTERVAL-1] = 1000, [IPV4_DEVCONF_IGNORE_ROUTES_WITH_LINKDOWN-1] = 0, [IPV4_DEVCONF_DROP_UNICAST_IN_L2_MULTICAST-1] = 0, [IPV4_DEVCONF_DROP_GRATUITOUS_ARP-1] = 0, [IPV4_DEVCONF_BC_FORWARDING-1] = 0]}}, {{nla_len=640, nla_type=AF_INET6}, [{{nla_len=8, nla_type=IFLA_INET6_FLAGS}, 0}, {{nla_len=20, nla_type=IFLA_INET6_CACHEINFO}, {max_reasm_len=65535, tstamp=449006, reachable_time=25908, retrans_time=1000}}, {{nla_len=228, nla_type=IFLA_INET6_CONF}, [[DEVCONF_FORWARDING] = 0, [DEVCONF_HOPLIMIT] = 64, [DEVCONF_MTU6] = 1460, [DEVCONF_ACCEPT_RA] = 1, [DEVCONF_ACCEPT_REDIRECTS] = 1, [DEVCONF_AUTOCONF] = 1, [DEVCONF_DAD_TRANSMITS] = 1, [DEVCONF_RTR_SOLICITS] = -1, [DEVCONF_RTR_SOLICIT_INTERVAL] = 4000, [DEVCONF_RTR_SOLICIT_DELAY] = 1000, [DEVCONF_USE_TEMPADDR] = 0, [DEVCONF_TEMP_VALID_LFT] = 604800, [DEVCONF_TEMP_PREFERED_LFT] = 86400, [DEVCONF_REGEN_MAX_RETRY] = 3, [DEVCONF_MAX_DESYNC_FACTOR] = 600, [DEVCONF_MAX_ADDRESSES] = 16, [DEVCONF_FORCE_MLD_VERSION] = 0, [DEVCONF_ACCEPT_RA_DEFRTR] = 1, [DEVCONF_ACCEPT_RA_PINFO] = 1, [DEVCONF_ACCEPT_RA_RTR_PREF] = 0, [DEVCONF_RTR_PROBE_INTERVAL] = 0, [DEVCONF_ACCEPT_RA_RT_INFO_MAX_PLEN] = 0, [DEVCONF_PROXY_NDP] = 0, [DEVCONF_OPTIMISTIC_DAD] = 0, [DEVCONF_ACCEPT_SOURCE_ROUTE] = 0, [DEVCONF_MC_FORWARDING] = 0, [DEVCONF_DISABLE_IPV6] = 1, [DEVCONF_ACCEPT_DAD] = 1, [DEVCONF_FORCE_TLLAO] = 0, [DEVCONF_NDISC_NOTIFY] = 0, [DEVCONF_MLDV1_UNSOLICITED_REPORT_INTERVAL] = 10000, [DEVCONF_MLDV2_UNSOLICITED_REPORT_INTERVAL] = 1000, ...]}, {{nla_len=300, nla_type=IFLA_INET6_STATS}, [[IPSTATS_MIB_NUM] = 37, [IPSTATS_MIB_INPKTS] = 5, [IPSTATS_MIB_INOCTETS] = 376, [IPSTATS_MIB_INDELIVERS] = 0, [IPSTATS_MIB_OUTFORWDATAGRAMS] = 0, [IPSTATS_MIB_OUTPKTS] = 2, [IPSTATS_MIB_OUTOCTETS] = 148, [IPSTATS_MIB_INHDRERRORS] = 0, [IPSTATS_MIB_INTOOBIGERRORS] = 0, [IPSTATS_MIB_INNOROUTES] = 0, [IPSTATS_MIB_INADDRERRORS] = 0, [IPSTATS_MIB_INUNKNOWNPROTOS] = 0, [IPSTATS_MIB_INTRUNCATEDPKTS] = 0, [IPSTATS_MIB_INDISCARDS] = 3, [IPSTATS_MIB_OUTDISCARDS] = 0, [IPSTATS_MIB_OUTNOROUTES] = 0, [IPSTATS_MIB_REASMTIMEOUT] = 0, [IPSTATS_MIB_REASMREQDS] = 0, [IPSTATS_MIB_REASMOKS] = 0, [IPSTATS_MIB_REASMFAILS] = 0, [IPSTATS_MIB_FRAGOKS] = 0, [IPSTATS_MIB_FRAGFAILS] = 0, [IPSTATS_MIB_FRAGCREATES] = 0, [IPSTATS_MIB_INMCASTPKTS] = 2, [IPSTATS_MIB_OUTMCASTPKTS] = 2, [IPSTATS_MIB_INBCASTPKTS] = 0, [IPSTATS_MIB_OUTBCASTPKTS] = 0, [IPSTATS_MIB_INMCASTOCTETS] = 148, [IPSTATS_MIB_OUTMCASTOCTETS] = 148, [IPSTATS_MIB_INBCASTOCTETS] = 0, [IPSTATS_MIB_OUTBCASTOCTETS] = 0, [IPSTATS_MIB_CSUMERRORS] = 0, ...]}, {{nla_len=52, nla_type=IFLA_INET6_ICMP6STATS}, [[ICMP6_MIB_NUM] = 6, [ICMP6_MIB_INMSGS] = 0, [ICMP6_MIB_INERRORS] = 0, [ICMP6_MIB_OUTMSGS] = 2, [ICMP6_MIB_OUTERRORS] = 0, [ICMP6_MIB_CSUMERRORS] = 0]}, {{nla_len=20, nla_type=IFLA_INET6_TOKEN}, inet_pton(AF_INET6, "::")}, {{nla_len=5, nla_type=IFLA_INET6_ADDR_GEN_MODE}, IN6_ADDR_GEN_MODE_EUI64}]}]}]}], iov_len=4096}], msg_iovlen=1, msg_controllen=0, msg_flags=0}, 0) = 2708
+2023-05-17T05:15:45.339226912Z 05:15:45.338000 recvmsg(16, {msg_name={sa_family=AF_NETLINK, nl_pid=0, nl_groups=00000000}, msg_namelen=12, msg_iov=[{iov_base={{len=20, type=NLMSG_DONE, flags=NLM_F_MULTI, seq=1684300545, pid=407}, 0}, iov_len=4096}], msg_iovlen=1, msg_controllen=0, msg_flags=0}, 0) = 20
+2023-05-17T05:15:45.340213955Z 05:15:45.339088 sendto(16, {{len=20, type=RTM_GETADDR, flags=NLM_F_REQUEST|NLM_F_DUMP, seq=1684300546, pid=0}, {ifa_family=AF_UNSPEC, ...}}, 20, 0, {sa_family=AF_NETLINK, nl_pid=0, nl_groups=00000000}, 12) = 20
+2023-05-17T05:15:45.341354539Z 05:15:45.340972 recvmsg(16, {msg_name={sa_family=AF_NETLINK, nl_pid=0, nl_groups=00000000}, msg_namelen=12, msg_iov=[{iov_base=[{{len=76, type=RTM_NEWADDR, flags=NLM_F_MULTI, seq=1684300546, pid=407}, {ifa_family=AF_INET, ifa_prefixlen=8, ifa_flags=IFA_F_PERMANENT, ifa_scope=RT_SCOPE_HOST, ifa_index=if_nametoindex("lo")}, [{{nla_len=8, nla_type=IFA_ADDRESS}, inet_addr("127.0.0.1")}, {{nla_len=8, nla_type=IFA_LOCAL}, inet_addr("127.0.0.1")}, {{nla_len=7, nla_type=IFA_LABEL}, "lo"}, {{nla_len=8, nla_type=IFA_FLAGS}, IFA_F_PERMANENT}, {{nla_len=20, nla_type=IFA_CACHEINFO}, {ifa_prefered=4294967295, ifa_valid=4294967295, cstamp=448952, tstamp=448952}}]}, {{len=88, type=RTM_NEWADDR, flags=NLM_F_MULTI, seq=1684300546, pid=407}, {ifa_family=AF_INET, ifa_prefixlen=24, ifa_flags=IFA_F_PERMANENT, ifa_scope=RT_SCOPE_UNIVERSE, ifa_index=if_nametoindex("eth0")}, [{{nla_len=8, nla_type=IFA_ADDRESS}, inet_addr("10.24.2.25")}, {{nla_len=8, nla_type=IFA_LOCAL}, inet_addr("10.24.2.25")}, {{nla_len=8, nla_type=IFA_BROADCAST}, inet_addr("10.24.2.255")}, {{nla_len=9, nla_type=IFA_LABEL}, "eth0"}, {{nla_len=8, nla_type=IFA_FLAGS}, IFA_F_PERMANENT}, {{nla_len=20, nla_type=IFA_CACHEINFO}, {ifa_prefered=4294967295, ifa_valid=4294967295, cstamp=448955, tstamp=448955}}]}], iov_len=4096}], msg_iovlen=1, msg_controllen=0, msg_flags=0}, 0) = 164
+2023-05-17T05:15:45.342378166Z 05:15:45.342094 recvmsg(16, {msg_name={sa_family=AF_NETLINK, nl_pid=0, nl_groups=00000000}, msg_namelen=12, msg_iov=[{iov_base={{len=20, type=NLMSG_DONE, flags=NLM_F_MULTI, seq=1684300546, pid=407}, 0}, iov_len=4096}], msg_iovlen=1, msg_controllen=0, msg_flags=0}, 0) = 20
+2023-05-17T05:15:45.343330543Z 05:15:45.343179 socket(AF_INET, SOCK_STREAM|SOCK_CLOEXEC, IPPROTO_TCP) = 16
+2023-05-17T05:15:45.344305356Z 05:15:45.344143 setsockopt(16, SOL_SOCKET, SO_REUSEADDR, [1], 4) = 0
+2023-05-17T05:15:45.345436167Z 05:15:45.345103 bind(16, {sa_family=AF_INET, sin_port=htons(8050), sin_addr=inet_addr("10.24.2.25")}, 16) = 0
+2023-05-17T05:15:45.345677833Z 05:15:45.345306 listen(16, 100)         = 0
+2023-05-17T05:15:45.348272622Z 05:15:45.346970 getsockname(16, {sa_family=AF_INET, sin_port=htons(8050), sin_addr=inet_addr("10.24.2.25")}, [128->16]) = 0
+2023-05-17T05:15:45.348498048Z 05:15:45.347240 getsockname(16, {sa_family=AF_INET, sin_port=htons(8050), sin_addr=inet_addr("10.24.2.25")}, [128->16]) = 0
+2023-05-17T05:15:45.351509625Z broker.info[0]: start: none->join 3.54951ms
+2023-05-17T05:15:45.353248662Z broker.info[0]: parent-none: join->init 1.40004ms
+2023-05-17T05:15:45.353484325Z 05:15:45.352868 socketpair(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0, [23, 24]) = 0
+2023-05-17T05:15:45.353773580Z 05:15:45.353068 socketpair(AF_UNIX, SOCK_STREAM, 0, [25, 26]) = 0
+2023-05-17T05:15:45.356985549Z 05:15:45.355622 socketpair(AF_UNIX, SOCK_STREAM, 0, [27, 28]) = 0
+2023-05-17T05:15:45.357237505Z 05:15:45.355937 socketpair(AF_UNIX, SOCK_STREAM, 0, [29, 30]) = 0
+2023-05-17T05:15:46.330069393Z cron.info[0]: synchronizing cron tasks to event heartbeat.pulse
+2023-05-17T05:15:46.351649401Z job-manager.info[0]: restart: 0 jobs
+2023-05-17T05:15:46.353717251Z job-manager.info[0]: restart: 0 running jobs
+2023-05-17T05:15:46.356428139Z job-manager.info[0]: restart: checkpoint.job-manager not found
+2023-05-17T05:15:46.489632909Z broker.info[0]: rc1.0: running /etc/flux/rc1.d/01-sched-fluxion
+2023-05-17T05:15:46.531930760Z sched-fluxion-resource.info[0]: version 0.27.0-17-g97e99929
+2023-05-17T05:15:46.539413209Z sched-fluxion-resource.warning[0]: create_reader: allowlist unsupported
+2023-05-17T05:15:46.541912467Z sched-fluxion-resource.info[0]: populate_resource_db: loaded resources from core's resource.acquire
+2023-05-17T05:15:46.555013804Z sched-fluxion-qmanager.info[0]: version 0.27.0-17-g97e99929
+2023-05-17T05:15:46.568510939Z broker.info[0]: rc1.0: running /etc/flux/rc1.d/02-cron
+2023-05-17T05:15:46.768840250Z broker.info[0]: rc1.0: /etc/flux/rc1 Exited (rc=0) 1.4s
+2023-05-17T05:15:46.771244061Z broker.info[0]: rc1-success: init->quorum 1.41817s
+2023-05-17T05:15:46.874215767Z broker.info[0]: online: flux-sample-0 (ranks 0)
+2023-05-17T05:16:02.629605068Z broker.info[0]: online: flux-sample-[0-3] (ranks 0-3)
+2023-05-17T05:16:02.633057821Z broker.info[0]: quorum-full: quorum->run 15.8588s
+2023-05-17T05:16:02.633782814Z 05:16:02.629982 socketpair(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0, [24, 25]) = 0
+2023-05-17T05:16:02.791173928Z 05:16:02.790796 socketpair(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0, [113, 114]) = 0
+2023-05-17T05:16:02.792238176Z 05:16:02.791296 socketpair(AF_UNIX, SOCK_STREAM, 0, [115, 116]) = 0
+2023-05-17T05:16:02.793787605Z 05:16:02.793382 socketpair(AF_UNIX, SOCK_STREAM, 0, [117, 118]) = 0
+2023-05-17T05:16:02.794792951Z 05:16:02.793830 socketpair(AF_UNIX, SOCK_STREAM, 0, [119, 120]) = 0
+2023-05-17T05:16:08.607915777Z broker.info[0]: rc2.0: flux submit -n 1 --quiet --watch sleep 5 Exited (rc=0) 6.0s
+2023-05-17T05:16:08.610844307Z broker.info[0]: rc2-success: run->cleanup 5.9807s
+2023-05-17T05:16:08.612225454Z 05:16:08.610910 socketpair(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0, [24, 25]) = 0
+2023-05-17T05:16:08.612470819Z 05:16:08.612182 socketpair(AF_UNIX, SOCK_STREAM, 0, [27, 28]) = 0
+2023-05-17T05:16:08.612793985Z 05:16:08.612597 socketpair(AF_UNIX, SOCK_STREAM, 0, [29, 113]) = 0
+2023-05-17T05:16:08.613216194Z 05:16:08.612917 socketpair(AF_UNIX, SOCK_STREAM, 0, [114, 115]) = 0
+2023-05-17T05:16:08.770393253Z broker.info[0]: cleanup.0: flux queue stop --quiet --all --nocheckpoint Exited (rc=0) 0.2s
+2023-05-17T05:16:08.772544743Z 05:16:08.771009 socketpair(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0, [28, 113]) = 0
+2023-05-17T05:16:08.773856969Z 05:16:08.772867 socketpair(AF_UNIX, SOCK_STREAM, 0, [115, 116]) = 0
+2023-05-17T05:16:08.775685592Z 05:16:08.775449 socketpair(AF_UNIX, SOCK_STREAM, 0, [117, 118]) = 0
+2023-05-17T05:16:08.777276547Z 05:16:08.776968 socketpair(AF_UNIX, SOCK_STREAM, 0, [119, 120]) = 0
+2023-05-17T05:16:08.950487297Z broker.info[0]: cleanup.1: flux cancel --user=all --quiet --states RUN Exited (rc=0) 0.2s
+2023-05-17T05:16:08.952278664Z 05:16:08.950498 socketpair(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0, [24, 25]) = 0
+2023-05-17T05:16:08.953819073Z 05:16:08.953504 socketpair(AF_UNIX, SOCK_STREAM, 0, [27, 29]) = 0
+2023-05-17T05:16:08.955379945Z 05:16:08.955116 socketpair(AF_UNIX, SOCK_STREAM, 0, [114, 116]) = 0
+2023-05-17T05:16:08.956975477Z 05:16:08.956666 socketpair(AF_UNIX, SOCK_STREAM, 0, [118, 120]) = 0
+2023-05-17T05:16:09.134614947Z broker.info[0]: cleanup.2: flux queue idle --quiet Exited (rc=0) 0.2s
+2023-05-17T05:16:09.137741110Z broker.info[0]: cleanup-success: cleanup->shutdown 0.526728s
+2023-05-17T05:16:09.322252749Z broker.info[0]: online: flux-sample-[0,2-3] (ranks 0,2-3)
+2023-05-17T05:16:09.326028279Z broker.info[0]: children-complete: shutdown->finalize 0.188129s
+2023-05-17T05:16:09.327630111Z 05:16:09.327355 socketpair(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0, [16, 23]) = 0
+2023-05-17T05:16:09.329123542Z 05:16:09.327510 socketpair(AF_UNIX, SOCK_STREAM, 0, [24, 25]) = 0
+2023-05-17T05:16:09.329985751Z 05:16:09.327675 socketpair(AF_UNIX, SOCK_STREAM, 0, [26, 27]) = 0
+2023-05-17T05:16:09.330323260Z 05:16:09.327827 socketpair(AF_UNIX, SOCK_STREAM, 0, [28, 29]) = 0
+2023-05-17T05:16:09.368141046Z broker.info[0]: rc3.0: running /etc/flux/rc3.d/01-sched-fluxion
+2023-05-17T05:16:09.773189143Z broker.info[0]: rc3.0: /etc/flux/rc3 Exited (rc=0) 0.4s
+2023-05-17T05:16:09.775066517Z broker.info[0]: rc3-success: finalize->goodbye 0.448737s
+2023-05-17T05:16:09.779931529Z broker.info[0]: goodbye: goodbye->exit 4.71595ms
+2023-05-17T05:16:09.788526028Z 05:16:09.788308 +++ exited with 0 +++

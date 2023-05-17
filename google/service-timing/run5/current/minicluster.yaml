@@ -1,0 +1,35 @@
+apiVersion: flux-framework.org/v1alpha1
+kind: MiniCluster
+metadata:
+  name: flux-sample
+  namespace: flux-operator
+spec:
+
+  # Number of pods to create for MiniCluster
+  # 56 cores * 8
+  size: 4
+  tasks: 4
+
+  # This starts the flux broker without a command (interactive)
+  logging:
+    quiet: false
+    strict: false
+    zeromq: true
+
+  # Spack installs to /opt/view, without flux-security so no imp
+  flux:
+    wrap: strace,-e,network,-tt
+
+  # This is a list because a pod can support multiple containers
+  containers:
+    - image: ghcr.io/rse-ops/nslookup:flux-sched-focal
+      pullAlways: true
+      command: sleep 10
+
+      # Resource limits to ensure 1 pod assigned per node
+      resources:
+        limits:
+          cpu: "1"
+
+        requests:
+          cpu: "1"
