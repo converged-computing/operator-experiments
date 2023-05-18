@@ -9,3 +9,4 @@ of experiments are attempting to investigate different aspects.
  - [run4](run4) used a test deployment of the operator that wrapped flux start with strace
  - [run5](run5) attempts to remove DNS by getting pod ip addresses and writing them into `/etc/hosts`
  - [run6](run6) is an effort to put together best practices of what we learned and reproduce the run1 experiments with improvements (May 17, 2023)
+ - [run7](run7) the same but adding back the coredns to see if it replicates the original error
