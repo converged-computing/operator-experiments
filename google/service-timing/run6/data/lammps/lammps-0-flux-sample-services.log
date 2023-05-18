@@ -1,0 +1,16 @@
+2023-05-18T00:40:56.498778499Z /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+2023-05-18T00:40:56.498821096Z /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+2023-05-18T00:40:56.502670566Z /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+2023-05-18T00:40:56.512011243Z 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+2023-05-18T00:40:56.531423965Z 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+2023-05-18T00:40:56.531940527Z /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+2023-05-18T00:40:56.538202904Z /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+2023-05-18T00:40:56.538606552Z /docker-entrypoint.sh: Configuration complete; ready for start up
+2023-05-18T00:40:56.549876462Z 2023/05/18 00:40:56 [notice] 1#1: using the "epoll" event method
+2023-05-18T00:40:56.549898987Z 2023/05/18 00:40:56 [notice] 1#1: nginx/1.23.4
+2023-05-18T00:40:56.549905100Z 2023/05/18 00:40:56 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6)
+2023-05-18T00:40:56.549910245Z 2023/05/18 00:40:56 [notice] 1#1: OS: Linux 5.15.89+
+2023-05-18T00:40:56.549928363Z 2023/05/18 00:40:56 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023-05-18T00:40:56.552379140Z 2023/05/18 00:40:56 [notice] 1#1: start worker processes
+2023-05-18T00:40:56.552427697Z 2023/05/18 00:40:56 [notice] 1#1: start worker process 30
+2023-05-18T00:40:56.552435937Z 2023/05/18 00:40:56 [notice] 1#1: start worker process 31
