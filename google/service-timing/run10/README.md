@@ -27,7 +27,7 @@ You can check the pod logs in the `operator-system` namespace to ensure it is ru
 Save the nodes if you desire (I [saved mine, FYI](operator/vnodes.json) if you want to compare)
 
 ```bash
-kubectl get nodes -o json > operator/vnodes.json
+kubectl get nodes -o json > operator/nodes.json
 ```
 
 Then create the MiniCluster. This cluster is started in interactive mode,
@@ -41,7 +41,7 @@ kubectl apply -f operator/minicluster-32.yaml
 Wait until the containers are running (it takes about a minute for pull)
 
 ```bash
-$ kubectl get pods -n flux-operator 
+kubectl get pods -n flux-operator 
 ```
 
 If you look at flux-sample-0-* (the leader broker) you will see it connected (but waiting for workers)
@@ -70,5 +70,5 @@ the MiniCluster CRD tasks to be 56 * nodes.
 When you are done - clean up!
 
 ```bash
-$ gcloud container clusters delete flux-cluster
+gcloud container clusters delete flux-cluster
 ```
