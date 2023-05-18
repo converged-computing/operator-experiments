@@ -91,6 +91,10 @@ def run_experiments(
         operator.create(**minicluster, container=container)
         operator.delete()
 
+    times = {}
+    means = {}
+    stds = {}
+
     # This will test timeouts for the connection between 0 and 10
     # Along with the case of not setting one
     # A time of zero will be unset (default to 30 seconds, long!)
