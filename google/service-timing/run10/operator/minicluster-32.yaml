@@ -7,7 +7,7 @@ spec:
 
   # Number of pods to create for MiniCluster
   # 56 cores * 32
-  size: 16
+  size: 32
   tasks: 1792
 
   # This starts the flux broker without a command (interactive)
