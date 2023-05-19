@@ -30,6 +30,8 @@ Save the nodes if you desire (I [saved mine, FYI](operator/vnodes.json) if you w
 kubectl get nodes -o json > operator/nodes.json
 ```
 
+### Manual Creation
+
 Then create the MiniCluster. This cluster is started in interactive mode,
 so it should wire up and then allow you to connect. However at this scale,
 in my testing, it's never able to.
@@ -65,7 +67,35 @@ broker.info[1]: start: none->join 0.32007ms
 There *should* be a message about joining the parent (but it won't show up).
 In this state you wouldn't be able to use Flux, although you can shell into a pod and look around!
 If you DO see it connect, try just making the cluster bigger, and be sure to update
-the MiniCluster CRD tasks to be 56 * nodes.
+the MiniCluster CRD tasks to be 56 * nodes. Don't forget to change the size too!
+
+### Scripted Runs
+
+You'll need the fluxoperator and kubernetes modules installed:
+
+```bash
+$ python -m venv env
+$ source env/bin/activate
+$ pip install kubernetes
+$ pip install fluxoperator
+$ pip install IPython
+```
+
+To run experiments:
+
+
+Then run the experiments!
+
+```bash
+$ python time-minicluster-lammps.py lammps
+```
+
+Note these currently do 20x over runs that vary the zeromq timeout. You can
+remove the outer loop if you don't desire that. If there is any failure
+an IPython.embed will be run, so you can inspect what happened and 
+continue if desired.
+
+### Clean Up
 
 When you are done - clean up!
 
