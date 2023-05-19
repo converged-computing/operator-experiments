@@ -10,3 +10,6 @@ of experiments are attempting to investigate different aspects.
  - [run5](run5) attempts to remove DNS by getting pod ip addresses and writing them into `/etc/hosts`
  - [run6](run6) is an effort to put together best practices of what we learned and reproduce the run1 experiments with improvements (May 17, 2023)
  - [run7](run7) the same but adding back the coredns to see if it replicates the original error
+ - [run8](run8) was one more attempt to reproduce the issue (done, and one huge timeout)
+ - [run9](run9) was the final case to replicate (did)
+ - [run10](run10) is the equivalent experiment but scaled up to a larger cluster
