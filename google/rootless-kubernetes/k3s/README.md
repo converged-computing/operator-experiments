@@ -126,7 +126,7 @@ echo "export KUBECONFIG=~/.kube/config" >> ~/.profile
 Now you can get nodes:
 
 ```
-$ kubectl  get nodes
+$ kubectl get nodes
 NAME                      STATUS   ROLES                  AGE   VERSION
 test-rootless-kubenetes   Ready    control-plane,master   23h   v1.26.4+k3s1
 ```

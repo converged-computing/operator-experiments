@@ -1,0 +1,33 @@
+{
+    "id": 16787752091648,
+    "userid": 1234,
+    "urgency": 16,
+    "priority": 16,
+    "t_submit": 1684193604.4539733,
+    "t_depend": 1684193604.465964,
+    "t_run": 1684193604.482962,
+    "t_cleanup": 1684193606.2621105,
+    "t_inactive": 1684193606.2658646,
+    "state": "INACTIVE",
+    "name": "ring_mpifh",
+    "cwd": "/opt/ompi",
+    "ntasks": 448,
+    "ncores": 448,
+    "duration": 0.0,
+    "nnodes": 8,
+    "ranks": "[0-7]",
+    "nodelist": "flux-sample-[0-7]",
+    "success": true,
+    "exception_occurred": false,
+    "result": "COMPLETED",
+    "expiration": 4837793604.0,
+    "waitstatus": 0,
+    "returncode": 0,
+    "runtime": 1.7791485786437988,
+    "exception": {
+        "occurred": false,
+        "severity": "",
+        "type": "",
+        "note": ""
+    }
+}

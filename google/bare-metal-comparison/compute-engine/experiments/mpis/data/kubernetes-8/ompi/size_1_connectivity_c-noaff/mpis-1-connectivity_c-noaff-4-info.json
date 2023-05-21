@@ -1,0 +1,33 @@
+{
+    "id": 7327633637376,
+    "userid": 1234,
+    "urgency": 16,
+    "priority": 16,
+    "t_submit": 1684194125.1597571,
+    "t_depend": 1684194125.1718616,
+    "t_run": 1684194125.186952,
+    "t_cleanup": 1684194126.4207945,
+    "t_inactive": 1684194126.4238443,
+    "state": "INACTIVE",
+    "name": "connectivity_c",
+    "cwd": "/opt/ompi",
+    "ntasks": 56,
+    "ncores": 56,
+    "duration": 0.0,
+    "nnodes": 1,
+    "ranks": "0",
+    "nodelist": "flux-sample-0",
+    "success": true,
+    "exception_occurred": false,
+    "result": "COMPLETED",
+    "expiration": 4837794125.0,
+    "waitstatus": 0,
+    "returncode": 0,
+    "runtime": 1.233842372894287,
+    "exception": {
+        "occurred": false,
+        "severity": "",
+        "type": "",
+        "note": ""
+    }
+}

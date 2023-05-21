@@ -1,0 +1,32 @@
+{
+    "id": 817117528064,
+    "userid": 1234,
+    "urgency": 16,
+    "priority": 16,
+    "t_submit": 1684197778.9248946,
+    "t_depend": 1684197778.9362192,
+    "t_run": 1684197778.950598,
+    "t_cleanup": 1684197780.299587,
+    "t_inactive": 1684197780.3014393,
+    "state": "INACTIVE",
+    "name": "connectivity_c",
+    "ntasks": 280,
+    "ncores": 280,
+    "duration": 0.0,
+    "nnodes": 5,
+    "ranks": "[0-4]",
+    "nodelist": "flux-sample-[3-7]",
+    "success": true,
+    "exception_occurred": false,
+    "result": "COMPLETED",
+    "expiration": 4837797778.0,
+    "waitstatus": 0,
+    "returncode": 0,
+    "runtime": 1.3489890098571777,
+    "exception": {
+        "occurred": false,
+        "severity": "",
+        "type": "",
+        "note": ""
+    }
+}

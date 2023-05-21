@@ -1,0 +1,32 @@
+{
+    "id": 2277758730240,
+    "userid": 1234,
+    "urgency": 16,
+    "priority": 16,
+    "t_submit": 1684197420.1598144,
+    "t_depend": 1684197420.1719527,
+    "t_run": 1684197420.1871834,
+    "t_cleanup": 1684197420.3587818,
+    "t_inactive": 1684197420.3610985,
+    "state": "INACTIVE",
+    "name": "ring_mpifh",
+    "ntasks": 56,
+    "ncores": 56,
+    "duration": 0.0,
+    "nnodes": 1,
+    "ranks": "0",
+    "nodelist": "flux-sample-0",
+    "success": true,
+    "exception_occurred": false,
+    "result": "COMPLETED",
+    "expiration": 4837797420.0,
+    "waitstatus": 0,
+    "returncode": 0,
+    "runtime": 0.1715984344482422,
+    "exception": {
+        "occurred": false,
+        "severity": "",
+        "type": "",
+        "note": ""
+    }
+}
