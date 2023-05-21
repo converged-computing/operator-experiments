@@ -27,6 +27,9 @@ dnf install -y epel-release
 dnf install -y \
 include(packages.txt)dnl
 
+# update grub
+include(update_cgroups.txt)dnl
+
 useradd -M -r -s /bin/false -c "flux-framework identity" flux
 
 cd /usr/share

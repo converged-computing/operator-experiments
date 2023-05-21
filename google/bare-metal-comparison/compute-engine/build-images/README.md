@@ -29,9 +29,11 @@ Packer version and then invokes Cloud Build to create the Packer build step.
 The Packer build step requires elevated privileges to create a GCP image. Rather than grant those privileges
 to the Cloud Build service account a separate `image builder` service account is created and granted the
 necessary privileges. The command
+
 ```bash
 ./builder-setup.sh
 ```
+
 creates the `image builder` service account the necessary privileges, downloads its keys, uses the Google Cloud KMS service
 to encrypt them and grants the Cloud Build service account the ability to decrypt them.
 
@@ -42,8 +44,7 @@ Once the environment is setup you can build images as often as necessary without
 ### Image Creation
 
 The `build-images.sh` script creates Flux Framework GCP images by submitting config files to Cloud Build. The script requires
-a `-z <zone>` command line argument. The following arguments control which images are built
-
+- `-z <zone>` command line argument. The following arguments control which images are built
 - `-a <arm-machine-type>` creates a Flux Framework compute node image for the ARM64 architecture
 - `-x <x86_64-machine-type>` creates a Flux Framework compute node image for the x86_64 architecture
 - `-m <manager-machine-type>` creates a Flux Framework management node image, must be an x86_64 architecture machine type in this release
@@ -65,6 +66,7 @@ To choose a specific subnetwork:
 or to build with the c2 family:
 
 ```bash
+./build-images.sh -z us-central1-a -m c2-standard-8 -a t2a-standard-16 -x c2-standard-16 -l c2-standard-8
 ./build-images.sh -z us-central1-a -m c2d-standard-8 -a t2a-standard-16 -x c2d-standard-16 -l c2d-standard-8
 ```
 

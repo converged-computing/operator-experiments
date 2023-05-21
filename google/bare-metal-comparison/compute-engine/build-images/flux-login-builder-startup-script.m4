@@ -32,6 +32,9 @@ dnf install -y podman
 
 useradd -M -r -s /bin/false -c "flux-framework identity" flux
 
+# update grub
+include(update_cgroups.txt)dnl
+
 cd /usr/share
 
 git clone -b v0.49.0 https://github.com/flux-framework/flux-core.git
