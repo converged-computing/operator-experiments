@@ -91,7 +91,7 @@ I was interested to time creation and deletion. I learned:
  - creation is relatively slower than deletion (maybe by a factor of 1.5 or 80 seconds?)
  - larger instances seem to take a longer time (is this logical?)
 
-![create_delete_cluster_mpis.png](create_delete_cluster_mpis.png)
+![img/create_delete_cluster_mpis.png](img/create_delete_cluster_mpis.png)
 
 
 #### Adding vs Removing One Node
@@ -105,25 +105,22 @@ Likely for flux this is an OK pattern, because as soon as a node starts to go of
 offline. In other words, we don't need to wait for it to be totallly down to continue. On the flip side,
 we do need a node to be entirely up to use it! For this plot, there was no outliers. 
 
-![add_vs_remove_1_nodes_with_outliers_mpis.png](add_vs_remove_1_nodes_with_outliers_mpis.png)
+![img/add_vs_remove_1_nodes_with_outliers_mpis.png](img/add_vs_remove_1_nodes_with_outliers_mpis.png)
 
 I also did the above two separately because just for closer inspection:
-
-
-
 
 #### Adding vs Removing Two Nodes
 
 I saw a similar pattern with adding/removing two nodes, although I did see an outlier:
 
-![add_vs_remove_2_nodes_with_outliers_mpis.png](add_vs_remove_2_nodes_with_outliers_mpis.png)
+![img/add_vs_remove_2_nodes_with_outliers_mpis.png](img/add_vs_remove_2_nodes_with_outliers_mpis.png)
 
-![remove_one_node_no_outliers_mpis.png](remove_one_node_no_outliers_mpis.png)
-![add_one_node_no_outliers_mpis.png](add_one_node_no_outliers_mpis.png)
+![img/remove_one_node_no_outliers_mpis.png](img/remove_one_node_no_outliers_mpis.png)
+![img/add_one_node_no_outliers_mpis.png](img/add_one_node_no_outliers_mpis.png)
 
 We can remove it to see a similar pattern:
 
-![add_vs_remove_2_nodes_no_outliers_mpis.png](add_vs_remove_2_nodes_no_outliers_mpis.png)
+![img/add_vs_remove_2_nodes_no_outliers_mpis.png](img/add_vs_remove_2_nodes_no_outliers_mpis.png)
 
 It's slower to remove "down" two nodes. I would be interested to know if this pattern continues
 with N nodes. When does the time to add or remove nodes start to scale so it takes a LOT longer?
@@ -134,7 +131,7 @@ The reason this plot is smaller is because I didn't run it for c2d-standard-16.
 For funsies, although I wasn't planning on doing this, I decided to look at adding 
 10 nodes at a time.
 
-![add_vs_remove_10_nodes_with_outliers_mpis.png](add_vs_remove_10_nodes_with_outliers_mpis.png)
+![img/add_vs_remove_10_nodes_with_outliers_mpis.png](img/add_vs_remove_10_nodes_with_outliers_mpis.png)
 
 I didn't get to multiple instance types, or even removing nodes (I guess I got tired at the end of the
 day). This is interesting because note that 40 seconds is quite a bit slower than approximately 25 that I saw before. 
