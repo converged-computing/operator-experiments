@@ -115,12 +115,14 @@ I saw a similar pattern with adding/removing two nodes, although I did see an ou
 
 ![img/add_vs_remove_2_nodes_with_outliers_mpis.png](img/add_vs_remove_2_nodes_with_outliers_mpis.png)
 
-![img/remove_one_node_no_outliers_mpis.png](img/remove_one_node_no_outliers_mpis.png)
-![img/add_one_node_no_outliers_mpis.png](img/add_one_node_no_outliers_mpis.png)
-
 We can remove it to see a similar pattern:
 
 ![img/add_vs_remove_2_nodes_no_outliers_mpis.png](img/add_vs_remove_2_nodes_no_outliers_mpis.png)
+
+
+![img/remove_one_node_no_outliers_mpis.png](img/remove_one_node_no_outliers_mpis.png)
+![img/add_one_node_no_outliers_mpis.png](img/add_one_node_no_outliers_mpis.png)
+
 
 It's slower to remove "down" two nodes. I would be interested to know if this pattern continues
 with N nodes. When does the time to add or remove nodes start to scale so it takes a LOT longer?
