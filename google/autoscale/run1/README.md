@@ -139,6 +139,9 @@ I didn't get to multiple instance types, or even removing nodes (I guess I got t
 day). This is interesting because note that 40 seconds is quite a bit slower than approximately 25 that I saw before. 
 So I think when we plan new experiments we want to test these larger batches, and for different instance types.
 
+I also looked at adding/removing nodes (in order) for at least the size 1, and
+it didn't seem to matter. I suspect this won't be the case when the clusters get much
+larger, but I don't know.
 
 ## Next Steps
 

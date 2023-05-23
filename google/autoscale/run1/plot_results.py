@@ -36,6 +36,7 @@ def plot_outputs(raw, plotname, ext="pdf", outdir=None):
         "direction",
         "iteration",
         "seconds",
+        "key",  # key tells us the from -> to node
     ]
 
     # Let's first organize distributions of times
@@ -51,13 +52,31 @@ def plot_outputs(raw, plotname, ext="pdf", outdir=None):
         experiment, name, iteration = runid.split(os.sep)
         increment = int(experiment.split("-")[-1])
         direction = experiment.split("-")[-2]
-        machine_type = item['machine_type']
+        machine_type = item["machine_type"]
 
         for key, seconds in item["times"].items():
             if key in ["create_cluster", "delete_cluster"]:
-                datum = [experiment, name, machine_type, increment, key, iteration, seconds]
+                datum = [
+                    experiment,
+                    name,
+                    machine_type,
+                    increment,
+                    key,
+                    iteration,
+                    seconds,
+                    key,
+                ]
             else:
-                datum = [experiment, name, machine_type, increment, direction, iteration, seconds]
+                datum = [
+                    experiment,
+                    name,
+                    machine_type,
+                    increment,
+                    direction,
+                    iteration,
+                    seconds,
+                    key,
+                ]
             data.append(datum)
 
     # Assemble the data frame, index is the runids
@@ -204,6 +223,59 @@ def plot_outputs(raw, plotname, ext="pdf", outdir=None):
             xlabel="Machine Type",
             ylabel="Time (seconds)",
         )
+
+    # Now we want to understand if order matters!
+    # Let's just look at increasing by 1, for c2-standard-8
+    df1 = df[df.machine_type == "c2-standard-8"]
+    df1 = df1[df1.increment == 1]
+
+    # Create an order column
+    orders = [int(x.split("_")[-1]) for x in list(df1.key.values)]
+    df1["orders"] = orders
+    df1up = df1[df1.direction == "up"]
+    df1down = df1[df1.direction == "down"]
+
+    # Up
+    ax = sns.lineplot(data=df1up, x="orders", y="seconds", hue="iteration")
+    plt.title("Incremental time to add a node (with outliers)")
+    ax.set_xlabel("Node index", fontsize=16)
+    ax.set_ylabel("Time (seconds)", fontsize=16)
+    ax.set_xticklabels(ax.get_xmajorticklabels(), fontsize=14)
+    ax.set_yticklabels(ax.get_yticks(), fontsize=14)
+    plt.savefig(os.path.join(outdir, f"add_node_incremental.{ext}"))
+    plt.clf()
+
+    # Remove outlier
+    df1up = df1up[df1up.seconds <= 100]
+    ax = sns.lineplot(data=df1up, x="orders", y="seconds", hue="iteration")
+    plt.title("Incremental time to add a node (without outliers)")
+    ax.set_xlabel("Node index", fontsize=16)
+    ax.set_ylabel("Time (seconds)", fontsize=16)
+    ax.set_xticklabels(ax.get_xmajorticklabels(), fontsize=14)
+    ax.set_yticklabels(ax.get_yticks(), fontsize=14)
+    plt.savefig(os.path.join(outdir, f"add_node_incremental_no_outliers.{ext}"))
+    plt.clf()
+
+    # Down
+    ax = sns.lineplot(data=df1down, x="orders", y="seconds", hue="iteration")
+    plt.title("Incremental time to remove a node (with outliers)")
+    ax.set_xlabel("Node index", fontsize=16)
+    ax.set_ylabel("Time (seconds)", fontsize=16)
+    ax.set_xticklabels(ax.get_xmajorticklabels(), fontsize=14)
+    ax.set_yticklabels(ax.get_yticks(), fontsize=14)
+    plt.savefig(os.path.join(outdir, f"remove_node_incremental.{ext}"))
+    plt.clf()
+
+    # Remove outlier
+    df1down = df1down[df1down.seconds <= 100]
+    ax = sns.lineplot(data=df1down, x="orders", y="seconds", hue="iteration")
+    plt.title("Incremental time to remove a node (without outliers)")
+    ax.set_xlabel("Node index", fontsize=16)
+    ax.set_ylabel("Time (seconds)", fontsize=16)
+    ax.set_xticklabels(ax.get_xmajorticklabels(), fontsize=14)
+    ax.set_yticklabels(ax.get_yticks(), fontsize=14)
+    plt.savefig(os.path.join(outdir, f"remove_node_incremental_no_outliers.{ext}"))
+    plt.clf()
 
 
 def make_plot(
