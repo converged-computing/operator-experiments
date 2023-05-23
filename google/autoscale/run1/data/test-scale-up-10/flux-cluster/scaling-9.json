@@ -1,0 +1,20 @@
+{
+    "times": {
+        "create_cluster": 318.638,
+        "scale_up_1_to_11": 40.889,
+        "scale_up_11_to_21": 43.891,
+        "scale_up_21_to_31": 59.654,
+        "scale_up_31_to_41": 40.625,
+        "scale_up_41_to_51": 40.783,
+        "scale_up_51_to_61": 46.94,
+        "delete_cluster": 239.599
+    },
+    "cluster_name": "projects/llnl-flux/locations/us-central1-a/clusters/test-scale-up-10-flux-cluster",
+    "name": "test-scale-up-10-flux-cluster",
+    "machine_type": "c2-standard-8",
+    "region": "us-central1-a",
+    "tags": [
+        "flux-cluster"
+    ],
+    "description": "A cluster to install the Flux Operator and test elasticity"
+}

@@ -1,0 +1,23 @@
+{
+    "times": {
+        "create_cluster": 284.696,
+        "scale_down_32_to_31": 93.044,
+        "scale_down_31_to_30": 205.694,
+        "scale_down_30_to_29": 89.8,
+        "scale_down_29_to_28": 92.873,
+        "scale_down_28_to_27": 90.141,
+        "scale_down_27_to_26": 120.671,
+        "scale_down_26_to_25": 89.555,
+        "scale_down_25_to_24": 93.162,
+        "scale_down_24_to_23": 89.775,
+        "delete_cluster": 212.375
+    },
+    "cluster_name": "projects/llnl-flux/locations/us-central1-a/clusters/test-scale-down-1-c2d-flux-cluster",
+    "name": "test-scale-down-1-c2d-flux-cluster",
+    "machine_type": "c2d-standard-16",
+    "region": "us-central1-a",
+    "tags": [
+        "flux-cluster"
+    ],
+    "description": "A cluster to install the Flux Operator and test elasticity"
+}
