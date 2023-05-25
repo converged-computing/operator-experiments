@@ -32,9 +32,6 @@ ifdef(`X86_64', `include(install_apptainer.txt)')dnl
 
 useradd -M -r -s /bin/false -c "flux-framework identity" flux
 
-# update grub
-include(update_cgroups.txt)dnl
-
 cd /usr/share
 
 git clone -b v0.49.0 https://github.com/flux-framework/flux-core.git
@@ -85,8 +82,6 @@ echo "FLUXMANAGER:/usr/local/etc/flux/imp /usr/local/etc/flux/imp nfs defaults,h
 echo "FLUXMANAGER:/usr/local/etc/flux/security /usr/local/etc/flux/security nfs defaults,hard,intr,_netdev 0 0" >> /etc/fstab
 echo "FLUXMANAGER:/usr/local/etc/flux/system /usr/local/etc/flux/system nfs defaults,hard,intr,_netdev 0 0" >> /etc/fstab
 echo "FLUXMANAGER:/etc/munge /etc/munge nfs defaults,hard,intr,_netdev 0 0" >> /etc/fstab
-
-ifdef(`X86_64', `include(install_lammps.txt)')dnl
 
 mkdir -p /etc/flux/compute/conf.d
 

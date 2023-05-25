@@ -27,9 +27,6 @@ dnf install -y epel-release
 dnf install -y \
 include(packages.txt)dnl
 
-# update grub
-include(update_cgroups.txt)dnl
-
 useradd -M -r -s /bin/false -c "flux-framework identity" flux
 
 cd /usr/share
@@ -140,8 +137,6 @@ chmod u+r,u-wx,go-rwx /usr/local/etc/flux/imp/conf.d/imp.toml
 chmod u+s /usr/local/libexec/flux/flux-imp
 
 mkdir -p /etc/flux/manager/conf.d
-
-ifdef(`X86_64', `include(install_lammps.txt)')dnl
 
 cat << "CONFIG_FLUX_SYSTEM" > /etc/flux/manager/conf.d/01-system.sh
 #!/bin/bash
