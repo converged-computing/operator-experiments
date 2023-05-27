@@ -18,11 +18,13 @@ I'm using my personal account for now so I'm being conservative, and likely I'll
  - [K3D with rootless Podman](https://k3d.io/v5.4.9/usage/advanced/podman/?h=podman): this could actually be something we could try out of the box. The main flux job would need to launch a batch, where each worker launches a container, and there is a main task to bring the cluster together.
  - [K3s docker compose](k3s-docker-compose): if I can get this working with Docker Compose, Singularity compose would be my next thing to try.
  - [sysbox](sysbox)
- - usernetes TBA
- 
+ - [usernetes-compose](usernetes-compose) is testing out usernetes with docker-compsoe.
+  
 ### Likely No
 
  - [Kind](https://github.com/kubernetes-sigs/kind/issues/1928) would not work across multiple machines, and likely wouldn't be a good choice.
  - MiniKube: as far as I can tell, the multiple drivers are assuming multi-node cluster on a single machine.
  - [MicroK8s](https://microk8s.io/docs/clustering) does have support for running a cluster across machines, so promising, but I don't see rootless support. I am likely going to try it for learning anyway.
 
+
+Note that k3s is almost there but has [this issue](https://github.com/k3s-io/k3s/discussions/7615#discussioncomment-6016006).
