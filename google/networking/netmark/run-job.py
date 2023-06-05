@@ -9,6 +9,7 @@ run_script = """#!/bin/bash
 export PATH=/opt/intel/mpi/latest/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/mpi/latest/lib:/opt/intel/mpi/latest/lib/release
 find /opt/intel -name mpicc
+source /opt/intel/mpi/latest/env/vars.sh
 
 if [ $BATCH_TASK_INDEX = 0 ]; then
   cd /mnt/share/{{outdir}}
@@ -32,12 +33,16 @@ export DEBIAN_FRONTEND=noninteractive
 sleep $BATCH_TASK_INDEX
 
 # Note that for this family / image, we are root (do not need sudo)
-yum update -y && yum install -y cmake gcc tuned ethtool
+yum update -y && yum install -y cmake gcc tuned ethtool python3
+
+# Ensure a python3 executable is found, if does not exist
+which python3 || (ln -s $(which python) /usr/bin/python3)
 
 # This ONLY works on the hpc-* image family images
 google_mpi_tuning --nosmt
 # google_install_mpi --intel_mpi
 google_install_intelmpi --impi_2021
+source /opt/intel/mpi/latest/env/vars.sh
 
 # This is where they are installed to
 ls /opt/intel/mpi/latest/

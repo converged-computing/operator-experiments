@@ -36,38 +36,7 @@ rm -rf netmark/.git
 gcloud storage cp --recursive ./netmark/* gs://${bucket}/netmark
 ```
 
-
-Google must have some secret deal with Intel to use their compilers, because
-(aside from the others not working well) they don't actually provide mpicc to compile
-anything. So we need to provide it ourselves, and we will follow [this example](https://github.com/GoogleCloudPlatform/batch-samples/tree/d026683aa27d01111ec68a66d07abadab1712730/wrf)
-to prepare a spack environment. You'll do this locally on your machine.
-
-```
-git clone -c feature.manyFiles=true --depth 1 https://github.com/spack/spack.git
-. spack/share/spack/setup-env.sh
-spack mirror add gcs https://storage.googleapis.com/pnnl-clouddays22-workshop
-spack buildcache keys --install --trust
-# I didn't run these :)
-# spack install gcc@8.2.0
-# spack load gcc@8.2.0
-# spack compiler find
-spack install intel-mpi@2018.4.274
-spack load intel-mpi@2018.4.274
-cd netmark
-make
-```
-
-Finally, upload netmark.x to your same storage.
-
-```bash
-project_id="$(gcloud config get-value core/project)"
-bucket="netmark-experiment-bucket"
-gcloud storage cp ./netmark.x gs://${bucket}/netmark/netmark.x
-```
-
-
 We will do this just once and then save to our Google Cloud storage to reuse.
-
 Now we have the code in the cloud (privately) and can continue to run out workflow!
 
 ## Run Job
@@ -85,11 +54,22 @@ tasks=4
 $ python run-job.py ${project_id} --cpu-milli 1000 --memory 1000 --tasks ${tasks} --max-run-duration 3600s --bucket ${bucket} --machine-type c2-standard-16 --job-name netmark-job-001
 ```
 
-Note that I think for machine type, if we expect 8 cores, we actually need a -16 instance type since there are 2vcpu per actual.
-Also note that the above isn't working, but someone that likes MPI can debug!
+When you are done, you can inspect the logs in the Google cloud console, and the scripts
+written locally to see what was run. Note that I think for machine type, if we expect 8 cores, we actually need a -16 instance type since there are 2vcpu per actual. Note that netmark + intel MPI isn't working:
 
 ```
-textPayload: "[netmark-job-010-7076dba4-bda2-4045-a00-group0-0-fqhr:12658] [[INVALID],INVALID] FORCE-TERMINATE AT Not found:-13 - error ../../../../../../orte/mca/plm/rsh/plm_rsh_component.c(335)
+textPayload: "[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument 
+[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] Similar arguments:
+[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] 	 s
+[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] 	 f
+[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] 	 h
+[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] 	 V
+[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] 	 n
+```
+```
+textPayload: "[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1359): error parsing input array
+[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1783): error parsing parameters
 ```
 
 ## Feedback for Google Batch
@@ -104,3 +84,4 @@ textPayload: "[netmark-job-010-7076dba4-bda2-4045-a00-group0-0-fqhr:12658] [[INV
 - It's borderline monster to name your bin "bin64" instead of bin. `bin64 etc64 intel64 lib64 man ` Users are going to have to go thorough lots of extra runs just to find that path. Maybe it should be added to the path on install instead?
 - With many jobs (or even few) the table starts in one state, and then sorts to another - it makes it hard to find things. Why not allow the user to provide a job name, and then click into that group (for a smaller scoped set that doesn't have this changing of state/sorting?)
 - Stream logs should be the default unless the run is finished - it's confusing coming here the first time and having it either be empty, paused, or not understanding why it's not showing top down lines of the run (start to finish).
+- gcloud seems to want python3, but where I tested it didn't seem to exist.

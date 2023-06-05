@@ -10,6 +10,9 @@ export PATH=/opt/intel/mpi/latest/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/mpi/latest/lib:/opt/intel/mpi/latest/lib/release
 find /opt/intel -name mpicc
 
+# This is important - it won't work without sourcing
+source /opt/intel/mpi/latest/env/vars.sh
+
 if [ $BATCH_TASK_INDEX = 0 ]; then
   cd /mnt/share/{{outdir}}
   ls
@@ -29,11 +32,11 @@ yum update -y && yum install -y cmake gcc tuned ethtool
 google_mpi_tuning --nosmt
 # google_install_mpi --intel_mpi
 google_install_intelmpi --impi_2021
+source /opt/intel/mpi/latest/env/vars.sh
 
 # This is where they are installed to
 # ls /opt/intel/mpi/latest/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/mpi/latest/lib:/opt/intel/mpi/latest/lib/release
-
 export PATH=/opt/intel/mpi/latest/bin:$PATH
 
 outdir=/mnt/share/{{outdir}}

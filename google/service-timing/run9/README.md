@@ -60,7 +60,7 @@ $ python plot-times.py
 
 And this resulted in the plot below:
 
-![lammps-times.png]( lammps-times.png)
+![lammps-times.png](lammps-times.png)
 
 And of course, don't forget to clean up:
 
