@@ -76,6 +76,17 @@ And this also mirrors the actual structure of output in Google storage, however 
 When you are done, you can inspect the logs in the Google cloud console, and the scripts
 written locally to see what was run. Note that I think for machine type, if we expect 8 cores, we actually need a -16 instance type since there are 2vcpu per actual.
 
+# Experiments
+
+```
+# Setup
+project_id="$(gcloud config get-value core/project)"
+bucket="netmark-experiment-bucket"
+
+# 16 tasks on one instance
+$ python run-job.py ${project_id} --cpu-milli 1000 --memory 1000 --tasks 16 --max-run-duration 3600s --bucket ${bucket} --machine-type c2-standard-16 --job-name netmark-experiment-16-02 --netmark-store-trial --parallelism 1
+```
+
 ## Feedback for Google Batch
 
 - For MPI workloads in a container, it would be nice to have Singularity support and some means to bind MPI libraries to container

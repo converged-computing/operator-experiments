@@ -125,7 +125,12 @@ def get_parser():
         help="maximum run duration, string (e.g., 3600s)",
         default="3600s",
     )  # 1GB
-
+    parser.add_argument(
+        "--parallelism",
+        help="Parallelism of tasks",
+        default=1,
+        type=int,
+    )  # 1GB
     # These arguments map directly to netmark
     # The defaults are the ones we see set in the example
     # /mnt/share/{{netmark_path}}/netmark.x -w 10 -t 20 -c 100 -b 0 -s
@@ -203,6 +208,7 @@ def main():
         retry_count=args.retry_count,
         max_run_duration=args.max_run_duration,
         mount_path=args.mount_path,
+        parallelism=args.parallelism,
         # Netmark Arguments
         warmup=args.warmup,
         trials=args.trials,
@@ -249,9 +255,13 @@ def batch_job(
     cycles: int,
     message_size: int,
     store_trial: int,
+    parallelism: int,
 ) -> batch_v1.Job:
     """
     Create a Netmark Job, building netmark from mounted code in a Google Bucket.
+
+    Protos (for looking at options) can be found at:
+    https://github.com/googleapis/googleapis/blob/master/google/cloud/batch/v1alpha
     """
     client = batch_v1.BatchServiceClient()
 
@@ -320,7 +330,12 @@ def batch_job(
     runnable = batch_v1.Runnable()
     runnable.script = batch_v1.Runnable.Script()
     runnable.script.text = f"bash {mount_path}/{run_path}"
-    task.runnables = [barrier, setup, barrier, runnable]
+
+    # If parallelism == 1, no barriers as running on same instance
+    if parallelism == 1:
+        task.runnables = [setup, runnable]
+    else:
+        task.runnables = [barrier, setup, barrier, runnable]
 
     gcs_bucket = batch_v1.GCS()
     gcs_bucket.remote_path = bucket_name
@@ -346,6 +361,7 @@ def batch_job(
     group.task_count_per_node = tasks_per_node
     group.task_count = tasks
     group.task_spec = task
+    group.parallelism = parallelism
     group.require_hosts_file = True
     group.permissive_ssh = True
 
