@@ -1,32 +1,33 @@
-from google.cloud import batch_v1
-from google.cloud import storage
-import jinja2
 import argparse
+import inspect
+import json
+import os
+
+import jinja2
+from google.cloud import batch_v1, storage
 
 # Script templates
 
 run_script = """#!/bin/bash
 export PATH=/opt/intel/mpi/latest/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/mpi/latest/lib:/opt/intel/mpi/latest/lib/release
-find /opt/intel -name mpicc
 source /opt/intel/mpi/latest/env/vars.sh
 
+# Ensure we have the wrapper template and it's correctly populated
+wrapper={{ mount_path }}/{{ outdir }}/netmark_wrapper.sh
+cat ${wrapper}
+chmod +x ${wrapper}
+
 if [ $BATCH_TASK_INDEX = 0 ]; then
-  cd /mnt/share/{{outdir}}
+  cd {{ mount_path }}/{{ outdir }}
   ls
-  mpirun -n {{ tasks }} -ppn {{ tasks_per_node }} -f $BATCH_HOSTS_FILE  -- /mnt/share/{{netmark_path}}/netmark.x -w 10 -t 20 -c 100 -b 0 -s
+  mpirun -n {{ tasks }} -ppn {{ tasks_per_node }} -f $BATCH_HOSTS_FILE ${wrapper}
 fi
 """
 
-# Note that these two can be installed but won't work correctly
-# mpich
-# command = f"\nmpirun -hostfile $BATCH_HOSTS_FILE -n {tasks} -ppn {tasks_per_node} -- /mnt/share/{netmark_path}/netmark.x -w 10 -t 20 -c 100 -b 0 -s"
-
-# openmpi
-# mpirun --allow-run-as-root --hostfile $BATCH_HOSTS_FILE -n {{tasks}} -N {{tasks}} -npernode {{tasks_per_node}} -- /mnt/share/{{netmark_path}}/netmark.x -w 10 -t 20 -c 100 -b 0 -s
-
-
-# TODO try only installing on the main index...
+wrapper = """#!/bin/bash
+{{mount_path}}/{{netmark_path}}/netmark.x -w {{warmup}} -t {{trials}} -c {{cycles}} -b {{message_size}} {% if store_trial %} -s {% endif %}
+"""
 
 setup_script = """#!/bin/bash
 export DEBIAN_FRONTEND=noninteractive
@@ -43,25 +44,21 @@ google_mpi_tuning --nosmt
 # google_install_mpi --intel_mpi
 google_install_intelmpi --impi_2021
 source /opt/intel/mpi/latest/env/vars.sh
-
-# This is where they are installed to
-ls /opt/intel/mpi/latest/
-ls /opt/intel/mpi/latest/lib/release
-ls /opt/intel/mpi/latest/lib
-find /opt/intel/mpi/latest/lib libmpi.so
-
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/mpi/latest/lib:/opt/intel/mpi/latest/lib/release
-
 export PATH=/opt/intel/mpi/latest/bin:$PATH
-outdir=/mnt/share/{{outdir}}
+outdir={{ mount_path }}/{{outdir}}
 mkdir -p $outdir
 find /opt/intel -name mpicc
 
+# Only have index 0 compile
 if [ $BATCH_TASK_INDEX = 0 ]; then
-  cd /mnt/share/{{netmark_path}}
+  cd {{ mount_path }}/{{netmark_path}}
   ls
+  # And only compile if the executable does not exist!   
   # Makefile content plus adding include directories
-  mpicc -std=c99 -lmpi -lmpifort -O3 netmark.c -DTRACE -I/opt/intel/mpi/latest/include -I/opt/intel/mpi/2021.8.0/include -L/opt/intel/mpi/2021.8.0/lib/release -L/opt/intel/mpi/2021.8.0/lib -o netmark.x 
+  if [[ ! -f "netmark.x" ]]; then
+      mpicc -std=c99 -lmpi -lmpifort -O3 netmark.c -DTRACE -I/opt/intel/mpi/latest/include -I/opt/intel/mpi/2021.8.0/include -L/opt/intel/mpi/2021.8.0/lib/release -L/opt/intel/mpi/2021.8.0/lib -o netmark.x 
+   fi
 fi
 """
 
@@ -109,6 +106,11 @@ def get_parser():
         help="output directory for results (relative to bucket)",
         default="data",
     )
+    parser.add_argument(
+        "--mount-path",
+        help="mount location for bucket in VM",
+        default="/mnt/share",
+    )
     parser.add_argument("--tasks", help="number of tasks (nodes)", type=int, default=4)
     parser.add_argument(
         "--cpu-milli", help="milliseconds per cpu-second", type=int, default=1000
@@ -124,6 +126,40 @@ def get_parser():
         default="3600s",
     )  # 1GB
 
+    # These arguments map directly to netmark
+    # The defaults are the ones we see set in the example
+    # /mnt/share/{{netmark_path}}/netmark.x -w 10 -t 20 -c 100 -b 0 -s
+    parser.add_argument(
+        "--netmark-warmup",
+        dest="warmup",
+        help="number of warmups",
+        type=int,
+        default=10,
+    )
+    parser.add_argument(
+        "--netmark-trials", dest="trials", help="number of trials", type=int, default=20
+    )
+    parser.add_argument(
+        "--netmark-send-recv-cycles",
+        dest="cycles",
+        help="number of send receive cycles",
+        type=int,
+        default=100,
+    )
+    parser.add_argument(
+        "--netmark-message-size",
+        dest="message_size",
+        help="message size in bytes (B)",
+        type=int,
+        default=0,
+    )
+    parser.add_argument(
+        "--netmark-store-trial",
+        dest="store_trial",
+        help="store each trial flag",
+        action="store_true",
+        default=False,
+    )
     return parser
 
 
@@ -166,8 +202,14 @@ def main():
         memory=args.memory,
         retry_count=args.retry_count,
         max_run_duration=args.max_run_duration,
+        mount_path=args.mount_path,
+        # Netmark Arguments
+        warmup=args.warmup,
+        trials=args.trials,
+        cycles=args.cycles,
+        message_size=args.message_size,
+        store_trial=args.store_trial,
     )
-
     print("Submit Job!")
     print(job)
 
@@ -177,6 +219,9 @@ def template_and_write(local_path, template, bucket_name, bucket_path=None):
     Write script to a local path, and upload to bucket
     """
     bucket_path = bucket_path or local_path
+    dirname = os.path.dirname(local_path)
+    if not os.path.exists(dirname):
+        os.makedirs(dirname)
     with open(local_path, "w") as fd:
         fd.write(template)
     upload_to_bucket(bucket_path, local_path, bucket_name)
@@ -198,35 +243,74 @@ def batch_job(
     image_family: str,
     image_project: str,
     max_run_duration: str,
+    mount_path: str,
+    warmup: int,
+    trials: int,
+    cycles: int,
+    message_size: int,
+    store_trial: int,
 ) -> batch_v1.Job:
     """
     Create a Netmark Job, building netmark from mounted code in a Google Bucket.
     """
     client = batch_v1.BatchServiceClient()
 
+    # Get all metadata for function
+    sig, batch_job_locals = inspect.signature(batch_job), locals()
+    metadata = {
+        param.name: batch_job_locals[param.name] for param in sig.parameters.values()
+    }
+
+    # Output directory should include the job name for uniqueness
+    outdir = os.path.join(outdir, job_name)
+
     # Prepare the script templates
     run_template = jinja2.Template(run_script)
     runscript = run_template.render(
         {
+            "mount_path": mount_path,
             "tasks": tasks,
             "tasks_per_node": tasks_per_node,
             "netmark_path": netmark_path,
             "outdir": outdir,
         }
     )
+    # Prepare the wrapper template
+    wrapper_template = jinja2.Template(wrapper)
+    wrapper_script = wrapper_template.render(
+        {
+            "netmark_path": netmark_path,
+            "mount_path": mount_path,
+            "warmup": warmup,
+            "trials": trials,
+            "cycles": cycles,
+            "message_size": message_size,
+            "store_trial": store_trial,
+        }
+    )
 
     setup_template = jinja2.Template(setup_script)
-    script = setup_template.render({"netmark_path": netmark_path, "outdir": outdir})
+    script = setup_template.render(
+        {"netmark_path": netmark_path, "outdir": outdir, "mount_path": mount_path}
+    )
+
+    # Scripts are scoped to their job path, this is relative to storage
+    setup_path = os.path.join(outdir, "setup.sh")
+    run_path = os.path.join(outdir, "run.sh")
+    wrapper_path = os.path.join(outdir, "netmark_wrapper.sh")
+    metadata_path = os.path.join(outdir, "metadata.json")
 
     # Write over same file here, yes bad practice and lazy
-    template_and_write("setup.sh", script, bucket_name)
-    template_and_write("run.sh", runscript, bucket_name)
+    template_and_write(setup_path, script, bucket_name)
+    template_and_write(run_path, runscript, bucket_name)
+    template_and_write(wrapper_path, wrapper_script, bucket_name)
+    template_and_write(metadata_path, json.dumps(metadata, indent=4), bucket_name)
 
     # Define what will be done as part of the job.
     task = batch_v1.TaskSpec()
     setup = batch_v1.Runnable()
     setup.script = batch_v1.Runnable.Script()
-    setup.script.text = "bash /mnt/share/setup.sh"
+    setup.script.text = f"bash {mount_path}/{setup_path}"
 
     # This will ensure all nodes finish first
     barrier = batch_v1.Runnable()
@@ -235,14 +319,14 @@ def batch_job(
 
     runnable = batch_v1.Runnable()
     runnable.script = batch_v1.Runnable.Script()
-    runnable.script.text = "bash /mnt/share/run.sh"
+    runnable.script.text = f"bash {mount_path}/{run_path}"
     task.runnables = [barrier, setup, barrier, runnable]
 
     gcs_bucket = batch_v1.GCS()
     gcs_bucket.remote_path = bucket_name
     gcs_volume = batch_v1.Volume()
     gcs_volume.gcs = gcs_bucket
-    gcs_volume.mount_path = "/mnt/share"
+    gcs_volume.mount_path = mount_path
     task.volumes = [gcs_volume]
 
     # We can specify what resources are requested by each task.

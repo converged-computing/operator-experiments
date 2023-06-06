@@ -51,26 +51,30 @@ bucket="netmark-experiment-bucket"
 tasks=4
 
 # Run netmark with these parameters
-$ python run-job.py ${project_id} --cpu-milli 1000 --memory 1000 --tasks ${tasks} --max-run-duration 3600s --bucket ${bucket} --machine-type c2-standard-16 --job-name netmark-job-001
+$ python run-job.py ${project_id} --cpu-milli 1000 --memory 1000 --tasks ${tasks} --max-run-duration 3600s --bucket ${bucket} --machine-type c2-standard-16 --job-name netmark-job-001 --netmark-store-trial
 ```
 
+Note that you can customize netmark's parameters too, and you can do `run-job.py --help` to see your options!
+The job name MUST be unique - you'll get an error if it's not. The metadata for your run and scripts will be saved locally, organized by the job id:
+
+```
+$ tree data/
+data/
+├── netmark-job-055
+│   ├── metadata.json
+│   ├── netmark_wrapper.sh
+│   ├── run.sh
+│   └── setup.sh
+└── netmark-job-056
+    ├── metadata.json
+    ├── netmark_wrapper.sh
+    ├── run.sh
+    └── setup.sh
+```
+
+And this also mirrors the actual structure of output in Google storage, however you'll also see output files there alongside!
 When you are done, you can inspect the logs in the Google cloud console, and the scripts
-written locally to see what was run. Note that I think for machine type, if we expect 8 cores, we actually need a -16 instance type since there are 2vcpu per actual. Note that netmark + intel MPI isn't working:
-
-```
-textPayload: "[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument 
-[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] Similar arguments:
-[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] 	 s
-[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] 	 f
-[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] 	 h
-[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] 	 V
-[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] 	 n
-```
-```
-textPayload: "[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
-[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1359): error parsing input array
-[mpiexec@netmark-job-051-0b708ad8-98bd-421a-b10-group0-0-z3k7] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1783): error parsing parameters
-```
+written locally to see what was run. Note that I think for machine type, if we expect 8 cores, we actually need a -16 instance type since there are 2vcpu per actual.
 
 ## Feedback for Google Batch
 
