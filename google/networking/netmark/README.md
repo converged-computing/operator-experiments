@@ -83,8 +83,17 @@ written locally to see what was run. Note that I think for machine type, if we e
 project_id="$(gcloud config get-value core/project)"
 bucket="netmark-experiment-bucket"
 
-# 16 tasks on one instance
+# 16 tasks on one instance (of size 16, but I think this is only 8 cores?)
 $ python run-job.py ${project_id} --cpu-milli 1000 --memory 1000 --tasks 16 --max-run-duration 3600s --bucket ${bucket} --machine-type c2-standard-16 --job-name netmark-experiment-16-02 --netmark-store-trial --parallelism 1
+
+# 8 tasks on one instance (16 vCPU which is 8 cores)
+$ python run-job.py ${project_id} --cpu-milli 1000 --memory 1000 --tasks 8 --max-run-duration 3600s --bucket ${bucket} --machine-type c2-standard-16 --job-name netmark-experiment-16-03 --netmark-store-trial --parallelism 1
+
+# 56 tasks on 112 vCPU instance
+$ python run-job.py ${project_id} --cpu-milli 1000 --memory 1000 --tasks 56 --max-run-duration 3600s --bucket ${bucket} --machine-type c2d-standard-112 --job-name netmark-experiment-112-01 --netmark-store-trial --parallelism 1
+
+# 30 tasks on 60 vCPU instance
+$ python run-job.py ${project_id} --cpu-milli 1000 --memory 1000 --tasks 30 --max-run-duration 3600s --bucket ${bucket} --machine-type c2-standard-60 --job-name netmark-experiment-60-01 --netmark-store-trial --parallelism 1
 ```
 
 ## Feedback for Google Batch
