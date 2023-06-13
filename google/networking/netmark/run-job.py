@@ -18,10 +18,20 @@ wrapper={{ mount_path }}/{{ outdir }}/netmark_wrapper.sh
 cat ${wrapper}
 chmod +x ${wrapper}
 
+echo "Batch hosts file is $BATCH_HOSTS_FILE"
+cat $BATCH_HOSTS_FILE
+
 if [ $BATCH_TASK_INDEX = 0 ]; then
   cd {{ mount_path }}/{{ outdir }}
   ls
-  mpirun -n {{ tasks }} -ppn {{ tasks_per_node }} -f $BATCH_HOSTS_FILE ${wrapper}
+  echo "mpirun -n {{ netmark_tasks }} -ppn {{ netmark_tasks_per_node }} -f BATCH_HOSTS_FILE ${wrapper}"
+  mpirun -n {{ netmark_tasks }} -ppn {{ netmark_tasks_per_node }} -f $BATCH_HOSTS_FILE ${wrapper}
+else
+  # Since we cannot set a barrier, this keeps the instances running
+  while [ ! -f "{{ mount_path }}/{{ outdir }}/RTT.csv" ]; do 
+    sleep 30;
+  done
+  echo "RTT.csv exists, netmark is done."
 fi
 """
 
@@ -93,7 +103,7 @@ def get_parser():
     parser.add_argument(
         "--machine-type",
         help="Google cloud machine type / VM",
-        default="c2-standard-16",
+        default="c2d-standard-2",
     )
     parser.add_argument(
         "--netmark-path",
@@ -111,12 +121,18 @@ def get_parser():
         help="mount location for bucket in VM",
         default="/mnt/share",
     )
-    parser.add_argument("--tasks", help="number of tasks (nodes)", type=int, default=4)
+    parser.add_argument("--tasks", help="number of batch tasks (nodes). This is not an MPI task (e.g., use netmark-task)", type=int, default=4)
     parser.add_argument(
         "--cpu-milli", help="milliseconds per cpu-second", type=int, default=1000
     )
     parser.add_argument(
-        "--tasks-per-node", help="tasks per node (N)", type=int, default=1
+        "--tasks-per-node", help="number of Batch tasks to assign per node", type=int, default=1
+    )
+    parser.add_argument(
+        "--netmark-tasks-per-node", help="tasks per node (N)", type=int, default=1
+    )
+    parser.add_argument(
+        "--netmark-tasks", help="Tasks to give to netmark (tasks per node, N)"
     )
     parser.add_argument("--memory", help="memory in MiB", type=int, default=1000)  # 1GB
     parser.add_argument("--retry-count", help="retry count", type=int, default=2)  # 1GB
@@ -190,6 +206,9 @@ def main():
     # If an error occurs while parsing the arguments, the interpreter will exit with value 2
     args, _ = parser.parse_known_args()
 
+    if not args.netmark_tasks:
+        sys.exit('Please specify the number of --netmark-tasks (for MPI)')
+
     # Let's write one big stupid function like in the example!
     job = batch_job(
         args.project,
@@ -201,6 +220,8 @@ def main():
         image_family=args.image_family,
         image_project=args.image_project,
         outdir=args.outdir,
+        netmark_tasks=args.netmark_tasks,
+        netmark_tasks_per_node=args.netmark_tasks_per_node,
         tasks=args.tasks,
         tasks_per_node=args.tasks_per_node,
         cpu_milli=args.cpu_milli,
@@ -241,6 +262,8 @@ def batch_job(
     netmark_path: str,
     outdir: str,
     tasks: int,
+    netmark_tasks: int,
+    netmark_tasks_per_node: int,
     tasks_per_node: int,
     cpu_milli: int,
     memory: int,
@@ -279,8 +302,8 @@ def batch_job(
     runscript = run_template.render(
         {
             "mount_path": mount_path,
-            "tasks": tasks,
-            "tasks_per_node": tasks_per_node,
+            "netmark_tasks": netmark_tasks,
+            "netmark_tasks_per_node": netmark_tasks_per_node,
             "netmark_path": netmark_path,
             "outdir": outdir,
         }
@@ -331,11 +354,11 @@ def batch_job(
     runnable.script = batch_v1.Runnable.Script()
     runnable.script.text = f"bash {mount_path}/{run_path}"
 
-    # If parallelism == 1, no barriers as running on same instance
-    if parallelism == 1:
-        task.runnables = [setup, runnable]
-    else:
+    # We can't create barriers unless tasks == parallelism
+    if parallelism == tasks:
         task.runnables = [barrier, setup, barrier, runnable]
+    else:
+        task.runnables = [setup, runnable]
 
     gcs_bucket = batch_v1.GCS()
     gcs_bucket.remote_path = bucket_name
@@ -361,7 +384,8 @@ def batch_job(
     group.task_count_per_node = tasks_per_node
     group.task_count = tasks
     group.task_spec = task
-    group.parallelism = parallelism
+    if parallelism != 1:
+        group.parallelism = parallelism
     group.require_hosts_file = True
     group.permissive_ssh = True
 

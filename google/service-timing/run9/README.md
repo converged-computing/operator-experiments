@@ -9,7 +9,7 @@ I want to be extra sure this reproduces.
 gcloud container clusters create flux-operator \
    --region=us-central1-a --project $GOOGLE_PROJECT \
    --cluster-dns=clouddns --cluster-dns-scope=cluster \
-   --machine-type n1-standard-2 --num-nodes=4 \
+   --machine-type n1-standard-2 --num-nodes=8 \
    --tags=flux-cluster  --enable-dataplane-v2
 
 $ kubectl create namespace flux-operator

@@ -78,26 +78,59 @@ written locally to see what was run. Note that I think for machine type, if we e
 
 # Experiments
 
+There seems to be a (hidden?) upper limit of 100 jobs (I found this under Batch for Ads):
+
+> Each account can have up to 100 active or pending jobs at the same time.
+
+So we had to adjust the plan below for that.
+
 ```
 # Setup
 project_id="$(gcloud config get-value core/project)"
 bucket="netmark-experiment-bucket"
 
-# 16 tasks on one instance (of size 16, but I think this is only 8 cores?)
-$ python run-job.py ${project_id} --cpu-milli 1000 --memory 1000 --tasks 16 --max-run-duration 3600s --bucket ${bucket} --machine-type c2-standard-16 --job-name netmark-experiment-16-02 --netmark-store-trial --parallelism 1
 
-# 8 tasks on one instance (16 vCPU which is 8 cores)
-$ python run-job.py ${project_id} --cpu-milli 1000 --memory 1000 --tasks 8 --max-run-duration 3600s --bucket ${bucket} --machine-type c2-standard-16 --job-name netmark-experiment-16-03 --netmark-store-trial --parallelism 1
-
-# 56 tasks on 112 vCPU instance
-$ python run-job.py ${project_id} --cpu-milli 1000 --memory 1000 --tasks 56 --max-run-duration 3600s --bucket ${bucket} --machine-type c2d-standard-112 --job-name netmark-experiment-112-01 --netmark-store-trial --parallelism 1
-
-# 30 tasks on 60 vCPU instance
-$ python run-job.py ${project_id} --cpu-milli 1000 --memory 1000 --tasks 30 --max-run-duration 3600s --bucket ${bucket} --machine-type c2-standard-60 --job-name netmark-experiment-60-01 --netmark-store-trial --parallelism 1
+# Our limit is 1500 cores so these could be run at once!
+for size in 4 8 16 32 64 70 80 90 100; do
+   echo $size
+   python run-job.py ${project_id} --cpu-milli 1000 --memory 1000 --tasks ${size} --netmark-tasks ${size} --max-run-duration 3600s --bucket ${bucket} --machine-type c2d-standard-2 --job-name netmark-experiment-size-$size --netmark-store-trial --parallelism ${size} --netmark-tasks-per-node 1 --tasks-per-node 1
+done
+ 
+# 8 tasks on 8 instances
+$ python run-job.py ${project_id} --cpu-milli 1000 --memory 1000 --tasks 8 --netmark-tasks 8 --max-run-duration 3600s --bucket ${bucket} --machine-type c2d-standard-2 --job-name netmark-experiment-64-07 --netmark-store-trial --parallelism 8 --netmark-tasks-per-node 1 --tasks-per-node 1
 ```
+
+NOTE that Batch's definition of a "task" is one scoped piece of work, and is NOT an MPI task. In the case we use the size 2 instance above (with one core) then the Batch definition of a task == the netmark definition of an MPI task, but in any other case this won't be true! This was a point of confusion for me. Remember:
+
+ - tasks per node is the number of scoped work pieces we want running per google instance (regardless of cores)
+ - netmark tasks per node is the number of tasks netmark can expect per node
+ - netmark tasks is the total number of tasks netmark can expect
+ - parallelism is the number of instances (nodes) to run
+ - we can use barriers only if parallelism == tasks
+
+Also note the size 70 timed out and I cancelled after an hour.
+
+## Analysis
+
+We can read in the RTT.csv files from each run to:
+
+- compare distributions of times across runs
+- within each run, create a heatmap.
+
+Let's do each!
+
+```bash
+$ pip install pandas seaborn matplotlib
+$ python plot-results.py
+```
+![img/mpi_ranks_communication_times_netmark.png](img/mpi_ranks_communication_times_netmark.png)
+
+And you can look at the pdf of heatmaps for each task experiment in [img](img).
 
 ## Feedback for Google Batch
 
+- Upper limit seems small?
+- Calling the scoped piece of work a "Task" is hugely confusing for us HPC folks :)
 - For MPI workloads in a container, it would be nice to have Singularity support and some means to bind MPI libraries to container
 - The "hello world" example (with hostname) doesn't use MPI, would be good to have an actual MPI example
 - Really nice UI for seeing everything! I couldn't easy find logging, however. That might be front and center!
