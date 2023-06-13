@@ -39,9 +39,19 @@ def plot_outputs(results, plotname, ext="png", outdir="img"):
         # Save a heatmap of the particular run
         plt.figure(figsize=(36, 36))
         sns.heatmap(raw, cmap="BrBG", annot=True)
-        plt.title(f"MPI Connection Times for {tasks} Tasks on Google Batch")
+        plt.title(f"MPI Connection Times (microseconds) for {tasks} Tasks on Google Batch")
         plt.savefig(
             os.path.join(outdir, f"{uid}-heatmap.pdf"), dpi=300, bbox_inches="tight"
+        )
+        plt.clf()
+
+        # And distribution of times
+        plt.figure(figsize=(12, 12))
+        flat = raw.to_numpy().flatten()
+        sns.histplot(pandas.DataFrame(flat, columns=['time']), x="time")
+        plt.title(f"MPI Connection Times for {tasks} Tasks on Google Batch")
+        plt.savefig(
+            os.path.join(outdir, f"{uid}-hist.png"), dpi=300, bbox_inches="tight"
         )
         plt.clf()
 
@@ -83,7 +93,7 @@ def plot_outputs(results, plotname, ext="png", outdir="img"):
         hue="tasks",
         plot_type="bar",
         xlabel="Experiment Size",
-        ylabel="Time",
+        ylabel="Time (microseconds)",
     )
 
 
