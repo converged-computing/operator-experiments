@@ -58,6 +58,9 @@ def plot_outputs(results, plotname, ext="png", outdir="img"):
     # Save raw data frame
     df.to_csv(os.path.join(outdir, "experiment-times.csv"))
 
+    # Print the means to sanity check against plot
+    print(df.groupby(['uid']).mean().sort_values('tasks'))
+    
     # We need colors!
     colors = sns.color_palette("hls", 8)
     hexcolors = colors.as_hex()

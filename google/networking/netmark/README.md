@@ -125,6 +125,20 @@ $ python plot-results.py
 ```
 ![img/mpi_ranks_communication_times_netmark.png](img/mpi_ranks_communication_times_netmark.png)
 
+Comparing with sorted means for sanity check:
+```
+                                  time  tasks
+uid                                          
+netmark-experiment-size-4    68.502833    4.0
+netmark-experiment-size-8    74.584625    8.0
+netmark-experiment-size-16   79.056417   16.0
+netmark-experiment-size-32   81.348631   32.0
+netmark-experiment-size-64   79.286623   64.0
+netmark-experiment-size-80   61.839328   80.0
+netmark-experiment-size-90   63.100994   90.0
+netmark-experiment-size-100  62.347161  100.0
+```
+
 And you can look at the pdf of heatmaps for each task experiment in [img](img).
 
 ## Feedback for Google Batch
