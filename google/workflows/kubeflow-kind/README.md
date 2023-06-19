@@ -8,7 +8,8 @@ I decided to use kind first. We are going to follow the [instructions here](http
 $ kind create cluster
 ```
 
-And then deploy KubeFlow pipelines. Note that I needed a machine with a ton of memory to do this!
+And then deploy KubeFlow pipelines. Note that I needed a machine with a ton of memory to do this, or
+my standard machine with everything closed!
 
 ```bash
 # env/platform-agnostic-pns hasn't been publically released, so you will install it from master
