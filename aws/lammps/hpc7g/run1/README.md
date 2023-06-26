@@ -51,6 +51,8 @@ mkdir -p ./bin
 tar -xzf eksctl_$PLATFORM.tar.gz -C ./bin && rm eksctl_$PLATFORM.tar.gz
 ```
 
+Also make sure you have awscli installed (`pip install awscli`)
+
 ## Usage
 
 The following can be run for each of the vanilla ([hpc6a.16xlarge](https://aws.amazon.com/ec2/instance-types/hpc6/)) and [hpc7g.16xlarge])()

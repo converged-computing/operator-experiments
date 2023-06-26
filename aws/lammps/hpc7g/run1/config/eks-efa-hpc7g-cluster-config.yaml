@@ -12,18 +12,12 @@ managedNodeGroups:
   - name: workers
     availabilityZones: ["us-east-1a"]
     instanceType: hpc7g.16xlarge
-    ami: ami-0f85557b566aa0d20
-    amiFamily: AmazonLinux2
-    minSize: 12
+    minSizsourcee: 12
     maxSize: 12
     efaEnabled: true
     placement:
       groupName: eks-efa-testing
     labels: { "flux-operator": "true" }
-    overrideBootstrapCommand: |
-      #!/bin/bash
-      source /var/lib/cloud/scripts/eksctl/bootstrap.helper.sh
-      /etc/eks/bootstrap.sh ${CLUSTER_NAME} --container-runtime containerd --kubelet-extra-args "--node-labels=${NODE_LABELS}"
     ssh:
       allow: true
       publicKeyPath: ~/.ssh/id_eks.pub
