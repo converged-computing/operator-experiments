@@ -51,7 +51,12 @@ mkdir -p ./bin
 tar -xzf eksctl_$PLATFORM.tar.gz -C ./bin && rm eksctl_$PLATFORM.tar.gz
 ```
 
-Also make sure you have awscli installed (`pip install awscli`)
+Also make sure you have awscli installed (`pip install awscli`). If you forget to do this,
+ you won't have your `kubectl` working off the bat and you'll need to install it and run:
+ 
+```bash
+$ aws eks --region us-east-1 update-kubeconfig --name scaling-study-efa
+```
 
 ## Usage
 
@@ -290,11 +295,125 @@ $ ./bin/eksctl create cluster -f ./config/eks-efa-hpc7g-cluster-config.yaml
 ```
 
 Note that the number of nodes, and zones are different, and I tried [this](https://eksctl.io/announcements/nodegroup-override-announcement/)
-to use a custom AMI. It did not work, so next I'm trying to compile a custom version of eksctl that can auto-detect it is arm
-and use the same logic.
+to use a custom AMI. It did not work, so I made a [custom branch](https://github.com/weaveworks/eksctl/compare/main...researchapps:eksctl:add/hpc7g-node-arm-support?expand=1) 
+to add support for the new instance type. Note that in my two effors, the plugin could not find any devices. This likely needs further debugging.
 
+```bash
+$ kubectl logs -n kube-system  aws-efa-k8s-device-plugin-daemonset-5jpqc
+2023/06/26 04:35:54 Fetching EFA devices.
+2023/06/26 04:35:54 No devices found.
+```
+
+We still need to get around the efa bug.  I find it works better to completely delete
+and re-apply.
+
+```bash
+$ kubectl delete -f ./config/efa-device-plugin.yaml
+$ kubectl apply -f ./config/efa-device-plugin.yaml
+```
+
+Here are cluster creation details:
+
+<details>
+
+<summary>Cluster creation details</summary>
+
+```console
+```
+
+</details>
+
+We don't have EFA, but I'm going to continue anyway to test the ARM image and get a baseline.
+It was here that I realized we also needed an arm build for the Flux Operator! So I threw one together:
+
+```bash
+$ kubectl apply -f ./config/flux-operator-arm.yaml
+```
+
+This will create our size 12 cluster that we will be running LAMMPS on many times:
+
+```bash
+$ kubectl create namespace flux-operator
+$ kubectl apply -f minicluster-12.yaml
+```
+
+You'll want to wait until your pods are ready, and then save some metadata about both pods and nodes:
+
+```bash
+$ mkdir -p ./data
+$ kubectl get nodes -o json > data/hpc7g-noefa-nodes.json
+$ kubectl get -n flux-operator pods -o json > data/hpc7g-noefa-pods.json
+```
+
+Note that for this experiment, since the first time we didn't have working EFA, 
+we ran without EFA. And copy your run-experiments script into the laed broker pod:
+
+```bash
+POD=$(kubectl get pods -n flux-operator -o json | jq -r .items[0].metadata.name)
+
+# This will copy configs / create directories for it
+kubectl cp -n flux-operator ./scripts/run-experiments.py ${POD}:/home/flux/examples/reaxff/HNS/run-experiments.py -c flux-sample
+```
+
+and then shell in:
+
+```bash
+$ kubectl exec -it -n flux-operator ${POD} bash
+```
+You should be in the experiment directory:
+
+```bash
+cd /opt/lammps/examples/reaxff/HNS
+```
+
+Connect to the main broker (after all the spack stuff):
+
+```bash
+. /etc/profile.d/z10_spack_environment.sh 
+cd /opt/spack-environment
+. /opt/spack-environment/spack/share/spack/setup-env.sh
+spack env activate .
+cd /home/flux/examples/reaxff/HNS
+# With EFA
+sudo -u flux -E PYTHONPATH=$PYTHONPATH -E PATH=$PATH -E HOME=/home/flux -E FI_EFA_USE_DEVICE_RDMA=1 -E RDMAV_FORK_SAFE=1 flux proxy local:///run/flux/local bash
+# or without EFA
+sudo -u flux -E PYTHONPATH=$PYTHONPATH -E PATH=$PATH -E HOME=/home/flux flux proxy local:///run/flux/local bash
+```
+
+Let's write output to our home. This might be wonky because we don't have a shared filesystem.
+Note that since this container has an old version of Flux (it needs a rebuild for a more proper experiment)
+we need to change `flux submit` to `flux mini submit`. Then, here is a test run:
+
+```bash
+mkdir -p /home/flux/data
+$ python3 ./run-experiments.py --outdir /home/flux/data/test-size-1 \
+          --workdir /home/flux/examples/reaxff/HNS \
+          --times 2 -N 12 --tasks 768 lmp -v x 1 -v y 1 -v z 1 -in in.reaxc.hns -nocite
+```
+
+And the actual run (20x)
+
+```bash
+$ python3 ./run-experiments.py --outdir /home/flux/data/size-64-16-16 \
+          --workdir /opt/lammps/examples/reaxff/HNS \
+          --times 20 -N 12 --tasks 768 lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
+```
+
+When it's done running, you can copy the entire output directory from the pod to your local machine:
+
+```bash
+POD=$(kubectl get pods -n flux-operator -o json | jq -r .items[0].metadata.name)
+kubectl cp -n flux-operator ${POD}:/home/flux/data ./data/hpc7g-noefa -c flux-sample
+```
+
+### Clean Up
+
+Delete the cluster with eksctl
+
+```bash
+$ eksctl delete cluster -f ./config/eks-efa-hpc7g-cluster-config.yaml 
+```
 
 ## Analysis
 
 **TBA** not sure it's worth it here.
-

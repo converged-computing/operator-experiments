@@ -12,7 +12,7 @@ managedNodeGroups:
   - name: workers
     availabilityZones: ["us-east-1a"]
     instanceType: hpc7g.16xlarge
-    minSizsourcee: 12
+    minSize: 12
     maxSize: 12
     efaEnabled: true
     placement:

@@ -42,12 +42,12 @@ spec:
       # this should still assign 1:1
       resources:
         limits:
-          vpc.amazonaws.com/efa: 1
+          # vpc.amazonaws.com/efa: 1
           memory: "128G"
           cpu: "62"
 
         requests:
-          vpc.amazonaws.com/efa: 1
+          # vpc.amazonaws.com/efa: 1
           memory: "128G"
           cpu: "62"
 
@@ -59,7 +59,8 @@ spec:
         workerPre: sleep 60
         pre: |
           source /etc/profile.d/z10_spack_environment.sh
-          asFlux="sudo -u flux -E PYTHONPATH=$PYTHONPATH -E PATH=$PATH -E FI_EFA_USE_DEVICE_RDMA=1 -E RDMAV_FORK_SAFE=1"
+          #asFlux="sudo -u flux -E PYTHONPATH=$PYTHONPATH -E PATH=$PATH -E FI_EFA_USE_DEVICE_RDMA=1 -E RDMAV_FORK_SAFE=1"
+          asFlux="sudo -u flux -E PYTHONPATH=$PYTHONPATH -E PATH=$PATH"
           . /etc/profile.d/z10_spack_environment.sh 
           cd /opt/spack-environment
           . /opt/spack-environment/spack/share/spack/setup-env.sh
