@@ -209,7 +209,7 @@ RUN cd $HOME \
     && curl -O https://efa-installer.amazonaws.com/aws-efa-installer-${EFA_INSTALLER_VERSION}.tar.gz \
     && tar -xf $HOME/aws-efa-installer-${EFA_INSTALLER_VERSION}.tar.gz \
     && cd aws-efa-installer \
-    && ./efa_installer.sh -y -g -d --skip-kmod --skip-limit-conf --no-verify && \
+    && ./efa_installer.sh -y -g -d --skip-limit-conf --no-verify && \
     dpkg -i /root/aws-efa-installer/DEBS/UBUNTU2004/aarch64/libfabric1-aws_1.18.0amzn2.0_arm64.deb
 
 ###################################################
@@ -279,4 +279,10 @@ But I did:
 ```bash
 docker commit 2b4e6de75ab8 ghcr.io/rse-ops/aws-efa-k8s-device-plugin-arm:v0.3.3
 docker push ghcr.io/rse-ops/aws-efa-k8s-device-plugin-arm:v0.3.3
+```
+
+Note this is how to get info for the plugin I think?
+
+```
+/opt/amazon/efa/bin/fi_info -p efa
 ```
