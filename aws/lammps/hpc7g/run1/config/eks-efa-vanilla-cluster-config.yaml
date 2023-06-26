@@ -2,19 +2,21 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: flux-cluster
+  name: scaling-study-efa
   region: us-east-2
-  version: "1.23"
-  
-
+  version: "1.27"
+        
 availabilityZones: ["us-east-2b", "us-east-2c"]
 managedNodeGroups:
   - name: workers
+    availabilityZones: ["us-east-2b"]
     instanceType: hpc6a.48xlarge
-    minSize: 16
-    maxSize: 16
-    labels: { "fluxoperator": "true" }
-    availabilityZones: ["us-east-2b"]    
+    minSize: 8
+    maxSize: 8
     efaEnabled: true
     placement:
       groupName: eks-efa-testing
+    labels: { "flux-operator": "true" }
+    ssh:
+      allow: true
+      publicKeyPath: ~/.ssh/id_eks.pub

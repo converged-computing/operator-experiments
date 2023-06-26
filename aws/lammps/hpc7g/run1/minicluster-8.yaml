@@ -1,0 +1,64 @@
+apiVersion: flux-framework.org/v1alpha1
+kind: MiniCluster
+metadata:
+  name: flux-sample
+  namespace: flux-operator
+spec:
+
+  # Number of pods to create for MiniCluster
+  # 96 cores * 8
+  size: 8
+  tasks: 768
+
+  # This starts the flux broker without a command (interactive)
+  interactive: true
+  logging:
+    quiet: false
+    strict: false
+    zeromq: true
+    debug: true
+
+  # Spack installs to /opt/view, without flux-security so no imp
+  flux:
+    installRoot: /opt/view    
+    optionFlags: "-ompi=openmpi@5 -c 1 -o cpu-affinity=per-task" 
+
+  # This is a list because a pod can support multiple containers
+  containers:
+    - image: ghcr.io/rse-ops/spack-ubuntu-libfabric-ssh:ubuntu-20.04
+      workingDir: /home/flux/examples/reaxff/HNS
+
+      # This shouldn't be needed since we are launching manually
+      cores: 96
+      
+      # This would be the problem size we used for 8
+      # command: lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
+      
+      # Resource limits to ensure 1 pod assigned per node
+      # These are purposefully lower - the actual value didn't work, but
+      # this should still assign 1:1
+      resources:
+        limits:
+          vpc.amazonaws.com/efa: 1
+          memory: "340G"
+          cpu: "94"
+
+        requests:
+          vpc.amazonaws.com/efa: 1
+          memory: "340G"
+          cpu: "94"
+
+      # We still need to setup spack so flux can start the broker!
+      commands:
+        # The workers need to come up after the broker and network - we are hitting this issue
+        # when we get to this larger scale (and it is compounded by the new networking issue with the service)
+        # that appeared after we removed the certificate generation pod
+        workerPre: sleep 60
+        pre: |
+          source /etc/profile.d/z10_spack_environment.sh
+          asFlux="sudo -u flux -E PYTHONPATH=$PYTHONPATH -E PATH=$PATH -E FI_EFA_USE_DEVICE_RDMA=1 -E RDMAV_FORK_SAFE=1"
+          . /etc/profile.d/z10_spack_environment.sh 
+          cd /opt/spack-environment
+          . /opt/spack-environment/spack/share/spack/setup-env.sh
+          spack env activate .
+          cd /home/flux/examples/reaxff/HNS
