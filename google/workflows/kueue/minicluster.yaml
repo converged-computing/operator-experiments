@@ -1,0 +1,15 @@
+apiVersion: flux-framework.org/v1alpha1
+kind: MiniCluster
+metadata:
+  generateName: flux-sample-kueue-
+spec:
+  size: 1
+  containers:
+    - image: ghcr.io/flux-framework/flux-restful-api:latest
+      command: sleep 10 
+      resources:
+        requests:
+          cpu: 4
+          memory: "200Mi"
+  jobLabels:
+    kueue.x-k8s.io/queue-name: user-queue
