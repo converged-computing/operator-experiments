@@ -1,0 +1,557 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "batch.kubernetes.io/job-completion-index": "0"
+                },
+                "creationTimestamp": "2023-07-01T20:20:25Z",
+                "finalizers": [
+                    "batch.kubernetes.io/job-tracking"
+                ],
+                "generateName": "flux-sample-0-",
+                "labels": {
+                    "app.kubernetes.io/name": "flux-sample",
+                    "batch.kubernetes.io/controller-uid": "f43fd182-b162-40c4-9fbd-5aaf8127d4e2",
+                    "batch.kubernetes.io/job-name": "flux-sample",
+                    "controller-uid": "f43fd182-b162-40c4-9fbd-5aaf8127d4e2",
+                    "hpa-selector": "flux-sample",
+                    "job-index": "0",
+                    "job-name": "flux-sample",
+                    "namespace": "flux-operator"
+                },
+                "name": "flux-sample-0-j8cmh",
+                "namespace": "flux-operator",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "batch/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "Job",
+                        "name": "flux-sample",
+                        "uid": "f43fd182-b162-40c4-9fbd-5aaf8127d4e2"
+                    }
+                ],
+                "resourceVersion": "3855",
+                "uid": "b8be7d37-a1e7-41aa-94f4-6d5b34c834fa"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "command": [
+                            "/bin/bash",
+                            "/flux_operator/wait-0.sh",
+                            ""
+                        ],
+                        "env": [
+                            {
+                                "name": "JOB_COMPLETION_INDEX",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.annotations['batch.kubernetes.io/job-completion-index']"
+                                    }
+                                }
+                            }
+                        ],
+                        "image": "ghcr.io/rse-ops/flux-arm-lammps:june-2023-arm64",
+                        "imagePullPolicy": "IfNotPresent",
+                        "lifecycle": {},
+                        "name": "flux-sample",
+                        "ports": [
+                            {
+                                "containerPort": 5000,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "cpu": "62",
+                                "memory": "240G",
+                                "vpc.amazonaws.com/efa": "1"
+                            },
+                            "requests": {
+                                "cpu": "62",
+                                "memory": "240G",
+                                "vpc.amazonaws.com/efa": "1"
+                            }
+                        },
+                        "securityContext": {
+                            "privileged": false
+                        },
+                        "stdin": true,
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "tty": true,
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/mnt/curve/",
+                                "name": "flux-sample-curve-mount",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/etc/flux/config",
+                                "name": "flux-sample-flux-config",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/flux_operator/",
+                                "name": "flux-sample-entrypoint",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "kube-api-access-pl9p4",
+                                "readOnly": true
+                            }
+                        ],
+                        "workingDir": "/home/flux/examples/reaxff/HNS"
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "hostname": "flux-sample-0",
+                "nodeName": "ip-192-168-28-5.ec2.internal",
+                "preemptionPolicy": "PreemptLowerPriority",
+                "priority": 0,
+                "restartPolicy": "OnFailure",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "setHostnameAsFQDN": false,
+                "subdomain": "flux-service",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoSchedule",
+                        "key": "vpc.amazonaws.com/efa",
+                        "operator": "Exists"
+                    }
+                ],
+                "volumes": [
+                    {
+                        "configMap": {
+                            "defaultMode": 420,
+                            "items": [
+                                {
+                                    "key": "hostfile",
+                                    "path": "broker.toml"
+                                }
+                            ],
+                            "name": "flux-sample-flux-config"
+                        },
+                        "name": "flux-sample-flux-config"
+                    },
+                    {
+                        "configMap": {
+                            "defaultMode": 420,
+                            "items": [
+                                {
+                                    "key": "wait-0",
+                                    "mode": 511,
+                                    "path": "wait-0.sh"
+                                }
+                            ],
+                            "name": "flux-sample-entrypoint"
+                        },
+                        "name": "flux-sample-entrypoint"
+                    },
+                    {
+                        "configMap": {
+                            "defaultMode": 420,
+                            "name": "flux-sample-curve-mount"
+                        },
+                        "name": "flux-sample-curve-mount"
+                    },
+                    {
+                        "name": "kube-api-access-pl9p4",
+                        "projected": {
+                            "defaultMode": 420,
+                            "sources": [
+                                {
+                                    "serviceAccountToken": {
+                                        "expirationSeconds": 3607,
+                                        "path": "token"
+                                    }
+                                },
+                                {
+                                    "configMap": {
+                                        "items": [
+                                            {
+                                                "key": "ca.crt",
+                                                "path": "ca.crt"
+                                            }
+                                        ],
+                                        "name": "kube-root-ca.crt"
+                                    }
+                                },
+                                {
+                                    "downwardAPI": {
+                                        "items": [
+                                            {
+                                                "fieldRef": {
+                                                    "apiVersion": "v1",
+                                                    "fieldPath": "metadata.namespace"
+                                                },
+                                                "path": "namespace"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2023-07-01T20:20:25Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2023-07-01T20:21:31Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2023-07-01T20:21:31Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2023-07-01T20:20:25Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "containerd://1ef907eacf9771efb498ef15e7e74e0aaae91248ceaa80e74448f35fea664361",
+                        "image": "ghcr.io/rse-ops/flux-arm-lammps:june-2023-arm64",
+                        "imageID": "ghcr.io/rse-ops/flux-arm-lammps@sha256:4de46d83b0b58621df27e978734fe84a6daaff4848a5b89a5346dfc56066e354",
+                        "lastState": {},
+                        "name": "flux-sample",
+                        "ready": true,
+                        "restartCount": 0,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2023-07-01T20:21:30Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.28.5",
+                "phase": "Running",
+                "podIP": "192.168.3.59",
+                "podIPs": [
+                    {
+                        "ip": "192.168.3.59"
+                    }
+                ],
+                "qosClass": "Guaranteed",
+                "startTime": "2023-07-01T20:20:25Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "batch.kubernetes.io/job-completion-index": "1"
+                },
+                "creationTimestamp": "2023-07-01T20:20:25Z",
+                "finalizers": [
+                    "batch.kubernetes.io/job-tracking"
+                ],
+                "generateName": "flux-sample-1-",
+                "labels": {
+                    "app.kubernetes.io/name": "flux-sample",
+                    "batch.kubernetes.io/controller-uid": "f43fd182-b162-40c4-9fbd-5aaf8127d4e2",
+                    "batch.kubernetes.io/job-name": "flux-sample",
+                    "controller-uid": "f43fd182-b162-40c4-9fbd-5aaf8127d4e2",
+                    "hpa-selector": "flux-sample",
+                    "job-index": "1",
+                    "job-name": "flux-sample",
+                    "namespace": "flux-operator"
+                },
+                "name": "flux-sample-1-7d8ks",
+                "namespace": "flux-operator",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "batch/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "Job",
+                        "name": "flux-sample",
+                        "uid": "f43fd182-b162-40c4-9fbd-5aaf8127d4e2"
+                    }
+                ],
+                "resourceVersion": "3827",
+                "uid": "12e95c1a-e0f8-4d76-b57a-f7611be1c7c9"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "command": [
+                            "/bin/bash",
+                            "/flux_operator/wait-0.sh",
+                            ""
+                        ],
+                        "env": [
+                            {
+                                "name": "JOB_COMPLETION_INDEX",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.annotations['batch.kubernetes.io/job-completion-index']"
+                                    }
+                                }
+                            }
+                        ],
+                        "image": "ghcr.io/rse-ops/flux-arm-lammps:june-2023-arm64",
+                        "imagePullPolicy": "IfNotPresent",
+                        "lifecycle": {},
+                        "name": "flux-sample",
+                        "ports": [
+                            {
+                                "containerPort": 5000,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "cpu": "62",
+                                "memory": "240G",
+                                "vpc.amazonaws.com/efa": "1"
+                            },
+                            "requests": {
+                                "cpu": "62",
+                                "memory": "240G",
+                                "vpc.amazonaws.com/efa": "1"
+                            }
+                        },
+                        "securityContext": {
+                            "privileged": false
+                        },
+                        "stdin": true,
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "tty": true,
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/mnt/curve/",
+                                "name": "flux-sample-curve-mount",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/etc/flux/config",
+                                "name": "flux-sample-flux-config",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/flux_operator/",
+                                "name": "flux-sample-entrypoint",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "kube-api-access-8mtqg",
+                                "readOnly": true
+                            }
+                        ],
+                        "workingDir": "/home/flux/examples/reaxff/HNS"
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "hostname": "flux-sample-1",
+                "nodeName": "ip-192-168-19-83.ec2.internal",
+                "preemptionPolicy": "PreemptLowerPriority",
+                "priority": 0,
+                "restartPolicy": "OnFailure",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "setHostnameAsFQDN": false,
+                "subdomain": "flux-service",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoSchedule",
+                        "key": "vpc.amazonaws.com/efa",
+                        "operator": "Exists"
+                    }
+                ],
+                "volumes": [
+                    {
+                        "configMap": {
+                            "defaultMode": 420,
+                            "items": [
+                                {
+                                    "key": "hostfile",
+                                    "path": "broker.toml"
+                                }
+                            ],
+                            "name": "flux-sample-flux-config"
+                        },
+                        "name": "flux-sample-flux-config"
+                    },
+                    {
+                        "configMap": {
+                            "defaultMode": 420,
+                            "items": [
+                                {
+                                    "key": "wait-0",
+                                    "mode": 511,
+                                    "path": "wait-0.sh"
+                                }
+                            ],
+                            "name": "flux-sample-entrypoint"
+                        },
+                        "name": "flux-sample-entrypoint"
+                    },
+                    {
+                        "configMap": {
+                            "defaultMode": 420,
+                            "name": "flux-sample-curve-mount"
+                        },
+                        "name": "flux-sample-curve-mount"
+                    },
+                    {
+                        "name": "kube-api-access-8mtqg",
+                        "projected": {
+                            "defaultMode": 420,
+                            "sources": [
+                                {
+                                    "serviceAccountToken": {
+                                        "expirationSeconds": 3607,
+                                        "path": "token"
+                                    }
+                                },
+                                {
+                                    "configMap": {
+                                        "items": [
+                                            {
+                                                "key": "ca.crt",
+                                                "path": "ca.crt"
+                                            }
+                                        ],
+                                        "name": "kube-root-ca.crt"
+                                    }
+                                },
+                                {
+                                    "downwardAPI": {
+                                        "items": [
+                                            {
+                                                "fieldRef": {
+                                                    "apiVersion": "v1",
+                                                    "fieldPath": "metadata.namespace"
+                                                },
+                                                "path": "namespace"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2023-07-01T20:20:25Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2023-07-01T20:21:24Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2023-07-01T20:21:24Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2023-07-01T20:20:25Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "containerd://1b5d2c582ee328b116ffe18257425e076392201e1bf8e60423785ea3eeced900",
+                        "image": "ghcr.io/rse-ops/flux-arm-lammps:june-2023-arm64",
+                        "imageID": "ghcr.io/rse-ops/flux-arm-lammps@sha256:4de46d83b0b58621df27e978734fe84a6daaff4848a5b89a5346dfc56066e354",
+                        "lastState": {},
+                        "name": "flux-sample",
+                        "ready": true,
+                        "restartCount": 0,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2023-07-01T20:21:24Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.19.83",
+                "phase": "Running",
+                "podIP": "192.168.21.46",
+                "podIPs": [
+                    {
+                        "ip": "192.168.21.46"
+                    }
+                ],
+                "qosClass": "Guaranteed",
+                "startTime": "2023-07-01T20:20:25Z"
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}

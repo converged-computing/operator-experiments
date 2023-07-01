@@ -11,10 +11,12 @@ but I guess we are going to do that anyway :)
  - I've updated to Kubernetes 1.27 because 1.23 is a bit old at this point.
 
 For the last point, this means 8 nodes for the hpc6a and 12 nodes for the hpc7g (see table below for details).
+Note that the im4gn instance type (with 2 nodes) was just for testing EFA.
 
 - **Pricing** At the time of this writing, the cost for the hpc7g is ~$1.60/hour, so a cluster of size 8 will be $12.80/hour.
 I can't find the hpc6a prices (even in cloud-select API data) but I'm going to assume similar, so a size 12 cluster
-will be just a hair under $20. TLDR: I don't think I'm too concerned about prices, unless I accidentally left something
+will be just a hair under $20. The im4gn instance type should only be used for small testing because it's almost $6 an hour!
+TLDR: With the hpc* family images I don't think I'm too concerned about prices, unless I accidentally left something
 on, which I _will not do_!
 
 Note that the design here is different than our initial one that brought up a different MiniCluster each time.
@@ -37,26 +39,21 @@ the ARM images this week.
 
 ## Setup
 
-My original EFA devices were not deployed, so I tried deploying a new `eksctl` (brave I know).
-I was originally using a custom version that tweaked the permissions of the container, but I am
-going to assume they have fixed this.
+Note that I am using the build of eksctl from [this branch](https://github.com/weaveworks/eksctl/pull/6743#pullrequestreview-1507361538)
+that has the new nodes added, and a bugfix for the plugin adapter.
+Also make sure you have awscli installed (`pip install awscli`). If you don't
+have it (or it's not on the path) your cluster won't correctly create, and then
+the EFA devices won't be found (because the eksctl tool did not complete correctly).
 
-```bash
-ARCH=amd64
-PLATFORM=$(uname -s)_$ARCH
-curl -sLO "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$PLATFORM.tar.gz"
-
-# Make a local bin
-mkdir -p ./bin
-tar -xzf eksctl_$PLATFORM.tar.gz -C ./bin && rm eksctl_$PLATFORM.tar.gz
-```
-
-Also make sure you have awscli installed (`pip install awscli`). If you forget to do this,
- you won't have your `kubectl` working off the bat and you'll need to install it and run:
+If you wind up building on a different machine and need to regenerate your kubetl connection,
+you can run this command:
  
 ```bash
 $ aws eks --region us-east-1 update-kubeconfig --name scaling-study-efa
 ```
+
+It's a challenge that many of the AWS tools / SDKs don't actually interact well
+with the `aws` command line client, but it is what it is!
 
 ## Usage
 
@@ -65,10 +62,10 @@ clusters. Note that we can't match them 1:1 for instance sizes, but we can match
 (which I think is important for LAMMPS?) E.g., a size 8 cluster for the hpc6a is matched to a size 12
 cluster for hpc7g. Here are specs for both:
 
-| Name         | Cores | Memory (GiB) | Network Bandwidth (Gbps) | Cluster Size | Total Cores |
-|--------------|-------|--------------|--------------------------|--------------|-------------|
-|hpc6a.48xlarge| 96    | 384          | 25                       | 8            | 768 (8*96)  |
-|hpc7g.16xlarge| 64    | 128          | Up to 200                | 12           | 768 (12*64) |
+| Name         | Cores | Memory (GiB) | Network Bandwidth (Gbps) | Cluster Size      | Total Cores |
+|--------------|-------|--------------|--------------------------|-------------------|-------------|
+|hpc6a.48xlarge| 96    | 384          | 25                       | 8                 | 768 (8*96)  |
+|hpc7g.16xlarge| 64    | 128          | Up to 200                | 12                | 768 (12*64) |
 |im4gn.16xlarge| 64    | 256          |                          | NA (testing only) |        |
 
 Be VERY careful with the last, it's almost $6 an hour! I did a very small cluster (only two instances)
@@ -166,8 +163,7 @@ W0625 16:56:06.253985 1050387 warnings.go:70] spec.template.metadata.annotations
 
 </details>
 
-Note this takes 15-20 minutes. When it's done, note that they [still haven't fixed the efa bug](https://github.com/weaveworks/eksctl/issues/6222#issuecomment-1606309482), 
-and there are also deprecated fields (that likely led to more bugs) so we are going to get the manifest and fix it ourselves.
+Note this takes 15-20 minutes. When it's done, note that they [still haven't fixed the efa bug](https://github.com/weaveworks/eksctl/issues/6222#issuecomment-1606309482), and there are also deprecated fields (that likely led to more bugs). This means there are two options - if you are using the compiled eksctl that I [referenced above](https://github.com/weaveworks/eksctl/pull/6743#pullrequestreview-1507361538) you should be OK. But if you need a manifest handy to deploy yourself:
 
 ```bash
 $ kubectl delete -f ./config/efa-device-plugin.yaml
@@ -233,7 +229,8 @@ the run-experiments script does a `flux mini submit` instead of  `flux submit`. 
 the versions of Flux in the container this will need to be updated. Then, here is a test run:
 
 ```bash
-$ python3 ./run-experiments.py --outdir /home/flux/test-size-1 \
+$ mkdir -p /home/flux/data
+$ python3 ./run-experiments.py --outdir /home/flux/data/test-size-1 \
           --workdir /home/flux/examples/reaxff/HNS \
           --times 2 -N 8 --tasks 768 lmp -v x 1 -v y 1 -v z 1 -in in.reaxc.hns -nocite
 ```
@@ -241,7 +238,7 @@ $ python3 ./run-experiments.py --outdir /home/flux/test-size-1 \
 And the actual run (20x)
 
 ```bash
-$ python3 ./run-experiments.py --outdir /home/flux/size-64-16-16 \
+$ python3 ./run-experiments.py --outdir /home/flux/data/size-64-16-16 \
           --workdir /opt/lammps/examples/reaxff/HNS \
           --times 20 -N 8 --tasks 768 lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
 ```
@@ -273,12 +270,8 @@ from the pod to your local machine:
 
 ```bash
 POD=$(kubectl get pods -n flux-operator -o json | jq -r .items[0].metadata.name)
-mkdir -p ./data/hpc6a
-kubectl cp -n flux-operator ${POD}:/home/flux/test-size-1 ./data/hpc6a/test-size-1 -c flux-sample
-kubectl cp -n flux-operator ${POD}:/home/flux/size-64-16-16 ./data/hpc6a/size-64-16-16 -c flux-sample
+kubectl cp -n flux-operator ${POD}:/home/flux/data ./data/hpc6a -c flux-sample
 ```
-
-In the future we will make our lives easier and put these under a common root that is not home!
 
 #### Clean Up
 
@@ -290,15 +283,131 @@ $ eksctl delete cluster -f ./config/eks-efa-vanilla-cluster-config.yaml
 
 ### im4gn.16xlarge
 
+> This was a small test cluster for EFA, and the experiments aren't easily comparable.
+
 Here is how to create the im4gn.16xlarge cluster:
 
 ```bash
-$ ./bin/eksctl create cluster -f ./config/eks-efa-img4gn-cluster-config.yaml
+$ ./bin/eksctl create cluster -f ./config/eks-efa-im4gn-cluster-config.yaml
+```
+
+You should the EFA is working:
+
+```bash
+$ kubectl logs -n kube-system  aws-efa-k8s-device-plugin-daemonset-xmt9q 
+2023/07/01 20:11:59 Fetching EFA devices.
+2023/07/01 20:11:59 device: rdmap0s6,uverbs0,/sys/class/infiniband_verbs/uverbs0,/sys/class/infiniband/rdmap0s6
+
+2023/07/01 20:11:59 EFA Device list: [{rdmap0s6 uverbs0 /sys/class/infiniband_verbs/uverbs0 /sys/class/infiniband/rdmap0s6}]
+2023/07/01 20:11:59 Starting FS watcher.
+2023/07/01 20:11:59 Starting OS watcher.
+2023/07/01 20:11:59 device: rdmap0s6,uverbs0,/sys/class/infiniband_verbs/uverbs0,/sys/class/infiniband/rdmap0s6
+
+2023/07/01 20:11:59 Starting to serve on /var/lib/kubelet/device-plugins/aws-efa-device-plugin.sock
+2023/07/01 20:11:59 Registered device plugin with Kubelet
+```
+
+Install the Flux operator (with ARM):
+
+```bash
+$ kubectl apply -f ./config/flux-operator-arm.yaml
+```
+
+This will create a size 2 cluster that we will be running LAMMPS on many times:
+
+```bash
+$ kubectl create namespace flux-operator
+$ kubectl apply -f minicluster-2.yaml
+```
+
+You'll want to wait until your pods are ready, and then save some metadata about both pods and nodes:
+
+```bash
+$ mkdir -p ./data
+$ kubectl get nodes -o json > data/im4gn-nodes.json
+$ kubectl get -n flux-operator pods -o json > data/im4gn-npods.json
+```
+
+Copy your run-experiments script into the laed broker pod:
+
+```bash
+POD=$(kubectl get pods -n flux-operator -o json | jq -r .items[0].metadata.name)
+
+# This will copy configs / create directories for it
+kubectl cp -n flux-operator ./scripts/run-experiments.py ${POD}:/home/flux/examples/reaxff/HNS/run-experiments.py -c flux-sample
+```
+
+and then shell in:
+
+```bash
+$ kubectl exec -it -n flux-operator ${POD} bash
+```
+You should be in the experiment directory:
+
+```bash
+cd /opt/lammps/examples/reaxff/HNS
+```
+
+Connect to the main broker (after all the spack stuff):
+
+```bash
+. /etc/profile.d/z10_spack_environment.sh 
+cd /opt/spack-environment
+. /opt/spack-environment/spack/share/spack/setup-env.sh
+spack env activate .
+cd /home/flux/examples/reaxff/HNS
+sudo -u flux -E PYTHONPATH=$PYTHONPATH -E PATH=$PATH -E HOME=/home/flux -E FI_EFA_USE_DEVICE_RDMA=1 -E RDMAV_FORK_SAFE=1 flux proxy local:///run/flux/local bash
+```
+
+Just a tiny instance - the instances are like almost $6 an hour so I didn't want this to be an expensive operation!
+
+```
+$ flux resource list
+     STATE NNODES   NCORES    NGPUS NODELIST
+      free      2      128        0 flux-sample-[0-1]
+ allocated      0        0        0 
+      down      0        0        0 
+```
+
+Let's write output to our home. This might be wonky because we don't have a shared filesystem.
+Note that since this container has an old version of Flux (it needs a rebuild for a more proper experiment)
+we need to change `flux submit` to `flux mini submit`. Then, here is a test run:
+
+```bash
+mkdir -p /home/flux/data
+$ python3 ./run-experiments.py --outdir /home/flux/data/test-size-1 \
+          --workdir /home/flux/examples/reaxff/HNS \
+          --times 2 -N 2 --tasks 128 lmp -v x 1 -v y 1 -v z 1 -in in.reaxc.hns -nocite
+```
+
+And the actual run (20x)
+
+```bash
+$ python3 ./run-experiments.py --outdir /home/flux/data/size-16-16-16 \
+          --workdir /opt/lammps/examples/reaxff/HNS \
+          --times 20 -N 2 --tasks 128 lmp -v x 16 -v y 16 -v z 16 -in in.reaxc.hns -nocite
+```
+
+When it's done running, you can copy the entire output directory from the pod to your local machine:
+
+```bash
+POD=$(kubectl get pods -n flux-operator -o json | jq -r .items[0].metadata.name)
+kubectl cp -n flux-operator ${POD}:/home/flux/data ./data/im4gn -c flux-sample
+```
+
+### Clean Up
+
+Delete the cluster with eksctl
+
+```bash
+$ eksctl delete cluster -f ./config/eks-efa-im4gn-cluster-config.yaml 
 ```
 
 ### hpc7g.16xlarge
 
-Here is how to create the hpc7g.16xlarge cluster:
+> Experiments on the new nodes, with and without efa.
+
+Here is how to create the hpc7g.16xlarge cluster (you should still be using the `eksctl` with the fix!)
 
 ```bash
 $ ./bin/eksctl create cluster -f ./config/eks-efa-hpc7g-cluster-config.yaml
@@ -306,32 +415,14 @@ $ ./bin/eksctl create cluster -f ./config/eks-efa-hpc7g-cluster-config.yaml
 
 Note that the number of nodes, and zones are different, and I tried [this](https://eksctl.io/announcements/nodegroup-override-announcement/)
 to use a custom AMI. It did not work, so I made a [custom branch](https://github.com/weaveworks/eksctl/compare/main...researchapps:eksctl:add/hpc7g-node-arm-support?expand=1) 
-to add support for the new instance type. Note that in my two effors, the plugin could not find any devices. This likely needs further debugging.
+to add support for the new instance type. Note that despite working for the previous arm instance,
+it doesn't work for hpc7g. The plugin could not find any devices. This likely needs further debugging.
 
 ```bash
 $ kubectl logs -n kube-system  aws-efa-k8s-device-plugin-daemonset-5jpqc
 2023/06/26 04:35:54 Fetching EFA devices.
 2023/06/26 04:35:54 No devices found.
 ```
-
-We still need to get around the efa bug.  I find it works better to completely delete
-and re-apply.
-
-```bash
-$ kubectl delete -f ./config/efa-device-plugin.yaml
-$ kubectl apply -f ./config/efa-device-plugin.yaml
-```
-
-Here are cluster creation details:
-
-<details>
-
-<summary>Cluster creation details</summary>
-
-```console
-```
-
-</details>
 
 We don't have EFA, but I'm going to continue anyway to test the ARM image and get a baseline.
 It was here that I realized we also needed an arm build for the Flux Operator! So I threw one together:
@@ -355,8 +446,7 @@ $ kubectl get nodes -o json > data/hpc7g-noefa-nodes.json
 $ kubectl get -n flux-operator pods -o json > data/hpc7g-noefa-pods.json
 ```
 
-Note that for this experiment, since the first time we didn't have working EFA, 
-we ran without EFA. And copy your run-experiments script into the laed broker pod:
+Then copy your run-experiments script into the laed broker pod:
 
 ```bash
 POD=$(kubectl get pods -n flux-operator -o json | jq -r .items[0].metadata.name)
@@ -423,6 +513,22 @@ Delete the cluster with eksctl
 ```bash
 $ eksctl delete cluster -f ./config/eks-efa-hpc7g-cluster-config.yaml 
 ```
+
+## Notes
+
+> This is a note of caution for your environment!
+
+We had just recently seen a problem where using different credentials (aws vs default credentials in `$HOME/aws`)
+let to weird behavior, and [when I saw eksctl is doing a call to aws](https://github.com/weaveworks/eksctl/blob/5e06270a43f2fbee3458422b7de3910903366a28/pkg/utils/kubeconfig/kubeconfig.go#L197) I realized this same thing
+could happen here. Thus, before starting the attempts (that worked) I ensured that:
+
+ - the awscli (`pip install awscli`) was on my path
+ - I was only using one kind of credential (the enduring ones in `$HOME/aws`)
+
+So if you hit weird errors, this is something to consider. The other error we saw
+earlier is that `eksctl` added `runAsNonRoot` true to all their plugin configs, which absolutely
+breaks it.  The pull request we use here removes it.
+
 
 ## Analysis
 

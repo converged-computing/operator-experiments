@@ -159,10 +159,9 @@ spec:
       hostNetwork: true
       containers:
         - image: 602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/aws-efa-k8s-device-plugin:v0.3.3
+       # This would be populated by eksctl, but doing this manually you can populate it!
        # - image: "%s.dkr.ecr.%s.%s/eks/aws-efa-k8s-device-plugin:v0.3.3"
           name: aws-efa-k8s-device-plugin
-          command: [ "/bin/bash", "-c", "--" ]
-          args: [ "while true; do sleep 30; done;" ]
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
