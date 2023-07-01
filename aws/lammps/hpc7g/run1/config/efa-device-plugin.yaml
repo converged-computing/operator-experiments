@@ -12,6 +12,10 @@ spec:
     type: RollingUpdate
   template:
     metadata:
+      # This annotation is deprecated. Kept here for backward compatibility
+      # See https://kubernetes.io/docs/tasks/administer-cluster/guaranteed-scheduling-critical-addon-pods/
+      annotations:
+        scheduler.alpha.kubernetes.io/critical-pod: ""
       labels:
         name: aws-efa-k8s-device-plugin
     spec:
@@ -54,6 +58,8 @@ spec:
                       - g5.48xlarge
                       - hpc6a.48xlarge
                       - hpc7g.16xlarge
+                      - hpc7g.8xlarge
+                      - hpc7g.4xlarge
                       - i3en.12xlarge
                       - i3en.24xlarge
                       - i3en.metal
@@ -112,6 +118,8 @@ spec:
                       - g5.48xlarge
                       - hpc6a.48xlarge
                       - hpc7g.16xlarge
+                      - hpc7g.8xlarge
+                      - hpc7g.4xlarge
                       - i3en.12xlarge
                       - i3en.24xlarge
                       - i3en.metal
@@ -150,9 +158,11 @@ spec:
                       - x2iezn.metal
       hostNetwork: true
       containers:
-        - image: ghcr.io/rse-ops/aws-efa-k8s-device-plugin-arm:v0.3.3
-        #- image: 602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/aws-efa-k8s-device-plugin:v0.3.3
+        - image: 602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/aws-efa-k8s-device-plugin:v0.3.3
+       # - image: "%s.dkr.ecr.%s.%s/eks/aws-efa-k8s-device-plugin:v0.3.3"
           name: aws-efa-k8s-device-plugin
+          command: [ "/bin/bash", "-c", "--" ]
+          args: [ "while true; do sleep 30; done;" ]
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:

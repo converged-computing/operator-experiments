@@ -42,12 +42,12 @@ spec:
       # this should still assign 1:1
       resources:
         limits:
-          # vpc.amazonaws.com/efa: 1
+          vpc.amazonaws.com/efa: 1
           memory: "128G"
           cpu: "62"
 
         requests:
-          # vpc.amazonaws.com/efa: 1
+          vpc.amazonaws.com/efa: 1
           memory: "128G"
           cpu: "62"
 

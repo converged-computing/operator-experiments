@@ -281,8 +281,182 @@ docker commit 2b4e6de75ab8 ghcr.io/rse-ops/aws-efa-k8s-device-plugin-arm:v0.3.3
 docker push ghcr.io/rse-ops/aws-efa-k8s-device-plugin-arm:v0.3.3
 ```
 
-Note this is how to get info for the plugin I think?
+Note that our image above is missing the binary that the (non-arm based) one has - I found it here:
+
+```
+bash-4.2# /usr/bin/efa-k8s-device-plugin 
+2023/06/27 00:17:39 Fetching EFA devices.
+2023/06/27 00:17:39 device: rdmap0s6,uverbs0,/sys/class/infiniband_verbs/uverbs0,/sys/class/infiniband/rdmap0s6
+
+2023/06/27 00:17:39 EFA Device list: [{rdmap0s6 uverbs0 /sys/class/infiniband_verbs/uverbs0 /sys/class/infiniband/rdmap0s6}]
+2023/06/27 00:17:39 Starting FS watcher.
+2023/06/27 00:17:39 Starting OS watcher.
+2023/06/27 00:17:39 device: rdmap0s6,uverbs0,/sys/class/infiniband_verbs/uverbs0,/sys/class/infiniband/rdmap0s6
+
+2023/06/27 00:17:39 Starting to serve on /var/lib/kubelet/device-plugins/aws-efa-device-plugin.sock
+2023/06/27 00:17:39 Registered device plugin with Kubelet
+```
+
+Note this is how to get info for efa installed I think?
 
 ```
 /opt/amazon/efa/bin/fi_info -p efa
 ```
+
+And we need the device plugin for Kubernetes - this gives us a hint of what we need to build:
+
+```
+bash-4.2# /usr/bin/efa-k8s-device-plugin 
+2023/06/27 00:17:39 Fetching EFA devices.
+2023/06/27 00:17:39 device: rdmap0s6,uverbs0,/sys/class/infiniband_verbs/uverbs0,/sys/class/infiniband/rdmap0s6
+
+2023/06/27 00:17:39 EFA Device list: [{rdmap0s6 uverbs0 /sys/class/infiniband_verbs/uverbs0 /sys/class/infiniband/rdmap0s6}]
+2023/06/27 00:17:39 Starting FS watcher.
+2023/06/27 00:17:39 Starting OS watcher.
+2023/06/27 00:17:39 device: rdmap0s6,uverbs0,/sys/class/infiniband_verbs/uverbs0,/sys/class/infiniband/rdmap0s6
+
+2023/06/27 00:17:39 Starting to serve on /var/lib/kubelet/device-plugins/aws-efa-device-plugin.sock
+2023/06/27 00:17:39 Registered device plugin with Kubelet
+```
+
+## Figuring out the image
+
+At this point I needed to figure out the image, so (shelling into the same VM) I logged into the registry
+that I saw the plugin coming from:
+
+```bash
+$ aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 602401143452.dkr.ecr.us-west-2.amazonaws.com
+```
+And then I was able to pull the plugin image!
+
+```bash
+$ docker pull 602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/aws-efa-k8s-device-plugin:v0.3.3
+```
+
+We can inspect it:
+
+```bash
+$ docker inspect 602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/aws-efa-k8s-device-plugin:v0.3.3
+```
+```console
+[
+    {
+        "Id": "sha256:1da680a5d70b76000e11643f2eeb44490adb56860ef8672dc38b330ebeb855e8",
+        "RepoTags": [
+            "602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/aws-efa-k8s-device-plugin:v0.3.3"
+        ],
+        "RepoDigests": [
+            "602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/aws-efa-k8s-device-plugin@sha256:364d46e3e482f7cd03c586a69996348aa0ec8e6ff711d73013fbfba1ceb0b20d"
+        ],
+        "Parent": "",
+        "Comment": "",
+        "Created": "2021-02-19T18:43:42.608210537Z",
+        "Container": "960db37d07cce62e45e18621ac060365c50b420cf1fb97afdff14f860e12287b",
+        "ContainerConfig": {
+            "Hostname": "960db37d07cc",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "#(nop) ",
+                "CMD [\"efa-k8s-device-plugin\"]"
+            ],
+            "Image": "sha256:f764f9829fd69dd6a00db823d4cf6d51e4d795f42a3b8a95383516c82bda545e",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "DockerVersion": "19.03.11",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "efa-k8s-device-plugin"
+            ],
+            "Image": "sha256:f764f9829fd69dd6a00db823d4cf6d51e4d795f42a3b8a95383516c82bda545e",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": null
+        },
+        "Architecture": "arm64",
+        "Os": "linux",
+        "Size": 458987845,
+        "VirtualSize": 458987845,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/6e151505944793187934e8373ae094aa47a1b16a0a5367b8a1b1609d070f87f6/diff:/var/lib/docker/overlay2/05b87ea9ee4686e8dddebbe91a81b3e5b97cc801c8125d4e96703a8b5f73693e/diff",
+                "MergedDir": "/var/lib/docker/overlay2/bfd827541968c8ed4577449957aec61f163f6be72d3aa7206ebc361c3edb54d6/merged",
+                "UpperDir": "/var/lib/docker/overlay2/bfd827541968c8ed4577449957aec61f163f6be72d3aa7206ebc361c3edb54d6/diff",
+                "WorkDir": "/var/lib/docker/overlay2/bfd827541968c8ed4577449957aec61f163f6be72d3aa7206ebc361c3edb54d6/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:ee98f0ebffb3baadf68147214065bc39edfade919f1e9b496674468d184f8dcb",
+                "sha256:cf05ef813a2522b7caae7a5d40834e42c31424c8509d70fa5ae814251461b320",
+                "sha256:bce5c81faa5fc0d1832ca57e4b2a14d9f474084b4ee67d2d5e01e41051b16914"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]
+```
+
+Let's derive a quasi-dockerfile - it looks like it just adds the binary to the container with the libibverbs:
+
+```bash
+$ image=602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/aws-efa-k8s-device-plugin:v0.3.3
+$ docker history --no-trunc $image  | tac | tr -s ' ' | cut -d " " -f 5- | sed 's,^/bin/sh -c #(nop) ,,g' | sed 's,^/bin/sh -c,RUN,g' | sed 's, && ,\n  & ,g' | sed 's,\s*[0-9]*[\.]*[0-9]*\s*[kMG]*B\s*$,,g' | head -n -1
+ADD file:7f69686262e0e0e5415d42ac0371f7d0df0330bc4f0556e5d4b73dd78ceb1197 in /
+CMD ["/bin/bash"]
+RUN yum update -y
+   &&  yum install -y libibverbs
+   &&  yum install -y libibverbs-utils
+COPY file:0be6d5528203b1645e26be5dff026b6b92b7b0d6050118f1742e03417a965e99 in /usr/bin/efa-k8s-device-plugin
+CMD ["efa-k8s-device-plugin"]
+```
+
+Let's save it for later.
+
+```bash
+docker run --name copier --entrypoint bash -d $image tail -f /dev/null
+docker cp copier:/usr/bin/efa-k8s-device-plugin ./efa-k8s-device-plugin
+```
+
+From your local machine:
+
+```bash 
+scp -i my-key-pem.pem ec2-user@ec2-xx-xx-xxx-xxx.compute-1.amazonaws.com:/home/ec2-user/efa-k8s-device-plugin ./efa-k8s-device-plugin
+```
+
+You can look at the binary to see imports - I won't post that online because it might qualify as reverse engineering,
+which we don't need to do yet.

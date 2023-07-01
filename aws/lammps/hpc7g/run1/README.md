@@ -69,8 +69,10 @@ cluster for hpc7g. Here are specs for both:
 |--------------|-------|--------------|--------------------------|--------------|-------------|
 |hpc6a.48xlarge| 96    | 384          | 25                       | 8            | 768 (8*96)  |
 |hpc7g.16xlarge| 64    | 128          | Up to 200                | 12           | 768 (12*64) |
+|im4gn.16xlarge| 64    | 256          |                          | NA (testing only) |        |
 
-I got this information from [this table](https://aws.amazon.com/ec2/instance-types/#HPC_Optimized).
+Be VERY careful with the last, it's almost $6 an hour! I did a very small cluster (only two instances)
+to test this with efa. For the other two, I got this information from [this table](https://aws.amazon.com/ec2/instance-types/#HPC_Optimized).
 The memory unfortunately is not comparable, but (I hope) that's OK. If it's not, we will likely
 not be able to easily compare the two.
 
@@ -284,6 +286,14 @@ Delete the cluster with eksctl
 
 ```bash
 $ eksctl delete cluster -f ./config/eks-efa-vanilla-cluster-config.yaml 
+```
+
+### im4gn.16xlarge
+
+Here is how to create the im4gn.16xlarge cluster:
+
+```bash
+$ ./bin/eksctl create cluster -f ./config/eks-efa-img4gn-cluster-config.yaml
 ```
 
 ### hpc7g.16xlarge
