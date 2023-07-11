@@ -1,0 +1,23 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: scaling-study-efa
+  region: us-east-1
+  version: "1.27"
+
+# 1b doesn't actually have the instances, but they require 2 soo...        
+availabilityZones: ["us-east-1a", "us-east-1b"]
+managedNodeGroups:
+  - name: workers
+    availabilityZones: ["us-east-1a"]
+    instanceType: hpc7g.16xlarge
+    minSize: 12
+    maxSize: 12
+    efaEnabled: true
+    placement:
+      groupName: eks-efa-testing
+    labels: { "flux-operator": "true" }
+    ssh:
+      allow: true
+      publicKeyPath: ~/.ssh/id_eks.pub

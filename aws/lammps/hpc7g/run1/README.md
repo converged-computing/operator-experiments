@@ -29,13 +29,9 @@ will bring up a cluster to run more than one job!)
 
 If you don't want to read further, these are the results:
 
-- **still a work in progress!**
-- I wonder if the EFA daemonset needs to be built for ARM too?
-
-And I think we likely should rebuild both containers (arm and the other) to use
-a newer version of spack, specifically targeting a commit with newer versions of
-flux, etc. I already rebuilt the original (flux 0.44.0 -> 0.49.0) and can redo
-the ARM images this week.
+- hpc7g is faster than hpc6a by about 12-13 seconds (ballpark). That's a lot when the total run is 76-90!
+- The plugin was mysteriously not working for hpc7g (tried 4-5 times) and then it magically worked. I think it's maybe related to the [logic here](https://github.com/weaveworks/eksctl/blob/c2533495d604f7f7ca52cb7c7fd86f1988257d3a/pkg/cfn/builder/network_interfaces.go#L68) and some metadata not being updated, but we can never know (unless it happens again and it's somehow transient).
+- I don't see significant differences on the same nodes for with/without efa? I would like another set of eyes to sanity check what I did.
 
 ## Setup
 
@@ -66,7 +62,7 @@ cluster for hpc7g. Here are specs for both:
 |--------------|-------|--------------|--------------------------|-------------------|-------------|
 |hpc6a.48xlarge| 96    | 384          | 25                       | 8                 | 768 (8*96)  |
 |hpc7g.16xlarge| 64    | 128          | Up to 200                | 12                | 768 (12*64) |
-|im4gn.16xlarge| 64    | 256          |                          | NA (testing only) |        |
+|im4gn.16xlarge| 64    | 256          |                          | NA (testing only) |             |
 
 Be VERY careful with the last, it's almost $6 an hour! I did a very small cluster (only two instances)
 to test this with efa. For the other two, I got this information from [this table](https://aws.amazon.com/ec2/instance-types/#HPC_Optimized).
@@ -78,7 +74,7 @@ not be able to easily compare the two.
 Here is how to create the initial "vanilla" cluster (without the cool new nodes!)
 
 ```bash
-$ ./bin/eksctl create cluster -f ./config/eks-efa-vanilla-cluster-config.yaml
+$ ./bin/eksctl create cluster -f ./config/eks-config.yaml
 ```
 
 <details>
@@ -163,18 +159,10 @@ W0625 16:56:06.253985 1050387 warnings.go:70] spec.template.metadata.annotations
 
 </details>
 
-Note this takes 15-20 minutes. When it's done, note that they [still haven't fixed the efa bug](https://github.com/weaveworks/eksctl/issues/6222#issuecomment-1606309482), and there are also deprecated fields (that likely led to more bugs). This means there are two options - if you are using the compiled eksctl that I [referenced above](https://github.com/weaveworks/eksctl/pull/6743#pullrequestreview-1507361538) you should be OK. But if you need a manifest handy to deploy yourself:
+Note this takes 15-20 minutes. When it's done, note that they [still haven't fixed the efa bug](https://github.com/weaveworks/eksctl/issues/6222#issuecomment-1606309482), and there are also deprecated fields (that likely led to more bugs). This means there are two options - if you are using the compiled eksctl that I [referenced above](https://github.com/weaveworks/eksctl/pull/6743#pullrequestreview-1507361538) you should be OK. And install the flux operator:
 
 ```bash
-$ kubectl delete -f ./config/efa-device-plugin.yaml
-# I waited for the pods to go away and then:
-$ kubectl apply -f ./config/efa-device-plugin.yaml
-```
-
-And install the flux operator:
-
-```bash
-$ kubectl apply -f ./config/flux-operator.yaml
+$ kubectl apply -f ./config/flux-operator-arm.yaml
 ```
 
 This will create our size 12 cluster that we will be running LAMMPS on many times:
@@ -187,9 +175,9 @@ $ kubectl apply -f minicluster-12.yaml
 You'll want to wait until your pods are ready, and then save some metadata about both pods and nodes:
 
 ```bash
-$ mkdir -p ./data
-$ kubectl get nodes -o json > data/hpc7g-nodes.json
-$ kubectl get -n flux-operator pods -o json > data/hpc7g-pods.json
+$ mkdir -p ./data/hpc7g
+$ kubectl get nodes -o json > data/hpc7g/hpc7g-nodes.json
+$ kubectl get -n flux-operator pods -o json > data/hpc7g/hpc7g-pods.json
 ```
 
 And copy your run-experiments script into the laed broker pod:
@@ -209,7 +197,7 @@ $ kubectl exec -it -n flux-operator ${POD} bash
 You should be in the experiment directory:
 
 ```bash
-cd /opt/lammps/examples/reaxff/HNS
+cd /home/flux/examples/reaxff/HNS
 ```
 
 Connect to the main broker:
@@ -232,21 +220,21 @@ the versions of Flux in the container this will need to be updated. Then, here i
 $ mkdir -p /home/flux/data
 $ python3 ./run-experiments.py --outdir /home/flux/data/test-size-1 \
           --workdir /home/flux/examples/reaxff/HNS \
-          --times 2 -N 8 --tasks 768 lmp -v x 1 -v y 1 -v z 1 -in in.reaxc.hns -nocite
+          --times 2 -N 12 --tasks 768 lmp -v x 1 -v y 1 -v z 1 -in in.reaxc.hns -nocite
 ```
 
 And the actual run (20x)
 
 ```bash
 $ python3 ./run-experiments.py --outdir /home/flux/data/size-64-16-16 \
-          --workdir /opt/lammps/examples/reaxff/HNS \
-          --times 20 -N 8 --tasks 768 lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
+          --workdir /home/flux/examples/reaxff/HNS \
+          --times 20 -N 12 --tasks 768 lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
 ```
 
 An example command looks like this:
 
 ```bash
-flux mini submit -N 8 -n 768 --output /home/flux/size-64-16-16/lammps-18.log --error /home/flux/size-64-16-16/lammps-18.log -ompi=openmpi@5 -c 1 -o cpu-affinity=per-task --watch -vvv lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
+flux mini submit -N 12 -n 768 --output /home/flux/size-64-16-16/lammps-18.log --error /home/flux/size-64-16-16/lammps-18.log -ompi=openmpi@5 -c 1 -o cpu-affinity=per-task --watch -vvv lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
 ```
 ```console
 ƒMD9tnvnb: 0.000s submit
@@ -270,7 +258,41 @@ from the pod to your local machine:
 
 ```bash
 POD=$(kubectl get pods -n flux-operator -o json | jq -r .items[0].metadata.name)
-kubectl cp -n flux-operator ${POD}:/home/flux/data ./data/hpc6a -c flux-sample
+kubectl cp -n flux-operator ${POD}:/home/flux/data ./data/hpc7g -c flux-sample
+```
+
+I then did the same run, but I deleted the daemonset (meaning EFA would not be available).
+I also created a new minicluster without efa.
+
+```bash
+$ kubectl delete daemonset -n kube-system aws-efa-k8s-device-plugin-daemonset 
+$ kubectl apply -f minicluster-12-no-efa.yaml
+```
+
+And then the same as above:
+
+```bash
+POD=$(kubectl get pods -n flux-operator -o json | jq -r .items[0].metadata.name)
+kubectl cp -n flux-operator ./scripts/run-experiments.py ${POD}:/home/flux/examples/reaxff/HNS/run-experiments.py -c flux-sample
+kubectl exec -it -n flux-operator ${POD} bash
+
+. /etc/profile.d/z10_spack_environment.sh 
+cd /opt/spack-environment
+. /opt/spack-environment/spack/share/spack/setup-env.sh
+spack env activate .
+cd /home/flux/examples/reaxff/HNS
+sudo -u flux -E PYTHONPATH=$PYTHONPATH -E PATH=$PATH -E HOME=/home/flux flux proxy local:///run/flux/local bash
+
+python3 ./run-experiments.py --outdir /home/flux/data/size-64-16-16-no-efa \
+        --workdir /home/flux/examples/reaxff/HNS \
+        --times 20 -N 12 --tasks 768 lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
+```
+
+Just copy over the directory for the single run:
+
+```bash
+POD=$(kubectl get pods -n flux-operator -o json | jq -r .items[0].metadata.name)
+kubectl cp -n flux-operator ${POD}:/home/flux/data/size-64-16-16-no-efa ./data/hpc7g/size-64-16-16-no-efa -c flux-sample
 ```
 
 #### Clean Up
@@ -278,7 +300,7 @@ kubectl cp -n flux-operator ${POD}:/home/flux/data ./data/hpc6a -c flux-sample
 Delete the cluster with eksctl
 
 ```bash
-$ eksctl delete cluster -f ./config/eks-efa-vanilla-cluster-config.yaml 
+$ eksctl delete cluster -f ./config/eks-config.yaml
 ```
 
 ### im4gn.16xlarge
@@ -529,7 +551,3 @@ So if you hit weird errors, this is something to consider. The other error we sa
 earlier is that `eksctl` added `runAsNonRoot` true to all their plugin configs, which absolutely
 breaks it.  The pull request we use here removes it.
 
-
-## Analysis
-
-**TBA** not sure it's worth it here.
