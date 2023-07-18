@@ -74,7 +74,7 @@ not be able to easily compare the two.
 Here is how to create the initial "vanilla" cluster (without the cool new nodes!)
 
 ```bash
-$ ./bin/eksctl create cluster -f ./config/eks-config.yaml
+$ ./bin/eksctl create cluster -f ./config/eks-efa-vanilla-cluster-config.yaml
 ```
 
 <details>
@@ -159,10 +159,19 @@ W0625 16:56:06.253985 1050387 warnings.go:70] spec.template.metadata.annotations
 
 </details>
 
-Note this takes 15-20 minutes. When it's done, note that they [still haven't fixed the efa bug](https://github.com/weaveworks/eksctl/issues/6222#issuecomment-1606309482), and there are also deprecated fields (that likely led to more bugs). This means there are two options - if you are using the compiled eksctl that I [referenced above](https://github.com/weaveworks/eksctl/pull/6743#pullrequestreview-1507361538) you should be OK. And install the flux operator:
+Note this takes 15-20 minutes. When it's done, note that they [still haven't fixed the efa bug](https://github.com/weaveworks/eksctl/issues/6222#issuecomment-1606309482), 
+and there are also deprecated fields (that likely led to more bugs) so we are going to get the manifest and fix it ourselves.
 
 ```bash
-$ kubectl apply -f ./config/flux-operator-arm.yaml
+$ kubectl delete -f ./config/efa-device-plugin.yaml
+# I waited for the pods to go away and then:
+$ kubectl apply -f ./config/efa-device-plugin.yaml
+```
+
+And install the flux operator:
+
+```bash
+$ kubectl apply -f ./config/flux-operator.yaml
 ```
 
 This will create our size 12 cluster that we will be running LAMMPS on many times:
@@ -175,9 +184,9 @@ $ kubectl apply -f minicluster-12.yaml
 You'll want to wait until your pods are ready, and then save some metadata about both pods and nodes:
 
 ```bash
-$ mkdir -p ./data/hpc7g
-$ kubectl get nodes -o json > data/hpc7g/hpc7g-nodes.json
-$ kubectl get -n flux-operator pods -o json > data/hpc7g/hpc7g-pods.json
+$ mkdir -p ./data
+$ kubectl get nodes -o json > data/hpc7g-nodes.json
+$ kubectl get -n flux-operator pods -o json > data/hpc7g-pods.json
 ```
 
 And copy your run-experiments script into the laed broker pod:
@@ -197,7 +206,7 @@ $ kubectl exec -it -n flux-operator ${POD} bash
 You should be in the experiment directory:
 
 ```bash
-cd /home/flux/examples/reaxff/HNS
+cd /opt/lammps/examples/reaxff/HNS
 ```
 
 Connect to the main broker:
@@ -217,24 +226,23 @@ the run-experiments script does a `flux mini submit` instead of  `flux submit`. 
 the versions of Flux in the container this will need to be updated. Then, here is a test run:
 
 ```bash
-$ mkdir -p /home/flux/data
-$ python3 ./run-experiments.py --outdir /home/flux/data/test-size-1 \
+$ python3 ./run-experiments.py --outdir /home/flux/test-size-1 \
           --workdir /home/flux/examples/reaxff/HNS \
-          --times 2 -N 12 --tasks 768 lmp -v x 1 -v y 1 -v z 1 -in in.reaxc.hns -nocite
+          --times 2 -N 8 --tasks 768 lmp -v x 1 -v y 1 -v z 1 -in in.reaxc.hns -nocite
 ```
 
 And the actual run (20x)
 
 ```bash
-$ python3 ./run-experiments.py --outdir /home/flux/data/size-64-16-16 \
-          --workdir /home/flux/examples/reaxff/HNS \
-          --times 20 -N 12 --tasks 768 lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
+$ python3 ./run-experiments.py --outdir /home/flux/size-64-16-16 \
+          --workdir /opt/lammps/examples/reaxff/HNS \
+          --times 20 -N 8 --tasks 768 lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
 ```
 
 An example command looks like this:
 
 ```bash
-flux mini submit -N 12 -n 768 --output /home/flux/size-64-16-16/lammps-18.log --error /home/flux/size-64-16-16/lammps-18.log -ompi=openmpi@5 -c 1 -o cpu-affinity=per-task --watch -vvv lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
+flux mini submit -N 8 -n 768 --output /home/flux/size-64-16-16/lammps-18.log --error /home/flux/size-64-16-16/lammps-18.log -ompi=openmpi@5 -c 1 -o cpu-affinity=per-task --watch -vvv lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
 ```
 ```console
 ƒMD9tnvnb: 0.000s submit
@@ -258,49 +266,19 @@ from the pod to your local machine:
 
 ```bash
 POD=$(kubectl get pods -n flux-operator -o json | jq -r .items[0].metadata.name)
-kubectl cp -n flux-operator ${POD}:/home/flux/data ./data/hpc7g -c flux-sample
+mkdir -p ./data/hpc6a
+kubectl cp -n flux-operator ${POD}:/home/flux/test-size-1 ./data/hpc6a/test-size-1 -c flux-sample
+kubectl cp -n flux-operator ${POD}:/home/flux/size-64-16-16 ./data/hpc6a/size-64-16-16 -c flux-sample
 ```
 
-I then did the same run, but I deleted the daemonset (meaning EFA would not be available).
-I also created a new minicluster without efa.
-
-```bash
-$ kubectl delete daemonset -n kube-system aws-efa-k8s-device-plugin-daemonset 
-$ kubectl apply -f minicluster-12-no-efa.yaml
-```
-
-And then the same as above:
-
-```bash
-POD=$(kubectl get pods -n flux-operator -o json | jq -r .items[0].metadata.name)
-kubectl cp -n flux-operator ./scripts/run-experiments.py ${POD}:/home/flux/examples/reaxff/HNS/run-experiments.py -c flux-sample
-kubectl exec -it -n flux-operator ${POD} bash
-
-. /etc/profile.d/z10_spack_environment.sh 
-cd /opt/spack-environment
-. /opt/spack-environment/spack/share/spack/setup-env.sh
-spack env activate .
-cd /home/flux/examples/reaxff/HNS
-sudo -u flux -E PYTHONPATH=$PYTHONPATH -E PATH=$PATH -E HOME=/home/flux flux proxy local:///run/flux/local bash
-
-python3 ./run-experiments.py --outdir /home/flux/data/size-64-16-16-no-efa \
-        --workdir /home/flux/examples/reaxff/HNS \
-        --times 20 -N 12 --tasks 768 lmp -v x 64 -v y 16 -v z 16 -in in.reaxc.hns -nocite
-```
-
-Just copy over the directory for the single run:
-
-```bash
-POD=$(kubectl get pods -n flux-operator -o json | jq -r .items[0].metadata.name)
-kubectl cp -n flux-operator ${POD}:/home/flux/data/size-64-16-16-no-efa ./data/hpc7g/size-64-16-16-no-efa -c flux-sample
-```
+In the future we will make our lives easier and put these under a common root that is not home!
 
 #### Clean Up
 
 Delete the cluster with eksctl
 
 ```bash
-$ eksctl delete cluster -f ./config/eks-config.yaml
+$ eksctl delete cluster -f ./config/eks-efa-vanilla-cluster-config.yaml 
 ```
 
 ### im4gn.16xlarge
