@@ -25,6 +25,7 @@ we already figured out) and using this daemonset to cache DNS.
 
 From the last experiment, we are seeing the switch between connecting cost and contribution of node size (cpu for LAMMPS that should make it faster).
 I think we can conclude with the current GCP networking, if one wants to run experiments, it's better to use a few number of really large nodes to avoid this networking cost.
+Full update in thread is [here](https://github.com/kubernetes/kubernetes/issues/117819#issuecomment-1646678215).
 
 ## Others
 
