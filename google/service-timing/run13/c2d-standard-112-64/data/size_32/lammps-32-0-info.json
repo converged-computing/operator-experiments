@@ -1,0 +1,32 @@
+{
+    "id": 1037184270336,
+    "userid": 1000,
+    "urgency": 16,
+    "priority": 16,
+    "t_submit": 1690056291.6766899,
+    "t_depend": 1690056291.688166,
+    "t_run": 1690056291.7801888,
+    "t_cleanup": 1690056486.0538282,
+    "t_inactive": 1690056486.0561836,
+    "state": "INACTIVE",
+    "name": "lmp",
+    "ntasks": 1792,
+    "ncores": 1792,
+    "duration": 0.0,
+    "nnodes": 32,
+    "ranks": "[0-31]",
+    "nodelist": "flux-sample-[32-63]",
+    "success": true,
+    "exception_occurred": false,
+    "result": "COMPLETED",
+    "expiration": 4843656291.0,
+    "waitstatus": 0,
+    "returncode": 0,
+    "runtime": 194.2736394405365,
+    "exception": {
+        "occurred": false,
+        "severity": "",
+        "type": "",
+        "note": ""
+    }
+}

@@ -1,0 +1,8 @@
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.size.est

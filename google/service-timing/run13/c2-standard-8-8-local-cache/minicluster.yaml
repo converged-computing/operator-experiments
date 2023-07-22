@@ -1,0 +1,46 @@
+apiVersion: flux-framework.org/v1alpha1
+kind: MiniCluster
+metadata:
+  name: flux-sample
+  namespace: flux-operator
+spec:
+
+  # Number of pods to create for MiniCluster
+  size: 8
+  # 4 core * 8
+  tasks: 32
+
+  # This starts the flux broker without a command (interactive)
+  # It will run indefinitely until you delete the CRD
+  interactive: true
+  logging:
+    quiet: false
+    strict: false
+    zeromq: true
+
+  # These are example commands you can run for lammps
+  # lmp -v x 1 -v y 1 -v z 1 -in in.reaxc.hns -nocite
+
+  # This is a list because a pod can support multiple containers
+  containers:
+    - image: ghcr.io/rse-ops/lammps-mpich:tag-mamba@sha256:fabf2e33a20589532a89e9cf0a6c716d754ffa3ba0018e312428155f961bfdbd     
+
+      # working directory is important to set here, because it will be /
+      # and by default we try to change permissions of what is under it
+      workingDir: /home/flux/examples/reaxff/HNS
+
+      # Flux is installed in a nontraditional place in this container -
+      # under a conda install because many HPC users love conda!
+      environment:
+        LD_LIBRARY_PATH: /opt/conda/lib
+        PYTHONPATH: /opt/conda/lib/python3.10/site-packages
+
+      # Resource limits to ensure 1 pod assigned per node
+      # These are purposefully lower - the actual value didn't work, but
+      # this should still assign 1:1
+      resources:
+        limits:
+          memory: "28G"
+
+        requests:
+          memory: "28G"

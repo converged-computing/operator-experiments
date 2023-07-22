@@ -1,0 +1,464 @@
+flux-shell[30]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[30]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[13]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[13]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[10]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[10]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[17]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[17]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[28]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[28]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[34]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[34]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[2]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[2]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[7]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[7]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[9]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[9]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[5]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[5]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[6]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[6]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[3]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[3]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[25]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[25]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[37]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[37]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[29]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[29]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[53]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[53]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[57]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[57]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[8]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[8]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[42]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[42]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[4]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[4]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[40]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[40]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[24]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[24]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[38]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[38]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[15]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[15]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[12]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[12]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[14]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[14]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[32]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[32]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[23]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[23]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[22]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[22]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[47]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[47]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[55]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[55]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[46]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[46]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[21]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[21]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[16]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[16]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[27]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[27]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[56]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[56]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[43]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[43]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[63]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[63]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[44]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[44]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[50]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[50]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[58]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[58]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[35]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[35]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[31]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[31]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[41]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[41]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[11]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[11]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[60]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[60]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[33]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[33]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[18]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[18]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[62]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[62]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[59]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[59]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[49]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[49]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[45]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[45]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[52]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[52]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[19]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[19]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[51]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[51]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[36]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[36]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[61]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[61]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[48]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[48]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[26]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[26]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[54]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[54]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[39]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[39]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[20]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[20]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[2]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[2]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[6]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[6]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[5]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[5]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[3]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[3]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[4]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[4]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[8]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[8]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[12]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[12]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[14]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[14]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[11]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[11]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[13]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[13]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[10]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[10]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[9]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[9]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[7]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[7]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[28]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[28]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[23]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[23]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[17]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[17]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[30]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[30]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[20]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[20]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[26]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[26]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[15]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[15]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[22]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[22]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[19]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[19]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[29]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[29]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[27]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[27]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[18]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[18]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[21]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[21]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[24]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[24]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[25]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[25]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[16]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[16]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[52]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[52]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[51]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[51]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[48]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[48]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[36]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[36]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[32]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[32]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[34]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[34]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[59]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[59]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[53]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[53]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[57]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[57]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[47]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[47]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[49]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[49]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[62]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[62]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[58]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[58]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[54]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[54]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[39]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[39]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[42]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[42]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[38]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[38]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[37]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[37]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[35]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[35]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[31]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[31]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[46]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[46]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[40]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[40]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[41]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[41]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[45]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[45]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[50]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[50]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[60]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[60]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[55]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[55]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[33]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[33]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[43]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[43]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[44]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[44]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[56]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[56]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[61]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[61]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[63]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[63]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[2]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[2]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[5]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[5]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[6]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[6]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[3]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[3]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[4]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[4]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[14]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[14]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[25]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[25]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[8]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[8]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[7]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[7]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[10]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[28]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[10]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[28]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[9]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[9]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[15]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[15]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[16]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[16]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[18]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[18]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[20]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[20]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[19]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[19]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[17]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[17]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[32]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[32]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[34]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[34]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[35]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[35]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[23]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[24]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[23]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[24]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[13]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[13]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[12]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[12]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[11]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[11]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[22]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[22]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[21]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[21]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[33]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[33]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[44]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[44]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[29]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[29]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[30]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[30]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[36]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[36]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[31]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[31]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[48]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[48]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[49]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[49]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[55]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[56]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[55]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[56]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[27]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[27]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[46]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[46]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[45]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[45]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[43]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[43]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[40]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[40]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[39]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[39]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[42]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[42]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[41]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[41]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[26]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[26]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[62]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[62]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[47]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[47]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[63]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[63]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[38]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[38]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[37]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[37]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[50]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[50]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[51]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[51]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[52]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[52]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[53]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[53]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[59]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[59]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[58]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[58]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[57]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[57]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[61]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[61]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[60]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[60]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[54]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[54]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+LAMMPS (29 Sep 2021 - Update 2)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
+  using 1 OpenMP thread(s) per MPI task
+Reading data file ...
+  triclinic box = (0.0000000 0.0000000 0.0000000) to (22.326000 11.141200 13.778966) with tilt (0.0000000 -5.0260300 0.0000000)
+  16 by 14 by 16 MPI processor grid
+  reading atoms ...
+  304 atoms
+  reading velocities ...
+  304 velocities
+  read_data CPU = 0.028 seconds
+Replicating atoms ...
+  triclinic box = (0.0000000 0.0000000 0.0000000) to (44.652000 22.282400 27.557932) with tilt (0.0000000 -10.052060 0.0000000)
+  16 by 14 by 16 MPI processor grid
+  bounding box image = (0 -1 -1) to (0 1 1)
+  bounding box extra memory = 0.03 MB
+  average # of replicas added to proc = 4.12 out of 8 (51.56%)
+  2432 atoms
+  replicate CPU = 0.410 seconds
+Neighbor list info ...
+  update every 20 steps, delay 0 steps, check no
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 11
+  ghost atom cutoff = 11
+  binsize = 5.5, bins = 10 5 6
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: full/ghost/bin/3d
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+Setting up Verlet run ...
+  Unit style    : real
+  Current step  : 0
+  Time step     : 0.1
+Per MPI rank memory allocation (min/avg/max) = 23.63 | 24.27 | 24.89 Mbytes
+Step Temp PotEng Press E_vdwl E_coul Volume 
+       0          300   -113.27833    437.52027   -111.57687   -1.7014647    27418.867 
+      10    299.38517   -113.27631    1439.2796   -111.57492   -1.7013813    27418.867 
+      20    300.27107   -113.27884    3764.3512   -111.57762   -1.7012246    27418.867 
+      30    302.21063   -113.28428    7007.6916   -111.58335   -1.7009363    27418.867 
+      40    303.52264   -113.28799    9844.8518   -111.58747   -1.7005186    27418.867 
+      50    301.87059   -113.28324    9663.0523   -111.58318   -1.7000524    27418.867 
+      60    296.67807   -113.26777    7273.8445   -111.56815   -1.6996136    27418.867 
+      70    292.19997   -113.25435    5533.5642   -111.55514   -1.6992158    27418.867 
+      80    293.58675   -113.25831    5993.4031   -111.55946   -1.6988534    27418.867 
+      90    300.62635   -113.27925    7202.8358   -111.58069   -1.6985592    27418.867 
+     100    305.38276   -113.29357    10085.743   -111.59518   -1.6983875    27418.867 
+Loop time of 359.622 on 3584 procs for 100 steps with 2432 atoms
+
+Performance: 0.002 ns/day, 9989.490 hours/ns, 0.278 timesteps/s
+5.8% CPU use with 3584 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.81771    | 0.98146    | 1.504      |  11.3 |  0.27
+Neigh   | 0.024063   | 0.027787   | 0.075981   |   3.9 |  0.01
+Comm    | 6.8853     | 7.6424     | 8.3592     |   9.0 |  2.13
+Output  | 1.8769     | 2.0168     | 2.2518     |   3.6 |  0.56
+Modify  | 348.33     | 348.93     | 349.54     |   1.2 | 97.03
+Other   |            | 0.02214    |            |       |  0.01
+
+Nlocal:       0.678571 ave           3 max           0 min
+Histogram: 1719 0 0 1326 0 0 511 0 0 28
+Nghost:        1311.99 ave        1358 max        1263 min
+Histogram: 57 144 340 486 739 513 582 430 201 92
+Neighs:        332.772 ave        1499 max           0 min
+Histogram: 1719 0 0 1326 0 0 511 0 0 28
+
+Total # of neighbors = 1192655
+Ave neighs/atom = 490.40090
+Neighbor list builds = 5
+Dangerous builds not checked
+Total wall time: 0:06:13

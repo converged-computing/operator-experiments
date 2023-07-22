@@ -1,0 +1,437 @@
+flux-shell[9]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[9]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[17]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[17]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[5]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[5]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[18]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[18]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[6]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[6]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[2]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[2]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[14]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[14]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[63]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[63]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[23]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[23]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[31]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[31]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[30]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[30]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[60]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[60]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[25]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[25]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[26]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[26]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[28]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[28]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[53]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[53]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[8]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[8]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[20]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[20]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[11]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[11]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[37]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[37]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[55]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[55]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[33]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[33]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[41]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[41]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[27]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[42]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[27]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[42]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[24]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[24]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[22]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[22]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[7]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[7]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[35]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[35]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[13]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[13]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[49]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[49]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[48]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[48]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[52]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[52]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[10]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[10]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[58]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[58]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[32]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[32]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[45]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[45]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[12]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[12]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[19]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[19]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[3]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[3]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[44]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[44]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[4]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[4]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[59]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[59]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[21]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[21]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[46]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[46]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[57]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[57]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[15]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[15]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[54]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[54]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[51]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[51]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[47]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[47]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[34]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[34]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[29]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[29]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[62]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[62]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[38]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[38]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[40]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[40]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[36]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[36]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[56]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[56]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[16]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[16]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[43]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[43]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[39]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[39]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[50]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[50]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[61]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[61]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[0]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[1]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[2]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[2]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[6]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[6]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[4]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[4]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[3]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[3]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[5]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[5]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[7]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[7]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[10]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[10]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[12]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[12]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[8]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[8]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[14]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[14]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[13]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[13]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[11]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[11]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[9]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[9]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[15]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[15]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[29]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[29]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[16]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[16]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[20]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[20]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[27]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[27]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[25]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[25]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[23]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[23]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[30]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[30]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[26]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[26]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[18]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[18]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[28]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[28]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[17]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[17]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[22]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[22]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[24]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[24]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[19]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[19]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[21]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[21]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[57]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[57]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[37]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[37]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[61]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[61]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[52]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[52]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[53]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[53]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[48]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[48]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[58]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[58]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[44]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[44]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[45]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[45]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[33]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[33]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[38]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[38]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[42]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[42]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[34]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[34]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[60]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[60]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[56]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[56]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[49]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[49]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[54]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[54]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[36]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[36]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[43]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[43]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[41]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[41]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[46]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[46]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[35]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[35]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[31]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[31]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[51]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[51]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[62]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[62]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[50]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[50]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[47]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[47]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[39]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[39]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[32]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[32]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[59]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[59]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[55]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[55]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[40]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[40]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+flux-shell[63]:  WARN: pmix: unknown optional fence attr: pmix.sorted.parr
+flux-shell[63]:  WARN: pmix: unknown optional fence attr: pmix.size.est
+--------------------------------------------------------------------------
+An MPI communication peer process has unexpectedly disconnected.  This
+usually indicates a failure in the peer process (e.g., a crash or
+otherwise exiting without calling MPI_FINALIZE first).
+
+Although this local MPI process will likely now behave unpredictably
+(it may even hang or crash), the root cause of this problem is the
+failure of the peer -- that is what you need to investigate.  For
+example, there may be a core file that you can examine.  More
+generally: such peer hangups are frequently caused by application bugs
+or other external events.
+
+  Local host: flux-sample-4
+  Local PID:  1382
+  Peer host:  flux-sample-0
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: Open MPI failed to TCP connect to a peer MPI process.  This
+should not happen.
+
+Your Open MPI job may now hang or fail.
+
+  Local host: flux-sample-1
+  PID:        1347
+  Message:    connect() to 10.116.56.2:1131 failed
+  Error:      Operation now in progress (115)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: Open MPI failed to TCP connect to a peer MPI process.  This
+WARNING: Open MPI failed to TCP connect to a peer MPI process.  This
+WARNING: Open MPI failed to TCP connect to a peer MPI process.  This
+WARNING: Open MPI failed to TCP connect to a peer MPI process.  This
+WARNING: Open MPI failed to TCP connect to a peer MPI process.  This
+WARNING: Open MPI failed to TCP connect to a peer MPI process.  This
+WARNING: Open MPI failed to TCP connect to a peer MPI process.  This
+WARNING: Open MPI failed to TCP connect to a peer MPI process.  This
+WARNING: Open MPI failed to TCP connect to a peer MPI process.  This
+WARNING: Open MPI failed to TCP connect to a peer MPI process.  This
+WARNING: Open MPI failed to TCP connect to a peer MPI process.  This
+WARNING: Open MPI failed to TCP connect to a peer MPI process.  This
+should not happen.
+should not happen.
+should not happen.
+should not happen.
+should not happen.
+should not happen.
+should not happen.
+should not happen.
+should not happen.
+should not happen.
+should not happen.
+should not happen.
+
+
+
+
+
+
+
+
+
+
+
+
+Your Open MPI job may now hang or fail.
+Your Open MPI job may now hang or fail.
+Your Open MPI job may now hang or fail.
+Your Open MPI job may now hang or fail.
+Your Open MPI job may now hang or fail.
+Your Open MPI job may now hang or fail.
+Your Open MPI job may now hang or fail.
+Your Open MPI job may now hang or fail.
+Your Open MPI job may now hang or fail.
+Your Open MPI job may now hang or fail.
+Your Open MPI job may now hang or fail.
+Your Open MPI job may now hang or fail.
+
+
+
+
+
+
+
+
+
+
+
+
+  Local host: flux-sample-6
+  Local host: flux-sample-6
+  Local host: flux-sample-6
+  Local host: flux-sample-6
+  Local host: flux-sample-6
+  Local host: flux-sample-6
+  Local host: flux-sample-6
+  Local host: flux-sample-6
+  Local host: flux-sample-6
+  Local host: flux-sample-6
+  Local host: flux-sample-6
+  Local host: flux-sample-6
+  PID:        1472
+  PID:        1463
+  PID:        1459
+  PID:        1451
+  PID:        1438
+  PID:        1433
+  PID:        1376
+  PID:        1371
+  PID:        1367
+  PID:        1362
+  PID:        1350
+  PID:        1348
+  Message:    connect() to 10.116.54.2:1078 failed
+  Message:    connect() to 10.116.54.2:1065 failed
+  Message:    connect() to 10.116.54.2:1056 failed
+  Message:    connect() to 10.116.54.2:1051 failed
+  Message:    connect() to 10.116.54.2:1070 failed
+  Message:    connect() to 10.116.54.2:1054 failed
+  Message:    connect() to 10.116.54.2:1033 failed
+  Message:    connect() to 10.116.54.2:1037 failed
+  Message:    connect() to 10.116.54.2:1032 failed
+  Message:    connect() to 10.116.54.2:1028 failed
+  Message:    connect() to 10.116.54.2:1024 failed
+  Message:    connect() to 10.116.54.2:1030 failed
+  Error:      Operation now in progress (115)
+  Error:      Operation now in progress (115)
+  Error:      Operation now in progress (115)
+  Error:      Operation now in progress (115)
+  Error:      Operation now in progress (115)
+  Error:      Operation now in progress (115)
+  Error:      Operation now in progress (115)
+  Error:      Operation now in progress (115)
+  Error:      Operation now in progress (115)
+  Error:      Operation now in progress (115)
+  Error:      Operation now in progress (115)
+  Error:      Operation now in progress (115)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: Open MPI failed to TCP connect to a peer MPI process.  This
+should not happen.
+
+Your Open MPI job may now hang or fail.
+
+  Local host: flux-sample-44
+  PID:        1439
+  Message:    connect() to 10.116.7.2:1044 failed
+  Error:      Operation now in progress (115)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: Open MPI failed to TCP connect to a peer MPI process.  This
+should not happen.
+
+Your Open MPI job may now hang or fail.
+
+  Local host: flux-sample-52
+  PID:        1439
+  Message:    connect() to 10.116.17.2:1050 failed
+  Error:      Operation now in progress (115)
+--------------------------------------------------------------------------
