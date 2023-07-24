@@ -12,6 +12,12 @@ cache the DNS query lookups. If the issue is related to this, we could see impro
  - [c2-standard-8-8-local-cache](c2-standard-8-8-local-cache) adding the correct threading / compact mode.
  - [c2d-standard-112-64](c2d-standard-112-64) attempting to run an actual large cluster with chonker machines with LAMMPS
 
+## 2. ARM
+
+We had luck with Graviton instances on AWS (good performance without special fabric) so I thought I'd try an ARM image on GCP.
+
+ - [tau-t2a-standard-48-arm-8](tau-t2a-standard-48-arm-8)
+
 ## Current Conclusions
 
 - The `--addons=NodeLocalDNS` to create a local DNS cache via a daemonset seems to get around the creation issues.
