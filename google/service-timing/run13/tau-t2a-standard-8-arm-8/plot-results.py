@@ -53,7 +53,7 @@ def plot_outputs(df, plotname="lammps", ext="pdf", outdir=None):
     # Let's make a plot that shows distributions of the times by the cluster size, across all
     make_plot(
         df,
-        title="LAMMPS Times For Different Problem and Node Sizes",
+        title="LAMMPS Times Problem Size 2x2x2 on Arm Cluster",
         tag="lammps",
         ydimension="time",
         xdimension="iter",
@@ -63,7 +63,7 @@ def plot_outputs(df, plotname="lammps", ext="pdf", outdir=None):
         plotname=plotname,
         hue="iter",
         plot_type="bar",
-        xlabel="Experiment",
+        xlabel="Node Count (Experiment)",
         ylabel="Time (seconds)",
     )
 
