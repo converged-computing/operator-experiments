@@ -1,0 +1,14 @@
+flux-shell[0]:  WARN: pmix: notify source=f4NVv24kX.49 event-status=-61
+flux-shell[4]:  WARN: pmix: notify source=f4NVv24kX.258 event-status=-61
+flux-shell[7]:  WARN: pmix: notify source=f4NVv24kX.454 event-status=-61
+[flux-sample-4:00758] *** An error occurred in MPI_Send
+[flux-sample-4:00758] *** reported by process [1585514465,281470681743630]
+[flux-sample-4:00758] *** on communicator MPI_COMM_WORLD
+[flux-sample-4:00758] *** MPI_ERR_INTERN: internal error
+[flux-sample-4:00758] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[flux-sample-4:00758] ***    and potentially your MPI job)
+flux-shell[1]:  WARN: pmix: notify source=f4NVv24kX.80 event-status=-61
+flux-shell[2]:  WARN: pmix: notify source=f4NVv24kX.182 event-status=-61
+flux-shell[6]:  WARN: pmix: notify source=f4NVv24kX.424 event-status=-61
+flux-shell[5]:  WARN: pmix: notify source=f4NVv24kX.353 event-status=-61
+flux-shell[3]:  WARN: pmix: notify source=f4NVv24kX.244 event-status=-61
