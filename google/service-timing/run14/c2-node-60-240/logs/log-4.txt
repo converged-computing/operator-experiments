@@ -1,0 +1,129 @@
+root
+Sleeping for 10 seconds waiting for network...
+METADATA START {"pods":2,"completions":2,"metricName":"network-osu-benchmark","metricDescription":"point to point MPI benchmarks","metricType":"standalone","metricOptions":{"completions":0,"rate":10},"metricListOptions":{"commands":["osu_get_acc_latency","osu_get_latency","osu_put_latency","osu_acc_latency","osu_fop_latency"]}}
+METADATA END
+METRICS OPERATOR COLLECTION START
+METRICS OPERATOR TIMEPOINT
+mpirun --hostfile ./hostfile.txt --allow-run-as-root -np 2 ./osu_get_acc_latency
+# OSU MPI_Get_accumulate latency Test v5.8
+# Window creation: MPI_Win_create
+# Synchronization: MPI_Win_lock/unlock
+# Size          Latency (us)
+1                       2.44
+2                       2.45
+4                       2.46
+8                       2.46
+16                      2.45
+32                      2.47
+64                      2.51
+128                     2.55
+256                     2.63
+512                     2.80
+1024                    3.14
+2048                    3.84
+4096                    5.08
+8192                    9.55
+16384                  18.63
+32768                  36.84
+65536                  72.97
+131072                144.98
+262144                294.85
+524288                610.83
+1048576              1214.57
+2097152              2437.85
+4194304              4932.86
+METRICS OPERATOR TIMEPOINT
+mpirun --hostfile ./hostfile.txt --allow-run-as-root -np 2 ./osu_get_latency
+# OSU MPI_Get latency Test v5.8
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size          Latency (us)
+1                       0.09
+2                       0.09
+4                       0.09
+8                       0.09
+16                      0.09
+32                      0.08
+64                      0.08
+128                     0.09
+256                     0.09
+512                     0.09
+1024                    0.10
+2048                    0.10
+4096                    0.12
+8192                    0.14
+16384                   0.38
+32768                   0.96
+65536                   1.72
+131072                  4.41
+262144                  5.90
+524288                 13.96
+1048576                60.35
+2097152               127.43
+4194304               303.13
+METRICS OPERATOR TIMEPOINT
+mpirun --hostfile ./hostfile.txt --allow-run-as-root -np 2 ./osu_put_latency
+# OSU MPI_Put Latency Test v5.8
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size          Latency (us)
+1                       0.08
+2                       0.08
+4                       0.08
+8                       0.08
+16                      0.08
+32                      0.08
+64                      0.08
+128                     0.08
+256                     0.08
+512                     0.09
+1024                    0.10
+2048                    0.11
+4096                    0.14
+8192                    0.20
+16384                   0.47
+32768                   1.37
+65536                   2.73
+131072                  5.17
+262144                 10.35
+524288                 20.50
+1048576                57.04
+2097152               160.15
+4194304               325.54
+METRICS OPERATOR TIMEPOINT
+mpirun --hostfile ./hostfile.txt --allow-run-as-root -np 2 ./osu_acc_latency
+# OSU MPI_Accumulate latency Test v5.8
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size          Latency (us)
+1                       0.17
+2                       0.17
+4                       0.17
+8                       0.17
+16                      0.18
+32                      0.18
+64                      0.20
+128                     0.24
+256                     0.32
+512                     0.46
+1024                    0.73
+2048                    1.27
+4096                    2.41
+8192                    4.60
+16384                   9.13
+32768                  17.98
+65536                  35.65
+131072                 70.92
+262144                141.90
+524288                285.14
+1048576               569.86
+2097152              1141.24
+4194304              2274.85
+METRICS OPERATOR TIMEPOINT
+mpirun --hostfile ./hostfile.txt --allow-run-as-root -np 2 ./osu_fop_latency
+# OSU MPI_Fetch_and_op latency Test v5.8
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size          Latency (us)
+8                       0.17
+METRICS OPERATOR COLLECTION END

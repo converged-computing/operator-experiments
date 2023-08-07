@@ -1,0 +1,129 @@
+root
+Sleeping for 10 seconds waiting for network...
+METADATA START {"pods":2,"completions":2,"metricName":"network-osu-benchmark","metricDescription":"point to point MPI benchmarks","metricType":"standalone","metricOptions":{"completions":0,"rate":10},"metricListOptions":{"commands":["osu_acc_latency","osu_fop_latency","osu_get_acc_latency","osu_get_latency","osu_put_latency"]}}
+METADATA END
+METRICS OPERATOR COLLECTION START
+METRICS OPERATOR TIMEPOINT
+mpirun --hostfile ./hostfile.txt --allow-run-as-root -np 2 ./osu_acc_latency
+# OSU MPI_Accumulate latency Test v5.8
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size          Latency (us)
+1                       0.17
+2                       0.17
+4                       0.17
+8                       0.17
+16                      0.17
+32                      0.18
+64                      0.20
+128                     0.25
+256                     0.31
+512                     0.45
+1024                    0.73
+2048                    1.27
+4096                    2.38
+8192                    4.58
+16384                   9.05
+32768                  17.89
+65536                  35.50
+131072                 70.95
+262144                141.28
+524288                284.18
+1048576               568.60
+2097152              1135.38
+4194304              2272.45
+METRICS OPERATOR TIMEPOINT
+mpirun --hostfile ./hostfile.txt --allow-run-as-root -np 2 ./osu_fop_latency
+# OSU MPI_Fetch_and_op latency Test v5.8
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size          Latency (us)
+8                       0.17
+METRICS OPERATOR TIMEPOINT
+mpirun --hostfile ./hostfile.txt --allow-run-as-root -np 2 ./osu_get_acc_latency
+# OSU MPI_Get_accumulate latency Test v5.8
+# Window creation: MPI_Win_create
+# Synchronization: MPI_Win_lock/unlock
+# Size          Latency (us)
+1                       2.47
+2                       2.47
+4                       2.50
+8                       2.50
+16                      2.47
+32                      2.50
+64                      2.52
+128                     2.57
+256                     2.63
+512                     2.83
+1024                    3.16
+2048                    3.90
+4096                    5.18
+8192                    9.54
+16384                  18.67
+32768                  36.84
+65536                  73.03
+131072                144.10
+262144                292.74
+524288                604.36
+1048576              1213.28
+2097152              2461.63
+4194304              4923.78
+METRICS OPERATOR TIMEPOINT
+mpirun --hostfile ./hostfile.txt --allow-run-as-root -np 2 ./osu_get_latency
+# OSU MPI_Get latency Test v5.8
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size          Latency (us)
+1                       0.09
+2                       0.08
+4                       0.09
+8                       0.09
+16                      0.08
+32                      0.08
+64                      0.09
+128                     0.09
+256                     0.09
+512                     0.09
+1024                    0.10
+2048                    0.11
+4096                    0.12
+8192                    0.14
+16384                   0.38
+32768                   0.93
+65536                   1.69
+131072                  4.40
+262144                  7.86
+524288                 16.63
+1048576                58.01
+2097152               132.49
+4194304               318.62
+METRICS OPERATOR TIMEPOINT
+mpirun --hostfile ./hostfile.txt --allow-run-as-root -np 2 ./osu_put_latency
+# OSU MPI_Put Latency Test v5.8
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size          Latency (us)
+1                       0.09
+2                       0.09
+4                       0.09
+8                       0.08
+16                      0.08
+32                      0.08
+64                      0.08
+128                     0.08
+256                     0.08
+512                     0.09
+1024                    0.10
+2048                    0.11
+4096                    0.14
+8192                    0.20
+16384                   0.46
+32768                   1.45
+65536                   2.88
+131072                  5.47
+262144                 10.62
+524288                 21.47
+1048576                65.05
+2097152               161.08
+4194304               323.41
+METRICS OPERATOR COLLECTION END
