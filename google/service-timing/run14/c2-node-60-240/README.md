@@ -199,4 +199,3 @@ python analyze-logs.py
 - [sole tenancy nodes (GKE)](https://cloud.google.com/kubernetes-engine/docs/how-to/sole-tenancy)
 - [sole tenancy nodes (CE)](https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes#node_types)
 - [pricing](https://cloud.google.com/compute/sole-tenant-pricing#sole-tenant_node_billing)
-- []
