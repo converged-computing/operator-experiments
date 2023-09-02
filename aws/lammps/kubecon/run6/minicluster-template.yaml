@@ -20,7 +20,8 @@ spec:
 
   # This is a list because a pod can support multiple containers
   containers:
-    - image: ghcr.io/rse-ops/spack-ubuntu-libfabric-ssh:ubuntu-20.04
+     # image: ghcr.io/rse-ops/spack-ubuntu-libfabric-ssh:ubuntu-20.04
+    - image: ghcr.io/rse-ops/spack-ubuntu-libfabric-ssh:feb-2023
       workingDir: /home/flux/examples/reaxff/HNS
       command: {{ job.command }}
 
