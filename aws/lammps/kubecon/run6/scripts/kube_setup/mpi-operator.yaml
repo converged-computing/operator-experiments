@@ -480,7 +480,7 @@ spec:
         - -alsologtostderr
         - --lock-namespace
         - mpi-operator
-        image: milroy1/mpi-operator:dev
+        image: ghcr.io/converged-computing/mpi-operator-experiment:feb-2023
         name: mpi-operator
       serviceAccountName: mpi-operator
       tolerations:
