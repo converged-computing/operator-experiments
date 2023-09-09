@@ -1,0 +1,629 @@
+Number of tasks (nproc on one node) is 1
+Number of tasks total (across 64 nodes) is 64
+Sleeping for 60 seconds waiting for network...
+Starting to look for ip addresses...
+Done finding 64 ip addresses
+Hostlist
+10.12.28.4
+10.12.56.3
+10.12.56.7
+10.12.56.6
+10.12.56.4
+10.12.56.5
+10.12.56.9
+10.12.56.8
+10.12.56.15
+10.12.56.13
+10.12.56.14
+10.12.56.11
+10.12.56.16
+10.12.56.17
+10.12.56.12
+10.12.56.10
+10.12.56.22
+10.12.56.19
+10.12.56.18
+10.12.56.23
+10.12.56.21
+10.12.56.24
+10.12.56.26
+10.12.56.27
+10.12.56.28
+10.12.56.35
+10.12.56.29
+10.12.56.30
+10.12.56.32
+10.12.56.33
+10.12.56.34
+10.12.56.20
+10.12.56.38
+10.12.56.52
+10.12.56.54
+10.12.56.63
+10.12.56.56
+10.12.56.58
+10.12.56.59
+10.12.56.51
+10.12.56.57
+10.12.56.64
+10.12.56.65
+10.12.56.61
+10.12.56.60
+10.12.56.62
+10.12.56.40
+10.12.56.37
+10.12.56.42
+10.12.56.46
+10.12.56.47
+10.12.56.50
+10.12.56.53
+10.12.56.55
+10.12.56.39
+10.12.56.25
+10.12.56.43
+10.12.56.45
+10.12.56.48
+10.12.56.31
+10.12.56.41
+10.12.56.44
+10.12.56.49
+10.12.56.36
+Hostlist for Pair to Pair
+10.12.28.4
+10.12.56.3
+METADATA START {"pods":64,"completions":64,"metricName":"network-osu-benchmark","metricDescription":"point to point MPI benchmarks","metricType":"standalone","metricOptions":{"all":"false","flags":"","sole-tenancy":"true","tasks":0,"timed":"true"},"metricListOptions":{"commands":["osu_get_acc_latency","osu_acc_latency","osu_fop_latency","osu_get_latency","osu_put_latency","osu_latency","osu_bibw","osu_bw","osu_put_bw","osu_latency_mp","osu_put_bibw","osu_init","osu_get_bw","osu_ibarrier","osu_cas_latency","osu_latency_mt","osu_hello","osu_barrier","osu_mbw_mr","osu_multi_lat","osu_allgather","osu_allreduce"]}}
+METADATA END
+METRICS OPERATOR COLLECTION START
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_get_acc_latency
+# OSU MPI_Get_accumulate latency Test v5.8
+# Window creation: MPI_Win_create
+# Synchronization: MPI_Win_lock/unlock
+# Size          Latency (us)
+1                     967.39
+2                     233.12
+4                     203.50
+8                     212.01
+16                    191.49
+32                    195.32
+64                    200.25
+128                   209.62
+256                   213.07
+512                   220.97
+1024                  222.55
+2048                  221.45
+4096                  224.98
+8192                  254.81
+16384                 308.08
+32768                 283.21
+65536                 599.93
+131072                709.90
+262144                928.03
+524288               1367.94
+1048576              2338.13
+2097152              4465.36
+4194304              8440.53
+
+real	0m58.422s
+user	0m11.209s
+sys	0m44.946s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_acc_latency
+# OSU MPI_Accumulate latency Test v5.8
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size          Latency (us)
+1                     103.33
+2                     110.64
+4                      99.30
+8                     103.39
+16                    100.38
+32                    109.54
+64                    128.30
+128                   102.13
+256                   106.09
+512                   106.86
+1024                  110.62
+2048                  110.27
+4096                  109.00
+8192                  126.62
+16384                 133.52
+32768                 192.19
+65536                 407.21
+131072                529.70
+262144                681.99
+524288                921.02
+1048576              1580.27
+2097152              3013.85
+4194304              5921.00
+
+real	0m29.506s
+user	0m5.465s
+sys	0m22.874s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_fop_latency
+# OSU MPI_Fetch_and_op latency Test v5.8
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size          Latency (us)
+8                     124.97
+
+real	0m1.790s
+user	0m0.315s
+sys	0m1.046s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_get_latency
+# OSU MPI_Get latency Test v5.8
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size          Latency (us)
+1                     120.85
+2                     118.29
+4                     113.16
+8                     113.53
+16                    119.46
+32                    122.35
+64                    146.69
+128                   146.10
+256                   144.56
+512                   141.45
+1024                  144.29
+2048                  154.98
+4096                  143.21
+8192                  158.18
+16384                 148.07
+32768                 168.06
+65536                 317.21
+131072                381.04
+262144                479.94
+524288                614.48
+1048576               990.78
+2097152              1768.58
+4194304              3599.57
+
+real	0m28.201s
+user	0m5.395s
+sys	0m21.603s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_put_latency
+# OSU MPI_Put Latency Test v5.8
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size          Latency (us)
+1                     122.36
+2                     108.96
+4                     110.85
+8                     107.02
+16                    104.41
+32                    117.05
+64                    135.23
+128                   109.70
+256                   105.64
+512                   119.30
+1024                  118.71
+2048                  117.53
+4096                  122.41
+8192                  135.26
+16384                 161.93
+32768                 171.82
+65536                 436.69
+131072                487.73
+262144                549.33
+524288                691.77
+1048576              1050.84
+2097152              2212.71
+4194304              3996.30
+
+real	0m26.958s
+user	0m4.884s
+sys	0m20.859s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+# OSU MPI Latency Test v5.8
+# Size          Latency (us)
+0                      40.68
+1                      45.56
+2                      43.85
+4                      40.72
+8                      45.13
+16                     40.58
+32                     43.84
+64                     64.08
+128                    61.78
+256                    66.23
+512                    66.48
+1024                   65.56
+2048                   75.95
+4096                   77.45
+8192                   83.00
+16384                  98.63
+32768                 130.30
+65536                 288.73
+131072                337.99
+262144                494.39
+524288                620.65
+1048576              1025.34
+2097152              1988.97
+4194304              3856.82
+
+real	0m35.810s
+user	0m5.749s
+sys	0m28.486s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bibw
+# OSU MPI Bi-Directional Bandwidth Test v5.8
+# Size      Bandwidth (MB/s)
+1                       0.20
+2                       0.41
+4                       0.80
+8                       1.36
+16                      3.15
+32                      6.40
+64                     12.71
+128                    25.90
+256                    47.49
+512                    98.77
+1024                  196.07
+2048                  355.15
+4096                  608.44
+8192                  946.71
+16384                1329.05
+32768                1357.81
+65536                1387.01
+131072               1580.43
+262144               1458.49
+524288               1104.01
+1048576              1019.01
+2097152              1254.53
+4194304               958.63
+
+real	0m23.312s
+user	0m3.173s
+sys	0m18.998s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bw
+# OSU MPI Bandwidth Test v5.8
+# Size      Bandwidth (MB/s)
+1                       0.15
+2                       0.29
+4                       0.56
+8                       1.14
+16                      2.20
+32                      4.51
+64                      7.83
+128                    17.04
+256                    33.76
+512                    68.92
+1024                  110.06
+2048                  255.58
+4096                  498.79
+8192                  792.90
+16384                1135.97
+32768                 954.90
+65536                1210.09
+131072               1223.08
+262144               1223.50
+524288               1102.90
+1048576              1205.61
+2097152              1180.96
+4194304              1209.30
+
+real	0m11.140s
+user	0m1.847s
+sys	0m8.607s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_put_bw
+# OSU MPI_Put Bandwidth Test v5.8
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size      Bandwidth (MB/s)
+1                       0.59
+2                       1.05
+4                       1.85
+8                       3.79
+16                      7.81
+32                     17.02
+64                     29.83
+128                    58.36
+256                    92.35
+512                   163.54
+1024                  263.90
+2048                  387.64
+4096                  457.84
+8192                  527.49
+16384                 822.64
+32768                 715.76
+65536                 855.39
+131072               1055.22
+262144               1241.82
+524288               1200.70
+1048576              1199.18
+2097152              1086.86
+4194304              1114.51
+
+real	0m11.688s
+user	0m2.073s
+sys	0m8.839s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency_mp
+# OSU MPI Multi-process Latency Test v5.8
+# Number of forked processes in sender: 2
+# Number of forked processes in receiver: 2
+# Size          Latency (us)
+0                      36.52
+1                      36.82
+2                      38.98
+4                      43.26
+8                      35.53
+16                     35.80
+32                     37.26
+64                     58.59
+128                    56.61
+256                    61.51
+512                    63.56
+1024                   60.78
+2048                   70.65
+4096                   71.71
+8192                   69.97
+16384                  75.86
+32768                 113.18
+65536                 254.62
+131072                293.25
+262144                437.81
+524288                682.91
+1048576               957.80
+2097152              1836.10
+4194304              3448.66
+
+real	0m32.613s
+user	0m5.096s
+sys	0m25.981s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_put_bibw
+# OSU MPI_Put Bi-directional Bandwidth Test v5.8
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_post/start/complete/wait
+# Size      Bandwidth (MB/s)
+1                       1.12
+2                       2.20
+4                       4.39
+8                       9.06
+16                     18.53
+32                     33.23
+64                     65.92
+128                   130.35
+256                   240.74
+512                   399.14
+1024                  334.65
+2048                  435.52
+4096                  616.36
+8192                  548.38
+16384                1046.00
+32768                1346.63
+65536                1280.17
+131072               1337.54
+262144               1553.62
+524288               1458.37
+1048576              1434.96
+2097152              1516.63
+4194304              1513.30
+
+real	0m17.169s
+user	0m1.922s
+sys	0m14.278s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -np 64 -map-by ppr:1:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/startup/osu_init
+# OSU MPI Init Test v5.8
+nprocs: 64, min: 1398 ms, max: 1701 ms, avg: 1479 ms
+
+real	0m10.484s
+user	0m0.354s
+sys	0m0.641s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_get_bw
+# OSU MPI_Get Bandwidth Test v5.8
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size      Bandwidth (MB/s)
+1                       0.13
+2                       0.26
+4                       0.42
+8                       1.02
+16                      2.06
+32                      4.25
+64                      7.71
+128                    15.36
+256                    22.62
+512                    63.04
+1024                  121.39
+2048                  235.68
+4096                  452.82
+8192                  671.96
+16384                1233.21
+32768                1238.12
+65536                1155.17
+131072               1207.58
+262144               1148.14
+524288               1224.71
+1048576              1093.15
+2097152              1201.75
+4194304              1214.50
+
+real	0m11.439s
+user	0m3.357s
+sys	0m13.226s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -np 64 -map-by ppr:1:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_ibarrier
+
+# OSU MPI Non-blocking Barrier Latency Test v5.8
+# Overall = Coll. Init + Compute + MPI_Test + MPI_Wait
+
+       Overall(us)       Compute(us)    Pure Comm.(us)        Overlap(%)
+         520475.17         290241.13         256691.18             10.31
+
+real	2m7.411s
+user	0m38.235s
+sys	1m15.850s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_cas_latency
+# OSU MPI_Compare_and_swap latency Test v5.8
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size          Latency (us)
+8                     124.69
+
+real	0m1.911s
+user	0m2.804s
+sys	0m4.764s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency_mt
+# Number of Sender threads: 1 
+# Number of Receiver threads: 2
+# OSU MPI Multi-threaded Latency Test v5.8
+# Size          Latency (us)
+0                      50.55
+1                      47.82
+2                      49.45
+4                      50.14
+8                      43.52
+16                     45.46
+32                     46.65
+64                     81.59
+128                    85.38
+256                    81.24
+512                    74.99
+1024                   74.36
+2048                   74.38
+4096                   86.23
+8192                   92.39
+16384                  88.93
+32768                 117.50
+65536                 466.49
+131072                530.21
+262144                772.45
+524288                907.75
+1048576              1812.96
+2097152              3869.81
+4194304              6313.99
+
+real	0m51.489s
+user	0m9.177s
+sys	0m39.501s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -np 64 -map-by ppr:1:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/startup/osu_hello
+# OSU MPI Hello World Test v5.8
+This is a test with 64 processes
+
+real	0m10.483s
+user	0m0.057s
+sys	0m0.094s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -np 64 -map-by ppr:1:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_barrier
+
+# OSU MPI Barrier Latency Test v5.8
+# Avg Latency(us)
+        257353.08
+
+real	4m53.836s
+user	0m43.438s
+sys	4m0.379s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -np 64 -map-by ppr:1:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_mbw_mr
+# OSU MPI Multiple Bandwidth / Message Rate Test v5.8
+# [ pairs: 32 ] [ window size: 64 ]
+# Size                  MB/s        Messages/s
+1                       0.08          76059.89
+2                       0.17          85209.70
+4                       0.35          87215.59
+8                       0.70          87350.63
+16                      1.43          89299.04
+32                      2.77          86560.58
+64                      4.60          71829.22
+128                     9.26          72347.42
+256                    20.20          78893.29
+512                    38.30          74813.50
+1024                   76.65          74854.34
+2048                  135.56          66192.54
+4096                  260.24          63534.70
+8192                  490.37          59859.53
+16384                 603.50          36834.85
+32768                 924.48          28212.87
+65536                 835.61          12750.42
+131072                974.41           7434.18
+262144               1063.22           4055.85
+524288               1080.08           2060.08
+1048576              1030.35            982.62
+2097152              1001.74            477.67
+4194304               992.23            236.57
+
+real	33m39.949s
+user	4m51.626s
+sys	27m56.622s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -np 64 -map-by ppr:1:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_multi_lat
+# OSU MPI Multi Latency Test v5.8
+# Size          Latency (us)
+0                    3044.68
+1                    3065.33
+2                    3086.63
+4                    2975.85
+8                    2882.75
+16                   2787.72
+32                   2783.79
+64                   4033.42
+128                  3920.92
+256                  4237.75
+512                  4234.00
+1024                 4585.10
+2048                 5211.42
+4096                 5272.36
+8192                 5540.22
+16384                5588.62
+32768                7473.70
+65536               19283.01
+131072              22369.71
+262144              29197.81
+524288              34789.65
+1048576             49400.02
+2097152             85310.33
+4194304            157729.23
+
+real	204m28.196s
+user	32m6.411s
+sys	167m39.645s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -np 64 -map-by ppr:1:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_allgather
+
+# OSU MPI Allgather Latency Test v5.8
+# Size       Avg Latency(us)
+1                  256153.75
+2                  256419.24
+4                  255733.85
+8                  257292.16
+16                 256089.31
+32                 256481.62
+64                 255988.02
+128                257387.12
+256                256602.52
+512                257588.14
+1024              1308098.70
+2048              1306422.61
+4096              1311518.21
+8192              1311357.26
+16384             1315375.37
+32768             3600736.73
+65536             3715001.02
+131072            3720411.73
+262144            3792049.28
+524288            3951282.13
+1048576           5553244.52
+
+real	261m44.303s
+user	36m49.467s
+sys	219m10.878s
+METRICS OPERATOR TIMEPOINT
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -np 64 -map-by ppr:1:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_allreduce
+
+# OSU MPI Allreduce Latency Test v5.8
+# Size       Avg Latency(us)
+4                  257460.91
