@@ -1,0 +1,94 @@
+FAST (under 1 minute)
+
+mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -N 2 -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_get_acc_latency
+0m44.707s
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -N 2 -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_acc_latency
+real	0m22.981s
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -N 2 -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_fop_latency
+real	0m1.530s
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -N 2 -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_get_latency
+real	0m24.059s
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -N 2 -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_put_latency
+real	0m20.027s
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -N 2 -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+real	0m26.744s
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -N 2 -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bibw
+real	0m20.329s
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -N 2 -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bw
+real	0m7.422s
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -N 2 -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_put_bw
+real	0m8.178s
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -N 2 -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency_mp
+real	0m27.830s
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -N 2 -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_put_bibw
+real	0m18.092s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/startup/osu_init
+real	0m0.565s
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -N 2 -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_get_bw
+real	0m10.619s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_ibarrier
+real	0m11.329s
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -N 2 -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_cas_latency
+real	0m1.506s
+time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -N 2 -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency_mt
+real	0m45.490s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/startup/osu_hello
+real	0m0.541s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_barrier
+real	0m27.103s
+
+MEDIUM (1-5 minutes)
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_mbw_mr
+real	2m52.219s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_multi_lat
+real	2m22.464s
+
+SLOW (5+ minutes)
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_allreduce
+real	31m28.511s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_allgather
+real	18m12.783s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_allgatherv
+real	17m48.499s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_bcast
+real	14m59.728s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_iscatter
+real	17m28.221s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_iscatterv
+real	16m12.260s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_ialltoall
+real	26m0.617s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_ibcast
+real	21m21.818s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_ireduce
+real	24m10.043s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_gatherv
+real	7m11.352s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_igather
+real	13m55.457s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_ialltoallv
+real	25m53.479s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_iallreduce
+real	45m21.754s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_reduce
+real	24m51.809s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_scatterv
+real	8m5.338s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_iallgather
+real	25m50.212s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_iallgatherv
+real	25m54.216s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_igatherv
+real	12m50.061s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_gather
+real	10m36.316s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_alltoall
+real	19m24.782s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_alltoallv
+real	35m16.425s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_scatter
+real	9m28.548s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_ialltoallw
+real	23m53.778s
+time mpirun --hostfile ./hostlist.txt --allow-run-as-root -N 4 -np 16 -map-by ppr:4:node -rank-by core /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/collective/osu_reduce_scatter
+real	13m37.479s

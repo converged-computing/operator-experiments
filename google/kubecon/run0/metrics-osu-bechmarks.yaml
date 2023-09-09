@@ -1,0 +1,22 @@
+apiVersion: flux-framework.org/v1alpha1
+kind: MetricSet
+metadata:
+  labels:
+    app.kubernetes.io/name: metricset
+    app.kubernetes.io/instance: metricset-sample
+  name: metricset-sample
+spec:
+  # OSU benchmark is point to point and MUST be run with 2 pods
+  pods: 4
+  # Keep it running after for debug
+  logging:
+    interactive: true
+  metrics:
+   - name: network-osu-benchmark
+     # Custom list of commands to run
+     # See https://converged-computing.github.io/metrics-operator/getting_started/metrics.html#network-osu-benchmark
+     options:
+       # Run ALL metrics for now
+       all: "true"
+       # Wrap each one in time
+       timed: "true"

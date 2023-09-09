@@ -87,11 +87,25 @@ Run the plot times script:
 python plot-times.py
 ```
 
+### Notes
+
 A few notes before we look.
 
 - The goal of these runs was to get a general timing for different metrics at different sizes with the goal of running more iterations for actual experiments.
+- That is why the plots have one point for each - it's just one run.
 - I first started with a size 128 cluster but absolutely nothing was moving, so I started instead with 64.
 - I only ran allgather for all sizes as a proxy for allreduce, since they take similar amounts of time. I ran allreduce toward the end to get a sense of that (smallest sizes)
+- I first was running allreduce and allscatter, but at size 64 one took 4 hours ~20 minutes and I decided to run just one as a proxy for the second, and the second I added back at smaller sizes
+- It appears that we can run most of these up to size 32, I'm not sure we can go above 32 for a few runs for the collective ones. They are too slow.
+- These aren't the latency / metric values, but just the time to run the command (but I have full data)
+
+I notice three patterns (each of the categories below)
+
+1. The times are small enough that the behavior looks random at best, and we need more iterations (close / random)
+2. There appears to be randomness, but maybe an inflection (possible scalability issue, TBA)
+3. Increase in size has clear increase in time - more than just linear (scalability issues)
+
+I'm attaching representative images for each category here, see the links above for all metrics, and the repository https://github.com/converged-computing/operator-experiments/tree/main/google/kubecon/run1 has full data and the metrics.yaml files (if you are curious what it looks like to run these!)
 
 ### Close (Random)
 
