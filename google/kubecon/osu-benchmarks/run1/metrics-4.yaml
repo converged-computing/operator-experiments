@@ -1,0 +1,42 @@
+apiVersion: flux-framework.org/v1alpha1
+kind: MetricSet
+metadata:
+  labels:
+    app.kubernetes.io/name: metricset
+    app.kubernetes.io/instance: metricset-4
+  name: metricset-4
+spec:
+  pods: 4
+  logging:
+    interactive: true
+  metrics:
+   - name: network-osu-benchmark
+     listOptions:
+       commands:
+         - osu_get_acc_latency
+         - osu_acc_latency
+         - osu_fop_latency
+         - osu_get_latency
+         - osu_put_latency
+         - osu_latency
+         - osu_bibw
+         - osu_bw
+         - osu_put_bw
+         - osu_latency_mp
+         - osu_put_bibw
+         - osu_init
+         - osu_get_bw
+         - osu_ibarrier
+         - osu_cas_latency
+         - osu_latency_mt
+         - osu_hello
+         - osu_barrier
+         # Medium
+         - osu_mbw_mr
+         - osu_multi_lat
+         # Slow
+         - osu_allgather
+         - osu_allreduce
+
+     options:
+       timed: "true"
