@@ -1,0 +1,17 @@
+METRIC,TIME_SECONDS,SIZE_NODES
+osu_get_acc_latency,62.246,128
+osu_acc_latency,35.767,128
+osu_fop_latency,1.958,128
+osu_get_latency,28.332,128
+osu_put_latency,31.484,128
+osu_latency,41.199,128
+osu_bibw,23.501,128
+osu_bw,10.924,128
+osu_put_bw,11.675,128
+osu_latency_mp,41.881,128
+osu_put_bibw,19.162,128
+osu_init,6.728,128
+osu_get_bw,11.726,128
+osu_cas_latency,2.105,128
+osu_latency_mt,60.758,128
+osu_hello,6.814,128

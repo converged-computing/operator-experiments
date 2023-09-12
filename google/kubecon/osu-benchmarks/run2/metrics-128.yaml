@@ -1,0 +1,47 @@
+apiVersion: flux-framework.org/v1alpha1
+kind: MetricSet
+metadata:
+  labels:
+    app.kubernetes.io/name: metricset
+    app.kubernetes.io/instance: metricset-sample
+  name: metricset-sample
+spec:
+  pods: 128
+  # Keep it running after for debug
+  logging:
+    interactive: true
+  metrics:
+   - name: network-osu-benchmark
+
+     # Ensure 1:1 mapping
+     #resources:
+     #  limits:
+     #    memory: 5
+     #  requests:
+     #    memory: 5
+
+     # Custom list of commands to run
+     # See https://converged-computing.github.io/metrics-operator/getting_started/metrics.html#network-osu-benchmark
+     listOptions:
+       commands:
+        - osu_get_acc_latency
+        - osu_acc_latency
+        - osu_fop_latency
+        - osu_get_latency
+        - osu_put_latency
+        - osu_latency
+        - osu_bibw
+        - osu_bw
+        - osu_put_bw
+        - osu_latency_mp
+        - osu_put_bibw
+        - osu_init
+        - osu_get_bw
+        - osu_cas_latency
+        - osu_latency_mt
+        - osu_hello
+     options:
+       # Wrap each one in time
+       timed: "true"
+       # Affinity rules aren't working - try resources instead
+       # sole-tenancy: "false"
