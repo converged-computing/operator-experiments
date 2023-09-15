@@ -1,0 +1,23 @@
+apiVersion: flux-framework.org/v1alpha1
+kind: MetricSet
+metadata:
+  labels:
+    app.kubernetes.io/name: metricset
+    app.kubernetes.io/instance: metricset-sample
+  name: metricset-sample
+spec:
+  pods: 4
+  # Keep it running after for debug
+  metrics:
+   - name: network-osu-benchmark
+
+     # Custom list of commands to run
+     # See https://converged-computing.github.io/metrics-operator/getting_started/metrics.html#network-osu-benchmark
+     listOptions:
+       commands:
+        - osu_get_acc_latency
+        - osu_acc_latency
+        - osu_fop_latency
+     options:
+       # Wrap each one in time
+       timed: "true"

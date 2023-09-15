@@ -1,0 +1,147 @@
+[
+    {
+        "data": [
+            "Number of tasks (nproc on one node) is 1",
+            "Number of tasks total (across 4 nodes) is 4",
+            "Sleeping for 60 seconds waiting for network...",
+            "Starting to look for ip addresses...",
+            "Done finding 4 ip addresses",
+            "Hostlist",
+            "10.12.1.21",
+            "10.12.0.18",
+            "10.12.4.10",
+            "10.12.5.8",
+            "Hostlist for Pair to Pair",
+            "10.12.1.21",
+            "10.12.0.18",
+            "METADATA START {\"pods\":4,\"completions\":4,\"metricName\":\"network-osu-benchmark\",\"metricDescription\":\"point to point MPI benchmarks\",\"metricType\":\"standalone\",\"metricOptions\":{\"all\":\"false\",\"flags\":\"\",\"sole-tenancy\":\"true\",\"tasks\":0,\"timed\":\"true\"},\"metricListOptions\":{\"commands\":[\"osu_get_acc_latency\",\"osu_acc_latency\",\"osu_fop_latency\"]}}",
+            "METADATA END",
+            "METRICS OPERATOR COLLECTION START",
+            "METRICS OPERATOR TIMEPOINT",
+            "time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_get_acc_latency",
+            "# OSU MPI_Get_accumulate latency Test v5.8",
+            "# Window creation: MPI_Win_create",
+            "# Synchronization: MPI_Win_lock/unlock",
+            "# Size          Latency (us)",
+            "1                     122.95",
+            "2                     125.95",
+            "4                     122.77",
+            "8                     123.18",
+            "16                    122.29",
+            "32                    122.29",
+            "64                    141.27",
+            "128                   143.82",
+            "256                   142.80",
+            "512                   147.99",
+            "1024                  148.75",
+            "2048                  151.42",
+            "4096                  156.78",
+            "8192                  153.54",
+            "16384                 148.54",
+            "32768                 179.46",
+            "65536                 412.18",
+            "131072                513.02",
+            "262144                718.38",
+            "524288               1164.32",
+            "1048576              2032.10",
+            "2097152              3710.64",
+            "4194304              7206.38",
+            "real\t0m36.236s",
+            "user\t0m5.898s",
+            "sys\t0m28.855s",
+            "METRICS OPERATOR TIMEPOINT",
+            "time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_acc_latency",
+            "# OSU MPI_Accumulate latency Test v5.8",
+            "# Window creation: MPI_Win_allocate",
+            "# Synchronization: MPI_Win_flush",
+            "# Size          Latency (us)",
+            "1                      71.99",
+            "2                      71.29",
+            "4                      71.94",
+            "8                      73.09",
+            "16                     70.61",
+            "32                     71.07",
+            "64                     70.73",
+            "128                    74.27",
+            "256                    73.53",
+            "512                    71.23",
+            "1024                   72.55",
+            "2048                   81.92",
+            "4096                   80.40",
+            "8192                   86.54",
+            "16384                  97.75",
+            "32768                 129.82",
+            "65536                 281.20",
+            "131072                367.03",
+            "262144                475.68",
+            "524288                801.35",
+            "1048576              1338.29",
+            "2097152              2519.90",
+            "4194304              4760.83",
+            "real\t0m21.926s",
+            "user\t0m3.638s",
+            "sys\t0m17.168s",
+            "METRICS OPERATOR TIMEPOINT",
+            "time mpirun --hostfile ./hostlist-pairs.txt --allow-run-as-root -np 2 -map-by ppr:1:node /opt/osu-benchmark/build.openmpi/libexec/osu-micro-benchmarks/mpi/one-sided/osu_fop_latency",
+            "# OSU MPI_Fetch_and_op latency Test v5.8",
+            "# Window creation: MPI_Win_allocate",
+            "# Synchronization: MPI_Win_flush",
+            "# Size          Latency (us)",
+            "8                      76.33",
+            "real\t0m1.287s",
+            "user\t0m0.221s",
+            "sys\t0m0.669s",
+            "METRICS OPERATOR COLLECTION END"
+        ],
+        "metadata": {
+            "pods": 4,
+            "completions": 4,
+            "metricName": "network-osu-benchmark",
+            "metricDescription": "point to point MPI benchmarks",
+            "metricType": "standalone",
+            "metricOptions": {
+                "all": "false",
+                "flags": "",
+                "sole-tenancy": "true",
+                "tasks": 0,
+                "timed": "true"
+            },
+            "metricListOptions": {
+                "commands": [
+                    "osu_get_acc_latency",
+                    "osu_acc_latency",
+                    "osu_fop_latency"
+                ]
+            }
+        },
+        "spec": {
+            "apiVersion": "flux-framework.org/v1alpha1",
+            "kind": "MetricSet",
+            "metadata": {
+                "labels": {
+                    "app.kubernetes.io/name": "metricset",
+                    "app.kubernetes.io/instance": "metricset-sample"
+                },
+                "name": "metricset-sample"
+            },
+            "spec": {
+                "pods": 4,
+                "metrics": [
+                    {
+                        "name": "network-osu-benchmark",
+                        "listOptions": {
+                            "commands": [
+                                "osu_get_acc_latency",
+                                "osu_acc_latency",
+                                "osu_fop_latency"
+                            ]
+                        },
+                        "options": {
+                            "timed": "true"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+]
