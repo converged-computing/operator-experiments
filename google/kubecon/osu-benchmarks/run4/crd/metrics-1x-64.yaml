@@ -1,0 +1,23 @@
+apiVersion: flux-framework.org/v1alpha1
+kind: MetricSet
+metadata:
+  labels:
+    app.kubernetes.io/name: metricset
+    app.kubernetes.io/instance: metricset-sample
+  name: metricset-sample
+spec:
+  pods: 64
+  metrics:
+   - name: network-osu-benchmark
+     # Custom list of commands to run
+     # See https://converged-computing.github.io/metrics-operator/getting_started/metrics.html#network-osu-benchmark
+     listOptions:
+       commands:
+        - osu_ibarrier
+        - osu_mbw_mr
+        - osu_multi_lat
+        - osu_allgather
+        - osu_allreduce
+     options:
+       # Wrap each one in time
+       timed: "true"
