@@ -1,3 +1,0 @@
-metricsoperator==0.0.19
-seaborn
-pandas
