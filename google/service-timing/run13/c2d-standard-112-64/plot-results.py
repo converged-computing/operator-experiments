@@ -19,6 +19,7 @@ def read_json(filename):
         content = json.loads(fd.read())
     return content
 
+
 def recursive_find(base, pattern="json"):
     """
     Recursively find lammps output files.
@@ -49,10 +50,6 @@ def plot_outputs(df, plotname="lammps", ext="pdf", outdir=None):
     if not os.path.exists(outdir):
         os.makedirs(outdir)
 
-    import IPython
-    IPython.embed()
-    sys.exit()
-
     # Let's make a plot that shows distributions of the times by the cluster size, across all
     make_plot(
         df,
@@ -72,10 +69,11 @@ def plot_outputs(df, plotname="lammps", ext="pdf", outdir=None):
 
     colors = sns.color_palette("hls", 8)
     hexcolors = colors.as_hex()
-    small = df[df.problem_size=="small"]
-    small.experiment = [int(x.replace('size_', "").replace('_small', '')) for x in small.experiment]
-    small = small.sort_values(by='experiment')
-    types = list(large.experiment.unique())
+    small = df[df.problem_size == "small"]
+    small.experiment = [
+        int(x.replace("size_", "").replace("_small", "")) for x in small.experiment
+    ]
+    small = small.sort_values(by="experiment")
     types.sort()
 
     types = list(small.experiment.unique())
@@ -85,7 +83,7 @@ def plot_outputs(df, plotname="lammps", ext="pdf", outdir=None):
     palette = collections.OrderedDict()
     for t in types:
         palette[t] = hexcolors.pop(0)
-    
+
     # That's not great - let's split into large and small
     make_plot(
         small,
@@ -103,12 +101,12 @@ def plot_outputs(df, plotname="lammps", ext="pdf", outdir=None):
         ylabel="Time (seconds)",
     )
 
-
+    # Make one more concise plot with ranks, and just for the large problem size
     colors = sns.color_palette("hls", 8)
     hexcolors = colors.as_hex()
-    large = df[df.problem_size=="large"]
-    large.experiment = [int(x.replace('size_', "")) for x in large.experiment]
-    large = large.sort_values(by='experiment')
+    large = df[df.problem_size == "large"]
+    large.experiment = [int(x.replace("size_", "")) for x in large.experiment]
+    large = large.sort_values(by="experiment")
     types = list(large.experiment.unique())
     types.sort()
 
@@ -117,7 +115,7 @@ def plot_outputs(df, plotname="lammps", ext="pdf", outdir=None):
     palette = collections.OrderedDict()
     for t in types:
         palette[t] = hexcolors.pop(0)
-    
+
     # That's not great - let's split into large and small
     make_plot(
         large,
@@ -131,7 +129,7 @@ def plot_outputs(df, plotname="lammps", ext="pdf", outdir=None):
         plotname=plotname,
         hue="experiment",
         plot_type="bar",
-        xlabel="Experiment",
+        xlabel="Experiment Nodes",
         ylabel="Time (seconds)",
     )
 
@@ -179,9 +177,7 @@ def get_parser():
     Process results file into plots.
     """
     parser = argparse.ArgumentParser(description="Plot LAMMPS outputs")
-    parser.add_argument(
-        "data", help="data directory", default="data", nargs="?"
-    )
+    parser.add_argument("data", help="data directory", default="data", nargs="?")
     parser.add_argument(
         "-o",
         "--outdir",
@@ -197,30 +193,32 @@ def get_parser():
     )
     return parser
 
+
 def read_data(dirname):
     """
     Read data into dataframe for plotting.
     """
-    df = pandas.DataFrame(columns=["experiment", "iter", "time", "problem_size"])   
+    df = pandas.DataFrame(columns=["experiment", "iter", "time", "problem_size"])
     idx = 0
     for datafile in recursive_find(dirname):
         if "nodes.json" in datafile or "pods.json" in datafile:
             continue
-        if not os.path.basename(datafile).startswith('lammps'):
+        if not os.path.basename(datafile).startswith("lammps"):
             continue
         res = read_json(datafile)
-        iter = int(os.path.basename(datafile).split('-')[1])
+        iter = int(os.path.basename(datafile).split("-")[1])
 
         # Kind of janky!
         experiment = os.path.basename(os.path.dirname(datafile))
         problem_size = "large"
         if "small" in experiment:
             problem_size = "small"
-        df.loc[idx, :] = [experiment, iter, res['runtime'], problem_size]
-        idx +=1
+        df.loc[idx, :] = [experiment, iter, res["runtime"], problem_size]
+        idx += 1
 
-    df.to_csv(os.path.join(dirname, 'results.csv'))
+    df.to_csv(os.path.join(dirname, "results.csv"))
     return df
+
 
 def main():
     """
@@ -232,6 +230,7 @@ def main():
         sys.exit(f"{args.data} does not exist.")
     data = read_data(args.data)
     plot_outputs(data, ext=args.extension, outdir=args.outdir)
+
 
 if __name__ == "__main__":
     main()

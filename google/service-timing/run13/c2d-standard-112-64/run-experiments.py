@@ -164,7 +164,6 @@ def main():
         print(f"Submit {jobid}: {count} of {args.times}")
         jobs.append(jobid)
 
-
     # At this point all jobs are submit, and each should use all resources
     # so we *should* be running one at a time. Now we can wait for each to save output, etc.
     # Wait for futures
@@ -189,6 +188,7 @@ def main():
         with open(outfile, "w") as fd:
             fd.write(json.dumps(info, indent=4))
     print("Jobs are complete, goodbye! 👋️")
+
 
 if __name__ == "__main__":
     main()
