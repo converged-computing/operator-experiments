@@ -163,11 +163,11 @@ def make_plot(
     ax = plotfunc(
         x=xdimension, y=ydimension, hue=hue, data=df, whis=[5, 95], palette=palette
     )
-    plt.title(title)
-    ax.set_xlabel(xlabel, fontsize=16)
-    ax.set_ylabel(ylabel, fontsize=16)
-    ax.set_xticklabels(ax.get_xmajorticklabels(), fontsize=14)
-    ax.set_yticklabels(ax.get_yticks(), fontsize=14)
+    plt.title(title, fontsize=20)
+    ax.set_xlabel(xlabel, fontsize=20)
+    ax.set_ylabel(ylabel, fontsize=20)
+    ax.set_xticklabels(ax.get_xmajorticklabels(), fontsize=20)
+    ax.set_yticklabels(ax.get_yticks(), fontsize=20)
     plt.savefig(os.path.join(outdir, f"{tag}_{plotname}.{ext}"))
     plt.clf()
 
