@@ -63,8 +63,40 @@ done
 
 What isn't clear is if the actual timing of pods will get in the way...
 
-### 3. Process Result Data
+### 4. Process Result Data
 
 ```bash
 python analyze-results.py data/
 ```
+
+### 5. View Results
+
+Here is an overview of times:
+
+
+I'm wondering how the watch loop influences the "all" create times? And if there are any other issues in the experiment running design.
+
+#### ContainersReady
+
+![img/times-experiment-containersready_times-experiments-containersready.png](img/times-experiment-containersready_times-experiments-containersready.png)
+
+#### Initialized
+
+![img/times-experiment-initialized_times-experiments-initialized.png](img/times-experiment-initialized_times-experiments-initialized.png)
+
+#### PodScheduled
+
+![img/times-experiment-podscheduled_times-experiments-podscheduled.png](img/times-experiment-podscheduled_times-experiments-podscheduled.png)
+
+#### Ready
+
+![img/times-experiment-ready_times-experiments-ready.png](img/times-experiment-ready_times-experiments-ready.png)
+
+#### Create Times (all)
+
+![img/times-experiment-watch_create_times-experiments-watch_create.png](img/times-experiment-watch_create_times-experiments-watch_create.png)
+
+
+#### Delete Times (all)
+
+![img/times-experiment-watch_delete_times-experiments-watch_delete.png](img/times-experiment-watch_delete_times-experiments-watch_delete.png)

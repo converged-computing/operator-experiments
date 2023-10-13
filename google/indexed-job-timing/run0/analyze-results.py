@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
-# Launch jobs and watch for pods events. We only care about the ids and when they are created
-# and then we can compare between cases. Since we have a small testing cluster here (kind)
-# we will only do small tests.
+# Analyze results for pod events and make summary plots.
 import argparse
 import collections
 import json
