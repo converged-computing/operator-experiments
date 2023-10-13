@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-[[index]]
+spec:
+  containers:
+  - name: worker
+    image: docker.io/library/busybox
+    command: [sleep, infinity]

@@ -4,11 +4,11 @@
 # and then we can compare between cases. Since we have a small testing cluster here (kind)
 # we will only do small tests.
 import argparse
+import json
 import os
 import re
-import time
-import json
 import sys
+import time
 from datetime import datetime, timezone
 from functools import partial, update_wrapper
 
@@ -82,6 +82,7 @@ def get_parser():
     parser.add_argument(
         "--size", help="Number of pods for indexed job or other", type=int
     )
+    parser.add_argument("--idx", help="Index for experiment run")
     parser.add_argument(
         "--namespace",
         help="Kubernetes namespace",
@@ -93,12 +94,6 @@ def get_parser():
 
 def datetime_utcnow_str():
     return datetime.now(tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-
-
-def str_to_datetime(datetime_str_obj):
-    return datetime.strptime(datetime_str_obj, "%Y-%m-%dT%H:%M:%SZ").replace(
-        tzinfo=timezone.utc
-    )
 
 
 def read_file(filename):
@@ -117,7 +112,7 @@ def read_yaml(filename):
 
 
 class Experiment:
-    def __init__(self, yaml_file, size):
+    def __init__(self, yaml_file, outdir, size, idx=None):
         self.yaml_file = os.path.abspath(yaml_file)
         # Only read the first to get namespace, etc.
         self.raw = read_file(self.yaml_file)
@@ -125,6 +120,21 @@ class Experiment:
         self.times = {}
         self.events = {}
         self.size = size
+        self.idx = idx
+        self.setup(outdir, idx)
+
+    def setup(self, outdir, idx):
+        """
+        Setup the output directory and set the experiment name
+        """
+        experiment_name = os.path.basename(self.yaml_file).split(".", 1)[0]
+        if idx:
+            experiment_name = f"{experiment_name}-{idx}"
+        self.outdir = os.path.join(outdir, str(self.size), experiment_name)
+        if not os.path.exists(self.outdir):
+            print(f"📁️ Creating output directory {self.outdir}")
+            os.makedirs(self.outdir)
+        self.experiment_name = experiment_name
 
     def __str__(self):
         return os.path.basename(self.yaml_file).split(".", 1)[0]
@@ -164,12 +174,20 @@ class Experiment:
     def name(self):
         return self.spec["metadata"]["name"]
 
-    def save(self, outfile):
+    def save(self):
         """
         Save data to file
         """
+        outfile = os.path.join(self.outdir, "events.json")
         print(f"Saving result for {self} to {outfile}")
-        result = {"events": self.events, "times": self.times}
+        result = {
+            "events": self.events,
+            "times": self.times,
+            "size": self.size,
+            "spec": self.spec,
+            "iteration": self.idx,
+            "experiment": self.experiment_name,
+        }
         write_json(result, outfile)
 
     @timed
@@ -240,20 +258,30 @@ class Experiment:
 def is_creation_done(event):
     """
     Determine if creation is done based on all statuses being true
-    and the pod is Running
+    and the pod is Running. Specifically we need to find:
+
+    phase: Running:
+    conditions:
+      Initialized: True
+      Ready: True
+      ContainersReady: True
+      PodSCheduled: True
     """
     phase = event["raw_object"]["status"]["phase"].lower()
-    return phase == "running" and all(
-        [x["status"] == "True" for x in event["raw_object"]["status"]["conditions"]]
+    conditions = event["raw_object"]["status"]["conditions"]
+    return (
+        phase == "running"
+        and all([x["status"] == "True" for x in conditions])
+        and len(conditions) == 4
     )
 
 
-def run_experiment(experiment_yaml, outfile, size):
+def run_experiment(experiment_yaml, outdir, size, idx=None):
     """
     Run experiments to watch a pod. We assume the default namespace
     """
     # Time creation, if there are trivial differences (probably not)
-    test = Experiment(experiment_yaml, size)
+    test = Experiment(experiment_yaml, size=size, idx=idx, outdir=outdir)
     test.create()
 
     # Create and watch until all are running and statuses all True
@@ -262,7 +290,7 @@ def run_experiment(experiment_yaml, outfile, size):
     test.delete()
     test.watch_delete()
     print(f"All pods for {test} are deleted")
-    test.save(outfile)
+    test.save()
 
 
 def main():
@@ -280,17 +308,9 @@ def main():
 
     # Run each experiment file separately
     for experiment_yaml in recursive_find(args.input, "[.](yml|yaml)$"):
-        experiment_name = os.path.basename(experiment_yaml).split(".", 1)[0]
-        outdir = os.path.join(args.outdir, experiment_name)
-        if not os.path.exists(outdir):
-            print(f"📁️ Creating output directory {outdir}")
-            os.makedirs(outdir)
-
-        # Output file for events
-        outfile = os.path.join(outdir, "events.json")
-
-        # Run the experiment!
-        run_experiment(experiment_yaml, outfile, args.size)
+        run_experiment(
+            experiment_yaml, outdir=args.outdir, size=args.size, idx=args.idx
+        )
 
 
 if __name__ == "__main__":
