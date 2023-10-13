@@ -4,13 +4,18 @@
 # and then we can compare between cases. Since we have a small testing cluster here (kind)
 # we will only do small tests.
 import argparse
+import collections
 import json
 import os
 import re
 import sys
 from datetime import datetime, timezone
 
+import matplotlib.pylab as plt
 import pandas
+import seaborn as sns
+
+plt.style.use("bmh")
 
 # Save data here
 here = os.path.dirname(os.path.abspath(__file__))
@@ -145,7 +150,7 @@ def read_data(files):
             for key in ["PodScheduled", "Initialized", "Ready", "ContainersReady"]:
                 offset = get_first_occurrence(timestamps[key], True, created_at)
                 seconds = offset.total_seconds()
-                print(f"Pod {pod_name} had status {key} in {seconds} seconds")
+                # print(f"Pod {pod_name} had status {key} in {seconds} seconds")
 
                 # columns=["time_seconds", "event", "pod", "size", "experiment", "iteration"]
                 df.loc[idx, :] = [seconds, key, pod_name, size, experiment, iteration]
@@ -172,9 +177,92 @@ def main():
     files = list(recursive_find(args.data, "[.]json$"))
 
     # Generate a pandas data frame of parsed results
+    print(f"🤓️ Reading data for {len(files)} files...")
     df = read_data(files)
-    print(df.groupby(["event", "experiment"]).mean())
+    groups = df.groupby(["event", "experiment", "size"]).mean()
+    groups.to_csv(os.path.join(args.outdir, "pod-times-grouped.csv"))
+    print(groups)
+    if not os.path.exists(args.outdir):
+        os.makedirs(args.outdir)
     df.to_csv(os.path.join(args.outdir, "pod-times.csv"))
+
+    # plot the results!
+    plot_data(df, args.outdir)
+
+
+def plot_data(df, outdir):
+    """
+    Plot results into data frame
+    """
+    # Plot each!
+    colors = sns.color_palette("hls", 16)
+    hexcolors = colors.as_hex()
+    types = list(df["experiment"].unique())
+    types.sort()
+
+    # ALWAYS double check this ordering, this
+    # is almost always wrong and the colors are messed up
+    palette = collections.OrderedDict()
+    for t in types:
+        palette[t] = hexcolors.pop(0)
+
+    # Create a plot for each pod type, colored by size
+    # This shows the distribution of times across sizes
+    for event in df.event.unique():
+        slug = event.lower()
+        subset = df[df.event == event]
+        make_plot(
+            subset,
+            title=f"Pod vs. Indexed Job {event} Times (local run with Kind)",
+            tag=f"times-experiment-{slug}",
+            ydimension="time_seconds",
+            xdimension="size",
+            palette=palette,
+            outdir=outdir,
+            ext="png",
+            plotname=f"times-experiments-{slug}",
+            hue="experiment",
+            plot_type="bar",
+            xlabel="Number of pods",
+            ylabel="Time (seconds)",
+        )
+
+
+def make_plot(
+    df,
+    title,
+    tag,
+    ydimension,
+    xdimension,
+    palette,
+    xlabel,
+    ylabel,
+    ext="pdf",
+    plotname="lammps",
+    plot_type="violin",
+    hue="ranks",
+    outdir="img",
+):
+    """
+    Helper function to make common plots.
+    """
+    plotfunc = sns.boxplot
+    if plot_type == "violin":
+        plotfunc = sns.violinplot
+
+    ext = ext.strip(".")
+    plt.figure(figsize=(20, 12))
+    sns.set_style("dark")
+    ax = plotfunc(
+        x=xdimension, y=ydimension, hue=hue, data=df, whis=[5, 95], palette=palette
+    )
+    plt.title(title)
+    ax.set_xlabel(xlabel, fontsize=16)
+    ax.set_ylabel(ylabel, fontsize=16)
+    ax.set_xticklabels(ax.get_xmajorticklabels(), fontsize=14)
+    ax.set_yticklabels(ax.get_yticks(), fontsize=14)
+    plt.savefig(os.path.join(outdir, f"{tag}_{plotname}.{ext}"))
+    plt.clf()
 
 
 if __name__ == "__main__":

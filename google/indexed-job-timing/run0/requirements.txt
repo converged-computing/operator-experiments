@@ -1,2 +1,4 @@
 kubernetes
 pyaml
+pandas
+seaborn

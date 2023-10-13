@@ -268,7 +268,7 @@ def is_creation_done(event):
       PodSCheduled: True
     """
     phase = event["raw_object"]["status"]["phase"].lower()
-    conditions = event["raw_object"]["status"]["conditions"]
+    conditions = event["raw_object"]["status"].get("conditions", [])
     return (
         phase == "running"
         and all([x["status"] == "True" for x in conditions])

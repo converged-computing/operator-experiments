@@ -56,7 +56,7 @@ Definitions can be found [here](https://kubernetes.io/docs/concepts/workloads/po
 
 ## Things to Look at
 
-- First creation with container pulls vs not
-- Creation times for each over time
+- First creation with container pulls vs not (not done yet, requires deleting cluster each time)
+- Creation times for each over time (this is what we are currently looking at)
 - Overall variability 
 - Time to go from False to True for each status
