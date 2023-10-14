@@ -4,7 +4,7 @@ This is a continuation of [early testing](../../google/indexed-job-timing) to lo
 of running locally with kind, here we will run on an actual cluster.
 
 - [run0](run0): testing on 1 x m5.16xlarge instances to see how many pods it actually allows, and total time it takes.
-- [run1](run1): testing on N x m5.16xlarge instances to try to scale up to 1k pods.
+- [run1](run1): testing on 4 x m5.16xlarge instances to try to scale up to just under 1k pods.
 
 I am reproducing the documentation there here so it is clear about the strategy for assessing times. If there is a flaw here
 the experiments and data are not useful.
