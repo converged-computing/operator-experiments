@@ -189,7 +189,7 @@ cd experiments/lammps
 kubectl apply -f lammps_mpijob.yaml
 ```
 
-Note some changes detailed [here]() about PodGroup (that are reflected in the lammps yaml above).
+Note some changes detailed [here](https://github.com/kubernetes-sigs/scheduler-plugins/tree/master/pkg/coscheduling#podgroup) about PodGroup (that are reflected in the lammps yaml above).
 Note that I got some errors in the launcher:
 
 ```bash
