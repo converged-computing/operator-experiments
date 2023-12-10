@@ -1,0 +1,821 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      batch.kubernetes.io/job-completion-index: "0"
+    creationTimestamp: "2023-12-09T21:59:59Z"
+    finalizers:
+    - batch.kubernetes.io/job-tracking
+    generateName: flux-sample-0-
+    labels:
+      app.kubernetes.io/name: flux-sample
+      batch.kubernetes.io/controller-uid: 4996074d-2b60-45c9-862c-9691675a1771
+      batch.kubernetes.io/job-name: flux-sample
+      controller-uid: 4996074d-2b60-45c9-862c-9691675a1771
+      hpa-selector: flux-sample
+      job-index: "0"
+      job-name: flux-sample
+      namespace: default
+    name: flux-sample-0-tpl7n
+    namespace: default
+    ownerReferences:
+    - apiVersion: batch/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Job
+      name: flux-sample
+      uid: 4996074d-2b60-45c9-862c-9691675a1771
+    resourceVersion: "9040"
+    uid: 02b6f086-904c-4d84-950d-74aa0e339660
+  spec:
+    containers:
+    - command:
+      - /bin/bash
+      - /flux_operator/wait-0.sh
+      env:
+      - name: JOB_COMPLETION_INDEX
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.annotations['batch.kubernetes.io/job-completion-index']
+      image: rockylinux:9
+      imagePullPolicy: IfNotPresent
+      lifecycle: {}
+      name: flux-sample
+      resources:
+        limits:
+          cpu: "40"
+          memory: 200M
+        requests:
+          cpu: "40"
+          memory: 200M
+      securityContext:
+        capabilities: {}
+        privileged: false
+      stdin: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      tty: true
+      volumeMounts:
+      - mountPath: /mnt/flux
+        name: flux-view
+      - mountPath: /flux_operator/
+        name: flux-sample-entrypoint
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-k6n9f
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    hostname: flux-sample-0
+    initContainers:
+    - command:
+      - /bin/bash
+      - /flux_operator/flux-init.sh
+      env:
+      - name: JOB_COMPLETION_INDEX
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.annotations['batch.kubernetes.io/job-completion-index']
+      image: ghcr.io/converged-computing/flux-view-rocky:tag-9
+      imagePullPolicy: IfNotPresent
+      name: flux-view
+      resources: {}
+      stdin: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      tty: true
+      volumeMounts:
+      - mountPath: /mnt/flux
+        name: flux-view
+      - mountPath: /flux_operator/
+        name: flux-sample-entrypoint
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-k6n9f
+        readOnly: true
+    nodeName: gke-test-cluster-default-pool-313b602b-qcpf
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: OnFailure
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    setHostnameAsFQDN: false
+    shareProcessNamespace: false
+    subdomain: flux-service
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - emptyDir: {}
+      name: flux-view
+    - configMap:
+        defaultMode: 420
+        items:
+        - key: wait-0
+          mode: 511
+          path: wait-0.sh
+        - key: flux-view
+          mode: 511
+          path: flux-init.sh
+        - key: curve.cert
+          path: curve.cert
+        name: flux-sample-entrypoint
+      name: flux-sample-entrypoint
+    - name: kube-api-access-k6n9f
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2023-12-09T22:00:18Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2023-12-09T22:00:19Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2023-12-09T22:00:19Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2023-12-09T21:59:59Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://6f5ab74eb916db4c89596a4d1f0e87174fc1b58c91b5e46da34bb2af3369270a
+      image: docker.io/library/rockylinux:9
+      imageID: docker.io/library/rockylinux@sha256:c944604c0c759f5d164ffbdf0bbab2fac582b739938937403c067ab634a0518a
+      lastState: {}
+      name: flux-sample
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2023-12-09T22:00:18Z"
+    hostIP: 10.128.0.41
+    initContainerStatuses:
+    - containerID: containerd://4f96b92a85aad387f853f13e65878b6095d17c724759d0543388e64580038179
+      image: ghcr.io/converged-computing/flux-view-rocky:tag-9
+      imageID: ghcr.io/converged-computing/flux-view-rocky@sha256:235d3c387b0a181a3935f3e92792fbca41077f24b98677f5baeada168ea24cb6
+      lastState: {}
+      name: flux-view
+      ready: true
+      restartCount: 0
+      state:
+        terminated:
+          containerID: containerd://4f96b92a85aad387f853f13e65878b6095d17c724759d0543388e64580038179
+          exitCode: 0
+          finishedAt: "2023-12-09T22:00:13Z"
+          reason: Completed
+          startedAt: "2023-12-09T22:00:00Z"
+    phase: Running
+    podIP: 10.8.1.8
+    podIPs:
+    - ip: 10.8.1.8
+    qosClass: Burstable
+    startTime: "2023-12-09T21:59:59Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      batch.kubernetes.io/job-completion-index: "1"
+    creationTimestamp: "2023-12-09T21:59:59Z"
+    finalizers:
+    - batch.kubernetes.io/job-tracking
+    generateName: flux-sample-1-
+    labels:
+      app.kubernetes.io/name: flux-sample
+      batch.kubernetes.io/controller-uid: 4996074d-2b60-45c9-862c-9691675a1771
+      batch.kubernetes.io/job-name: flux-sample
+      controller-uid: 4996074d-2b60-45c9-862c-9691675a1771
+      hpa-selector: flux-sample
+      job-index: "1"
+      job-name: flux-sample
+      namespace: default
+    name: flux-sample-1-qsd65
+    namespace: default
+    ownerReferences:
+    - apiVersion: batch/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Job
+      name: flux-sample
+      uid: 4996074d-2b60-45c9-862c-9691675a1771
+    resourceVersion: "9045"
+    uid: b64875a7-ee7d-419b-9076-b895a2b42aee
+  spec:
+    containers:
+    - command:
+      - /bin/bash
+      - /flux_operator/wait-0.sh
+      env:
+      - name: JOB_COMPLETION_INDEX
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.annotations['batch.kubernetes.io/job-completion-index']
+      image: rockylinux:9
+      imagePullPolicy: IfNotPresent
+      lifecycle: {}
+      name: flux-sample
+      resources:
+        limits:
+          cpu: "40"
+          memory: 200M
+        requests:
+          cpu: "40"
+          memory: 200M
+      securityContext:
+        capabilities: {}
+        privileged: false
+      stdin: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      tty: true
+      volumeMounts:
+      - mountPath: /mnt/flux
+        name: flux-view
+      - mountPath: /flux_operator/
+        name: flux-sample-entrypoint
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-cjrjk
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    hostname: flux-sample-1
+    initContainers:
+    - command:
+      - /bin/bash
+      - /flux_operator/flux-init.sh
+      env:
+      - name: JOB_COMPLETION_INDEX
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.annotations['batch.kubernetes.io/job-completion-index']
+      image: ghcr.io/converged-computing/flux-view-rocky:tag-9
+      imagePullPolicy: IfNotPresent
+      name: flux-view
+      resources: {}
+      stdin: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      tty: true
+      volumeMounts:
+      - mountPath: /mnt/flux
+        name: flux-view
+      - mountPath: /flux_operator/
+        name: flux-sample-entrypoint
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-cjrjk
+        readOnly: true
+    nodeName: gke-test-cluster-default-pool-313b602b-k4zm
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: OnFailure
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    setHostnameAsFQDN: false
+    shareProcessNamespace: false
+    subdomain: flux-service
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - emptyDir: {}
+      name: flux-view
+    - configMap:
+        defaultMode: 420
+        items:
+        - key: wait-0
+          mode: 511
+          path: wait-0.sh
+        - key: flux-view
+          mode: 511
+          path: flux-init.sh
+        - key: curve.cert
+          path: curve.cert
+        name: flux-sample-entrypoint
+      name: flux-sample-entrypoint
+    - name: kube-api-access-cjrjk
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2023-12-09T22:00:18Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2023-12-09T22:00:19Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2023-12-09T22:00:19Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2023-12-09T21:59:59Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://18a6c12920abfdcf38c9828f6782c3795948da0abdd4e8b82d90a8384a07577f
+      image: docker.io/library/rockylinux:9
+      imageID: docker.io/library/rockylinux@sha256:c944604c0c759f5d164ffbdf0bbab2fac582b739938937403c067ab634a0518a
+      lastState: {}
+      name: flux-sample
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2023-12-09T22:00:18Z"
+    hostIP: 10.128.0.47
+    initContainerStatuses:
+    - containerID: containerd://25501b8b9fc3d04863755428419273d33de0731527fdd4dc230c7dc7ea30e7e8
+      image: ghcr.io/converged-computing/flux-view-rocky:tag-9
+      imageID: ghcr.io/converged-computing/flux-view-rocky@sha256:235d3c387b0a181a3935f3e92792fbca41077f24b98677f5baeada168ea24cb6
+      lastState: {}
+      name: flux-view
+      ready: true
+      restartCount: 0
+      state:
+        terminated:
+          containerID: containerd://25501b8b9fc3d04863755428419273d33de0731527fdd4dc230c7dc7ea30e7e8
+          exitCode: 0
+          finishedAt: "2023-12-09T22:00:13Z"
+          reason: Completed
+          startedAt: "2023-12-09T22:00:00Z"
+    phase: Running
+    podIP: 10.8.2.7
+    podIPs:
+    - ip: 10.8.2.7
+    qosClass: Burstable
+    startTime: "2023-12-09T21:59:59Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      batch.kubernetes.io/job-completion-index: "2"
+    creationTimestamp: "2023-12-09T21:59:59Z"
+    finalizers:
+    - batch.kubernetes.io/job-tracking
+    generateName: flux-sample-2-
+    labels:
+      app.kubernetes.io/name: flux-sample
+      batch.kubernetes.io/controller-uid: 4996074d-2b60-45c9-862c-9691675a1771
+      batch.kubernetes.io/job-name: flux-sample
+      controller-uid: 4996074d-2b60-45c9-862c-9691675a1771
+      hpa-selector: flux-sample
+      job-index: "2"
+      job-name: flux-sample
+      namespace: default
+    name: flux-sample-2-h6brh
+    namespace: default
+    ownerReferences:
+    - apiVersion: batch/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Job
+      name: flux-sample
+      uid: 4996074d-2b60-45c9-862c-9691675a1771
+    resourceVersion: "9048"
+    uid: fbb09a14-f8f6-4801-ad33-5d86e420b8a0
+  spec:
+    containers:
+    - command:
+      - /bin/bash
+      - /flux_operator/wait-0.sh
+      env:
+      - name: JOB_COMPLETION_INDEX
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.annotations['batch.kubernetes.io/job-completion-index']
+      image: rockylinux:9
+      imagePullPolicy: IfNotPresent
+      lifecycle: {}
+      name: flux-sample
+      resources:
+        limits:
+          cpu: "40"
+          memory: 200M
+        requests:
+          cpu: "40"
+          memory: 200M
+      securityContext:
+        capabilities: {}
+        privileged: false
+      stdin: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      tty: true
+      volumeMounts:
+      - mountPath: /mnt/flux
+        name: flux-view
+      - mountPath: /flux_operator/
+        name: flux-sample-entrypoint
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-ckdnz
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    hostname: flux-sample-2
+    initContainers:
+    - command:
+      - /bin/bash
+      - /flux_operator/flux-init.sh
+      env:
+      - name: JOB_COMPLETION_INDEX
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.annotations['batch.kubernetes.io/job-completion-index']
+      image: ghcr.io/converged-computing/flux-view-rocky:tag-9
+      imagePullPolicy: IfNotPresent
+      name: flux-view
+      resources: {}
+      stdin: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      tty: true
+      volumeMounts:
+      - mountPath: /mnt/flux
+        name: flux-view
+      - mountPath: /flux_operator/
+        name: flux-sample-entrypoint
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-ckdnz
+        readOnly: true
+    nodeName: gke-test-cluster-default-pool-313b602b-8klj
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: OnFailure
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    setHostnameAsFQDN: false
+    shareProcessNamespace: false
+    subdomain: flux-service
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - emptyDir: {}
+      name: flux-view
+    - configMap:
+        defaultMode: 420
+        items:
+        - key: wait-0
+          mode: 511
+          path: wait-0.sh
+        - key: flux-view
+          mode: 511
+          path: flux-init.sh
+        - key: curve.cert
+          path: curve.cert
+        name: flux-sample-entrypoint
+      name: flux-sample-entrypoint
+    - name: kube-api-access-ckdnz
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2023-12-09T22:00:18Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2023-12-09T22:00:19Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2023-12-09T22:00:19Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2023-12-09T21:59:59Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://6f2c4d7a9fb9c7739a7d4d5b38d9e2a9e65823828921dcf14a47eff13d118ca5
+      image: docker.io/library/rockylinux:9
+      imageID: docker.io/library/rockylinux@sha256:c944604c0c759f5d164ffbdf0bbab2fac582b739938937403c067ab634a0518a
+      lastState: {}
+      name: flux-sample
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2023-12-09T22:00:18Z"
+    hostIP: 10.128.0.48
+    initContainerStatuses:
+    - containerID: containerd://1db84e3bf51d91ae7b7d6fd70f637f486672dc94b0233fb498ebfca6b9f6c3f6
+      image: ghcr.io/converged-computing/flux-view-rocky:tag-9
+      imageID: ghcr.io/converged-computing/flux-view-rocky@sha256:235d3c387b0a181a3935f3e92792fbca41077f24b98677f5baeada168ea24cb6
+      lastState: {}
+      name: flux-view
+      ready: true
+      restartCount: 0
+      state:
+        terminated:
+          containerID: containerd://1db84e3bf51d91ae7b7d6fd70f637f486672dc94b0233fb498ebfca6b9f6c3f6
+          exitCode: 0
+          finishedAt: "2023-12-09T22:00:13Z"
+          reason: Completed
+          startedAt: "2023-12-09T22:00:00Z"
+    phase: Running
+    podIP: 10.8.3.7
+    podIPs:
+    - ip: 10.8.3.7
+    qosClass: Burstable
+    startTime: "2023-12-09T21:59:59Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      batch.kubernetes.io/job-completion-index: "3"
+    creationTimestamp: "2023-12-09T21:59:59Z"
+    finalizers:
+    - batch.kubernetes.io/job-tracking
+    generateName: flux-sample-3-
+    labels:
+      app.kubernetes.io/name: flux-sample
+      batch.kubernetes.io/controller-uid: 4996074d-2b60-45c9-862c-9691675a1771
+      batch.kubernetes.io/job-name: flux-sample
+      controller-uid: 4996074d-2b60-45c9-862c-9691675a1771
+      hpa-selector: flux-sample
+      job-index: "3"
+      job-name: flux-sample
+      namespace: default
+    name: flux-sample-3-rc2ps
+    namespace: default
+    ownerReferences:
+    - apiVersion: batch/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Job
+      name: flux-sample
+      uid: 4996074d-2b60-45c9-862c-9691675a1771
+    resourceVersion: "9059"
+    uid: 712cf076-c715-42bf-84c5-158d2caee1de
+  spec:
+    containers:
+    - command:
+      - /bin/bash
+      - /flux_operator/wait-0.sh
+      env:
+      - name: JOB_COMPLETION_INDEX
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.annotations['batch.kubernetes.io/job-completion-index']
+      image: rockylinux:9
+      imagePullPolicy: IfNotPresent
+      lifecycle: {}
+      name: flux-sample
+      resources:
+        limits:
+          cpu: "40"
+          memory: 200M
+        requests:
+          cpu: "40"
+          memory: 200M
+      securityContext:
+        capabilities: {}
+        privileged: false
+      stdin: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      tty: true
+      volumeMounts:
+      - mountPath: /mnt/flux
+        name: flux-view
+      - mountPath: /flux_operator/
+        name: flux-sample-entrypoint
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-grx82
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    hostname: flux-sample-3
+    initContainers:
+    - command:
+      - /bin/bash
+      - /flux_operator/flux-init.sh
+      env:
+      - name: JOB_COMPLETION_INDEX
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.annotations['batch.kubernetes.io/job-completion-index']
+      image: ghcr.io/converged-computing/flux-view-rocky:tag-9
+      imagePullPolicy: IfNotPresent
+      name: flux-view
+      resources: {}
+      stdin: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      tty: true
+      volumeMounts:
+      - mountPath: /mnt/flux
+        name: flux-view
+      - mountPath: /flux_operator/
+        name: flux-sample-entrypoint
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-grx82
+        readOnly: true
+    nodeName: gke-test-cluster-default-pool-313b602b-7sm4
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: OnFailure
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    setHostnameAsFQDN: false
+    shareProcessNamespace: false
+    subdomain: flux-service
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - emptyDir: {}
+      name: flux-view
+    - configMap:
+        defaultMode: 420
+        items:
+        - key: wait-0
+          mode: 511
+          path: wait-0.sh
+        - key: flux-view
+          mode: 511
+          path: flux-init.sh
+        - key: curve.cert
+          path: curve.cert
+        name: flux-sample-entrypoint
+      name: flux-sample-entrypoint
+    - name: kube-api-access-grx82
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2023-12-09T22:00:19Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2023-12-09T22:00:20Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2023-12-09T22:00:20Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2023-12-09T22:00:00Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://388edac8d32be33696fca0b99b83ab2cfa01ececba6170492eacd59bbb464739
+      image: docker.io/library/rockylinux:9
+      imageID: docker.io/library/rockylinux@sha256:c944604c0c759f5d164ffbdf0bbab2fac582b739938937403c067ab634a0518a
+      lastState: {}
+      name: flux-sample
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2023-12-09T22:00:19Z"
+    hostIP: 10.128.0.13
+    initContainerStatuses:
+    - containerID: containerd://b718754dad0efe0c02a63c3b4dc44aee45de0c329fa5073d42cb3bb18b8fb5e4
+      image: ghcr.io/converged-computing/flux-view-rocky:tag-9
+      imageID: ghcr.io/converged-computing/flux-view-rocky@sha256:235d3c387b0a181a3935f3e92792fbca41077f24b98677f5baeada168ea24cb6
+      lastState: {}
+      name: flux-view
+      ready: true
+      restartCount: 0
+      state:
+        terminated:
+          containerID: containerd://b718754dad0efe0c02a63c3b4dc44aee45de0c329fa5073d42cb3bb18b8fb5e4
+          exitCode: 0
+          finishedAt: "2023-12-09T22:00:14Z"
+          reason: Completed
+          startedAt: "2023-12-09T22:00:01Z"
+    phase: Running
+    podIP: 10.8.0.15
+    podIPs:
+    - ip: 10.8.0.15
+    qosClass: Burstable
+    startTime: "2023-12-09T22:00:00Z"
+kind: List
+metadata:
+  resourceVersion: ""

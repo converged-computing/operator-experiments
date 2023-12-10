@@ -8,6 +8,14 @@ and [a more native approach](https://github.com/GoogleCloudPlatform/scientific-c
 
  - [lammps](lammps)
  - [osu-benchmarks](osu-benchmarks)
+ - [resources](resources): getting more than one flux pod per node working!
+ - [indexed-job-timing](indexed-job-timing): comparison of pods a la-carte vs with indexed jobs.
+ - [autoscale](autoscale): early autoscaling work
+ - [bare-metal-comparison](bare-metal-comparison): attempted start to compare GKE to CE, never went far because we couldn't get compact on CE, and lammps to run on GKE.
+ - [networking](networking) and [service-timing](service-timing): testing a networking bug with a service
+ - [rootless-kubernetes](rootless-kubernetes)
+ - [scheduler](scheduler): testing fluence against the default scheduler
+ - [workflows](workflows)
  
 For all of these examples, you will need a [Google Cloud Project](https://console.cloud.google.com) and to enable the Kubernetes Engine API.
 If you are running these are your personal cloud account, it's recommended to use
