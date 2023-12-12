@@ -1,0 +1,1203 @@
+01: None 00.0: 10105 BIOS
+  [Created at bios.186]
+  Unique ID: rdCR.lZF+r4EgHp4
+  Hardware Class: bios
+  BIOS Keyboard LED Status:
+    Scroll Lock: off
+    Num Lock: off
+    Caps Lock: off
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+02: None 00.0: 10107 System
+  [Created at sys.64]
+  Unique ID: rdCR.n_7QNeEnh23
+  Hardware Class: system
+  Model: "System"
+  Formfactor: "desktop"
+  Driver Info #0:
+    Driver Status: thermal,fan are not active
+    Driver Activation Cmd: "modprobe thermal; modprobe fan"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+03: None 00.0: 10104 FPU
+  [Created at misc.191]
+  Unique ID: rdCR.EMpH5pjcahD
+  Hardware Class: unknown
+  Model: "FPU"
+  I/O Port: 0x00 (rw)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+04: None 00.0: 0801 DMA controller (8237)
+  [Created at misc.205]
+  Unique ID: rdCR.f5u1ucRm+H9
+  Hardware Class: unknown
+  Model: "DMA controller"
+  I/O Port: 0x00 (rw)
+  I/O Port: 0x00 (rw)
+  I/O Port: 0x00 (rw)
+  DMA: 4
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+05: None 00.0: 0800 PIC (8259)
+  [Created at misc.218]
+  Unique ID: rdCR.8uRK7LxiIA2
+  Hardware Class: unknown
+  Model: "PIC"
+  I/O Port: 0x00 (rw)
+  I/O Port: 0x00 (rw)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+06: None 00.0: 0900 Keyboard controller
+  [Created at misc.250]
+  Unique ID: rdCR.9N+EecqykME
+  Hardware Class: unknown
+  Model: "Keyboard controller"
+  I/O Port: 0x00 (rw)
+  I/O Port: 0x00 (rw)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+63: None 00.0: 10102 Main Memory
+  [Created at memory.74]
+  Unique ID: rdCR.CxwsZFjVASF
+  Hardware Class: memory
+  Model: "Main Memory"
+  Memory Range: 0x00000000-0x6e38f81fff (rw)
+  Memory Size: 448 GB
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+64: PCI 01.0: 0601 ISA bridge
+  [Created at pci.386]
+  Unique ID: vSkL.xjklk92E3p9
+  SysFS ID: /devices/pci0000:00/0000:00:01.0
+  SysFS BusID: 0000:00:01.0
+  Hardware Class: bridge
+  Model: "Intel 82371AB/EB/MB PIIX4 ISA"
+  Vendor: pci 0x8086 "Intel Corporation"
+  Device: pci 0x7110 "82371AB/EB/MB PIIX4 ISA"
+  Revision: 0x03
+  Module Alias: "pci:v00008086d00007110sv00000000sd00000000bc06sc01i00"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+65: PCI 04.0: 0200 Ethernet controller
+  [Created at pci.386]
+  Unique ID: 8otl.pkM7KXDR457
+  SysFS ID: /devices/pci0000:00/0000:00:04.0
+  SysFS BusID: 0000:00:04.0
+  Hardware Class: unknown
+  Model: "Red Hat Virtio network device"
+  Vendor: pci 0x1af4 "Red Hat, Inc."
+  Device: pci 0x1000 "Virtio network device"
+  SubVendor: pci 0x1af4 "Red Hat, Inc."
+  SubDevice: pci 0x0001 
+  Driver: "virtio-pci"
+  Driver Modules: "virtio_pci"
+  I/O Ports: 0xc000-0xc03f (rw)
+  Memory Range: 0xc0000000-0xc00007ff (rw,non-prefetchable)
+  IRQ: 10 (no events)
+  Module Alias: "pci:v00001AF4d00001000sv00001AF4sd00000001bc02sc00i00"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+66: PCI 00.0: 0600 Host bridge
+  [Created at pci.386]
+  Unique ID: qLht.YeL3TKDjrxE
+  SysFS ID: /devices/pci0000:00/0000:00:00.0
+  SysFS BusID: 0000:00:00.0
+  Hardware Class: bridge
+  Model: "Red Hat Qemu virtual machine"
+  Vendor: pci 0x8086 "Intel Corporation"
+  Device: pci 0x1237 "440FX - 82441FX PMC [Natoma]"
+  SubVendor: pci 0x1af4 "Red Hat, Inc."
+  SubDevice: pci 0x1100 "Qemu virtual machine"
+  Revision: 0x02
+  Module Alias: "pci:v00008086d00001237sv00001AF4sd00001100bc06sc00i00"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+67: PCI 01.3: 0680 Bridge
+  [Created at pci.386]
+  Unique ID: VRCs.znYArs3Fh39
+  SysFS ID: /devices/pci0000:00/0000:00:01.3
+  SysFS BusID: 0000:00:01.3
+  Hardware Class: bridge
+  Model: "Intel 82371AB/EB/MB PIIX4 ACPI"
+  Vendor: pci 0x8086 "Intel Corporation"
+  Device: pci 0x7113 "82371AB/EB/MB PIIX4 ACPI"
+  Revision: 0x03
+  IRQ: 9 (no events)
+  Module Alias: "pci:v00008086d00007113sv00000000sd00000000bc06sc80i00"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+68: PCI 03.0: 0000 Unclassified device
+  [Created at pci.386]
+  Unique ID: 3hqH.Sl8Jw3n3SU9
+  SysFS ID: /devices/pci0000:00/0000:00:03.0
+  SysFS BusID: 0000:00:03.0
+  Hardware Class: unknown
+  Model: "Red Hat Virtio SCSI"
+  Vendor: pci 0x1af4 "Red Hat, Inc."
+  Device: pci 0x1004 "Virtio SCSI"
+  SubVendor: pci 0x1af4 "Red Hat, Inc."
+  SubDevice: pci 0x0008 
+  Driver: "virtio-pci"
+  Driver Modules: "virtio_pci"
+  I/O Ports: 0xc040-0xc07f (rw)
+  Memory Range: 0xc0001000-0xc000107f (rw,non-prefetchable)
+  IRQ: 11 (no events)
+  Module Alias: "pci:v00001AF4d00001004sv00001AF4sd00000008bc00sc00i00"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+69: PCI 05.0: 00ff Unclassified device
+  [Created at pci.386]
+  Unique ID: CvwD.OY8O4bptFnE
+  SysFS ID: /devices/pci0000:00/0000:00:05.0
+  SysFS BusID: 0000:00:05.0
+  Hardware Class: unknown
+  Model: "Red Hat Virtio RNG"
+  Vendor: pci 0x1af4 "Red Hat, Inc."
+  Device: pci 0x1005 "Virtio RNG"
+  SubVendor: pci 0x1af4 "Red Hat, Inc."
+  SubDevice: pci 0x0004 
+  Driver: "virtio-pci"
+  Driver Modules: "virtio_pci"
+  I/O Ports: 0xc080-0xc09f (rw)
+  Memory Range: 0xc0002000-0xc000203f (rw,non-prefetchable)
+  IRQ: 10 (no events)
+  Module Alias: "pci:v00001AF4d00001005sv00001AF4sd00000004bc00scFFi00"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+70: Virtio 00.0: 0200 Ethernet controller
+  [Created at pci.1723]
+  Unique ID: sNGd.VIRhsc57kTD
+  Parent ID: 8otl.pkM7KXDR457
+  SysFS ID: /devices/pci0000:00/0000:00:04.0/virtio1
+  SysFS BusID: virtio1
+  Hardware Class: network
+  Model: "Virtio Ethernet Card 0"
+  Vendor: int 0x6014 "Virtio"
+  Device: int 0x0001 "Ethernet Card 0"
+  Driver: "virtio_net"
+  Module Alias: "virtio:d00000001v00001AF4"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #65 (Ethernet controller)
+
+71: None 00.0: 0000 Unclassified device
+  [Created at pci.1723]
+  Unique ID: O+ol.0a96HnfkQE6
+  Parent ID: CvwD.OY8O4bptFnE
+  SysFS ID: /devices/pci0000:00/0000:00:05.0/virtio2
+  SysFS BusID: virtio2
+  Hardware Class: unknown
+  Model: "Virtio Unclassified device"
+  Vendor: int 0x6014 "Virtio"
+  Device: int 0x0004 
+  Driver: "virtio_rng"
+  Module Alias: "virtio:d00000004v00001AF4"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #69 (Unclassified device)
+
+72: None 00.0: 0000 Unclassified device
+  [Created at pci.1723]
+  Unique ID: UH3v.4Ex5C38ZXm7
+  Parent ID: 3hqH.Sl8Jw3n3SU9
+  SysFS ID: /devices/pci0000:00/0000:00:03.0/virtio0
+  SysFS BusID: virtio0
+  Hardware Class: unknown
+  Model: "Virtio Unclassified device"
+  Vendor: int 0x6014 "Virtio"
+  Device: int 0x0008 
+  Driver: "virtio_scsi"
+  Module Alias: "virtio:d00000008v00001AF4"
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #68 (Unclassified device)
+
+73: None 00.0: 0700 Serial controller
+  [Created at misc.448]
+  Unique ID: rdCR.7RG8lK_UzJ9
+  Hardware Class: unknown
+  Model: "Serial controller"
+  I/O Port: 0x00 (rw)
+  I/O Port: 0x00 (rw)
+  I/O Port: 0x00 (rw)
+  I/O Port: 0x00 (rw)
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+74: SCSI 01.0: 10600 Disk
+  [Created at block.255]
+  Unique ID: R7kM.empSTHgeyZC
+  Parent ID: UH3v.4Ex5C38ZXm7
+  SysFS ID: /class/block/sda
+  SysFS BusID: 0:0:1:0
+  SysFS Device Link: /devices/pci0000:00/0000:00:03.0/virtio0/host0/target0:0:1/0:0:1:0
+  Hardware Class: disk
+  Model: "Google PersistentDisk"
+  Vendor: "Google"
+  Device: "PersistentDisk"
+  Revision: "1"
+  Driver: "virtio_scsi", "sd"
+  Device File: /dev/sda
+  Device Number: block 8:0-8:15
+  BIOS id: 0x80
+  Drive status: no medium
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #72 (Unclassified device)
+
+75: None 00.0: 11300 Partition
+  [Created at block.469]
+  Unique ID: bdUI.SE1wIdpsiiC
+  Parent ID: R7kM.empSTHgeyZC
+  SysFS ID: /class/block/sda/sda1
+  Hardware Class: partition
+  Model: "Partition"
+  Device File: /dev/sda1
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #74 (Disk)
+
+76: None 00.0: 11300 Partition
+  [Created at block.469]
+  Unique ID: 2pkM.SE1wIdpsiiC
+  Parent ID: R7kM.empSTHgeyZC
+  SysFS ID: /class/block/sda/sda2
+  Hardware Class: partition
+  Model: "Partition"
+  Device File: /dev/sda2
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #74 (Disk)
+
+77: None 00.0: 11300 Partition
+  [Created at block.469]
+  Unique ID: W__Q.SE1wIdpsiiC
+  Parent ID: R7kM.empSTHgeyZC
+  SysFS ID: /class/block/sda/sda3
+  Hardware Class: partition
+  Model: "Partition"
+  Device File: /dev/sda3
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #74 (Disk)
+
+78: None 00.0: 11300 Partition
+  [Created at block.469]
+  Unique ID: z9FV.SE1wIdpsiiC
+  Parent ID: R7kM.empSTHgeyZC
+  SysFS ID: /class/block/sda/sda4
+  Hardware Class: partition
+  Model: "Partition"
+  Device File: /dev/sda4
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #74 (Disk)
+
+79: None 00.0: 11300 Partition
+  [Created at block.469]
+  Unique ID: QLVZ.SE1wIdpsiiC
+  Parent ID: R7kM.empSTHgeyZC
+  SysFS ID: /class/block/sda/sda5
+  Hardware Class: partition
+  Model: "Partition"
+  Device File: /dev/sda5
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #74 (Disk)
+
+80: None 00.0: 11300 Partition
+  [Created at block.469]
+  Unique ID: tWld.SE1wIdpsiiC
+  Parent ID: R7kM.empSTHgeyZC
+  SysFS ID: /class/block/sda/sda6
+  Hardware Class: partition
+  Model: "Partition"
+  Device File: /dev/sda6
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #74 (Disk)
+
+81: None 00.0: 11300 Partition
+  [Created at block.469]
+  Unique ID: Zzw6.SE1wIdpsiiC
+  Parent ID: R7kM.empSTHgeyZC
+  SysFS ID: /class/block/sda/sda7
+  Hardware Class: partition
+  Model: "Partition"
+  Device File: /dev/sda7
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #74 (Disk)
+
+82: None 00.0: 11300 Partition
+  [Created at block.469]
+  Unique ID: 09BB.SE1wIdpsiiC
+  Parent ID: R7kM.empSTHgeyZC
+  SysFS ID: /class/block/sda/sda8
+  Hardware Class: partition
+  Model: "Partition"
+  Device File: /dev/sda8
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #74 (Disk)
+
+83: None 00.0: 11300 Partition
+  [Created at block.469]
+  Unique ID: TKRF.SE1wIdpsiiC
+  Parent ID: R7kM.empSTHgeyZC
+  SysFS ID: /class/block/sda/sda9
+  Hardware Class: partition
+  Model: "Partition"
+  Device File: /dev/sda9
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #74 (Disk)
+
+84: None 00.0: 11300 Partition
+  [Created at block.469]
+  Unique ID: n50z.SE1wIdpsiiC
+  Parent ID: R7kM.empSTHgeyZC
+  SysFS ID: /class/block/sda/sda10
+  Hardware Class: partition
+  Model: "Partition"
+  Device File: /dev/sda10
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #74 (Disk)
+
+85: None 00.0: 11300 Partition
+  [Created at block.469]
+  Unique ID: EHG1.SE1wIdpsiiC
+  Parent ID: R7kM.empSTHgeyZC
+  SysFS ID: /class/block/sda/sda11
+  Hardware Class: partition
+  Model: "Partition"
+  Device File: /dev/sda11
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #74 (Disk)
+
+86: None 00.0: 11300 Partition
+  [Created at block.469]
+  Unique ID: hSW5.SE1wIdpsiiC
+  Parent ID: R7kM.empSTHgeyZC
+  SysFS ID: /class/block/sda/sda12
+  Hardware Class: partition
+  Model: "Partition"
+  Device File: /dev/sda12
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #74 (Disk)
+
+87: PS/2 00.0: 10800 Keyboard
+  [Created at input.226]
+  Unique ID: hiS5.+49ps10DtUF
+  Hardware Class: keyboard
+  Model: "AT Translated Set 2 keyboard"
+  Vendor: 0x0001 
+  Device: 0x0001 "AT Translated Set 2 keyboard"
+  Compatible to: int 0x0211 0x0001
+  Device File: /dev/input/event2
+  Device Number: char 13:66
+  Driver Info #0:
+    XkbRules: xfree86
+    XkbModel: pc104
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+88: None 00.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: rdCR.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+89: None 01.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: wkFv.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+90: None 02.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: +rIN.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+91: None 03.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: 4zLr.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+92: None 04.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: 94PJ.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+93: None 05.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: EBSn.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+94: None 06.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: JIVF.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+95: None 07.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: OPYj.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+96: None 08.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: TWbB.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+97: None 09.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: Ydef.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+98: None 0a.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: dkh7.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+99: None 0b.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: hrkb.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+100: None 0c.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: myn3.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+101: None 0d.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: r3rX.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+102: None 0e.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: wAu+.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+103: None 0f.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: +HxT.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+104: None 10.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: 4P_x.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+105: None 11.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: 9W1Q.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+106: None 12.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: Ed4u.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+107: None 13.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: Jk7M.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+108: None 14.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: OrAq.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+109: None 15.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: TyDI.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+110: None 16.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: X3Hm.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+111: None 17.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: bthG.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+112: None 18.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: g_kk.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+113: None 19.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: l5oC.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+114: None 1a.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: qCrg.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+115: None 1b.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: vJu8.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+116: None 1c.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: _Qxc.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+117: None 1d.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: 3Y_4.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+118: None 1e.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: 8f1Z.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+119: None 1f.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: Dm41.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+120: None 20.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: It7V.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+121: None 21.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: N_Az.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+122: None 22.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: R5ER.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+123: None 23.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: WCHv.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+124: None 24.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: bJKN.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+125: None 25.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: gQNr.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+126: None 26.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: lXQJ.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+127: None 27.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: qeTn.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+128: None 28.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: vlWF.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+129: None 29.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: _sZj.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+130: None 2a.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: 3_cB.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+131: None 2b.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: 85gf.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+132: None 2c.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: DCj7.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+133: None 2d.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: IJmb.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+134: None 2e.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: MQp3.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+135: None 2f.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: RXsX.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+136: None 30.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: Wev+.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+137: None 31.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: blyT.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+138: None 32.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: gs+x.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+139: None 33.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: lz2Q.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+140: None 34.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: q46u.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+141: None 35.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: vB9M.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+142: None 36.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: _ICq.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+143: None 37.0: 10103 CPU
+  [Created at cpu.462]
+  Unique ID: 27dK.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "AuthenticAMD"
+  Model: 25.1.0 "AMD EPYC 7B13"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,mmx,fxsr,sse,sse2,ht,syscall,nx,mmxext,fxsr_opt,pdpe1gb,rdtscp,lm,constant_tsc,rep_good,nopl,nonstop_tsc,cpuid,extd_apicid,tsc_known_freq,pni,pclmulqdq,monitor,ssse3,fma,cx16,pcid,sse4_1,sse4_2,movbe,popcnt,aes,xsave,avx,f16c,rdrand,hypervisor,lahf_lm,cmp_legacy,cr8_legacy,abm,sse4a,misalignsse,3dnowprefetch,osvw,topoext,invpcid_single,ssbd,ibrs,ibpb,stibp,vmmcall,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,sha_ni,xsaveopt,xsavec,xgetbv1,clzero,xsaveerptr,arat,npt,nrip_save,umip,vaes,vpclmulqdq,rdpid,fsrm
+  Clock: 3050 MHz
+  BogoMips: 6100.00
+  Cache: 512 kb
+  Units/Processor: 28
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+144: Serial 00.0: 10801 Console
+  [Created at kbd.178]
+  Unique ID: Fyby.5lXXuQkv_C5
+  Hardware Class: keyboard
+  Model: "serial console"
+  Device: "serial console"
+  Device File: /dev/ttyS0
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+145: None 00.0: 10700 Loopback
+  [Created at net.126]
+  Unique ID: ZsBS.GQNx7L4uPNA
+  SysFS ID: /class/net/lo
+  Hardware Class: network interface
+  Model: "Loopback network interface"
+  Device File: lo
+  Link detected: yes
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+146: None 00.0: 10701 Ethernet
+  [Created at net.126]
+  Unique ID: usDW.ndpeucax6V1
+  SysFS ID: /class/net/eth0
+  Hardware Class: network interface
+  Model: "Ethernet network interface"
+  Driver: "veth"
+  Device File: eth0
+  HW Address: 7e:05:87:55:7b:aa
+  Link detected: yes
+  Config Status: cfg=new, avail=yes, need=no, active=unknown

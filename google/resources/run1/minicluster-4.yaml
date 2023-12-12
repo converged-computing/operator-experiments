@@ -1,0 +1,16 @@
+apiVersion: flux-framework.org/v1alpha2
+kind: MiniCluster
+metadata:
+  name: flux-sample
+spec:
+  size: 4
+
+  # shell in, and then:
+  # source /mnt/flux/flux-view.sh 
+  # flux proxy $fluxsocket bash
+  # flux resource list  
+  # This starts the flux broker without a command (interactive)
+  # apt-get install -y hwloc
+  interactive: true
+  containers:
+    - image: rockylinux:9

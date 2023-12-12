@@ -1,0 +1,5 @@
+POD                   NAME          CPU(cores)   MEMORY(bytes)   
+flux-sample-0-mvwv6   flux-sample   1m           193Mi           
+flux-sample-1-qv4hf   flux-sample   1m           151Mi           
+flux-sample-2-z98g8   flux-sample   1m           152Mi           
+flux-sample-3-qhxkv   flux-sample   1m           151Mi           

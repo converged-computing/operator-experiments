@@ -1,0 +1,43 @@
+apiVersion: flux-framework.org/v1alpha2
+kind: MiniCluster
+metadata:
+  name: flux-sample
+spec:
+  size: 5
+
+  # This is essential for the init container to have memory and cpu too,
+  # so the QoS (you can see in pod describe) is "Guaranteed" instead of Burstable.
+  # I chose 6 arbitarily so it would not OOMKIlled
+  flux:
+    container:
+      resources:
+        requests:
+          cpu: "20"
+          memory: "350M"
+        limits:
+          cpu: "20"
+          memory: "350M"
+  
+  # This starts the flux broker without a command (interactive)
+  interactive: true
+  containers:
+      # I had to build and push this because the installs killed my containers!
+      # docker build -t vanessa/resource-k8s-test .
+    - image: vanessa/resource-k8s-test:latest
+      resources:
+        requests:
+          cpu: "20"
+          memory: "350M"
+        limits:
+          cpu: "20"
+          memory: "350M"
+
+      # Derp, I don't need to do this manually ;)
+      commands:
+        pre: |
+          hwloc-ls /opt/info/machine.xml
+          lscpu > /opt/info/lscpu.txt
+          cat /proc/cpuinfo > /opt/info/cpuinfo.txt
+          nproc --all > /opt/info/nproc.txt
+          hwinfo --all > /opt/info/hwinfo.txt
+          ls /opt/info
