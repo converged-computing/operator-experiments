@@ -86,12 +86,10 @@ I think for the broken apart case, we don't need to do this for every pod, just 
 kubectl delete -f minicluster-4.yaml
 ```
 
-#### 6 "nodes" on 4 physical nodes
-
-Do the same above, but with minicluster-6.yaml
+Do the same above, but with minicluster-5.yaml
 
 ```bash
-kubectl apply -f minicluster-6.yaml
+kubectl apply -f minicluster-5.yaml
 ```
 
 Which nodes are we on?
@@ -109,7 +107,7 @@ flux-sample-3-mrzpr   1/1     Running   0          46s   10.8.1.26   gke-test-cl
 flux-sample-4-mxljg   1/1     Running   0          46s   10.8.3.29   gke-test-cluster-default-pool-50531823-lnmh   <none>           <none>
 ```
 
-Save data and pod metadata
+Save data and pod metadata.
 
 ```
 mkdir -p data/multi
@@ -124,6 +122,207 @@ done
 And then I think I can manually look at that and (maybe?) see something interesting?
 Note that flux-sample-0 and flux-sample-3 are sharing cpus.
 
+
+#### Batching of 5 flux nodes on 4 nodes
+
+I want to run th3 5 pod setup multiple times, and each time, see how the CPU are assigned to the nodes.
+It's too laborious to get the full output each time, but I can at least get a sample of the CPU assignment per node.
+Even the ones that don't share nodes can have meaningful signal because they are only allowed to use a subset of the CPUs.
+Note that [this post](https://github.com/kubernetes/kubernetes/issues/119669) showed me how to see what CPU they were assigned to.
+Specifically I need to look at
+
+```
+cat /sys/fs/cgroup/cpuset.cpus
+```
+
+Note that here is all the good stuff in there - we might want to look at more:
+
+```console
+$ kubectl exec -it ${pod} -c flux-sample -- ls /sys/fs/cgroup
+cgroup.controllers	cpuset.cpus.partition	  memory.events
+cgroup.events		cpuset.mems		  memory.events.local
+cgroup.freeze		cpuset.mems.effective	  memory.high
+cgroup.kill		hugetlb.1GB.current	  memory.low
+cgroup.max.depth	hugetlb.1GB.events	  memory.max
+cgroup.max.descendants	hugetlb.1GB.events.local  memory.min
+cgroup.procs		hugetlb.1GB.max		  memory.numa_stat
+cgroup.stat		hugetlb.1GB.rsvd.current  memory.oom.group
+cgroup.subtree_control	hugetlb.1GB.rsvd.max	  memory.pressure
+cgroup.threads		hugetlb.2MB.current	  memory.stat
+cgroup.type		hugetlb.2MB.events	  memory.swap.current
+cpu.idle		hugetlb.2MB.events.local  memory.swap.events
+cpu.max			hugetlb.2MB.max		  memory.swap.high
+cpu.max.burst		hugetlb.2MB.rsvd.current  memory.swap.max
+cpu.pressure		hugetlb.2MB.rsvd.max	  pids.current
+cpu.stat		io.bfq.weight		  pids.events
+cpu.weight		io.max			  pids.max
+cpu.weight.nice		io.pressure		  rdma.current
+cpuset.cpus		io.stat			  rdma.max
+cpuset.cpus.effective	memory.current
+```
+
+I did this 4 times.
+
+```bash
+kubectl apply -f minicluster-5.yaml
+```
+```
+for pod in $(kubectl get pods -o=name)
+  do
+    kubectl exec -it ${pod} -c flux-sample -- cat /sys/fs/cgroup/cpuset.cpus
+  done
+```
+And the output:
+
+```console
+# test 1 (4 was shared with 2)
+1-20
+1-20
+1-20
+1-20
+21-40
+
+# test 2 (0 was shared with 3)
+1-20
+1-20
+1-20
+21-40
+1-20
+
+# test 3 (0 was shared with 4, and a different physical node this time)
+1-20
+1-20
+1-20
+1-20
+21-40
+
+# test 4 (2 was shared with 4)
+1-20
+1-20
+1-20
+1-20
+21-40
+```
+
+Note that the nodes that the pod indices are assigned to are NOT consistent.
+And this output was interesting too?
+
+```bash
+$ for pod in $(kubectl get pods -o=name);
+  do     
+    echo
+    echo $pod
+    kubectl exec -it ${pod} -c flux-sample -- cat /sys/fs/cgroup/cgroup.procs
+done
+```
+```console
+# test 1 (4 was shared with 2)
+pod/flux-sample-0-s4nn4
+1
+87
+201
+
+pod/flux-sample-1-jcj84
+1
+87
+170
+
+pod/flux-sample-2-g7q8n
+1
+87
+171
+
+pod/flux-sample-3-tz7b4
+1
+87
+170
+
+# 4 was shared with 2
+pod/flux-sample-4-2952b
+1
+87
+177
+
+
+# test 2 (0 was shared with 3)
+pod/flux-sample-0-w42tj
+1
+93
+153
+
+pod/flux-sample-1-vsggr
+1
+88
+123
+
+pod/flux-sample-2-rthv9
+1
+93
+122
+
+pod/flux-sample-3-h5xdk
+1
+93
+122
+
+pod/flux-sample-4-nttgp
+1
+87
+122
+
+# test 3 (0 was shared with 4)
+pod/flux-sample-0-zrwjj
+1
+87
+153
+
+pod/flux-sample-1-gsrvn
+1
+87
+122
+
+pod/flux-sample-2-hjs9f
+1
+87
+122
+
+pod/flux-sample-3-th6vm
+1
+87
+122
+
+pod/flux-sample-4-qlplm
+1
+87
+122
+
+# test 4 (2 was shared with 4)
+pod/flux-sample-0-bljwm
+1
+87
+153
+
+pod/flux-sample-1-mrwzw
+1
+87
+122
+
+pod/flux-sample-2-z9q5v
+1
+94
+123
+
+pod/flux-sample-3-t4wxz
+1
+87
+122
+
+pod/flux-sample-4-tjtm7
+1
+93
+122
+```
+
 ## Thoughts
 
 ### Overview
@@ -132,9 +331,10 @@ This is really interesting. I couldn't even install software without OOMkilled a
 This tells us:
 
 - Asking to scope resources via cgroups is going to make it unlikely basic workflows will run UNLESS they are good at controlling cpu/memory and won't go over.
-- It's very likely when we run anything in Kubernetes, the pods are sharing resources constantly, and not setting the limits is the only way they wouldn't be killed.
-- Our strategy of 1 pod: 1 node might be the only way to actually control this! And let flux handle instances to sub-partition resources.
-- I also think this is (maybe?) was happening with Antonio - if we used his config to create resources, and we had the limits set (which I saw) it's likely lammps went over memory and MPI was killed first. I don't remember if I tried creating the cluster with the config after for the official experiments, but (will look) and if I did, maybe the difference was the amount of memory TODO CHECK THIS.
+- More realistically we are better off honoring the 1:1 mapping and let flux control sub-allocation of resources, and use resource limits/requests _without_ static for scheduling purposes of sidecar containers (but not actually enforcing something).
+- I think it's unlikely we will even get lammps to run. But showing this would still be valuable to do. The hard part is deciding on the resources.
+- It's very likely when we run anything in Kubernetes, containers within pods are sharing resources constantly, and not setting the limits is the only way they wouldn't be killed. Instead of that, we see (but maybe don't measure) application slow down.
+- This makes me wonder if this is related to what we saw with Antonio. We used the kubelet config for both c3 and c2d, and maybe the main difference was that c3 (for some reason) was OOMKilled, but the MPI workers caught it first.
 
 ### Details
 
@@ -204,6 +404,17 @@ L3 cache:                        448 MiB (14 instances)
 ```
 
 I wonder if there are variants of those commands that are scoped to the cgroup? We can discuss / decide what to look at next.
+
+#### Proposal for next steps
+
+1. Figure out how to get exact mapping in machine.xml
+2. Create a simplified version just with hwloc and indexed job (we don't need the flux operator, etc.)
+3. Run this multiple times (this simplified version) to get different mappings
+4. Derive computational way/metric to say how much that mapping varies.
+5. What does the variability mean for our HPC applications?
+
+Likely we are going to learn (and want to show that) it doesn't make sense to try and use Kubernetes to control resources.
+BUT this is where Flux is hugely useful to control the resources within a single node controlled by one Kubelet.
 
 ### Clean Up
 

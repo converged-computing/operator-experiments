@@ -40,4 +40,5 @@ spec:
           cat /proc/cpuinfo > /opt/info/cpuinfo.txt
           nproc --all > /opt/info/nproc.txt
           hwinfo --all > /opt/info/hwinfo.txt
+          cat /sys/fs/cgroup/cpuset.cpus > /opt/info/cpusets.txt
           ls /opt/info
