@@ -122,7 +122,7 @@ done
 ```
 
 And then I think I can manually look at that and (maybe?) see something interesting?
-Note that flux-sample-0 and flux-sample-4 are sharing cpus.
+Note that flux-sample-0 and flux-sample-3 are sharing cpus.
 
 ### Thoughts
 
