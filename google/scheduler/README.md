@@ -1,9 +1,9 @@
 # Fluence Scheduler
 
-Here we want to compare the Kubernetes Default Scheduler with [Fluence]().
+Here we want to compare the Kubernetes Default Scheduler with [Fluence](https://github.com/flux-framework/flux-k8s).
 
 ## Testing
 
  - [run0](run0): basic testing for setup (very small scale)
  - [run1](run1): fluence scheduler is unblocked, testing canopie22 (Illegal instruction core dumped)
- - [run2](run2): Testing again and seeing how podgroup works with the Flux Operator (worked)!
+ - [run3](run3): With fluence + the flux operator working, try emulating the logic of the original canopie 22 experiments with multiple sizes of lammps.

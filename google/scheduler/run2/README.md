@@ -161,6 +161,8 @@ And sanity check that the flux-sample was scheduled by fluence:
 kubectl get events -o wide |  awk {'print $4" " $5" " $6'} | column -t | grep fluence
 ```
 
+That's great! We can see that Fluence is able to schedule flux operator pods. We will next try this more in a context of launching multiple jobs (of different sizes) next.
+
 ### Canopie Experiments
 
 **TODO** I don't know how to run qmcpack / amg, so right now I'd just do lammps at different pod sizes and problem sizes to emulate an ensemble of different workloads.
