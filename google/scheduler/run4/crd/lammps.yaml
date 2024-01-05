@@ -1,0 +1,34 @@
+{% if pod_group %}apiVersion: scheduling.x-k8s.io/v1alpha1
+kind: PodGroup
+metadata:
+  name: {{ pod_group }}
+spec:
+  scheduleTimeoutSeconds: 600
+  minMember: {{ size }}
+---{% endif %}
+apiVersion: flux-framework.org/v1alpha2
+kind: MiniCluster
+metadata:
+  # name will be derived based on iteration
+  name: {{ name }}
+spec:
+  size: {{ size }}
+  tasks: {{ tasks }}
+  # The service names need to be unique for the cluster
+  network: 
+    headlessName: {{ service_name }}
+  pod:{% if scheduler %}
+    schedulerName: {{ scheduler }}{% endif %}
+    # The label can be used to find the pods for the run
+    labels:
+      app: {{ name }}
+      {% if pod_group %}scheduling.x-k8s.io/pod-group: {{ pod_group }}{% endif %}
+  containers:
+    - image: ghcr.io/converged-computing/metric-lammps:latest@sha256:e24a1ba8954f5a0a7a0bd854cfc5ca7f82ca12607dc6ace38d838591b8deb8ed
+      workingDir: /opt/lammps/examples/reaxff/HNS
+      command: lmp -v x {{x}} -v y {{y}} -v z {{z}} -in in.reaxc.hns -nocite
+      resources:
+        limits:
+          cpu: "{{ cpu_limit }}"
+        requests:
+          cpu: "{{ cpu_limit }}"

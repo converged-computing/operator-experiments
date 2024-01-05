@@ -1,0 +1,68 @@
+This is the fluxion grpc server
+Created flux resource client  &{0x23bf3d0}
+&{ctx:0x23bf3d0}
+Number nodes  5
+node in flux group  gke-test-cluster-default-pool-1eab4ce5-7smv
+Node  gke-test-cluster-default-pool-1eab4ce5-7smv  flux cpu  3
+Node  gke-test-cluster-default-pool-1eab4ce5-7smv  total mem  29020379008
+node in flux group  gke-test-cluster-default-pool-1eab4ce5-8s0p
+Node  gke-test-cluster-default-pool-1eab4ce5-8s0p  flux cpu  3
+Node  gke-test-cluster-default-pool-1eab4ce5-8s0p  total mem  29207936768
+node in flux group  gke-test-cluster-default-pool-1eab4ce5-j6kg
+Node  gke-test-cluster-default-pool-1eab4ce5-j6kg  flux cpu  3
+Node  gke-test-cluster-default-pool-1eab4ce5-j6kg  total mem  29202693888
+node in flux group  gke-test-cluster-default-pool-1eab4ce5-w921
+Node  gke-test-cluster-default-pool-1eab4ce5-w921  flux cpu  3
+Node  gke-test-cluster-default-pool-1eab4ce5-w921  total mem  29318037248
+node in flux group  gke-test-cluster-default-pool-1eab4ce5-xzc0
+Node  gke-test-cluster-default-pool-1eab4ce5-xzc0  flux cpu  3
+Node  gke-test-cluster-default-pool-1eab4ce5-xzc0  total mem  29298037248
+Can request at most  15  exclusive cpu
+Match policy:  {"matcher_policy": "lonode"}
+[GRPCServer] gRPC Listening on [::]:4242
+Labels  []   0
+No labels, going with plain JobSpec
+[JobSpec] JobSpec in YAML:
+version: 9999
+resources:
+- type: slot
+  count: 4
+  label: default
+  with:
+  - type: core
+    count: 2
+attributes:
+  system:
+    duration: 3600
+tasks:
+- command: [""]
+  slot: default
+  count:
+    per_slot: 1
+
+[GRPCServer] Received Match request ps:{id:"flux-sample-0-tcvqm" cpu:2} request:"allocate" count:4
+
+	----Match Allocate output---
+jobid: 1
+reserved: false
+allocated: {"graph": {"nodes": [{"id": "3", "metadata": {"type": "core", "basename": "core", "name": "core0", "id": 0, "uniq_id": 3, "rank": -1, "exclusive": true, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0/us-central1-a1/gke-test-cluster-default-pool-1eab4ce5-7smv2/core0"}}}, {"id": "5", "metadata": {"type": "core", "basename": "core", "name": "core1", "id": 1, "uniq_id": 5, "rank": -1, "exclusive": true, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0/us-central1-a1/gke-test-cluster-default-pool-1eab4ce5-7smv2/core1"}}}, {"id": "2", "metadata": {"type": "node", "basename": "gke-test-cluster-default-pool-1eab4ce5-7smv", "name": "gke-test-cluster-default-pool-1eab4ce5-7smv2", "id": 2, "uniq_id": 2, "rank": -1, "exclusive": false, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0/us-central1-a1/gke-test-cluster-default-pool-1eab4ce5-7smv2"}}}, {"id": "1", "metadata": {"type": "subnet", "basename": "us-central1-a", "name": "us-central1-a1", "id": 0, "uniq_id": 1, "rank": -1, "exclusive": false, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0/us-central1-a1"}}}, {"id": "38", "metadata": {"type": "core", "basename": "core", "name": "core0", "id": 0, "uniq_id": 38, "rank": -1, "exclusive": true, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0/us-central1-a36/gke-test-cluster-default-pool-1eab4ce5-8s0p37/core0"}}}, {"id": "40", "metadata": {"type": "core", "basename": "core", "name": "core1", "id": 1, "uniq_id": 40, "rank": -1, "exclusive": true, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0/us-central1-a36/gke-test-cluster-default-pool-1eab4ce5-8s0p37/core1"}}}, {"id": "37", "metadata": {"type": "node", "basename": "gke-test-cluster-default-pool-1eab4ce5-8s0p", "name": "gke-test-cluster-default-pool-1eab4ce5-8s0p37", "id": 37, "uniq_id": 37, "rank": -1, "exclusive": false, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0/us-central1-a36/gke-test-cluster-default-pool-1eab4ce5-8s0p37"}}}, {"id": "36", "metadata": {"type": "subnet", "basename": "us-central1-a", "name": "us-central1-a36", "id": 1, "uniq_id": 36, "rank": -1, "exclusive": false, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0/us-central1-a36"}}}, {"id": "73", "metadata": {"type": "core", "basename": "core", "name": "core0", "id": 0, "uniq_id": 73, "rank": -1, "exclusive": true, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0/us-central1-a71/gke-test-cluster-default-pool-1eab4ce5-j6kg72/core0"}}}, {"id": "75", "metadata": {"type": "core", "basename": "core", "name": "core1", "id": 1, "uniq_id": 75, "rank": -1, "exclusive": true, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0/us-central1-a71/gke-test-cluster-default-pool-1eab4ce5-j6kg72/core1"}}}, {"id": "72", "metadata": {"type": "node", "basename": "gke-test-cluster-default-pool-1eab4ce5-j6kg", "name": "gke-test-cluster-default-pool-1eab4ce5-j6kg72", "id": 72, "uniq_id": 72, "rank": -1, "exclusive": false, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0/us-central1-a71/gke-test-cluster-default-pool-1eab4ce5-j6kg72"}}}, {"id": "71", "metadata": {"type": "subnet", "basename": "us-central1-a", "name": "us-central1-a71", "id": 2, "uniq_id": 71, "rank": -1, "exclusive": false, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0/us-central1-a71"}}}, {"id": "108", "metadata": {"type": "core", "basename": "core", "name": "core0", "id": 0, "uniq_id": 108, "rank": -1, "exclusive": true, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0/us-central1-a106/gke-test-cluster-default-pool-1eab4ce5-w921107/core0"}}}, {"id": "110", "metadata": {"type": "core", "basename": "core", "name": "core1", "id": 1, "uniq_id": 110, "rank": -1, "exclusive": true, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0/us-central1-a106/gke-test-cluster-default-pool-1eab4ce5-w921107/core1"}}}, {"id": "107", "metadata": {"type": "node", "basename": "gke-test-cluster-default-pool-1eab4ce5-w921", "name": "gke-test-cluster-default-pool-1eab4ce5-w921107", "id": 107, "uniq_id": 107, "rank": -1, "exclusive": false, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0/us-central1-a106/gke-test-cluster-default-pool-1eab4ce5-w921107"}}}, {"id": "106", "metadata": {"type": "subnet", "basename": "us-central1-a", "name": "us-central1-a106", "id": 3, "uniq_id": 106, "rank": -1, "exclusive": false, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0/us-central1-a106"}}}, {"id": "0", "metadata": {"type": "cluster", "basename": "k8scluster", "name": "k8scluster0", "id": 0, "uniq_id": 0, "rank": -1, "exclusive": false, "unit": "", "size": 1, "paths": {"containment": "/k8scluster0"}}}], "edges": [{"source": "2", "target": "3", "metadata": {"name": {"containment": "contains"}}}, {"source": "2", "target": "5", "metadata": {"name": {"containment": "contains"}}}, {"source": "1", "target": "2", "metadata": {"name": {"containment": "contains"}}}, {"source": "0", "target": "1", "metadata": {"name": {"containment": "contains"}}}, {"source": "37", "target": "38", "metadata": {"name": {"containment": "contains"}}}, {"source": "37", "target": "40", "metadata": {"name": {"containment": "contains"}}}, {"source": "36", "target": "37", "metadata": {"name": {"containment": "contains"}}}, {"source": "0", "target": "36", "metadata": {"name": {"containment": "contains"}}}, {"source": "72", "target": "73", "metadata": {"name": {"containment": "contains"}}}, {"source": "72", "target": "75", "metadata": {"name": {"containment": "contains"}}}, {"source": "71", "target": "72", "metadata": {"name": {"containment": "contains"}}}, {"source": "0", "target": "71", "metadata": {"name": {"containment": "contains"}}}, {"source": "107", "target": "108", "metadata": {"name": {"containment": "contains"}}}, {"source": "107", "target": "110", "metadata": {"name": {"containment": "contains"}}}, {"source": "106", "target": "107", "metadata": {"name": {"containment": "contains"}}}, {"source": "0", "target": "106", "metadata": {"name": {"containment": "contains"}}}]}}
+
+at: 0
+overhead: 0.000588
+error: %!w(<nil>)
+[MatchRPC] Errors so far: 
+FINAL NODE RESULT:
+ [{node gke-test-cluster-default-pool-1eab4ce5-7smv2 gke-test-cluster-default-pool-1eab4ce5-7smv 2} {node gke-test-cluster-default-pool-1eab4ce5-8s0p37 gke-test-cluster-default-pool-1eab4ce5-8s0p 2} {node gke-test-cluster-default-pool-1eab4ce5-j6kg72 gke-test-cluster-default-pool-1eab4ce5-j6kg 2} {node gke-test-cluster-default-pool-1eab4ce5-w921107 gke-test-cluster-default-pool-1eab4ce5-w921 2}]
+[GRPCServer] Response podID:"flux-sample-0-tcvqm" nodelist:{nodeID:"gke-test-cluster-default-pool-1eab4ce5-7smv" tasks:1} nodelist:{nodeID:"gke-test-cluster-default-pool-1eab4ce5-8s0p" tasks:1} nodelist:{nodeID:"gke-test-cluster-default-pool-1eab4ce5-j6kg" tasks:1} nodelist:{nodeID:"gke-test-cluster-default-pool-1eab4ce5-w921" tasks:1} jobID:1 
+[GRPCServer] Received Cancel request jobID:1
+[GRPCServer] Sending Cancel response jobID:1
+[CancelRPC] Errors so far: 
+
+	----Job Info output---
+jobid: 1
+reserved: false
+at: 0
+overhead: 0.000000
+mode: CANCELED
+error: %!d(<nil>)
+[GRPCServer] Sending Cancel response jobID:1

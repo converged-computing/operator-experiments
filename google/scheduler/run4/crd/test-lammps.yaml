@@ -1,0 +1,29 @@
+apiVersion: scheduling.x-k8s.io/v1alpha1
+kind: PodGroup
+metadata:
+  name: lammps
+spec:
+  scheduleTimeoutSeconds: 600
+  minMember: 4
+---
+apiVersion: flux-framework.org/v1alpha2
+kind: MiniCluster
+metadata:
+  name: flux-sample
+spec:
+  size: 4
+  tasks: 12
+  pod:
+    schedulerName: fluence
+    labels:
+      app: lammps
+      scheduling.x-k8s.io/pod-group: lammps
+  containers:
+    - image: ghcr.io/converged-computing/metric-lammps:latest@sha256:e24a1ba8954f5a0a7a0bd854cfc5ca7f82ca12607dc6ace38d838591b8deb8ed
+      workingDir: /opt/lammps/examples/reaxff/HNS
+      command: lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite
+      resources:
+        limits:
+          cpu: 2
+        requests:
+          cpu: 2
