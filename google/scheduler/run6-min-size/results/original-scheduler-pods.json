@@ -1,0 +1,420 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2024-01-14T22:21:52Z",
+                "generateName": "fluence-568c54474c-",
+                "labels": {
+                    "component": "scheduler",
+                    "pod-template-hash": "568c54474c"
+                },
+                "name": "fluence-568c54474c-8sh57",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "fluence-568c54474c",
+                        "uid": "1f9a97c4-c9b9-4160-9509-3e5297547a29"
+                    }
+                ],
+                "resourceVersion": "151531",
+                "uid": "c3365d00-0c8d-4117-9daf-3797c163c47a"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "command": [
+                            "/go/src/fluence/bin/server",
+                            "--policy=lonode"
+                        ],
+                        "image": "ghcr.io/flux-framework/fluence-sidecar:latest",
+                        "imagePullPolicy": "Always",
+                        "name": "sidecar",
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "kube-api-access-8tqkj",
+                                "readOnly": true
+                            }
+                        ]
+                    },
+                    {
+                        "command": [
+                            "/bin/kube-scheduler",
+                            "--config=/etc/kubernetes/scheduler-config.yaml",
+                            "-v=9"
+                        ],
+                        "image": "ghcr.io/flux-framework/fluence:latest",
+                        "imagePullPolicy": "Always",
+                        "livenessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/healthz",
+                                "port": 10259,
+                                "scheme": "HTTPS"
+                            },
+                            "initialDelaySeconds": 15,
+                            "periodSeconds": 10,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "name": "scheduler-plugins-scheduler",
+                        "readinessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/healthz",
+                                "port": 10259,
+                                "scheme": "HTTPS"
+                            },
+                            "periodSeconds": 10,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "resources": {
+                            "requests": {
+                                "cpu": "100m"
+                            }
+                        },
+                        "securityContext": {
+                            "privileged": false
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/etc/kubernetes",
+                                "name": "scheduler-config",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "kube-api-access-8tqkj",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "gke-test-cluster-default-pool-0ac1ba33-tbrb",
+                "preemptionPolicy": "PreemptLowerPriority",
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "fluence",
+                "serviceAccountName": "fluence",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "configMap": {
+                            "defaultMode": 420,
+                            "name": "scheduler-config"
+                        },
+                        "name": "scheduler-config"
+                    },
+                    {
+                        "name": "kube-api-access-8tqkj",
+                        "projected": {
+                            "defaultMode": 420,
+                            "sources": [
+                                {
+                                    "serviceAccountToken": {
+                                        "expirationSeconds": 3607,
+                                        "path": "token"
+                                    }
+                                },
+                                {
+                                    "configMap": {
+                                        "items": [
+                                            {
+                                                "key": "ca.crt",
+                                                "path": "ca.crt"
+                                            }
+                                        ],
+                                        "name": "kube-root-ca.crt"
+                                    }
+                                },
+                                {
+                                    "downwardAPI": {
+                                        "items": [
+                                            {
+                                                "fieldRef": {
+                                                    "apiVersion": "v1",
+                                                    "fieldPath": "metadata.namespace"
+                                                },
+                                                "path": "namespace"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2024-01-14T22:21:52Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2024-01-14T22:22:13Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2024-01-14T22:22:13Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2024-01-14T22:21:52Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "containerd://0acc61c12850217ba293d44f3dc0510ed870f05ff33d1d5ed1f24e6caa0c9322",
+                        "image": "ghcr.io/flux-framework/fluence:latest",
+                        "imageID": "ghcr.io/flux-framework/fluence@sha256:31e593dc0d96202163052d8490b1d9317c3ca44f5a8741559364bd78bb2d94e7",
+                        "lastState": {},
+                        "name": "scheduler-plugins-scheduler",
+                        "ready": true,
+                        "restartCount": 0,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2024-01-14T22:22:12Z"
+                            }
+                        }
+                    },
+                    {
+                        "containerID": "containerd://47c6dc69fb30a7d16cac60f3f275755bc59e935d9ca4608cc04a5e45caca9136",
+                        "image": "ghcr.io/flux-framework/fluence-sidecar:latest",
+                        "imageID": "ghcr.io/flux-framework/fluence-sidecar@sha256:2264a4797344195337aa71e759f32b94659e483f14f2937e36ca6891c25ff790",
+                        "lastState": {},
+                        "name": "sidecar",
+                        "ready": true,
+                        "restartCount": 0,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2024-01-14T22:22:11Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "10.128.0.151",
+                "phase": "Running",
+                "podIP": "10.8.71.8",
+                "podIPs": [
+                    {
+                        "ip": "10.8.71.8"
+                    }
+                ],
+                "qosClass": "Burstable",
+                "startTime": "2024-01-14T22:21:52Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2024-01-14T22:21:52Z",
+                "generateName": "scheduler-plugins-controller-9f778469-",
+                "labels": {
+                    "app": "scheduler-plugins-controller",
+                    "pod-template-hash": "9f778469"
+                },
+                "name": "scheduler-plugins-controller-9f778469-fnr7s",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "scheduler-plugins-controller-9f778469",
+                        "uid": "fb7a8176-b640-47b0-8a2c-efe8b2529c90"
+                    }
+                ],
+                "resourceVersion": "151083",
+                "uid": "283a0b32-265a-4afc-b523-afed829619c8"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "registry.k8s.io/scheduler-plugins/controller:v0.27.8",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "scheduler-plugins-controller",
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "kube-api-access-kmp5h",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "gke-test-cluster-default-pool-0ac1ba33-l44p",
+                "preemptionPolicy": "PreemptLowerPriority",
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "scheduler-plugins-controller",
+                "serviceAccountName": "scheduler-plugins-controller",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "kube-api-access-kmp5h",
+                        "projected": {
+                            "defaultMode": 420,
+                            "sources": [
+                                {
+                                    "serviceAccountToken": {
+                                        "expirationSeconds": 3607,
+                                        "path": "token"
+                                    }
+                                },
+                                {
+                                    "configMap": {
+                                        "items": [
+                                            {
+                                                "key": "ca.crt",
+                                                "path": "ca.crt"
+                                            }
+                                        ],
+                                        "name": "kube-root-ca.crt"
+                                    }
+                                },
+                                {
+                                    "downwardAPI": {
+                                        "items": [
+                                            {
+                                                "fieldRef": {
+                                                    "apiVersion": "v1",
+                                                    "fieldPath": "metadata.namespace"
+                                                },
+                                                "path": "namespace"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2024-01-14T22:21:52Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2024-01-14T22:21:54Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2024-01-14T22:21:54Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2024-01-14T22:21:52Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "containerd://016fb98c474787c7e8bff027ea5c080d84c827ef0bb019bfc5e5496ccb848300",
+                        "image": "registry.k8s.io/scheduler-plugins/controller:v0.27.8",
+                        "imageID": "registry.k8s.io/scheduler-plugins/controller@sha256:b616f088ab5d5c70b7faa17d08837c8e54ad0e5fef4d7c6a304f70bfd3b89b55",
+                        "lastState": {},
+                        "name": "scheduler-plugins-controller",
+                        "ready": true,
+                        "restartCount": 0,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2024-01-14T22:21:53Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "10.128.0.47",
+                "phase": "Running",
+                "podIP": "10.8.12.13",
+                "podIPs": [
+                    {
+                        "ip": "10.8.12.13"
+                    }
+                ],
+                "qosClass": "BestEffort",
+                "startTime": "2024-01-14T22:21:52Z"
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}

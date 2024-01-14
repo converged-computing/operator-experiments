@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-1
+spec:
+  completions: 149
+  parallelism: 149
+  completionMode: Indexed
+  template:
+    spec:
+      schedulerName: fluence
+      containers:
+      - name: fluence-job
+        image: ghcr.io/converged-computing/metric-lammps:latest@sha256:e24a1ba8954f5a0a7a0bd854cfc5ca7f82ca12607dc6ace38d838591b8deb8ed
+        command: [sleep, "1"]
+        resources:
+          limits:
+            cpu: 2
+          requests:
+            cpu: 2
+      restartPolicy: Never
+  backoffLimit: 4

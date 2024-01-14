@@ -9,3 +9,5 @@ Here we want to compare the Kubernetes Default Scheduler with [Fluence](https://
  - [run2](run2): Prototyping using the Flux Operator (basics)
  - [run3](run3): With fluence + the flux operator working, try emulating the logic of the original canopie 22 experiments with multiple sizes of lammps.
  - [run4](run4): with experiments prototyped and fluence fixes merged, reproduce fluence bug and look into.
+ - [run5](run5): is testing an updated branch of fluence
+ - [run6-min-size](run6-min-size) testing updated fluence / default scheduler at smaller sizes
