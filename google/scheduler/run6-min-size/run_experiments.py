@@ -378,7 +378,7 @@ def run(args, config_name, node_topology):
         batch = set()
 
         # For each iteration
-        for i in range(7, 20):
+        for i in range(iters):
             # Run 1 of each experiment size for lammps
             # note that we can change how we do this (random, etc)
             for cfg in cfgs:
