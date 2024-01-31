@@ -1,0 +1,18 @@
+{
+    "project_id": "llnl-flux",
+    "region": "us-central1",
+    "job_name": "lscpu-c3-highmem-4-001",
+    "bucket_name": "netmark-experiment-bucket",
+    "outdir": "lscpu",
+    "tasks": 1,
+    "tasks_per_node": 1,
+    "cpu_milli": 1000,
+    "memory": 1000,
+    "retry_count": 1,
+    "machine_type": "c3-highmem-4",
+    "image_family": "hpc-centos-7",
+    "image_project": "cloud-hpc-image-public",
+    "max_run_duration": "3600s",
+    "mount_path": "/mnt/share",
+    "parallelism": 1
+}

@@ -11,3 +11,4 @@ Here we want to compare the Kubernetes Default Scheduler with [Fluence](https://
  - [run4](run4): with experiments prototyped and fluence fixes merged, reproduce fluence bug and look into.
  - [run5](run5): is testing an updated branch of fluence
  - [run6-min-size](run6-min-size) testing updated fluence / default scheduler at smaller sizes
+ - [run7-timestamp](run7-timestamp) aims to test using millisecond timestamps (still looking for interleaving)

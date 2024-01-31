@@ -1,0 +1,12 @@
+Machine (31GB)
+  Package L#0 + L3 L#0 (105MB)
+    L2 L#0 (2048KB) + L1d L#0 (48KB) + L1i L#0 (32KB) + Core L#0
+      PU L#0 (P#0)
+      PU L#1 (P#2)
+    L2 L#1 (2048KB) + L1d L#1 (48KB) + L1i L#1 (32KB) + Core L#1
+      PU L#2 (P#1)
+      PU L#3 (P#3)
+  HostBridge L#0
+    PCI 1ae0:0042
+      Net L#0 "eth0"
+    PCI 1ae0:001f

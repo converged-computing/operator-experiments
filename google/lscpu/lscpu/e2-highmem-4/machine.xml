@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topology SYSTEM "hwloc.dtd">
+<topology>
+  <object type="Machine" os_index="0" cpuset="0x0000000f" complete_cpuset="0x0000000f" online_cpuset="0x0000000f" allowed_cpuset="0x0000000f" local_memory="33563443200">
+    <page_type size="4096" count="8194200"/>
+    <page_type size="2097152" count="0"/>
+    <page_type size="1073741824" count="0"/>
+    <info name="DMIProductName" value="Google Compute Engine"/>
+    <info name="DMIProductVersion" value=""/>
+    <info name="DMIProductSerial" value="GoogleCloud-DE4D1D2D9215C4E2FF45E2D1FB33815E"/>
+    <info name="DMIProductUUID" value="DE4D1D2D-9215-C4E2-FF45-E2D1FB33815E"/>
+    <info name="DMIBoardVendor" value="Google"/>
+    <info name="DMIBoardName" value="Google Compute Engine"/>
+    <info name="DMIBoardVersion" value=""/>
+    <info name="DMIBoardSerial" value="Board-GoogleCloud-DE4D1D2D9215C4E2FF45E2D1FB33815E"/>
+    <info name="DMIBoardAssetTag" value="DE4D1D2D-9215-C4E2-FF45-E2D1FB33815E"/>
+    <info name="DMIChassisVendor" value="Google"/>
+    <info name="DMIChassisType" value="1"/>
+    <info name="DMIChassisVersion" value=""/>
+    <info name="DMIChassisSerial" value=""/>
+    <info name="DMIChassisAssetTag" value=""/>
+    <info name="DMIBIOSVendor" value="Google"/>
+    <info name="DMIBIOSVersion" value="Google"/>
+    <info name="DMIBIOSDate" value="11/17/2023"/>
+    <info name="DMISysVendor" value="Google"/>
+    <info name="Backend" value="Linux"/>
+    <info name="LinuxCgroup" value="/"/>
+    <info name="OSName" value="Linux"/>
+    <info name="OSRelease" value="3.10.0-1160.92.1.el7.x86_64"/>
+    <info name="OSVersion" value="#1 SMP Tue Jun 20 11:48:01 UTC 2023"/>
+    <info name="HostName" value="lscpu-e2-highmem-4-a896950a-7273-4ebf0-group0-0-9bbv"/>
+    <info name="Architecture" value="x86_64"/>
+    <info name="hwlocVersion" value="1.11.8"/>
+    <info name="ProcessName" value="hwloc-ls"/>
+    <object type="Package" os_index="0" cpuset="0x0000000f" complete_cpuset="0x0000000f" online_cpuset="0x0000000f" allowed_cpuset="0x0000000f">
+      <info name="CPUVendor" value="AuthenticAMD"/>
+      <info name="CPUFamilyNumber" value="23"/>
+      <info name="CPUModelNumber" value="49"/>
+      <info name="CPUModel" value="AMD EPYC 7B12"/>
+      <info name="CPUStepping" value="0"/>
+      <object type="Cache" cpuset="0x0000000f" complete_cpuset="0x0000000f" online_cpuset="0x0000000f" allowed_cpuset="0x0000000f" cache_size="16777216" depth="3" cache_linesize="64" cache_associativity="16" cache_type="0">
+        <info name="Inclusive" value="0"/>
+        <object type="Cache" cpuset="0x00000005" complete_cpuset="0x00000005" online_cpuset="0x00000005" allowed_cpuset="0x00000005" cache_size="524288" depth="2" cache_linesize="64" cache_associativity="8" cache_type="0">
+          <info name="Inclusive" value="1"/>
+          <object type="Cache" cpuset="0x00000005" complete_cpuset="0x00000005" online_cpuset="0x00000005" allowed_cpuset="0x00000005" cache_size="32768" depth="1" cache_linesize="64" cache_associativity="8" cache_type="1">
+            <info name="Inclusive" value="0"/>
+            <object type="Cache" cpuset="0x00000005" complete_cpuset="0x00000005" online_cpuset="0x00000005" allowed_cpuset="0x00000005" cache_size="32768" depth="1" cache_linesize="64" cache_associativity="8" cache_type="2">
+              <info name="Inclusive" value="0"/>
+              <object type="Core" os_index="0" cpuset="0x00000005" complete_cpuset="0x00000005" online_cpuset="0x00000005" allowed_cpuset="0x00000005">
+                <object type="PU" os_index="0" cpuset="0x00000001" complete_cpuset="0x00000001" online_cpuset="0x00000001" allowed_cpuset="0x00000001"/>
+                <object type="PU" os_index="2" cpuset="0x00000004" complete_cpuset="0x00000004" online_cpuset="0x00000004" allowed_cpuset="0x00000004"/>
+              </object>
+            </object>
+          </object>
+        </object>
+        <object type="Cache" cpuset="0x0000000a" complete_cpuset="0x0000000a" online_cpuset="0x0000000a" allowed_cpuset="0x0000000a" cache_size="524288" depth="2" cache_linesize="64" cache_associativity="8" cache_type="0">
+          <info name="Inclusive" value="1"/>
+          <object type="Cache" cpuset="0x0000000a" complete_cpuset="0x0000000a" online_cpuset="0x0000000a" allowed_cpuset="0x0000000a" cache_size="32768" depth="1" cache_linesize="64" cache_associativity="8" cache_type="1">
+            <info name="Inclusive" value="0"/>
+            <object type="Cache" cpuset="0x0000000a" complete_cpuset="0x0000000a" online_cpuset="0x0000000a" allowed_cpuset="0x0000000a" cache_size="32768" depth="1" cache_linesize="64" cache_associativity="8" cache_type="2">
+              <info name="Inclusive" value="0"/>
+              <object type="Core" os_index="1" cpuset="0x0000000a" complete_cpuset="0x0000000a" online_cpuset="0x0000000a" allowed_cpuset="0x0000000a">
+                <object type="PU" os_index="1" cpuset="0x00000002" complete_cpuset="0x00000002" online_cpuset="0x00000002" allowed_cpuset="0x00000002"/>
+                <object type="PU" os_index="3" cpuset="0x00000008" complete_cpuset="0x00000008" online_cpuset="0x00000008" allowed_cpuset="0x00000008"/>
+              </object>
+            </object>
+          </object>
+        </object>
+      </object>
+    </object>
+    <object type="Bridge" os_index="0" bridge_type="0-1" depth="0" bridge_pci="0000:[00-00]">
+      <object type="PCIDev" os_index="64" pci_busid="0000:00:04.0" pci_type="0200 [1af4:1000] [1af4:0001] 00" pci_link_speed="0.000000">
+        <info name="PCISlot" value="4"/>
+      </object>
+    </object>
+  </object>
+</topology>
