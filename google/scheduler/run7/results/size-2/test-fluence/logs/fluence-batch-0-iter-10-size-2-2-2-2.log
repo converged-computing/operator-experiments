@@ -1,10 +1,10 @@
 
 ===
-Output: recorded-at: 2024-02-25 22:48:59.834472
-/flux_operator/wait-0.sh: line 23: curl: command not found
+Output: recorded-at: 2024-04-02 17:35:21.166896
+/flux_operator/wait-0.sh: line 24: curl: command not found
 Flux install root: /mnt/flux/view
-🟧️  wait-fs: 2024/02/25 22:48:43 wait-fs.go:40: /mnt/flux/flux-operator-done.txt
-🟧️  wait-fs: 2024/02/25 22:48:43 wait-fs.go:49: Found existing path /mnt/flux/flux-operator-done.txt
+🟧️  wait-fs: 2024/04/02 17:35:06 wait-fs.go:40: /mnt/flux/flux-operator-done.txt
+🟧️  wait-fs: 2024/04/02 17:35:06 wait-fs.go:49: Found existing path /mnt/flux/flux-operator-done.txt
 Python version: /mnt/flux/view/bin/python3.11
 Python root: /mnt/flux/view/lib/python3.11
 PYTHONPATH is :/mnt/flux/view/lib/python3.11/site-packages
@@ -12,7 +12,7 @@ PATH is /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/mnt/flux/v
 /mnt/flux/view/lib/libpython3.11.so.1.0
 /mnt/flux/view/lib/libpython3.11.so
 /mnt/flux/view/lib/libpython3.so
-lrwxrwxrwx 1 root root 116 Feb 25 22:48 /mnt/flux/view/lib/libpython3.11.so.1.0 -> /opt/software/linux-rocky9-x86_64/gcc-11.4.1/python-3.11.6-6jgt4ms3la3mrv7j2a73g66sywketyo3/lib/libpython3.11.so.1.0
+lrwxrwxrwx 1 root root 116 Apr  2 17:34 /mnt/flux/view/lib/libpython3.11.so.1.0 -> /opt/software/linux-rocky9-x86_64/gcc-11.4.1/python-3.11.6-6jgt4ms3la3mrv7j2a73g66sywketyo3/lib/libpython3.11.so.1.0
 Hello user root
 🌟️ Curve Certificate
 curve.cert
@@ -24,8 +24,8 @@ metadata
     name = "flux-cert-generator"
     keygen.hostname = "lmp-0-10-size-2-2-2-2-0"
 curve
-    public-key = "y}r>DE5^x*!>qWZ[:h1bToMAXlZ/(Xp&@H/]TdNw"
-    secret-key = "UHY#Hc17PKMf.JXXv9AcvLb:]UK-VW81z[haZ*R="
+    public-key = "W9[CXJIwYj?B%^.HttFiV?-.mnEBfh)L031:1$2s"
+    secret-key = "Ugh/@ab+ui)WKtsN:+#6AnWK@I-(n9MyIF%C!2Yr"
 👋 Hello, I'm lmp-0-10-size-2-2-2-2-0
 The main host is lmp-0-10-size-2-2-2-2-0
 The working directory is /opt/lammps/examples/reaxff/HNS, contents include:
@@ -36,18 +36,18 @@ Command provided is: lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite
 Flags for flux are -N 2 -n4  
 🌀 Submit Mode: flux start -o --config /mnt/flux/view/etc/flux/config -Scron.directory=/etc/flux/system/cron.d   -Stbon.fanout=256   -Srundir=/mnt/flux/view/run/flux    -Sstatedir=/mnt/flux/view/var/lib/flux   -Slocal-uri=local:///mnt/flux/view/run/flux/local     -Slog-stderr-level=6    -Slog-stderr-mode=local  flux submit  -N 2 -n4   --quiet --watch lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite
 Flags for flux are -N 2 -n4  
-broker.info[0]: start: none->join 0.27068ms
-broker.info[0]: parent-none: join->init 0.01688ms
+broker.info[0]: start: none->join 0.27527ms
+broker.info[0]: parent-none: join->init 0.02108ms
 cron.info[0]: synchronizing cron tasks to event heartbeat.pulse
 job-manager.info[0]: restart: 0 jobs
 job-manager.info[0]: restart: 0 running jobs
 job-manager.info[0]: restart: checkpoint.job-manager not found
 broker.info[0]: rc1.0: running /opt/software/linux-rocky9-x86_64/gcc-11.4.1/flux-core-0.55.0-acjfnnbehfw32ij5kobxlc6wvjsaxt4j/etc/flux/rc1.d/02-cron
 broker.info[0]: rc1.0: /opt/software/linux-rocky9-x86_64/gcc-11.4.1/flux-core-0.55.0-acjfnnbehfw32ij5kobxlc6wvjsaxt4j/etc/flux/rc1 Exited (rc=0) 0.5s
-broker.info[0]: rc1-success: init->quorum 0.504186s
+broker.info[0]: rc1-success: init->quorum 0.505172s
 broker.info[0]: online: lmp-0-10-size-2-2-2-2-0 (ranks 0)
 broker.info[0]: online: lmp-0-10-size-2-2-2-2-[0-1] (ranks 0-1)
-broker.info[0]: quorum-full: quorum->run 3.64307s
+broker.info[0]: quorum-full: quorum->run 1.49277s
 job-manager.err[0]: jobtap: job.new: callback returned error
 LAMMPS (29 Sep 2021 - Update 2)
 OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
@@ -101,20 +101,20 @@ Step Temp PotEng Press E_vdwl E_coul Volume
       70    292.19998   -113.25435    5533.6324   -111.55514   -1.6992157    27418.867 
       80    293.58677   -113.25831    5993.3848   -111.55946   -1.6988534    27418.867 
       90    300.62636   -113.27925    7202.8542   -111.58069   -1.6985592    27418.867 
-     100    305.38275   -113.29357     10085.75   -111.59518   -1.6983875    27418.867 
-Loop time of 7.82915 on 4 procs for 100 steps with 2432 atoms
-Performance: 0.110 ns/day, 217.476 hours/ns, 12.773 timesteps/s
-85.4% CPU use with 4 MPI tasks x 1 OpenMP threads
 job-manager.err[0]: jobtap: job.inactive-add: callback returned error
+     100    305.38275   -113.29357     10085.75   -111.59518   -1.6983875    27418.867 
+Loop time of 7.822 on 4 procs for 100 steps with 2432 atoms
+Performance: 0.110 ns/day, 217.278 hours/ns, 12.784 timesteps/s
+86.8% CPU use with 4 MPI tasks x 1 OpenMP threads
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 3.7181     | 4.2501     | 4.7595     |  19.0 | 54.29
-Neigh   | 0.12078    | 0.12178    | 0.12257    |   0.2 |  1.56
-Comm    | 0.053212   | 0.56377    | 1.0961     |  52.2 |  7.20
-Output  | 0.0032455  | 0.0037008  | 0.0045485  |   0.8 |  0.05
-Modify  | 2.8882     | 2.8892     | 2.8905     |   0.1 | 36.90
-Other   |            | 0.0006093  |            |       |  0.01
+Pair    | 3.8702     | 4.3837     | 4.8322     |  17.7 | 56.04
+Neigh   | 0.12023    | 0.12133    | 0.12299    |   0.3 |  1.55
+Comm    | 0.055512   | 0.50493    | 1.0188     |  52.3 |  6.46
+Output  | 0.0032175  | 0.0034874  | 0.0041049  |   0.6 |  0.04
+Modify  | 2.8057     | 2.8078     | 2.8094     |   0.1 | 35.90
+Other   |            | 0.0007909  |            |       |  0.01
 Nlocal:        608.000 ave         612 max         604 min
 Histogram: 1 0 0 0 0 2 0 0 0 1
 Nghost:        5737.25 ave        5744 max        5732 min
@@ -127,16 +127,16 @@ Neighbor list builds = 5
 Dangerous builds not checked
 Total wall time: 0:00:08
 broker.info[0]: rc2.0: flux submit -N 2 -n4 --quiet --watch lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite Exited (rc=0) 8.8s
-broker.info[0]: rc2-success: run->cleanup 8.79037s
+broker.info[0]: rc2-success: run->cleanup 8.81953s
 broker.info[0]: cleanup.0: flux queue stop --quiet --all --nocheckpoint Exited (rc=0) 0.1s
 broker.info[0]: cleanup.1: flux cancel --user=all --quiet --states RUN Exited (rc=0) 0.1s
 broker.info[0]: cleanup.2: flux queue idle --quiet Exited (rc=0) 0.1s
-broker.info[0]: cleanup-success: cleanup->shutdown 0.27557s
-broker.info[0]: children-complete: shutdown->finalize 53.208ms
+broker.info[0]: cleanup-success: cleanup->shutdown 0.275066s
+broker.info[0]: children-complete: shutdown->finalize 0.111984s
 broker.info[0]: online: lmp-0-10-size-2-2-2-2-0 (ranks 0)
-broker.info[0]: rc3.0: /opt/software/linux-rocky9-x86_64/gcc-11.4.1/flux-core-0.55.0-acjfnnbehfw32ij5kobxlc6wvjsaxt4j/etc/flux/rc3 Exited (rc=0) 0.1s
-broker.info[0]: rc3-success: finalize->goodbye 0.108225s
-broker.info[0]: goodbye: goodbye->exit 0.03886ms
+broker.info[0]: rc3.0: /opt/software/linux-rocky9-x86_64/gcc-11.4.1/flux-core-0.55.0-acjfnnbehfw32ij5kobxlc6wvjsaxt4j/etc/flux/rc3 Exited (rc=0) 0.6s
+broker.info[0]: rc3-success: finalize->goodbye 0.62035s
+broker.info[0]: goodbye: goodbye->exit 0.02277ms
 ===
-Times: recorded-at: 2024-02-25 22:49:00.893780
-{"end_time": "2024-02-25 22:48:59.834167", "start_time": "2024-02-25 22:48:44.574048", "total_time": 15.260119, "uid": "fluence-batch-0-iter-10-size-2-2-2-2"}
+Times: recorded-at: 2024-04-02 17:35:22.195243
+{"end_time": "2024-04-02 17:35:21.166824", "start_time": "2024-04-02 17:35:07.495483", "total_time": 13.671341, "uid": "fluence-batch-0-iter-10-size-2-2-2-2"}

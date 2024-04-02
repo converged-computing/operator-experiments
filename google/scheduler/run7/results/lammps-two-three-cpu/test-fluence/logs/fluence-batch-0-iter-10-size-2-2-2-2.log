@@ -1,0 +1,174 @@
+
+===
+Output: recorded-at: 2024-04-02 19:32:27.039943
+/flux_operator/wait-0.sh: line 24: curl: command not found
+Flux install root: /mnt/flux/view
+🟧️  wait-fs: 2024/04/02 19:30:47 wait-fs.go:40: /mnt/flux/flux-operator-done.txt
+🟧️  wait-fs: 2024/04/02 19:30:47 wait-fs.go:49: Found existing path /mnt/flux/flux-operator-done.txt
+Python version: /mnt/flux/view/bin/python3.11
+Python root: /mnt/flux/view/lib/python3.11
+PYTHONPATH is :/mnt/flux/view/lib/python3.11/site-packages
+PATH is /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/mnt/flux/view/bin
+/mnt/flux/view/lib/libpython3.11.so.1.0
+/mnt/flux/view/lib/libpython3.11.so
+/mnt/flux/view/lib/libpython3.so
+lrwxrwxrwx 1 root root 116 Apr  2 19:30 /mnt/flux/view/lib/libpython3.11.so.1.0 -> /opt/software/linux-rocky9-x86_64/gcc-11.4.1/python-3.11.6-6jgt4ms3la3mrv7j2a73g66sywketyo3/lib/libpython3.11.so.1.0
+Hello user root
+🌟️ Curve Certificate
+curve.cert
+#   ****  Generated on 2023-04-26 22:54:42 by CZMQ  ****
+#   ZeroMQ CURVE **Secret** Certificate
+#   DO NOT PROVIDE THIS FILE TO OTHER USERS nor change its permissions.
+    
+metadata
+    name = "flux-cert-generator"
+    keygen.hostname = "lmp-0-10-size-2-2-2-2-0"
+curve
+    public-key = "(yMlPcwGTGug7$g=yMx(KS#}08epY^r{%]s/JWrY"
+    secret-key = "Gd]sxEiwo(gP?$%/$IK<w{mC$}xscCQ5z)@JC1I8"
+👋 Hello, I'm lmp-0-10-size-2-2-2-2-0
+The main host is lmp-0-10-size-2-2-2-2-0
+The working directory is /opt/lammps/examples/reaxff/HNS, contents include:
+README.txt	ffield.reax.hns  log.8Mar18.reaxc.hns.g++.1
+data.hns-equil	in.reaxc.hns	 log.8Mar18.reaxc.hns.g++.4
+🚩️ Flux Option Flags defined
+Command provided is: lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite
+Flags for flux are -N 2 -n4  
+🌀 Submit Mode: flux start -o --config /mnt/flux/view/etc/flux/config -Scron.directory=/etc/flux/system/cron.d   -Stbon.fanout=256   -Srundir=/mnt/flux/view/run/flux    -Sstatedir=/mnt/flux/view/var/lib/flux   -Slocal-uri=local:///mnt/flux/view/run/flux/local     -Slog-stderr-level=6    -Slog-stderr-mode=local  flux submit  -N 2 -n4   --quiet --watch lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite
+Flags for flux are -N 2 -n4  
+broker.info[0]: start: none->join 0.25727ms
+broker.info[0]: parent-none: join->init 0.01732ms
+cron.info[0]: synchronizing cron tasks to event heartbeat.pulse
+job-manager.info[0]: restart: 0 jobs
+job-manager.info[0]: restart: 0 running jobs
+job-manager.info[0]: restart: checkpoint.job-manager not found
+broker.info[0]: rc1.0: running /opt/software/linux-rocky9-x86_64/gcc-11.4.1/flux-core-0.55.0-acjfnnbehfw32ij5kobxlc6wvjsaxt4j/etc/flux/rc1.d/02-cron
+broker.info[0]: rc1.0: /opt/software/linux-rocky9-x86_64/gcc-11.4.1/flux-core-0.55.0-acjfnnbehfw32ij5kobxlc6wvjsaxt4j/etc/flux/rc1 Exited (rc=0) 1.4s
+broker.info[0]: rc1-success: init->quorum 1.37175s
+broker.info[0]: online: lmp-0-10-size-2-2-2-2-0 (ranks 0)
+broker.info[0]: online: lmp-0-10-size-2-2-2-2-[0-1] (ranks 0-1)
+broker.info[0]: quorum-full: quorum->run 0.261307s
+job-manager.err[0]: jobtap: job.new: callback returned error
+LAMMPS (29 Sep 2021 - Update 2)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
+  using 1 OpenMP thread(s) per MPI task
+Reading data file ...
+  triclinic box = (0.0000000 0.0000000 0.0000000) to (22.326000 11.141200 13.778966) with tilt (0.0000000 -5.0260300 0.0000000)
+  2 by 1 by 2 MPI processor grid
+  reading atoms ...
+  304 atoms
+  reading velocities ...
+  304 velocities
+  read_data CPU = 0.090 seconds
+Replicating atoms ...
+  triclinic box = (0.0000000 0.0000000 0.0000000) to (44.652000 22.282400 27.557932) with tilt (0.0000000 -10.052060 0.0000000)
+  2 by 1 by 2 MPI processor grid
+  bounding box image = (0 -1 -1) to (0 1 1)
+  bounding box extra memory = 0.03 MB
+  average # of replicas added to proc = 5.00 out of 8 (62.50%)
+  2432 atoms
+  replicate CPU = 0.091 seconds
+Neighbor list info ...
+  update every 20 steps, delay 0 steps, check no
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 11
+  ghost atom cutoff = 11
+  binsize = 5.5, bins = 10 5 6
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: full/ghost/bin/3d
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+Setting up Verlet run ...
+  Unit style    : real
+  Current step  : 0
+  Time step     : 0.1
+Per MPI rank memory allocation (min/avg/max) = 103.8 | 103.8 | 103.8 Mbytes
+Step Temp PotEng Press E_vdwl E_coul Volume 
+       0          300   -113.27833    437.52118   -111.57687   -1.7014647    27418.867 
+      10    299.38517   -113.27631    1439.2449   -111.57492   -1.7013814    27418.867 
+      20    300.27106   -113.27884    3764.3565   -111.57762   -1.7012246    27418.867 
+      30    302.21063   -113.28428     7007.709   -111.58335   -1.7009363    27418.867 
+      40    303.52265   -113.28799    9844.8297   -111.58747   -1.7005186    27418.867 
+      50    301.87059   -113.28324    9663.0567   -111.58318   -1.7000523    27418.867 
+      60    296.67806   -113.26777    7273.8146   -111.56815   -1.6996137    27418.867 
+      70    292.19998   -113.25435    5533.6324   -111.55514   -1.6992157    27418.867 
+      80    293.58677   -113.25831    5993.3848   -111.55946   -1.6988534    27418.867 
+      90    300.62636   -113.27925    7202.8542   -111.58069   -1.6985592    27418.867 
+     100    305.38275   -113.29357     10085.75   -111.59518   -1.6983875    27418.867 
+Loop time of 88.353 on 4 procs for 100 steps with 2432 atoms
+Performance: 0.010 ns/day, 2454.249 hours/ns, 1.132 timesteps/s
+34.7% CPU use with 4 MPI tasks x 1 OpenMP threads
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 8.0223     | 8.9195     | 9.754      |  22.5 | 10.10
+Neigh   | 0.23355    | 0.23899    | 0.24397    |   0.9 |  0.27
+Comm    | 1.3919     | 2.1439     | 2.9563     |  40.0 |  2.43
+Output  | 0.34048    | 0.35921    | 0.37933    |   2.8 |  0.41
+Modify  | 76.572     | 76.684     | 76.787     |   1.0 | 86.79
+Other   |            | 0.0071     |            |       |  0.01
+Nlocal:        608.000 ave         612 max         604 min
+Histogram: 1 0 0 0 0 2 0 0 0 1
+Nghost:        5737.25 ave        5744 max        5732 min
+Histogram: 1 0 1 0 0 1 0 0 0 1
+Neighs:        231539.0 ave      233090 max      229970 min
+job-manager.err[0]: jobtap: job.inactive-add: callback returned error
+Histogram: 1 0 0 0 1 1 0 0 0 1
+Total # of neighbors = 926155
+Ave neighs/atom = 380.82031
+Neighbor list builds = 5
+Dangerous builds not checked
+Total wall time: 0:01:31
+broker.info[0]: rc2.0: flux submit -N 2 -n4 --quiet --watch lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite Exited (rc=0) 93.2s
+broker.info[0]: rc2-success: run->cleanup 1.5538m
+broker.info[0]: cleanup.0: flux queue stop --quiet --all --nocheckpoint Exited (rc=0) 0.1s
+broker.info[0]: cleanup.1: flux cancel --user=all --quiet --states RUN Exited (rc=0) 0.1s
+broker.info[0]: cleanup.2: flux queue idle --quiet Exited (rc=0) 0.1s
+broker.info[0]: cleanup-success: cleanup->shutdown 0.286745s
+broker.info[0]: children-complete: shutdown->finalize 51.433ms
+broker.info[0]: online: lmp-0-10-size-2-2-2-2-0 (ranks 0)
+broker.info[0]: rc3.0: /opt/software/linux-rocky9-x86_64/gcc-11.4.1/flux-core-0.55.0-acjfnnbehfw32ij5kobxlc6wvjsaxt4j/etc/flux/rc3 Exited (rc=0) 0.2s
+broker.info[0]: rc3-success: finalize->goodbye 0.190751s
+broker.info[0]: goodbye: goodbye->exit 0.02418ms
+===
+Succeeded: recorded-at: 2024-04-02 19:32:27.700118
+{'api_version': 'v1', 'kind': 'Pod', 'metadata': {'annotations': {'batch.kubernetes.io/job-completion-index': '0', 'cloud.google.com/cluster_autoscaler_unhelpable_since': '2024-04-02T19:26:56+0000', 'cloud.google.com/cluster_autoscaler_unhelpable_until': 'Inf'}, 'creation_timestamp': datetime.datetime(2024, 4, 2, 19, 22, 43, tzinfo=tzutc()), 'deletion_grace_period_seconds': None, 'deletion_timestamp': None, 'finalizers': ['batch.kubernetes.io/job-tracking'], 'generate_name': 'lmp-0-10-size-2-2-2-2-0-', 'generation': None, 'labels': {'app': 'lmp-0-10-size-2-2-2-2', 'app.kubernetes.io/name': 'lmp-0-10-size-2-2-2-2', 'batch.kubernetes.io/controller-uid': '8f56c4d5-67c2-44c9-8777-9b4892a2cefc', 'batch.kubernetes.io/job-name': 'lmp-0-10-size-2-2-2-2', 'controller-uid': '8f56c4d5-67c2-44c9-8777-9b4892a2cefc', 'fluence.group-size': '2', 'hpa-selector': 'lmp-0-10-size-2-2-2-2', 'job-index': 'lmp', 'job-name': 'lmp-0-10-size-2-2-2-2', 'namespace': 'default', 'scheduling.x-k8s.io/pod-group': 'fluence-group-default-lmp-0-10-size-2-2-2-2'}, 'managed_fields': [{'api_version': 'v1', 'fields_type': 'FieldsV1', 'fields_v1': {'f:metadata': {'f:annotations': {'.': {}, 'f:batch.kubernetes.io/job-completion-index': {}}, 'f:finalizers': {'.': {}, 'v:"batch.kubernetes.io/job-tracking"': {}}, 'f:generateName': {}, 'f:labels': {'.': {}, 'f:app': {}, 'f:app.kubernetes.io/name': {}, 'f:batch.kubernetes.io/controller-uid': {}, 'f:batch.kubernetes.io/job-name': {}, 'f:controller-uid': {}, 'f:fluence.group-size': {}, 'f:hpa-selector': {}, 'f:job-name': {}, 'f:namespace': {}, 'f:scheduling.x-k8s.io/pod-group': {}}, 'f:ownerReferences': {'.': {}, 'k:{"uid":"8f56c4d5-67c2-44c9-8777-9b4892a2cefc"}': {}}}, 'f:spec': {'f:affinity': {'.': {}, 'f:podAffinity': {'.': {}, 'f:preferredDuringSchedulingIgnoredDuringExecution': {}}, 'f:podAntiAffinity': {'.': {}, 'f:preferredDuringSchedulingIgnoredDuringExecution': {}}}, 'f:containers': {'k:{"name":"lmp-0-10-size-2-2-2-2"}': {'.': {}, 'f:command': {}, 'f:env': {'.': {}, 'k:{"name":"JOB_COMPLETION_INDEX"}': {'.': {}, 'f:name': {}, 'f:valueFrom': {'.': {}, 'f:fieldRef': {}}}}, 'f:image': {}, 'f:imagePullPolicy': {}, 'f:lifecycle': {}, 'f:name': {}, 'f:resources': {'.': {}, 'f:limits': {'.': {}, 'f:cpu': {}}, 'f:requests': {'.': {}, 'f:cpu': {}}}, 'f:securityContext': {'.': {}, 'f:capabilities': {}, 'f:privileged': {}}, 'f:stdin': {}, 'f:terminationMessagePath': {}, 'f:terminationMessagePolicy': {}, 'f:tty': {}, 'f:volumeMounts': {'.': {}, 'k:{"mountPath":"/flux_operator/"}': {'.': {}, 'f:mountPath': {}, 'f:name': {}, 'f:readOnly': {}}, 'k:{"mountPath":"/mnt/flux"}': {'.': {}, 'f:mountPath': {}, 'f:name': {}}}, 'f:workingDir': {}}}, 'f:dnsPolicy': {}, 'f:enableServiceLinks': {}, 'f:hostname': {}, 'f:initContainers': {'.': {}, 'k:{"name":"flux-view"}': {'.': {}, 'f:command': {}, 'f:env': {'.': {}, 'k:{"name":"JOB_COMPLETION_INDEX"}': {'.': {}, 'f:name': {}, 'f:valueFrom': {'.': {}, 'f:fieldRef': {}}}}, 'f:image': {}, 'f:imagePullPolicy': {}, 'f:name': {}, 'f:resources': {}, 'f:stdin': {}, 'f:terminationMessagePath': {}, 'f:terminationMessagePolicy': {}, 'f:tty': {}, 'f:volumeMounts': {'.': {}, 'k:{"mountPath":"/flux_operator/"}': {'.': {}, 'f:mountPath': {}, 'f:name': {}, 'f:readOnly': {}}, 'k:{"mountPath":"/mnt/flux"}': {'.': {}, 'f:mountPath': {}, 'f:name': {}}}}}, 'f:restartPolicy': {}, 'f:schedulerName': {}, 'f:securityContext': {}, 'f:setHostnameAsFQDN': {}, 'f:shareProcessNamespace': {}, 'f:subdomain': {}, 'f:terminationGracePeriodSeconds': {}, 'f:volumes': {'.': {}, 'k:{"name":"flux-view"}': {'.': {}, 'f:emptyDir': {}, 'f:name': {}}, 'k:{"name":"lmp-0-10-size-2-2-2-2-entrypoint"}': {'.': {}, 'f:configMap': {'.': {}, 'f:defaultMode': {}, 'f:items': {}, 'f:name': {}}, 'f:name': {}}}}}, 'manager': 'kube-controller-manager', 'operation': 'Update', 'subresource': None, 'time': datetime.datetime(2024, 4, 2, 19, 22, 43, tzinfo=tzutc())}, {'api_version': 'v1', 'fields_type': 'FieldsV1', 'fields_v1': {'f:metadata': {'f:labels': {'f:job-index': {}}}}, 'manager': 'manager', 'operation': 'Update', 'subresource': None, 'time': datetime.datetime(2024, 4, 2, 19, 22, 43, tzinfo=tzutc())}, {'api_version': 'v1', 'fields_type': 'FieldsV1', 'fields_v1': {'f:status': {'f:conditions': {'.': {}, 'k:{"type":"PodScheduled"}': {'.': {}, 'f:lastProbeTime': {}, 'f:lastTransitionTime': {}, 'f:message': {}, 'f:reason': {}, 'f:status': {}, 'f:type': {}}}}}, 'manager': 'kube-scheduler', 'operation': 'Update', 'subresource': 'status', 'time': datetime.datetime(2024, 4, 2, 19, 26, 52, tzinfo=tzutc())}, {'api_version': 'v1', 'fields_type': 'FieldsV1', 'fields_v1': {'f:metadata': {'f:annotations': {'f:cloud.google.com/cluster_autoscaler_unhelpable_since': {}, 'f:cloud.google.com/cluster_autoscaler_unhelpable_until': {}}}}, 'manager': 'cluster-autoscaler', 'operation': 'Update', 'subresource': None, 'time': datetime.datetime(2024, 4, 2, 19, 26, 56, tzinfo=tzutc())}, {'api_version': 'v1', 'fields_type': 'FieldsV1', 'fields_v1': {'f:status': {'f:conditions': {'k:{"type":"ContainersReady"}': {'.': {}, 'f:lastProbeTime': {}, 'f:lastTransitionTime': {}, 'f:reason': {}, 'f:status': {}, 'f:type': {}}, 'k:{"type":"Initialized"}': {'.': {}, 'f:lastProbeTime': {}, 'f:lastTransitionTime': {}, 'f:reason': {}, 'f:status': {}, 'f:type': {}}, 'k:{"type":"Ready"}': {'.': {}, 'f:lastProbeTime': {}, 'f:lastTransitionTime': {}, 'f:reason': {}, 'f:status': {}, 'f:type': {}}}, 'f:containerStatuses': {}, 'f:hostIP': {}, 'f:initContainerStatuses': {}, 'f:phase': {}, 'f:startTime': {}}}, 'manager': 'kubelet', 'operation': 'Update', 'subresource': 'status', 'time': datetime.datetime(2024, 4, 2, 19, 32, 27, tzinfo=tzutc())}], 'name': 'lmp-0-10-size-2-2-2-2-0-5sbbb', 'namespace': 'default', 'owner_references': [{'api_version': 'batch/v1', 'block_owner_deletion': True, 'controller': True, 'kind': 'Job', 'name': 'lmp-0-10-size-2-2-2-2', 'uid': '8f56c4d5-67c2-44c9-8777-9b4892a2cefc'}], 'resource_version': '119815', 'self_link': None, 'uid': 'eaf07f2b-70a6-4a1e-83df-bbe38cf57776'}, 'spec': {'active_deadline_seconds': None, 'affinity': {'node_affinity': None, 'pod_affinity': {'preferred_during_scheduling_ignored_during_execution': [{'pod_affinity_term': {'label_selector': {'match_expressions': [{'key': 'app.kubernetes.io/name', 'operator': 'In', 'values': ['lmp-0-10-size-2-2-2-2']}], 'match_labels': None}, 'match_label_keys': None, 'mismatch_label_keys': None, 'namespace_selector': None, 'namespaces': None, 'topology_key': 'topology.kubernetes.io/zone'}, 'weight': 100}], 'required_during_scheduling_ignored_during_execution': None}, 'pod_anti_affinity': {'preferred_during_scheduling_ignored_during_execution': [{'pod_affinity_term': {'label_selector': {'match_expressions': [{'key': 'app.kubernetes.io/name', 'operator': 'In', 'values': ['lmp-0-10-size-2-2-2-2']}], 'match_labels': None}, 'match_label_keys': None, 'mismatch_label_keys': None, 'namespace_selector': None, 'namespaces': None, 'topology_key': 'kubernetes.io/hostname'}, 'weight': 100}], 'required_during_scheduling_ignored_during_execution': None}}, 'automount_service_account_token': None, 'containers': [{'args': None, 'command': ['/bin/bash', '/flux_operator/wait-0.sh'], 'env': [{'name': 'JOB_COMPLETION_INDEX', 'value': None, 'value_from': {'config_map_key_ref': None, 'field_ref': {'api_version': 'v1', 'field_path': "metadata.annotations['batch.kubernetes.io/job-completion-index']"}, 'resource_field_ref': None, 'secret_key_ref': None}}], 'env_from': None, 'image': 'ghcr.io/converged-computing/metric-lammps:latest@sha256:e24a1ba8954f5a0a7a0bd854cfc5ca7f82ca12607dc6ace38d838591b8deb8ed', 'image_pull_policy': 'IfNotPresent', 'lifecycle': {'post_start': None, 'pre_stop': None}, 'liveness_probe': None, 'name': 'lmp-0-10-size-2-2-2-2', 'ports': None, 'readiness_probe': None, 'resize_policy': None, 'resources': {'claims': None, 'limits': {'cpu': '1'}, 'requests': {'cpu': '1'}}, 'restart_policy': None, 'security_context': {'allow_privilege_escalation': None, 'capabilities': {'add': None, 'drop': None}, 'privileged': False, 'proc_mount': None, 'read_only_root_filesystem': None, 'run_as_group': None, 'run_as_non_root': None, 'run_as_user': None, 'se_linux_options': None, 'seccomp_profile': None, 'windows_options': None}, 'startup_probe': None, 'stdin': True, 'stdin_once': None, 'termination_message_path': '/dev/termination-log', 'termination_message_policy': 'File', 'tty': True, 'volume_devices': None, 'volume_mounts': [{'mount_path': '/mnt/flux', 'mount_propagation': None, 'name': 'flux-view', 'read_only': None, 'sub_path': None, 'sub_path_expr': None}, {'mount_path': '/flux_operator/', 'mount_propagation': None, 'name': 'lmp-0-10-size-2-2-2-2-entrypoint', 'read_only': True, 'sub_path': None, 'sub_path_expr': None}, {'mount_path': '/var/run/secrets/kubernetes.io/serviceaccount', 'mount_propagation': None, 'name': 'kube-api-access-27rpt', 'read_only': True, 'sub_path': None, 'sub_path_expr': None}], 'working_dir': '/opt/lammps/examples/reaxff/HNS'}], 'dns_config': None, 'dns_policy': 'ClusterFirst', 'enable_service_links': True, 'ephemeral_containers': None, 'host_aliases': None, 'host_ipc': None, 'host_network': None, 'host_pid': None, 'host_users': None, 'hostname': 'lmp-0-10-size-2-2-2-2-0', 'image_pull_secrets': None, 'init_containers': [{'args': None, 'command': ['/bin/bash', '/flux_operator/flux-init.sh'], 'env': [{'name': 'JOB_COMPLETION_INDEX', 'value': None, 'value_from': {'config_map_key_ref': None, 'field_ref': {'api_version': 'v1', 'field_path': "metadata.annotations['batch.kubernetes.io/job-completion-index']"}, 'resource_field_ref': None, 'secret_key_ref': None}}], 'env_from': None, 'image': 'ghcr.io/converged-computing/flux-view-rocky:tag-9', 'image_pull_policy': 'IfNotPresent', 'lifecycle': None, 'liveness_probe': None, 'name': 'flux-view', 'ports': None, 'readiness_probe': None, 'resize_policy': None, 'resources': {'claims': None, 'limits': None, 'requests': None}, 'restart_policy': None, 'security_context': None, 'startup_probe': None, 'stdin': True, 'stdin_once': None, 'termination_message_path': '/dev/termination-log', 'termination_message_policy': 'File', 'tty': True, 'volume_devices': None, 'volume_mounts': [{'mount_path': '/mnt/flux', 'mount_propagation': None, 'name': 'flux-view', 'read_only': None, 'sub_path': None, 'sub_path_expr': None}, {'mount_path': '/flux_operator/', 'mount_propagation': None, 'name': 'lmp-0-10-size-2-2-2-2-entrypoint', 'read_only': True, 'sub_path': None, 'sub_path_expr': None}, {'mount_path': '/var/run/secrets/kubernetes.io/serviceaccount', 'mount_propagation': None, 'name': 'kube-api-access-27rpt', 'read_only': True, 'sub_path': None, 'sub_path_expr': None}], 'working_dir': None}], 'node_name': 'gke-test-cluster-default-pool-580c66d7-lz0l', 'node_selector': None, 'os': None, 'overhead': None, 'preemption_policy': 'PreemptLowerPriority', 'priority': 0, 'priority_class_name': None, 'readiness_gates': None, 'resource_claims': None, 'restart_policy': 'OnFailure', 'runtime_class_name': None, 'scheduler_name': 'fluence', 'scheduling_gates': None, 'security_context': {'fs_group': None, 'fs_group_change_policy': None, 'run_as_group': None, 'run_as_non_root': None, 'run_as_user': None, 'se_linux_options': None, 'seccomp_profile': None, 'supplemental_groups': None, 'sysctls': None, 'windows_options': None}, 'service_account': 'default', 'service_account_name': 'default', 'set_hostname_as_fqdn': False, 'share_process_namespace': False, 'subdomain': 'fs10022-2-2', 'termination_grace_period_seconds': 30, 'tolerations': [{'effect': 'NoExecute', 'key': 'node.kubernetes.io/not-ready', 'operator': 'Exists', 'toleration_seconds': 300, 'value': None}, {'effect': 'NoExecute', 'key': 'node.kubernetes.io/unreachable', 'operator': 'Exists', 'toleration_seconds': 300, 'value': None}], 'topology_spread_constraints': None, 'volumes': [{'aws_elastic_block_store': None, 'azure_disk': None, 'azure_file': None, 'cephfs': None, 'cinder': None, 'config_map': None, 'csi': None, 'downward_api': None, 'empty_dir': {'medium': None, 'size_limit': None}, 'ephemeral': None, 'fc': None, 'flex_volume': None, 'flocker': None, 'gce_persistent_disk': None, 'git_repo': None, 'glusterfs': None, 'host_path': None, 'iscsi': None, 'name': 'flux-view', 'nfs': None, 'persistent_volume_claim': None, 'photon_persistent_disk': None, 'portworx_volume': None, 'projected': None, 'quobyte': None, 'rbd': None, 'scale_io': None, 'secret': None, 'storageos': None, 'vsphere_volume': None}, {'aws_elastic_block_store': None, 'azure_disk': None, 'azure_file': None, 'cephfs': None, 'cinder': None, 'config_map': {'default_mode': 420, 'items': [{'key': 'wait-0', 'mode': 511, 'path': 'wait-0.sh'}, {'key': 'flux-view', 'mode': 511, 'path': 'flux-init.sh'}, {'key': 'curve.cert', 'mode': None, 'path': 'curve.cert'}], 'name': 'lmp-0-10-size-2-2-2-2-entrypoint', 'optional': None}, 'csi': None, 'downward_api': None, 'empty_dir': None, 'ephemeral': None, 'fc': None, 'flex_volume': None, 'flocker': None, 'gce_persistent_disk': None, 'git_repo': None, 'glusterfs': None, 'host_path': None, 'iscsi': None, 'name': 'lmp-0-10-size-2-2-2-2-entrypoint', 'nfs': None, 'persistent_volume_claim': None, 'photon_persistent_disk': None, 'portworx_volume': None, 'projected': None, 'quobyte': None, 'rbd': None, 'scale_io': None, 'secret': None, 'storageos': None, 'vsphere_volume': None}, {'aws_elastic_block_store': None, 'azure_disk': None, 'azure_file': None, 'cephfs': None, 'cinder': None, 'config_map': None, 'csi': None, 'downward_api': None, 'empty_dir': None, 'ephemeral': None, 'fc': None, 'flex_volume': None, 'flocker': None, 'gce_persistent_disk': None, 'git_repo': None, 'glusterfs': None, 'host_path': None, 'iscsi': None, 'name': 'kube-api-access-27rpt', 'nfs': None, 'persistent_volume_claim': None, 'photon_persistent_disk': None, 'portworx_volume': None, 'projected': {'default_mode': 420, 'sources': [{'cluster_trust_bundle': None, 'config_map': None, 'downward_api': None, 'secret': None, 'service_account_token': {'audience': None, 'expiration_seconds': 3607, 'path': 'token'}}, {'cluster_trust_bundle': None, 'config_map': {'items': [{'key': 'ca.crt', 'mode': None, 'path': 'ca.crt'}], 'name': 'kube-root-ca.crt', 'optional': None}, 'downward_api': None, 'secret': None, 'service_account_token': None}, {'cluster_trust_bundle': None, 'config_map': None, 'downward_api': {'items': [{'field_ref': {'api_version': 'v1', 'field_path': 'metadata.namespace'}, 'mode': None, 'path': 'namespace', 'resource_field_ref': None}]}, 'secret': None, 'service_account_token': None}]}, 'quobyte': None, 'rbd': None, 'scale_io': None, 'secret': None, 'storageos': None, 'vsphere_volume': None}]}, 'status': {'conditions': [{'last_probe_time': None, 'last_transition_time': datetime.datetime(2024, 4, 2, 19, 30, 46, tzinfo=tzutc()), 'message': None, 'reason': 'PodCompleted', 'status': 'True', 'type': 'Initialized'}, {'last_probe_time': None, 'last_transition_time': datetime.datetime(2024, 4, 2, 19, 32, 26, tzinfo=tzutc()), 'message': None, 'reason': 'PodCompleted', 'status': 'False', 'type': 'Ready'}, {'last_probe_time': None, 'last_transition_time': datetime.datetime(2024, 4, 2, 19, 32, 26, tzinfo=tzutc()), 'message': None, 'reason': 'PodCompleted', 'status': 'False', 'type': 'ContainersReady'}, {'last_probe_time': None, 'last_transition_time': datetime.datetime(2024, 4, 2, 19, 30, 12, tzinfo=tzutc()), 'message': None, 'reason': None, 'status': 'True', 'type': 'PodScheduled'}], 'container_statuses': [{'allocated_resources': None, 'container_id': 'containerd://fc7f57ede582735fa1b44bc9a337a88f20d644230ed65c6b89402286ba94fe60', 'image': 'sha256:a92aab4c08132af0f099265175f1eafd58ca0b771468051336504fdb90506ad5', 'image_id': 'ghcr.io/converged-computing/metric-lammps@sha256:e24a1ba8954f5a0a7a0bd854cfc5ca7f82ca12607dc6ace38d838591b8deb8ed', 'last_state': {'running': None, 'terminated': None, 'waiting': None}, 'name': 'lmp-0-10-size-2-2-2-2', 'ready': False, 'resources': None, 'restart_count': 0, 'started': False, 'state': {'running': None, 'terminated': {'container_id': 'containerd://fc7f57ede582735fa1b44bc9a337a88f20d644230ed65c6b89402286ba94fe60', 'exit_code': 0, 'finished_at': datetime.datetime(2024, 4, 2, 19, 32, 26, tzinfo=tzutc()), 'message': None, 'reason': 'Completed', 'signal': None, 'started_at': datetime.datetime(2024, 4, 2, 19, 30, 46, tzinfo=tzutc())}, 'waiting': None}}], 'ephemeral_container_statuses': None, 'host_ip': '10.128.0.53', 'host_i_ps': None, 'init_container_statuses': [{'allocated_resources': None, 'container_id': 'containerd://0e4d45b7be53165a87a9b5c1c69a6eec12d99892f22dcb40bd1cb77e0148845f', 'image': 'ghcr.io/converged-computing/flux-view-rocky:tag-9', 'image_id': 'ghcr.io/converged-computing/flux-view-rocky@sha256:c78330469641574e8732e2c16281adeabf47e0389c8711070f549f1004dab2c9', 'last_state': {'running': None, 'terminated': None, 'waiting': None}, 'name': 'flux-view', 'ready': True, 'resources': None, 'restart_count': 0, 'started': None, 'state': {'running': None, 'terminated': {'container_id': 'containerd://0e4d45b7be53165a87a9b5c1c69a6eec12d99892f22dcb40bd1cb77e0148845f', 'exit_code': 0, 'finished_at': datetime.datetime(2024, 4, 2, 19, 30, 34, tzinfo=tzutc()), 'message': None, 'reason': 'Completed', 'signal': None, 'started_at': datetime.datetime(2024, 4, 2, 19, 30, 14, tzinfo=tzutc())}, 'waiting': None}}], 'message': None, 'nominated_node_name': None, 'phase': 'Succeeded', 'pod_ip': None, 'pod_i_ps': None, 'qos_class': 'Burstable', 'reason': None, 'resize': None, 'resource_claim_statuses': None, 'start_time': datetime.datetime(2024, 4, 2, 19, 30, 12, tzinfo=tzutc())}}
+===
+Mapping: recorded-at: 2024-04-02 19:32:27.700778
+Mapping for job fluence-batch-0-iter-10-size-2-2-2-2 for scheduler fluence
+lmp-0-10-size-2-2-2-2-0-5sbbb --> gke-test-cluster-default-pool-580c66d7-lz0l
+lmp-0-10-size-2-2-2-2-1-kfd8j --> gke-test-cluster-default-pool-580c66d7-lz0l
+gke-test-cluster-default-pool-580c66d7-lz0l ran 2 pods in zone us-central1-a
+
+===
+Config: recorded-at: 2024-04-02 19:32:27.700963
+Run configuration for job fluence-batch-0-iter-10-size-2-2-2-2:
+===
+{
+    "params": {
+        "x": 2,
+        "y": 2,
+        "z": 2,
+        "cpu_limit": 1,
+        "tasks": 4,
+        "size": 2,
+        "name": "lmp-0-10-size-2-2-2-2",
+        "service_name": "fs10022-2-2",
+        "scheduler": "fluence",
+        "pod_group": "lmp-0-10-size-2-2-2-2"
+    },
+    "iter": 10,
+    "start_time": "2024-04-02 19:22:42.268122"
+}
+====
+
+===
+Times: recorded-at: 2024-04-02 19:32:28.060575
+{"end_time": "2024-04-02 19:32:27.039705", "start_time": "2024-04-02 19:30:47.498000", "total_time": 99.541705, "uid": "fluence-batch-0-iter-10-size-2-2-2-2"}

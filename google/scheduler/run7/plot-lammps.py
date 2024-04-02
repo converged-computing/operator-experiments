@@ -194,7 +194,7 @@ def parse_data(files):
         # The last line has the total time to run
         try:
             times = json.loads(pieces[-1].split("\n")[-1])
-        except: 
+        except:
             continue
 
         # The experiment is a summary of the size and x,y,z

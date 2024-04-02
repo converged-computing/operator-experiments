@@ -3,8 +3,8 @@ kind: Job
 metadata:
   name: job-1
 spec:
-  completions: 7
-  parallelism: 7
+  completions: 8
+  parallelism: 8
   completionMode: Indexed
   template:
     spec:
@@ -15,8 +15,8 @@ spec:
         command: [sleep, "1"]
         resources:
           limits:
-            cpu: 2
+            cpu: 3
           requests:
-            cpu: 2
+            cpu: 3
       restartPolicy: Never
   backoffLimit: 4

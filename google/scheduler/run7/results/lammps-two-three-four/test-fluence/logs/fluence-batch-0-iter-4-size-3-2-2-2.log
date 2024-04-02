@@ -1,0 +1,142 @@
+
+===
+Output: recorded-at: 2024-04-02 18:00:04.210528
+/flux_operator/wait-0.sh: line 24: curl: command not found
+Flux install root: /mnt/flux/view
+🟧️  wait-fs: 2024/04/02 17:59:48 wait-fs.go:40: /mnt/flux/flux-operator-done.txt
+🟧️  wait-fs: 2024/04/02 17:59:48 wait-fs.go:49: Found existing path /mnt/flux/flux-operator-done.txt
+Python version: /mnt/flux/view/bin/python3.11
+Python root: /mnt/flux/view/lib/python3.11
+PYTHONPATH is :/mnt/flux/view/lib/python3.11/site-packages
+PATH is /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/mnt/flux/view/bin
+/mnt/flux/view/lib/libpython3.11.so.1.0
+/mnt/flux/view/lib/libpython3.11.so
+/mnt/flux/view/lib/libpython3.so
+lrwxrwxrwx 1 root root 116 Apr  2 17:59 /mnt/flux/view/lib/libpython3.11.so.1.0 -> /opt/software/linux-rocky9-x86_64/gcc-11.4.1/python-3.11.6-6jgt4ms3la3mrv7j2a73g66sywketyo3/lib/libpython3.11.so.1.0
+Hello user root
+🌟️ Curve Certificate
+curve.cert
+#   ****  Generated on 2023-04-26 22:54:42 by CZMQ  ****
+#   ZeroMQ CURVE **Secret** Certificate
+#   DO NOT PROVIDE THIS FILE TO OTHER USERS nor change its permissions.
+    
+metadata
+    name = "flux-cert-generator"
+    keygen.hostname = "lmp-0-4-size-3-2-2-2-0"
+curve
+    public-key = "fr/Xk&L4p?(vb/R<=XJ{r91q0=WUQi7ft{SEXHKm"
+    secret-key = "LNXXHD5vtdzez4^Q^Zs{}C]lN}Fmp!0oyS).uj(("
+👋 Hello, I'm lmp-0-4-size-3-2-2-2-0
+The main host is lmp-0-4-size-3-2-2-2-0
+The working directory is /opt/lammps/examples/reaxff/HNS, contents include:
+README.txt	ffield.reax.hns  log.8Mar18.reaxc.hns.g++.1
+data.hns-equil	in.reaxc.hns	 log.8Mar18.reaxc.hns.g++.4
+🚩️ Flux Option Flags defined
+Command provided is: lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite
+Flags for flux are -N 3 -n6  
+🌀 Submit Mode: flux start -o --config /mnt/flux/view/etc/flux/config -Scron.directory=/etc/flux/system/cron.d   -Stbon.fanout=256   -Srundir=/mnt/flux/view/run/flux    -Sstatedir=/mnt/flux/view/var/lib/flux   -Slocal-uri=local:///mnt/flux/view/run/flux/local     -Slog-stderr-level=6    -Slog-stderr-mode=local  flux submit  -N 3 -n6   --quiet --watch lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite
+Flags for flux are -N 3 -n6  
+broker.info[0]: start: none->join 0.28348ms
+broker.info[0]: parent-none: join->init 0.01682ms
+cron.info[0]: synchronizing cron tasks to event heartbeat.pulse
+job-manager.info[0]: restart: 0 jobs
+job-manager.info[0]: restart: 0 running jobs
+job-manager.info[0]: restart: checkpoint.job-manager not found
+broker.info[0]: rc1.0: running /opt/software/linux-rocky9-x86_64/gcc-11.4.1/flux-core-0.55.0-acjfnnbehfw32ij5kobxlc6wvjsaxt4j/etc/flux/rc1.d/02-cron
+broker.info[0]: rc1.0: /opt/software/linux-rocky9-x86_64/gcc-11.4.1/flux-core-0.55.0-acjfnnbehfw32ij5kobxlc6wvjsaxt4j/etc/flux/rc1 Exited (rc=0) 0.6s
+broker.info[0]: rc1-success: init->quorum 0.569642s
+broker.info[0]: online: lmp-0-4-size-3-2-2-2-0 (ranks 0)
+broker.info[0]: online: lmp-0-4-size-3-2-2-2-[0-2] (ranks 0-2)
+broker.info[0]: quorum-full: quorum->run 4.37991s
+job-manager.err[0]: jobtap: job.new: callback returned error
+LAMMPS (29 Sep 2021 - Update 2)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
+  using 1 OpenMP thread(s) per MPI task
+Reading data file ...
+  triclinic box = (0.0000000 0.0000000 0.0000000) to (22.326000 11.141200 13.778966) with tilt (0.0000000 -5.0260300 0.0000000)
+  3 by 1 by 2 MPI processor grid
+  reading atoms ...
+  304 atoms
+  reading velocities ...
+  304 velocities
+  read_data CPU = 0.003 seconds
+Replicating atoms ...
+  triclinic box = (0.0000000 0.0000000 0.0000000) to (44.652000 22.282400 27.557932) with tilt (0.0000000 -10.052060 0.0000000)
+  3 by 1 by 2 MPI processor grid
+  bounding box image = (0 -1 -1) to (0 1 1)
+  bounding box extra memory = 0.03 MB
+  average # of replicas added to proc = 6.00 out of 8 (75.00%)
+  2432 atoms
+  replicate CPU = 0.003 seconds
+Neighbor list info ...
+  update every 20 steps, delay 0 steps, check no
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 11
+  ghost atom cutoff = 11
+  binsize = 5.5, bins = 10 5 6
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair reax/c, perpetual
+      attributes: half, newton off, ghost
+      pair build: half/bin/newtoff/ghost
+      stencil: full/ghost/bin/3d
+      bin: standard
+  (2) fix qeq/reax, perpetual, copy from (1)
+      attributes: half, newton off, ghost
+      pair build: copy
+      stencil: none
+      bin: none
+Setting up Verlet run ...
+  Unit style    : real
+  Current step  : 0
+  Time step     : 0.1
+Per MPI rank memory allocation (min/avg/max) = 85.40 | 87.27 | 88.49 Mbytes
+Step Temp PotEng Press E_vdwl E_coul Volume 
+       0          300   -113.27833    437.52118   -111.57687   -1.7014647    27418.867 
+      10    299.38517   -113.27631    1439.2508   -111.57492   -1.7013814    27418.867 
+      20    300.27108   -113.27884    3764.3475   -111.57762   -1.7012246    27418.867 
+      30    302.21063   -113.28428    7007.6949   -111.58335   -1.7009363    27418.867 
+      40    303.52264   -113.28799    9844.7951   -111.58747   -1.7005187    27418.867 
+      50     301.8706   -113.28324    9663.0403   -111.58318   -1.7000524    27418.867 
+      60    296.67807   -113.26777    7273.8422   -111.56815   -1.6996136    27418.867 
+      70        292.2   -113.25435    5533.6381   -111.55514   -1.6992157    27418.867 
+      80    293.58678   -113.25831    5993.3992   -111.55946   -1.6988534    27418.867 
+      90    300.62636   -113.27925    7202.8563   -111.58069   -1.6985592    27418.867 
+     100    305.38277   -113.29357    10085.769   -111.59518   -1.6983875    27418.867 
+Loop time of 6.68657 on 6 procs for 100 steps with 2432 atoms
+Performance: 0.129 ns/day, 185.738 hours/ns, 14.955 timesteps/s
+81.6% CPU use with 6 MPI tasks x 1 OpenMP threads
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.9219     | 3.2863     | 3.7063     |  14.2 | 49.15
+Neigh   | 0.092589   | 0.096468   | 0.10025    |   0.9 |  1.44
+Comm    | 0.069935   | 0.49035    | 0.85522    |  36.9 |  7.33
+Output  | 0.0069197  | 0.0074064  | 0.007999   |   0.4 |  0.11
+Modify  | 2.8015     | 2.8053     | 2.8085     |   0.1 | 41.95
+Other   |            | 0.0008167  |            |       |  0.01
+Nlocal:        405.333 ave         419 max         383 min
+Histogram: 1 1 0 0 0 0 0 1 0 3
+Nghost:        4910.17 ave        4980 max        4799 min
+Histogram: 2 0 0 0 0 0 0 0 2 2
+Neighs:        160018.0 ave      164668 max      152476 min
+Histogram: 1 1 0 0 0 0 0 1 0 3
+Total # of neighbors = 960110
+Ave neighs/atom = 394.78207
+Neighbor list builds = 5
+Dangerous builds not checked
+Total wall time: 0:00:06
+job-manager.err[0]: jobtap: job.inactive-add: callback returned error
+broker.info[0]: rc2.0: flux submit -N 3 -n6 --quiet --watch lmp -v x 2 -v y 2 -v z 2 -in in.reaxc.hns -nocite Exited (rc=0) 7.7s
+broker.info[0]: rc2-success: run->cleanup 7.73733s
+broker.info[0]: cleanup.0: flux queue stop --quiet --all --nocheckpoint Exited (rc=0) 0.1s
+broker.info[0]: cleanup.1: flux cancel --user=all --quiet --states RUN Exited (rc=0) 0.1s
+broker.info[0]: cleanup.2: flux queue idle --quiet Exited (rc=0) 0.1s
+broker.info[0]: cleanup-success: cleanup->shutdown 0.274689s
+broker.info[0]: online: lmp-0-4-size-3-2-2-2-[0-1] (ranks 0-1)
+broker.info[0]: children-complete: shutdown->finalize 0.150665s
+broker.info[0]: rc3.0: /opt/software/linux-rocky9-x86_64/gcc-11.4.1/flux-core-0.55.0-acjfnnbehfw32ij5kobxlc6wvjsaxt4j/etc/flux/rc3 Exited (rc=0) 0.1s
+broker.info[0]: rc3-success: finalize->goodbye 0.10457s
+broker.info[0]: goodbye: goodbye->exit 0.04929ms
+===
+Times: recorded-at: 2024-04-02 18:00:06.575747
+{"end_time": "2024-04-02 18:00:04.210203", "start_time": "2024-04-02 17:59:51.565433", "total_time": 12.64477, "uid": "fluence-batch-0-iter-4-size-3-2-2-2"}

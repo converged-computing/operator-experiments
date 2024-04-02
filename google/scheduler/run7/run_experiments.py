@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import random
 import copy
 import json
 import multiprocessing
@@ -30,10 +31,18 @@ kind_config = [
 ]
 
 # These are set assuming 3 cpu / node
+two_three_four_config = [
+    {"x": 2, "y": 2, "z": 2, "cpu_limit": 2, "tasks": 4, "size": 2},
+    {"x": 2, "y": 2, "z": 2, "cpu_limit": 2, "tasks": 6, "size": 3},
+    {"x": 2, "y": 2, "z": 2, "cpu_limit": 2, "tasks": 8, "size": 4},
+]
+
 six_config = [
     {"x": 2, "y": 2, "z": 2, "cpu_limit": 2, "tasks": 4, "size": 2},
     {"x": 2, "y": 2, "z": 2, "cpu_limit": 2, "tasks": 6, "size": 3},
     {"x": 2, "y": 2, "z": 2, "cpu_limit": 2, "tasks": 8, "size": 4},
+    {"x": 2, "y": 2, "z": 2, "cpu_limit": 2, "tasks": 10, "size": 5},
+    {"x": 2, "y": 2, "z": 2, "cpu_limit": 2, "tasks": 12, "size": 6},
 ]
 
 two_config = [
@@ -43,6 +52,23 @@ two_three_config = [
     {"x": 2, "y": 2, "z": 2, "cpu_limit": 2, "tasks": 4, "size": 2},
     {"x": 2, "y": 2, "z": 2, "cpu_limit": 2, "tasks": 6, "size": 3},
 ]
+
+# Do 2 (cpu 1) and 3 (cpu 2) requests
+two_three_cpu_config = [
+    {"x": 2, "y": 2, "z": 2, "cpu_limit": 1, "tasks": 4, "size": 2},
+    {"x": 2, "y": 2, "z": 2, "cpu_limit": 2, "tasks": 6, "size": 3},
+]
+
+
+# 2,3,4,5,6 then 2 (1 cpu), 3/4/5/6 (2 cpu)
+mixed_config = [
+    {"x": 2, "y": 2, "z": 2, "cpu_limit": 1, "tasks": 4, "size": 2},
+    {"x": 2, "y": 2, "z": 2, "cpu_limit": 2, "tasks": 6, "size": 3},
+    {"x": 2, "y": 2, "z": 2, "cpu_limit": 2, "tasks": 8, "size": 4},
+    {"x": 2, "y": 2, "z": 2, "cpu_limit": 2, "tasks": 10, "size": 5},
+    {"x": 2, "y": 2, "z": 2, "cpu_limit": 2, "tasks": 12, "size": 6},
+]
+
 
 # This was edited for this experiment
 # TODO - do we want to decrease tasks that flux gets so it could run at the smaller size?
@@ -59,9 +85,18 @@ large_config = [
 configs = {
     "lammps-kind": {"config": kind_config, "template": lammps_template},
     "lammps-two-three": {"config": two_three_config, "template": lammps_template},
-    "lammps-two": {"config": two_config, "template": lammps_template},
     "lammps-six": {"config": six_config, "template": lammps_template},
+    "lammps-two": {"config": two_config, "template": lammps_template},
+    "lammps-two-three-four": {
+        "config": two_three_four_config,
+        "template": lammps_template,
+    },
+    "lammps-mixed": {"config": mixed_config, "template": lammps_template},
     "lammps-large": {"config": large_config, "template": lammps_template},
+    "lammps-two-three-cpu": {
+        "config": two_three_cpu_config,
+        "template": lammps_template,
+    },
 }
 
 # This must work to continue
@@ -390,18 +425,20 @@ def run(args, config_name, node_topology):
     # Keep raw start times
     start_times = {}
 
+    # Prepare jobs in advance
+
     # For each batch
     for b in range(batches):
         # Keep a record of the uids we submit for this batch
         batch = set()
 
-        # For each iteration
         for i in range(iters):
-            # Run 1 of each experiment size for lammps
-            # note that we can change how we do this (random, etc)
+            # Do we want to shuffle jobs?
+            if args.shuffle:
+                random.shuffle(cfgs)
+
             for cfg in cfgs:
                 size = cfg["size"]
-
                 xyz = f'{cfg["x"]}-{cfg["y"]}-{cfg["z"]}'
 
                 # uid is the iteration, size, x,y,z and scheduler
@@ -500,6 +537,11 @@ def get_parser():
         help="Use fluence and not the default scheduler",
     )
     parser.add_argument(
+        "--shuffle",
+        action="store_true",
+        help="shuffle all experiments first",
+    )
+    parser.add_argument(
         "--config-name",
         default="lammps-kind",
         help="config name to use (defaults to lammps-kind)",
@@ -546,6 +588,7 @@ def main():
     print(f"▶️       Config name: {args.config_name}")
     print(f"▶️        Iterations: {args.iters}")
     print(f"▶️           Batches: {args.batches}")
+    print(f"▶️           Shuffle: {args.shuffle}")
 
     if not confirm_action("Would you like to continue?"):
         sys.exit("Cancelled!")
