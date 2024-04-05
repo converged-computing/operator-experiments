@@ -1,0 +1,6 @@
+matplotlib
+pandas
+Jinja2
+kubernetes
+metricsoperator
+seaborn
