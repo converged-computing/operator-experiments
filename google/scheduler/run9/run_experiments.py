@@ -23,7 +23,10 @@ job_template = os.path.join(here, "crd", "job.yaml")
 # 2 (1 cpu), 3/4/5/6 (2 cpu)
 # NOTE size needs to be unique here
 mixed_config = [
-    {"cpu_limit": 1, "size": 2},
+    # Note if you set this to 1 fluence won't schedule it, it will
+    # always check that the size makes sense for the resources. We'd need
+    # to remove that check if we want to force this.
+    {"cpu_limit": 2, "size": 2},
     {"cpu_limit": 2, "size": 3},
     {"cpu_limit": 2, "size": 4},
     {"cpu_limit": 2, "size": 5},
@@ -118,9 +121,7 @@ def delete_job(uid):
     Deletea job by name.
     """
     # --wait=true is default, but I want to be explicit
-    run_command(
-        ["kubectl", "delete", "job", uid, "--wait=true"]
-    )
+    run_command(["kubectl", "delete", "job", uid, "--wait=true"])
 
 
 def delete_podgroup(uid):
@@ -128,6 +129,7 @@ def delete_podgroup(uid):
     Delete the podgroup
     """
     run_command(["kubectl", "delete", "podgroup", uid], allow_fail=True)
+
 
 def delete_service(uid):
     """
@@ -144,21 +146,15 @@ def record_line(filename, status, content):
         f.write(f"\n===\n{status}: recorded-at: {datetime.utcnow()}\n{content}")
 
 
-def show_logs(name):
+def get_namespace_logs(pod_name, namespace):
     """
-    Show lines from the log.
+    Get logs for a pod in a namespace.
 
-    This will error when the pod isn't ready yet.
+    This doesn't watch (stream) but assumes we are done.
     """
-    lines = []
-    for line in watcher.stream(
-        kube_client.read_namespaced_pod_log,
-        name=name,
-        namespace="default",
-    ):
-        print(line)
-        lines.append(line)
-    return "\n".join(lines)
+    config.load_kube_config()
+    kube_client = client.CoreV1Api()
+    return kube_client.read_namespaced_pod_log(name=pod_name, namespace=namespace)
 
 
 def get_pod_mapping(uid, pods, scheduler, node_topology):
@@ -202,8 +198,14 @@ def get_logs(uid, meta, submit_time, log_dir, node_topology):
     # Start time is based on first running
     start_time = None
 
+    # And then the 0th index (leader) and the rest are workers
+    # We don't have success policy so we are watching the leader complete
+    # and then cleaning up the workers
+    zero_index = f"{label}-0"
+
     # Only the index 0 is timing, the rest are sleeping
-    while True:
+    keep_going = True
+    while keep_going:
         pods = kube_client.list_namespaced_pod(
             label_selector=f"app={label}", namespace="default"
         )
@@ -214,29 +216,22 @@ def get_logs(uid, meta, submit_time, log_dir, node_topology):
         # We can do better to get a timestamp, I'm just testing now
         if start_time is None and "Running" in phases or "Succeeded" in phases:
             start_time = datetime.utcnow()
-        is_running = all([p in ["Running", "Succeeded", "Failed"] for p in phases])
-        if len(pods.items) >= meta["params"]["size"] and is_running:
-            break
-
-    # And then the 0th index (leader) and the rest are workers
-    # We don't have success policy so we are watching the leader complete
-    # and then cleaning up the workers
-    zero_index = f"{label}-0"
-    leader = [x for x in pods.items if x.metadata.name.startswith(zero_index)][0]
-    print(f"Found leader pod {leader.metadata.name} to watch 👀️")
-
-    # Stream log until it completes (and we will get events after)
-    print(f"Waiting to get log for {uid} from pod {leader.metadata.name}")
-    while True:
-        try:
-            log = show_logs(leader.metadata.name)
-
-            # If we hit the point where it's running but no logs...
-            if not log:
-                continue
-            break
-        except:
+        elif (
+            "Running" not in phases
+            and "Succeeded" not in phases
+            and "Failed" not in phases
+        ):
             continue
+
+        leader = [x for x in pods.items if x.metadata.name.startswith(zero_index)]
+        if leader:
+            leader = leader[0]
+            print(f"Found leader pod {leader.metadata.name} to watch 👀️")
+            if leader.status.phase in ["Succeeded", "Failed"]:
+                print(f"Leader pod {leader.metadata.name} is done")
+                keep_going = False
+
+    log = get_namespace_logs(leader.metadata.name, namespace="default")
 
     # Record the end time for getting all pods to our file
     end_time = datetime.utcnow()
@@ -261,13 +256,14 @@ def get_logs(uid, meta, submit_time, log_dir, node_topology):
     }
     record_line(log_file, "Times", json.dumps(times))
     name = meta["params"]["name"]
+
+    # We need to delete the job because pods 1-N will remain running
     delete_job(name)
 
     # Clean up the pod group, if using fluence
-    pod_group = meta["params"].get("pod_group")
     service = meta["params"].get("service_name")
-    if pod_group is not None:
-        delete_podgroup(pod_group)
+    if scheduler in ["fluence", "coscheduling"]:
+        delete_podgroup(label)
     if service is not None:
         delete_service(service)
 
@@ -402,7 +398,6 @@ def run(args, config_name, node_topology):
         with multiprocessing.Pool(processes=len(batch)) as pool:
             results = []
             for uid in batch:
-                log_file = os.path.join(log_dir, f"{uid}.log")
                 results.append(
                     pool.apply_async(
                         get_logs,
