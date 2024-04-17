@@ -346,7 +346,7 @@ def run(args, config_name, node_topology):
     for b in range(batches):
         # Keep a record of the uids we submit for this batch
         batch = set()
-        
+
         for i in range(iters):
             # Do we want to shuffle jobs?
             if args.shuffle:

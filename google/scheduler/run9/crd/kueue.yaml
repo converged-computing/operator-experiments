@@ -11076,7 +11076,6 @@ data:
     integrations:
       frameworks:
       - "batch/job"
-      - "pod"
     # podOptions:
     #   namespaceSelector:
     #     matchExpressions:

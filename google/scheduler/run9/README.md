@@ -15,7 +15,6 @@ We can use the [c2d-standard-8](https://cloud.google.com/compute/docs/compute-op
 3. If/ when a scheduler setup clogs (and the queue stops moving)
  
 For experiment prototyping see [run8](../run8).
-
  
 ## Experiments
 
@@ -223,17 +222,12 @@ I'm trying Kueue first this time, before installing the cert manager, because I 
 kubectl apply --server-side -f ./crd/kueue.yaml
 ```
 
-Then I did:
-
-```console
-TOTAL_ALLOCATABLE=$(kubectl get node --selector='!node-role.kubernetes.io/master,!node-role.kubernetes.io/control-plane' -o jsonpath='{range .items[*]}{.status.allocatable.memory}{"\n"}{end}' | numfmt --from=auto | awk '{s+=$1} END {print s}')
-echo $TOTAL_ALLOCATABLE
-```
-And changed the memory in [crd/cluster-queues.yaml](crd/cluster-queues.yaml) to be double what is in the cluster.
+Note that the kueue is configured for this cluster _exactly_ and if you change it you need to change that cluster! Any resource request
+that is on the job pod template is going to need to be defined in the cluster queue resources, otherwise the Job (and pods) cannot be admitted.
 Then apply:
 
 ```bash
-kubectl apply -f cluster-queues.yaml
+kubectl apply -f ./crd/cluster-queues.yaml
 ```
 
 Then try running experiments:
@@ -242,16 +236,9 @@ Then try running experiments:
 time python run_experiments.py --outdir ./results/mixed/kueue --config-name mixed --batches 1 --iters 10 --kueue
 ```
 
-Following guide here https://kueue.sigs.k8s.io/docs/tasks/run/plain_pods/ and
-https://kueue.sigs.k8s.io/docs/tasks/manage/setup_sequential_admission/. Note that queue is working now but pods not scheduling, so more configuration issues.
+There is more information [here](https://kueue.sigs.k8s.io/docs/tasks/run/plain_pods/) and
+[here](https://kueue.sigs.k8s.io/docs/tasks/manage/setup_sequential_admission/). The user experience of Kueue is really nice!
 
-### Install Cert Manager
-
-The newer version of fluence requires the certificate manager. There is likely a way to do self-signed certs but we haven't tried it yet.
-
-```bash
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.1/cert-manager.yaml
-```
 
 ### Fluence
 
@@ -265,6 +252,14 @@ helm install \
   --set controller.image=${REGISTRY}/fluence-controller:latest \
   --set scheduler.sidecarimage=${REGISTRY}/fluence-sidecar:latest \
         fluence as-a-second-scheduler/
+```
+
+### Install Cert Manager
+
+The newer version of fluence requires the certificate manager. There is likely a way to do self-signed certs but we haven't tried it yet.
+
+```bash
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.1/cert-manager.yaml
 ```
 
 
@@ -384,47 +379,8 @@ helm uninstall fluence
 ### Analysis
 
 ```
-python plot-lammps.py
+python plot-schedulers.py
 ```
-```console
-scheduler     experiment  
-coscheduling  size-2-2-2-2    53.928729
-              size-3-2-2-2      3.83098
-              size-4-2-2-2    13.949011
-              size-5-2-2-2    10.058261
-default       size-2-2-2-2    83.771192
-              size-3-2-2-2    30.501831
-              size-4-2-2-2    44.728875
-fluence       size-2-2-2-2    36.072507
-              size-3-2-2-2    26.927059
-              size-4-2-2-2    21.665824
-              size-5-2-2-2    23.640751
-              size-6-2-2-2    29.867044
-Name: total_time, dtype: object
-scheduler     experiment  
-coscheduling  size-2-2-2-2    30.544364
-              size-3-2-2-2     1.042152
-              size-4-2-2-2     2.257874
-              size-5-2-2-2          NaN
-default       size-2-2-2-2    78.296599
-              size-3-2-2-2          NaN
-              size-4-2-2-2          NaN
-fluence       size-2-2-2-2    26.133976
-              size-3-2-2-2    40.233534
-              size-4-2-2-2     7.927240
-              size-5-2-2-2    12.581147
-              size-6-2-2-2    13.662106
-Name: total_time, dtype: float64
-fluence: 100
-default: 22
-cosched: 7
-```
-
-Results are in [img](img). Since the default clogged, coscheduling stopped working, and kueue didn't work, we can't say much from this, but we can compare the 100 jobs from fluence to the 22 default sched. General patterns I see:
-
-- There is a tradeoff between "run it quickly" and "run it right." The default scheduler ran some jobs quickly, but at the expense of poor scheduling that led to clogging. Fluence took its time and completed all jobs, at the cost of waiting longer for each one (logically).
-- I don't know why there would be difference in lammps runtimes aside from just having too small a sample
-
 
 ### Clean Up
 

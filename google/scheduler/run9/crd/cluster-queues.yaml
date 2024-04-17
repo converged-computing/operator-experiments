@@ -9,13 +9,17 @@ metadata:
   name: "cluster-queue"
 spec:
   namespaceSelector: {}
+  resourceGroups: {}
   resourceGroups:
-  - coveredResources: ["memory"]
+  - coveredResources: ["pods", "cpu"]
     flavors:
     - name: "default-flavor"
       resources:
-      - name: "memory"
-        nominalQuota: 58171Mi # double the value of allocatable memory in the cluster         
+      - name: "pods"
+        nominalQuota: 1000
+      - name: "cpu"
+        # 8 nodes * 4 each
+        nominalQuota: 40
 ---
 apiVersion: kueue.x-k8s.io/v1beta1
 kind: LocalQueue

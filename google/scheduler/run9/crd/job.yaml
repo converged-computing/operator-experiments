@@ -26,9 +26,9 @@ spec:
         app: {{ name }}
         {% if scheduler == "scheduler-plugins-scheduler" %}scheduling.x-k8s.io/pod-group: {{ name }}{% endif %}
         {% if scheduler == "kueue" %}kueue.x-k8s.io/queue-name: "user-queue"
-        kueue.x-k8s.io/pod-group-name: "{{ name }}"
-        #kueue-job: "yes"
-        kueue.x-k8s.io/pod-group-total-count: "{{ size }}"{% endif %}
+#        kueue.x-k8s.io/pod-group-total-count: "{{ size }}"
+#      annotations:
+#        kueue.x-k8s.io/pod-group-name: "{{ name }}"{% endif %} 
     spec:
       subdomain: {{ service_name }}
 {% if scheduler %}{% if scheduler != 'kueue' %}
