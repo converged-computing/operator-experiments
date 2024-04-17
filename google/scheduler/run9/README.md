@@ -15,6 +15,7 @@ We can use the [c2d-standard-8](https://cloud.google.com/compute/docs/compute-op
 3. If/ when a scheduler setup clogs (and the queue stops moving)
  
 For experiment prototyping see [run8](../run8).
+
  
 ## Experiments
 
@@ -47,14 +48,14 @@ It will clog sooner or later. This run it clogged around 5 minutes, here is the 
 
 ```console
 $ kubectl get pods | grep Running
-job-0-0-size-5-0-q72b8    1/1     Running   0          9m30s
-job-0-1-size-6-0-pctb2    1/1     Running   0          9m27s
-job-0-1-size-6-2-6jznd    1/1     Running   0          9m27s
-job-0-15-size-5-4-z859k   1/1     Running   0          8m38s
-job-0-3-size-4-3-gch6d    1/1     Running   0          9m21s
-job-0-4-size-4-1-5z5js    1/1     Running   0          9m18s
-job-0-8-size-5-1-9tvbh    1/1     Running   0          9m3s
-job-0-8-size-5-4-jtzvv    1/1     Running   0          9m3s
+job-0-0-size-5-0-cgbhx    1/1     Running   0          5m19s
+job-0-0-size-5-1-gjc5d    1/1     Running   0          5m19s
+job-0-1-size-5-4-kt4fw    1/1     Running   0          5m18s
+job-0-2-size-4-0-b67cw    1/1     Running   0          5m16s
+job-0-2-size-4-1-58zd2    1/1     Running   0          5m16s
+job-0-2-size-4-2-7ctmj    1/1     Running   0          5m16s
+job-0-3-size-4-2-xjgs7    1/1     Running   0          5m14s
+job-0-6-size-6-1-qgtwg    1/1     Running   0          5m9s
 ```
 
 In the above set, we only have one leader that is timing (the rest are sleeping without leader).
@@ -84,38 +85,165 @@ kubectl delete jobs --all
 kubectl delete service --all
 ```
 
+### Coscheduling
+
+Let's follow instructions [from here](https://scheduler-plugins.sigs.k8s.io/docs/user-guide/installation/#as-a-second-scheduler)
+
+```bash
+git clone --depth 1 https://github.com/kubernetes-sigs/scheduler-plugins /tmp/sp
+cd /tmp/sp/manifests/install/charts
+helm install coscheduling as-a-second-scheduler/
+```
+
+Note this installs coscheduling et al as `scheduler-plugins-scheduler`. You can see the config with:
+
+```bash
+kubectl describe cm scheduler-config 
+```
+
+Let's run an experiment:
+
+```bash
+time python run_experiments.py --outdir ./results/mixed/coscheduling --config-name mixed --batches 1 --iters 10 --coscheduling
+```
+
+Note that it clogs!
+
+```bash
+kubectl get pods -o json > ./results/coscheduling-1-clogged-pods.json
+```
+
+Delete and try installing with the config in [crd/coscheduling.yaml](crd/coscheduling.yaml).
+
+```
+kubectl delete miniclusters --all
+kubectl delete podgroups --all
+helm uninstall coscheduling
+```
+
+I wound up using this for the configmap.yaml template:
+
+```yaml
+{{- if .Values.plugins.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: scheduler-config
+  namespace: {{ .Release.Namespace }}
+data:
+  scheduler-config.yaml: |
+    apiVersion: kubescheduler.config.k8s.io/v1
+    kind: KubeSchedulerConfiguration
+    leaderElection:
+      leaderElect: {{ .Values.scheduler.leaderElect }}
+    profiles:
+    # Compose all plugins in one profile
+    - schedulerName: {{ .Values.scheduler.name }}
+      plugins:
+        multiPoint:
+          enabled:
+          - name: Coscheduling
+        queueSort:
+          enabled:
+          - name: Coscheduling
+          disabled:
+          - name: "*"
+      {{- if $.Values.pluginConfig }}
+      pluginConfig: {{ toYaml $.Values.pluginConfig | nindent 6 }}
+      {{- end }}
+  {{- /* TODO: wire CRD installation with enabled plugins. */}}
+{{- end }}
+```
+
+And you see:
+
+```
+s$ kubectl describe cm scheduler-config 
+Name:         scheduler-config
+Namespace:    default
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: coscheduling
+              meta.helm.sh/release-namespace: default
+
+Data
+====
+scheduler-config.yaml:
+----
+apiVersion: kubescheduler.config.k8s.io/v1
+kind: KubeSchedulerConfiguration
+leaderElection:
+  leaderElect: false
+profiles:
+# Compose all plugins in one profile
+- schedulerName: scheduler-plugins-scheduler
+  plugins:
+    multiPoint:
+      enabled:
+      - name: Coscheduling
+    queueSort:
+      enabled:
+      - name: Coscheduling
+      disabled:
+      - name: "*"
+  pluginConfig: 
+  - args:
+      permitWaitingTimeSeconds: 10
+    name: Coscheduling
+
+
+BinaryData
+====
+
+Events:  <none>
+```
+
+And then again:
+
+```bash
+time python run_experiments.py --outdir ./results/lammps-mixed/coscheduling-only --config-name lammps-mixed --batches 1 --iters 20 --coscheduling
+```
+
+It froze
+
+```bash
+kubectl get pods -o json > ./results/coscheduling-2-clogged-pods.json
+helm uninstall coscheduling
+```
+
+
 ### Kueue 
 
 I'm trying Kueue first this time, before installing the cert manager, because I suspect that was related to the bug.
 
 ```console
 # This is how I got the original one
-# VERSION=v0.6.1
+# VERSION=v0.6.2
 # wget https://github.com/kubernetes-sigs/kueue/releases/download/$VERSION/manifests.yaml
 # mv manifests.yaml ./crd/kueue.yaml
 kubectl apply --server-side -f ./crd/kueue.yaml
-
-kubectl apply -f ./crd/cluster-queue.yaml
-kubectl apply -f ./crd/resource-flavor.yaml
-kubectl apply -f ./crd/user-queue.yaml
 ```
 
-Got slightly closer this time! I created the above (and was able to at least get around TLS) but likely a config is wrong
-somewhere. See "Configuration" in the kueue.yaml compared to the pod labels I'm applying.
+Then I did:
+
+```console
+TOTAL_ALLOCATABLE=$(kubectl get node --selector='!node-role.kubernetes.io/master,!node-role.kubernetes.io/control-plane' -o jsonpath='{range .items[*]}{.status.allocatable.memory}{"\n"}{end}' | numfmt --from=auto | awk '{s+=$1} END {print s}')
+echo $TOTAL_ALLOCATABLE
+```
+And changed the memory in [crd/cluster-queues.yaml](crd/cluster-queues.yaml) to be double what is in the cluster.
+Then apply:
 
 ```bash
-time python run_experiments.py --outdir ./results/mixed/kueue --config-name mixed --batches 1 --iters 20 --kueue
+kubectl apply -f cluster-queues.yaml
 ```
 
-Note that it will run, but won't use kueue (defeats the purpose)
-When you are done:
+Then try running experiments:
 
 ```bash
-kubectl delete -f ./crd/cluster-queue.yaml
-kubectl delete -f ./crd/resource-flavor.yaml
-kubectl delete -f ./crd/user-queue.yaml
-kubectl delete -f ./crd/kueue.yaml
+time python run_experiments.py --outdir ./results/mixed/kueue --config-name mixed --batches 1 --iters 10 --kueue
 ```
+
+Following guide here https://kueue.sigs.k8s.io/docs/tasks/run/plain_pods/ and
+https://kueue.sigs.k8s.io/docs/tasks/manage/setup_sequential_admission/. Note that queue is working now but pods not scheduling, so more configuration issues.
 
 ### Install Cert Manager
 
@@ -250,123 +378,6 @@ Delete the fluence pods after that with helm uninstall, and then helm uninstall 
 
 ```bash
 helm uninstall fluence
-```
-
-### Coscheduling
-
-```bash
-git clone https://github.com/kubernetes-sigs/scheduler-plugins
-cd scheduler-plugins/manifests/install/charts/as-a-second-scheduler
-helm install coscheduling as-a-second-scheduler/
-```
-
-Note this installs coscheduling et al as `scheduler-plugins-scheduler`
-
-```bash
-time python run_experiments.py --outdir ./results/lammps-mixed/coscheduling --config-name lammps-mixed --batches 1 --iters 20 --coscheduling
-```
-
-Note that it clogs!
-
-```bash
-kubectl get pods -o json > ./results/coscheduling-1-clogged-pods.json
-```
-
-Delete and try installing with the config in [crd/coscheduling.yaml](crd/coscheduling.yaml).
-
-```
-kubectl delete miniclusters --all
-kubectl delete podgroups --all
-helm uninstall coscheduling
-```
-
-I wound up using this for the configmap.yaml template:
-
-```yaml
-{{- if .Values.plugins.enabled }}
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: scheduler-config
-  namespace: {{ .Release.Namespace }}
-data:
-  scheduler-config.yaml: |
-    apiVersion: kubescheduler.config.k8s.io/v1
-    kind: KubeSchedulerConfiguration
-    leaderElection:
-      leaderElect: {{ .Values.scheduler.leaderElect }}
-    profiles:
-    # Compose all plugins in one profile
-    - schedulerName: {{ .Values.scheduler.name }}
-      plugins:
-        multiPoint:
-          enabled:
-          - name: Coscheduling
-        queueSort:
-          enabled:
-          - name: Coscheduling
-          disabled:
-          - name: "*"
-      {{- if $.Values.pluginConfig }}
-      pluginConfig: {{ toYaml $.Values.pluginConfig | nindent 6 }}
-      {{- end }}
-  {{- /* TODO: wire CRD installation with enabled plugins. */}}
-{{- end }}
-```
-
-And you see:
-
-```
-s$ kubectl describe cm scheduler-config 
-Name:         scheduler-config
-Namespace:    default
-Labels:       app.kubernetes.io/managed-by=Helm
-Annotations:  meta.helm.sh/release-name: coscheduling
-              meta.helm.sh/release-namespace: default
-
-Data
-====
-scheduler-config.yaml:
-----
-apiVersion: kubescheduler.config.k8s.io/v1
-kind: KubeSchedulerConfiguration
-leaderElection:
-  leaderElect: false
-profiles:
-# Compose all plugins in one profile
-- schedulerName: scheduler-plugins-scheduler
-  plugins:
-    multiPoint:
-      enabled:
-      - name: Coscheduling
-    queueSort:
-      enabled:
-      - name: Coscheduling
-      disabled:
-      - name: "*"
-  pluginConfig: 
-  - args:
-      permitWaitingTimeSeconds: 10
-    name: Coscheduling
-
-
-BinaryData
-====
-
-Events:  <none>
-```
-
-And then again:
-
-```bash
-time python run_experiments.py --outdir ./results/lammps-mixed/coscheduling-only --config-name lammps-mixed --batches 1 --iters 20 --coscheduling
-```
-
-It froze
-
-```bash
-kubectl get pods -o json > ./results/coscheduling-2-clogged-pods.json
-helm uninstall coscheduling
 ```
 
 

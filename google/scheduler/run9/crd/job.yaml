@@ -16,6 +16,7 @@ spec:
   completions: {{ size }}
   parallelism: {{ size }}
   completionMode: Indexed
+  {% if scheduler == "kueue" %}suspend: true{% endif %}
   # alpha in 1.30 so not supported yet
   # successPolicy:
   #  - succeededIndexes: "0"
@@ -24,11 +25,10 @@ spec:
       labels:
         app: {{ name }}
         {% if scheduler == "scheduler-plugins-scheduler" %}scheduling.x-k8s.io/pod-group: {{ name }}{% endif %}
-        {% if scheduler == "kueue" %}kueue.x-k8s.io/pod-group-name: "{{ name }}"
-        kueue-job: "yes"
-      annotations:
-        kueue.x-k8s.io/pod-group-total-count: "{{ size }}"
-        kueue.x-k8s.io/queue-name: "cluster-queue"{% endif %}
+        {% if scheduler == "kueue" %}kueue.x-k8s.io/queue-name: "user-queue"
+        kueue.x-k8s.io/pod-group-name: "{{ name }}"
+        #kueue-job: "yes"
+        kueue.x-k8s.io/pod-group-total-count: "{{ size }}"{% endif %}
     spec:
       subdomain: {{ service_name }}
 {% if scheduler %}{% if scheduler != 'kueue' %}
@@ -50,7 +50,7 @@ spec:
             then
               sleep infinity
           fi
-          echo "START: $(date +%s)"
+          echo "START: $(date +%s%N | cut -b1-13)"
           for i in {{ size_range }}
           do
             gotStatus="-1"
@@ -66,7 +66,8 @@ spec:
             done                                                         
             echo "Successfully pinged pod: {{ name }}-${i}.{{ service_name }}"
           done
-          echo "DONE: $(date +%s)"
+          echo "DONE: $(date +%s%N | cut -b1-13)"
+          # echo "DONE: $(date +%s)"
 
 {% if scheduler == "scheduler-plugins-scheduler" %}---
 # PodGroup CRD spec

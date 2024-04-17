@@ -11051,8 +11051,8 @@ data:
       resourceName: c1f6bfd2.kueue.x-k8s.io
     controller:
       groupKindConcurrency:
-        Job.batch: 5
-        Pod: 5
+        Job.batch: 100
+        Pod: 500
         Workload.kueue.x-k8s.io: 5
         LocalQueue.kueue.x-k8s.io: 1
         ClusterQueue.kueue.x-k8s.io: 1
@@ -11060,22 +11060,29 @@ data:
     clientConnection:
       qps: 50
       burst: 100
+    #pprofBindAddress: :8082
+    waitForPodsReady:
+      enable: true
+      timeout: 10m
+      blockAdmission: true
+      requeuingStrategy:
+        timestamp: Creation
+        backoffLimitCount: 5
+    manageJobsWithoutQueueName: true
+    internalCertManagement:
+      enable: true
+      webhookServiceName: kueue-webhook-service
+      webhookSecretName: kueue-webhook-server-cert    
     integrations:
       frameworks:
-       - "pod"
-      podOptions:
-        # You can change namespaceSelector to define in which 
-        # namespaces kueue will manage the pods.
-        namespaceSelector:
-          matchExpressions:
-          - key: kubernetes.io/metadata.name
-            operator: NotIn
-            values: [ kube-system, kueue-system ]
-        podSelector:
-          matchExpressions:
-          - key: kueue-job
-            operator: In
-            values: [ "true", "True", "yes" ]
+      - "batch/job"
+      - "pod"
+    # podOptions:
+    #   namespaceSelector:
+    #     matchExpressions:
+    #       - key: kubernetes.io/metadata.name
+    #         operator: NotIn
+    #         values: [ kube-system, kueue-system ]
 kind: ConfigMap
 metadata:
   name: kueue-manager-config
@@ -11141,7 +11148,7 @@ spec:
         - --zap-log-level=2
         command:
         - /manager
-        image: registry.k8s.io/kueue/kueue:v0.6.1
+        image: registry.k8s.io/kueue/kueue:v0.6.2
         imagePullPolicy: Always
         livenessProbe:
           httpGet:

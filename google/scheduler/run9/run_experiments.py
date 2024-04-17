@@ -183,7 +183,7 @@ def get_run_configuration(uid, meta, node_topology):
     return rconfig
 
 
-def get_logs(uid, meta, submit_time, log_dir, node_topology):
+def get_logs(uid, meta, submit_time, batch_end_time, log_dir, node_topology):
     """
     Get the application mapping and performance logs
     """
@@ -249,6 +249,7 @@ def get_logs(uid, meta, submit_time, log_dir, node_topology):
     times = {
         "end_time": str(end_time),
         "start_time": str(start_time),
+        "batch_done_submit_time": str(batch_end_time),
         "submit_time": str(submit_time),
         "submit_to_completion": time_to_run,
         "total_time": total_time,
@@ -345,7 +346,7 @@ def run(args, config_name, node_topology):
     for b in range(batches):
         # Keep a record of the uids we submit for this batch
         batch = set()
-
+        
         for i in range(iters):
             # Do we want to shuffle jobs?
             if args.shuffle:
@@ -394,6 +395,8 @@ def run(args, config_name, node_topology):
                 submit_times[uid] = submit_time
 
         # END of size loop
+        batch_end_time = datetime.utcnow()
+
         # Here we start an asynchronous process pool to monitor the sizes in parallel
         with multiprocessing.Pool(processes=len(batch)) as pool:
             results = []
@@ -405,6 +408,7 @@ def run(args, config_name, node_topology):
                             uid,
                             specs[uid],
                             submit_times[uid],
+                            batch_end_time,
                             log_dir,
                             node_topology,
                         ),
