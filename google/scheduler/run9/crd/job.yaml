@@ -76,7 +76,6 @@ kind: PodGroup
 metadata:
   name: {{ name }}
 spec:
-  scheduleTimeoutSeconds: 10
   minMember: {{ size }}
 {% endif %}
 

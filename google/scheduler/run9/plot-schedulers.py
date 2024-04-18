@@ -187,7 +187,7 @@ def parse_data(files):
         scheduler = get_scheduler(filename)
 
         # Default doesn't have enough data - only three
-        if scheduler not in ["fluence", "kueue"]:
+        if scheduler not in ["fluence", "kueue", "coscheduling"]:
             continue
 
         # This can be split into pieces by ===

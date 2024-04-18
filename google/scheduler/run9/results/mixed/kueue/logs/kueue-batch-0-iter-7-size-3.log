@@ -1,0 +1,27 @@
+
+===
+Output: recorded-at: 2024-04-17 20:22:51.251525
+START: 1713385365
+Failed to ping pod job-0-7-size-3-0.s703, retrying in 1 second...
+Successfully pinged pod: job-0-7-size-3-0.s703
+Failed to ping pod job-0-7-size-3-1.s703, retrying in 1 second...
+Successfully pinged pod: job-0-7-size-3-1.s703
+Successfully pinged pod: job-0-7-size-3-2.s703
+DONE: 1713385367
+
+===
+Times: recorded-at: 2024-04-17 20:22:51.251651
+{"end_time": "2024-04-17 20:22:51.251407", "start_time": "2024-04-17 20:22:50.273543", "batch_done_submit_time": "2024-04-17 20:08:54.482031", "submit_time": "2024-04-17 20:08:48.563261", "submit_to_completion": 842.688146, "total_time": 0.977864, "uid": "kueue-batch-0-iter-7-size-3"}
+===
+Output: recorded-at: 2024-04-17 20:56:40.755310
+START: 1713387396
+Failed to ping pod job-0-7-size-3-0.s703, retrying in 1 second...
+Successfully pinged pod: job-0-7-size-3-0.s703
+Failed to ping pod job-0-7-size-3-1.s703, retrying in 1 second...
+Successfully pinged pod: job-0-7-size-3-1.s703
+Successfully pinged pod: job-0-7-size-3-2.s703
+DONE: 1713387399
+
+===
+Times: recorded-at: 2024-04-17 20:56:40.755489
+{"end_time": "2024-04-17 20:56:40.755188", "start_time": "2024-04-17 20:56:40.666303", "batch_done_submit_time": "2024-04-17 20:44:11.982429", "submit_time": "2024-04-17 20:44:08.294095", "submit_to_completion": 752.461093, "total_time": 0.088885, "uid": "kueue-batch-0-iter-7-size-3"}

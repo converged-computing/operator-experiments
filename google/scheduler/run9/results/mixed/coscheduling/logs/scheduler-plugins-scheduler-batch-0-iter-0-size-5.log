@@ -1,0 +1,45 @@
+
+===
+Output: recorded-at: 2024-04-17 12:17:50.601732
+START: 1713356253
+Failed to ping pod job-0-0-size-5-0.s005, retrying in 1 second...
+Successfully pinged pod: job-0-0-size-5-0.s005
+Successfully pinged pod: job-0-0-size-5-1.s005
+Successfully pinged pod: job-0-0-size-5-2.s005
+Successfully pinged pod: job-0-0-size-5-3.s005
+Successfully pinged pod: job-0-0-size-5-4.s005
+DONE: 1713356254
+
+===
+Times: recorded-at: 2024-04-17 12:17:50.601980
+{"end_time": "2024-04-17 12:17:50.601542", "start_time": "2024-04-17 12:17:50.461522", "batch_done_submit_time": "2024-04-17 12:17:49.217638", "submit_time": "2024-04-17 12:17:23.245996", "submit_to_completion": 27.355546, "total_time": 0.14002, "uid": "scheduler-plugins-scheduler-batch-0-iter-0-size-5"}
+===
+Output: recorded-at: 2024-04-18 03:14:14.514076
+START: 1713410027
+Failed to ping pod job-0-0-size-5-0.s005, retrying in 1 second...
+Successfully pinged pod: job-0-0-size-5-0.s005
+Successfully pinged pod: job-0-0-size-5-1.s005
+Successfully pinged pod: job-0-0-size-5-2.s005
+Successfully pinged pod: job-0-0-size-5-3.s005
+Failed to ping pod job-0-0-size-5-4.s005, retrying in 1 second...
+Successfully pinged pod: job-0-0-size-5-4.s005
+DONE: 1713410030
+
+===
+Times: recorded-at: 2024-04-18 03:14:14.514260
+{"end_time": "2024-04-18 03:14:14.513968", "start_time": "2024-04-18 03:14:14.287638", "batch_done_submit_time": "2024-04-18 03:14:12.411193", "submit_time": "2024-04-18 03:13:40.512964", "submit_to_completion": 34.001004, "total_time": 0.22633, "uid": "scheduler-plugins-scheduler-batch-0-iter-0-size-5"}
+===
+Output: recorded-at: 2024-04-18 04:01:32.856940
+START: 1713412888
+Failed to ping pod job-0-0-size-5-0.s005, retrying in 1 second...
+Failed to ping pod job-0-0-size-5-0.s005, retrying in 1 second...
+Successfully pinged pod: job-0-0-size-5-0.s005
+Successfully pinged pod: job-0-0-size-5-1.s005
+Successfully pinged pod: job-0-0-size-5-2.s005
+Successfully pinged pod: job-0-0-size-5-3.s005
+Successfully pinged pod: job-0-0-size-5-4.s005
+DONE: 1713412890
+
+===
+Times: recorded-at: 2024-04-18 04:01:32.857148
+{"end_time": "2024-04-18 04:01:32.856723", "start_time": "2024-04-18 04:01:32.486748", "batch_done_submit_time": "2024-04-18 04:00:03.034863", "submit_time": "2024-04-18 03:59:46.329683", "submit_to_completion": 106.52704, "total_time": 0.369975, "uid": "scheduler-plugins-scheduler-batch-0-iter-0-size-5"}
