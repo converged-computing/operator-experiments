@@ -79,13 +79,6 @@ def main():
     df.to_csv(os.path.join(outdir, "scheduler-times.csv"))
     plot_results(df, outdir)
 
-    # Show means grouped by experiment to sanity check plots
-    print(df.groupby(["scheduler", "experiment"]).total_time.mean())
-    print(df.groupby(["scheduler", "experiment"]).total_time.std())
-    print("fluence: " + str(df[df.scheduler == "fluence"].shape[0]))
-    print("default: " + str(df[df.scheduler == "default"].shape[0]))
-    print("cosched: " + str(df[df.scheduler == "coscheduling"].shape[0]))
-
 
 def plot_results(df, outdir):
     """

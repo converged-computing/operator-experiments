@@ -1,0 +1,15 @@
+
+===
+Output: recorded-at: 2024-04-18 07:15:46.719790
+START: 1713424542
+Failed to ping pod job-0-9-size-4-0.s904, retrying in 1 second...
+Successfully pinged pod: job-0-9-size-4-0.s904
+Successfully pinged pod: job-0-9-size-4-1.s904
+Successfully pinged pod: job-0-9-size-4-2.s904
+Failed to ping pod job-0-9-size-4-3.s904, retrying in 1 second...
+Successfully pinged pod: job-0-9-size-4-3.s904
+DONE: 1713424544
+
+===
+Times: recorded-at: 2024-04-18 07:15:46.719899
+{"end_time": "2024-04-18 07:15:46.719688", "start_time": "2024-04-18 07:15:46.627864", "batch_done_submit_time": "2024-04-18 06:59:54.889220", "submit_time": "2024-04-18 06:59:54.024981", "submit_to_completion": 952.694707, "total_time": 0.091824, "uid": "kueue-batch-0-iter-9-size-4"}

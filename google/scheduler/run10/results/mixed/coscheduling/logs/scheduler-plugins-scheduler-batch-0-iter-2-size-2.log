@@ -1,0 +1,13 @@
+
+===
+Output: recorded-at: 2024-04-18 06:25:24.507541
+START: 1713421518
+Failed to ping pod job-0-2-size-2-0.s202, retrying in 1 second...
+Failed to ping pod job-0-2-size-2-0.s202, retrying in 1 second...
+Successfully pinged pod: job-0-2-size-2-0.s202
+Successfully pinged pod: job-0-2-size-2-1.s202
+DONE: 1713421520
+
+===
+Times: recorded-at: 2024-04-18 06:25:24.507722
+{"end_time": "2024-04-18 06:25:24.507386", "start_time": "2024-04-18 06:25:23.465426", "batch_done_submit_time": "2024-04-18 06:19:39.579633", "submit_time": "2024-04-18 06:19:19.110284", "submit_to_completion": 365.397102, "total_time": 1.04196, "uid": "scheduler-plugins-scheduler-batch-0-iter-2-size-2"}

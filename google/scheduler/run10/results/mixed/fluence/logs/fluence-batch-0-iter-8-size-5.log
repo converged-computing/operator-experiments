@@ -1,0 +1,15 @@
+
+===
+Output: recorded-at: 2024-04-18 07:52:14.463108
+START: 1713426731
+Failed to ping pod job-0-8-size-5-0.s805, retrying in 1 second...
+Successfully pinged pod: job-0-8-size-5-0.s805
+Successfully pinged pod: job-0-8-size-5-1.s805
+Successfully pinged pod: job-0-8-size-5-2.s805
+Successfully pinged pod: job-0-8-size-5-3.s805
+Successfully pinged pod: job-0-8-size-5-4.s805
+DONE: 1713426732
+
+===
+Times: recorded-at: 2024-04-18 07:52:14.463172
+{"end_time": "2024-04-18 07:52:14.463037", "start_time": "2024-04-18 07:52:14.303113", "batch_done_submit_time": "2024-04-18 07:31:39.748122", "submit_time": "2024-04-18 07:31:37.712485", "submit_to_completion": 1236.750552, "total_time": 0.159924, "uid": "fluence-batch-0-iter-8-size-5"}
